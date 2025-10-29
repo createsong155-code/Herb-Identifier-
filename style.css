@@ -42,3 +42,24 @@ button:hover {
   text-align: left;
   margin: 20px;
 }
+#categories {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 15px;
+  overflow-x: auto;
+}
+
+#categories button {
+  background-color: #81c784;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 15px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+#categories button:hover {
+  background-color: #66bb6a;
+}
