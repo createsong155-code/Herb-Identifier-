@@ -1,89 +1,9 @@
 body {
   font-family: Arial, sans-serif;
+  background-color: #e6f7e6;
+  color: #2f4f2f;
   text-align: center;
-  background-color: #e6f4ea;
-  margin: 0;
   padding: 20px;
-}
-
-.app-container {
-  max-width: 500px;
-  margin: auto;
-  background: #fff;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.category-list {
-  display: flex;
-  overflow-x: auto;
-  gap: 10px;
-  padding: 10px 0;
-}
-
-.category-btn {
-  flex-shrink: 0;
-  background-color: #a7d7a7;
-  border: none;
-  padding: 8px 15px;
-  border-radius: 20px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.category-btn.active {
-  background-color: #5aaf5a;
-  color: white;
-}
-
-.herb-list {
-  text-align: left;
-  margin-top: 10px;
-}
-
-.herb-item {
-  background: #f0fff0;
-  padding: 10px;
-  border-radius: 10px;
-  margin-bottom: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-.horizontal-scroll {
-  display: flex;
-  overflow-x: auto;
-  padding: 10px;
-  gap: 10px;
-  background: #e6f2e6;
-}
-
-.category-btn {
-  padding: 8px 14px;
-  background: #d1ffd1;
-  border: none;
-  border-radius: 20px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.category-btn.active {
-  background: #4CAF50;
-  color: white;
-}
-
-.herb-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding: 15px;
-}
-
-.herb-card {
-  background: #f8fff8;
-  border: 1px solid #cce0cc;
-  border-radius: 12px;
-  padding: 12px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
 ul {
@@ -102,6 +22,20 @@ li {
 
 li:hover {
   background-color: #a5d6a7;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #45a049;
 }
 
 #herb-details {
