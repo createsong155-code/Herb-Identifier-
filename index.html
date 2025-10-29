@@ -1,32 +1,25 @@
 <body>
-  <header>
-    <h1>🌿 Philippine Herb Identifier</h1>
-    <p>Select a category or browse all herbs.</p>
-  </header>
+  <h1>🌿 Herb Identifier App</h1>
 
-  <!-- Category Filter -->
-  <div id="categories" class="horizontal-scroll">
-    <button class="category-btn active" data-category="all">All</button>
-    <button class="category-btn" data-category="cough">Cough</button>
-    <button class="category-btn" data-category="wound">Wound</button>
-    <button class="category-btn" data-category="stomach">Stomach Ache</button>
-  </div>
+  <section id="home">
+    <h2>List of Herbs</h2>
+    <ul id="herb-list">
+      <li onclick="showHerb('lagundi')">🌿 Lagundi</li>
+      <li onclick="showHerb('sambong')">🌿 Sambong</li>
+      <li onclick="showHerb('tanglad')">🌿 Tanglad (Lemongrass)</li>
+      <li onclick="showHerb('bayabas')">🌿 Bayabas (Guava)</li>
+      <li onclick="showHerb('ampalaya')">🌿 Ampalaya (Bitter Gourd)</li>
+    </ul>
+  </section>
 
-  <!-- Herb List -->
-  <div id="herbList" class="herb-list">
-    <div class="herb-card" data-category="cough">
-      <h3>Lagundi</h3>
-      <p>Used to treat cough, asthma, and colds.</p>
-    </div>
-    <div class="herb-card" data-category="wound">
-      <h3>Guava Leaves</h3>
-      <p>Used for wound cleaning and inflammation.</p>
-    </div>
-    <div class="herb-card" data-category="stomach">
-      <h3>Oregano</h3>
-      <p>Good for stomach ache and respiratory relief.</p>
-    </div>
-  </div>
+  <section id="herb-details" style="display:none;">
+    <button onclick="goBack()">⬅ Back</button>
+    <h2 id="herb-name"></h2>
+    <p id="herb-description"></p>
+    <p><strong>Uses:</strong> <span id="herb-uses"></span></p>
+    <p><strong>Preparation:</strong> <span id="herb-preparation"></span></p>
+    <p><strong>Caution:</strong> <span id="herb-caution"></span></p>
+  </section>
 
   <script src="script.js"></script>
 </body>
