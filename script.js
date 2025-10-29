@@ -1,3 +1,4 @@
+
 function showHerb(name) {
   const herbs = {
     lagundi: {
@@ -35,7 +36,7 @@ function showHerb(name) {
       preparation: "Boil leaves or eat as cooked vegetable.",
       caution: "Avoid excessive intake during pregnancy."
     }
-  };
+  
 
   const herb = herbs[name];
   document.getElementById("home").style.display = "none";
