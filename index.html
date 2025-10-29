@@ -1,54 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Herb Identifier</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🌿 Herb Identifier App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0fff4;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    h1 {
+      background: #2f855a;
+      color: white;
+      padding: 15px;
+      margin: 0;
+    }
+    .filter-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 15px;
+      flex-wrap: wrap;
+    }
+    button {
+      background: #48bb78;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 16px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: 0.2s;
+    }
+    button:hover {
+      background: #2f855a;
+    }
+    .herb-list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      margin: 20px;
+    }
+    .herb {
+      background: white;
+      border: 1px solid #c6f6d5;
+      border-radius: 10px;
+      padding: 10px;
+      width: 80%;
+      max-width: 300px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+  </style>
 </head>
 <body>
   <h1>🌿 Herb Identifier App</h1>
 
-<section id="home">
-  <h2>Herbal Remedies</h2>
-
-  <!-- Horizontal Categories -->
-  <div id="categories">
+  <div class="filter-buttons">
     <button onclick="filterHerbs('all')">All</button>
     <button onclick="filterHerbs('cough')">Cough</button>
     <button onclick="filterHerbs('wound')">Wound</button>
     <button onclick="filterHerbs('stomach')">Stomach Ache</button>
-    <button onclick="filterHerbs('kidney')">Kidney</button>
   </div>
 
-  <!-- Vertical Herb List -->
-  <ul id="herb-list">
-    <li data-category="cough" onclick="showHerb('lagundi')">🌿 Lagundi</li>
-    <li data-category="kidney" onclick="showHerb('sambong')">🌿 Sambong</li>
-    <li data-category="stomach" onclick="showHerb('tanglad')">🌿 Tanglad (Lemongrass)</li>
-    <li data-category="wound" onclick="showHerb('bayabas')">🌿 Bayabas (Guava)</li>
-    <li data-category="stomach" onclick="showHerb('ampalaya')">🌿 Ampalaya (Bitter Gourd)</li>
-  </ul>
-</section>
-      <li onclick="showHerb('lagundi')">🌿 Lagundi</li>
-      <li onclick="showHerb('sambong')">🌿 Sambong</li>
-      <li onclick="showHerb('tanglad')">🌿 Tanglad (Lemongrass)</li>
-      <li onclick="showHerb('bayabas')">🌿 Bayabas (Guava)</li>
-      <li onclick="showHerb('ampalaya')">🌿 Ampalaya (Bitter Gourd)</li>
-    </ul>
-  </section>
+  <div class="herb-list" id="herbList">
+    <div class="herb" data-type="cough">🌿 Lagundi — for cough and fever</div>
+    <div class="herb" data-type="kidney">🌿 Sambong — for kidney and urinary problems</div>
+    <div class="herb" data-type="stomach">🌿 Tanglad (Lemongrass) — for stomach ache</div>
+    <div class="herb" data-type="wound">🌿 Bayabas (Guava) — for wounds and skin infections</div>
+    <div class="herb" data-type="diabetes">🌿 Ampalaya (Bitter Gourd) — for diabetes</div>
+  </div>
 
-  <section id="herb-details" style="display:none;">
-    <button onclick="goBack()">⬅ Back</button>
-    <h2 id="herb-name"></h2>
-    <p id="herb-description"></p>
-    <p><strong>Uses:</strong> <span id="herb-uses"></span></p>
-    <p><strong>Preparation:</strong> <span id="herb-preparation"></span></p>
-    <p><strong>Caution:</strong> <span id="herb-caution"></span></p>
-  </section>
-
-  <script src="script.js"></script>
+  <script>
+    function filterHerbs(type) {
+      const herbs = document.querySelectorAll('.herb');
+      herbs.forEach(herb => {
+        if (type === 'all' || herb.dataset.type === type) {
+          herb.style.display = 'block';
+        } else {
+          herb.style.display = 'none';
+        }
+      });
+    }
+  </script>
 </body>
 </html>
-<link rel="stylesheet" href="style.css">
-<script src="script.js"></script>
