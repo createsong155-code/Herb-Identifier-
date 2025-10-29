@@ -1,0 +1,28 @@
+<body>
+  <div class="app-container">
+    <h1>🌿 Herb Identifier</h1>
+
+    <div class="upload-section">
+      <p>Upload an image of a plant to identify it.</p>
+      <input type="file" id="imageUpload" accept="image/*">
+      <button id="identifyBtn">Identify Herb</button>
+      <p id="result"></p>
+    </div>
+
+    <hr>
+
+    <!-- Horizontal Category List -->
+    <div class="category-list">
+      <button class="category-btn active" data-category="cough">Cough</button>
+      <button class="category-btn" data-category="wound">Wound</button>
+      <button class="category-btn" data-category="stomach">Stomach Ache</button>
+      <button class="category-btn" data-category="fever">Fever</button>
+      <button class="category-btn" data-category="skin">Skin Care</button>
+    </div>
+
+    <!-- Vertical Herb List -->
+    <div id="herbList" class="herb-list"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>

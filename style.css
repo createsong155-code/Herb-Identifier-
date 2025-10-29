@@ -1,0 +1,51 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #e6f4ea;
+  margin: 0;
+  padding: 20px;
+}
+
+.app-container {
+  max-width: 500px;
+  margin: auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.category-list {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  padding: 10px 0;
+}
+
+.category-btn {
+  flex-shrink: 0;
+  background-color: #a7d7a7;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.category-btn.active {
+  background-color: #5aaf5a;
+  color: white;
+}
+
+.herb-list {
+  text-align: left;
+  margin-top: 10px;
+}
+
+.herb-item {
+  background: #f0fff0;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
