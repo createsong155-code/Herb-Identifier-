@@ -1,27 +1,31 @@
 <body>
-  <div class="app-container">
-    <h1>🌿 Herb Identifier</h1>
+  <header>
+    <h1>🌿 Philippine Herb Identifier</h1>
+    <p>Select a category or browse all herbs.</p>
+  </header>
 
-    <div class="upload-section">
-      <p>Upload an image of a plant to identify it.</p>
-      <input type="file" id="imageUpload" accept="image/*">
-      <button id="identifyBtn">Identify Herb</button>
-      <p id="result"></p>
+  <!-- Category Filter -->
+  <div id="categories" class="horizontal-scroll">
+    <button class="category-btn active" data-category="all">All</button>
+    <button class="category-btn" data-category="cough">Cough</button>
+    <button class="category-btn" data-category="wound">Wound</button>
+    <button class="category-btn" data-category="stomach">Stomach Ache</button>
+  </div>
+
+  <!-- Herb List -->
+  <div id="herbList" class="herb-list">
+    <div class="herb-card" data-category="cough">
+      <h3>Lagundi</h3>
+      <p>Used to treat cough, asthma, and colds.</p>
     </div>
-
-    <hr>
-
-    <!-- Horizontal Category List -->
-    <div class="category-list">
-      <button class="category-btn active" data-category="cough">Cough</button>
-      <button class="category-btn" data-category="wound">Wound</button>
-      <button class="category-btn" data-category="stomach">Stomach Ache</button>
-      <button class="category-btn" data-category="fever">Fever</button>
-      <button class="category-btn" data-category="skin">Skin Care</button>
+    <div class="herb-card" data-category="wound">
+      <h3>Guava Leaves</h3>
+      <p>Used for wound cleaning and inflammation.</p>
     </div>
-
-    <!-- Vertical Herb List -->
-    <div id="herbList" class="herb-list"></div>
+    <div class="herb-card" data-category="stomach">
+      <h3>Oregano</h3>
+      <p>Good for stomach ache and respiratory relief.</p>
+    </div>
   </div>
 
   <script src="script.js"></script>
