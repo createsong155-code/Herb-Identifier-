@@ -9,9 +9,27 @@
 <body>
   <h1>🌿 Herb Identifier App</h1>
 
-  <section id="home">
-    <h2>List of Herbs</h2>
-    <ul id="herb-list">
+<section id="home">
+  <h2>Herbal Remedies</h2>
+
+  <!-- Horizontal Categories -->
+  <div id="categories">
+    <button onclick="filterHerbs('all')">All</button>
+    <button onclick="filterHerbs('cough')">Cough</button>
+    <button onclick="filterHerbs('wound')">Wound</button>
+    <button onclick="filterHerbs('stomach')">Stomach Ache</button>
+    <button onclick="filterHerbs('kidney')">Kidney</button>
+  </div>
+
+  <!-- Vertical Herb List -->
+  <ul id="herb-list">
+    <li data-category="cough" onclick="showHerb('lagundi')">🌿 Lagundi</li>
+    <li data-category="kidney" onclick="showHerb('sambong')">🌿 Sambong</li>
+    <li data-category="stomach" onclick="showHerb('tanglad')">🌿 Tanglad (Lemongrass)</li>
+    <li data-category="wound" onclick="showHerb('bayabas')">🌿 Bayabas (Guava)</li>
+    <li data-category="stomach" onclick="showHerb('ampalaya')">🌿 Ampalaya (Bitter Gourd)</li>
+  </ul>
+</section>
       <li onclick="showHerb('lagundi')">🌿 Lagundi</li>
       <li onclick="showHerb('sambong')">🌿 Sambong</li>
       <li onclick="showHerb('tanglad')">🌿 Tanglad (Lemongrass)</li>
