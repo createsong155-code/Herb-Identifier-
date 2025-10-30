@@ -1,16 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Herb Identifier App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
 <body>
-  <div class="filter-buttons">
-    <button class="active" data-filter="all">All</button>
-    <button data-filter="cough">Cough</button>
-    <button data-filter="wound">Wound</button>
-    <button data-filter="stomachache">Stomachache</button>
-    <button data-filter="kidney">Kidney</button>
+  <header>
+    <h1>🌿 Herb Identifier App</h1>
+    <button id="cameraBtn">📷</button>
+  </header>
+
+  <div class="filter-bar">
+    <button id="favoritesBtn">⭐ Favorites</button>
+    <button class="filter-btn active" data-category="All">All</button>
+    <button class="filter-btn" data-category="Cough">Cough</button>
+    <button class="filter-btn" data-category="Wound">Wound</button>
+    <button class="filter-btn" data-category="Stomach Ache">Stomach Ache</button>
+    <button class="filter-btn" data-category="Fever">Fever</button>
+    <button class="filter-btn" data-category="Kidney">Kidney</button>
+    <button id="viewToggle">🖼️ View</button>
   </div>
 
-  <div class="view-toggle">
-    <button id="listView" class="active">📋</button>
-    <button id="gridView">📷</button>
-  </div>
+  <div id="herbList" class="list-view"></div>
 
-  <div id="herbContainer" class="herb-container"></div>
+  <script src="script.js"></script>
 </body>
+</html>
