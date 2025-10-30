@@ -1,3 +1,5 @@
+/* ===== Herb Identifier App CSS ===== */
+
 body {
   font-family: Arial, sans-serif;
   background-color: #e6f7e6;
@@ -6,11 +8,13 @@ body {
   padding: 20px;
 }
 
+/* Remove default list styles */
 ul {
   list-style: none;
   padding: 0;
 }
 
+/* Herb item basic style */
 li {
   background-color: #c8e6c9;
   margin: 10px;
@@ -24,6 +28,7 @@ li:hover {
   background-color: #a5d6a7;
 }
 
+/* Filter buttons */
 button {
   background-color: #4caf50;
   color: white;
@@ -34,15 +39,11 @@ button {
   font-size: 16px;
 } 
 
-
 button:hover {
   background-color: #45a049;
 }
 
-#herb-details {
-  text-align: left;
-  margin: 20px;
-}
+/* Category bar */
 #categories {
   display: flex;
   justify-content: center;
@@ -64,23 +65,8 @@ button:hover {
 #categories button:hover {
   background-color: #66bb6a;
 }
-.herb-card {
-  background: #f5fff5;
-  border: 1px solid #c4e3c4;
-  border-radius: 12px;
-  padding: 12px;
-  margin: 10px 0;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
 
-.herb-card h3 {
-  color: #2e7d32;
-  margin-bottom: 8px;
-}
-
-.herb-card p {
-  margin: 4px 0;
-}
+/* Herb Card Styles */
 .herb-card {
   background: #fdfdfd;
   border-radius: 12px;
@@ -110,5 +96,13 @@ button:hover {
   color: #333;
   font-size: 0.9em;
   line-height: 1.4em;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.4s ease, padding 0.3s ease;
 }
 
+/* Herb details area */
+#herb-details {
+  text-align: left;
+  margin: 20px;
+}
