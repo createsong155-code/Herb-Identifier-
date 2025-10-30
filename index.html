@@ -3,29 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>🌿 Herb Identifier App</title>
+  <title>Herb Identifier App</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
+  <div id="header">
     <h1>🌿 Herb Identifier App</h1>
-    <button id="toggleViewBtn">🔳 View</button>
-  </header>
-
-  <div id="category-container">
-  <div id="categories">
-    <button data-category="all">All</button>
-    <button data-category="cough">Cough</button>
-    <button data-category="wound">Wound</button>
-    <button data-category="stomach">Stomach Ache</button>
-    <button data-category="kidney">Kidney</button>
-    <!-- You can add more later -->
+    <button id="cameraBtn">📷</button>
   </div>
 
-  <button id="viewToggle">🔳 View</button>
-</div>
+  <div id="category-container">
+    <div id="categories">
+      <button data-category="all">All</button>
+      <button data-category="cough">Cough</button>
+      <button data-category="wound">Wound</button>
+      <button data-category="stomach">Stomach Ache</button>
+      <button data-category="kidney">Kidney</button>
+    </div>
+    <button id="viewToggle">🔳 View</button>
+  </div>
 
-  <ul id="herb-list" class="list-view"></ul>
+  <div id="herb-list" class="list-view"></div>
 
   <script src="script.js"></script>
 </body>
