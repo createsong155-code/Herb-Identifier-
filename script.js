@@ -1,6 +1,6 @@
-// ======== Herb Identifier Script ========
+// ======== Herb Identifier Script with Smooth Animation ========
 
-// Sample herb data — you can add more as needed
+// Herb data
 const herbs = [
   {
     name: "Lagundi",
@@ -36,9 +36,7 @@ const herbs = [
   }
 ];
 
-// ======== Display Logic ========
-
-// Display herbs in the list
+// Display herbs
 function displayHerbs(filteredHerbs) {
   const herbList = document.getElementById('herb-list');
   herbList.innerHTML = '';
@@ -50,24 +48,33 @@ function displayHerbs(filteredHerbs) {
     herbCard.innerHTML = `
       <h3>${herb.name}</h3>
       <p class="purpose">${herb.purpose}</p>
-      <div class="details" style="display: none;">
+      <div class="details">
         <p><strong>Description:</strong> ${herb.description}</p>
         <p><strong>Preparation:</strong> ${herb.preparation}</p>
         <p><strong>Cautions:</strong> ${herb.cautions}</p>
       </div>
     `;
 
+    // Start hidden
+    const details = herbCard.querySelector('.details');
+    details.style.maxHeight = '0';
+    details.style.overflow = 'hidden';
+    details.style.transition = 'max-height 0.4s ease, padding 0.3s ease';
+
     // Toggle expand/collapse on click
     herbCard.addEventListener('click', () => {
-      const details = herbCard.querySelector('.details');
-      details.style.display = details.style.display === 'none' ? 'block' : 'none';
+      if (details.style.maxHeight === '0px' || !details.style.maxHeight) {
+        details.style.maxHeight = details.scrollHeight + 'px';
+        details.style.padding = '8px 0';
+      } else {
+        details.style.maxHeight = '0';
+        details.style.padding = '0';
+      }
     });
 
     herbList.appendChild(herbCard);
   });
 }
-
-// ======== Filter Buttons ========
 
 // Filter logic
 function filterHerbs(category) {
@@ -79,14 +86,10 @@ function filterHerbs(category) {
   }
 }
 
-// ======== Initial Load ========
-
-// Wait for the page to load before initializing
+// Initialize
 document.addEventListener('DOMContentLoaded', () => {
-  // Display all herbs by default
   displayHerbs(herbs);
 
-  // Add filter button functionality
   document.getElementById('filter-all').addEventListener('click', () => filterHerbs('All'));
   document.getElementById('filter-kidney').addEventListener('click', () => filterHerbs('Kidney'));
   document.getElementById('filter-fever').addEventListener('click', () => filterHerbs('Fever'));
