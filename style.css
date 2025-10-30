@@ -36,10 +36,26 @@ h1 {
   padding: 8px 15px;
   cursor: pointer;
   flex-shrink: 0;
+  white-space: nowrap;
 }
 
 #categories button:hover {
   background-color: #66bb6a;
+}
+
+/* Highlight active category */
+#categories button.active {
+  background-color: #4caf50;
+}
+
+/* Favorites button special color */
+#favoritesBtn {
+  background-color: #ffd54f;
+  color: #4e342e;
+  font-weight: bold;
+}
+#favoritesBtn:hover {
+  background-color: #ffca28;
 }
 
 /* View + Camera Controls */
