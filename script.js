@@ -44,27 +44,53 @@ const herbs = [
 const herbList = document.getElementById("herb-list");
 const viewToggle = document.getElementById("viewToggle");
 const cameraBtn = document.getElementById("cameraBtn");
+const favoritesBtn = document.getElementById("favoritesBtn");
+
 let gridMode = false;
+let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
 // Display herbs
 function displayHerbs(filter = "All") {
   herbList.innerHTML = "";
-  const filtered = filter === "All" ? herbs : herbs.filter(h => h.category === filter);
+  let filtered = filter === "All" ? herbs : herbs.filter(h => h.category === filter);
+
+  if (filter === "Favorites") {
+    filtered = herbs.filter(h => favorites.includes(h.name));
+  }
+
   herbList.className = gridMode ? "grid-view" : "";
 
   filtered.forEach(herb => {
     const card = document.createElement("li");
     card.className = "herb-card";
+    const isFav = favorites.includes(herb.name);
     card.innerHTML = `
-      <h3>${herb.name}</h3>
+      <h3>${herb.name} <span class="star" style="color:${isFav ? 'gold' : '#ccc'}; cursor:pointer;">★</span></h3>
       ${!gridMode ? `
       <p><strong>Description:</strong> ${herb.description}</p>
       <p><strong>Uses:</strong> ${herb.uses}</p>
       <p><strong>Preparation:</strong> ${herb.preparation}</p>
       <p><strong>Caution:</strong> ${herb.caution}</p>` : ""}
     `;
+
+    // Toggle favorite
+    card.querySelector(".star").addEventListener("click", (e) => {
+      e.stopPropagation();
+      toggleFavorite(herb.name);
+    });
+
     herbList.appendChild(card);
   });
+}
+
+function toggleFavorite(name) {
+  if (favorites.includes(name)) {
+    favorites = favorites.filter(f => f !== name);
+  } else {
+    favorites.push(name);
+  }
+  localStorage.setItem("favorites", JSON.stringify(favorites));
+  displayHerbs(document.querySelector("#categories .active").textContent);
 }
 
 // Filter buttons
@@ -72,18 +98,19 @@ document.querySelectorAll("#categories button").forEach(btn => {
   btn.addEventListener("click", () => {
     document.querySelectorAll("#categories button").forEach(b => b.classList.remove("active"));
     btn.classList.add("active");
-    displayHerbs(btn.textContent);
+    const filter = btn.id === "favoritesBtn" ? "Favorites" : btn.textContent;
+    displayHerbs(filter);
   });
 });
 
-// View toggle (List/Grid)
+// View toggle
 viewToggle.addEventListener("click", () => {
   gridMode = !gridMode;
   viewToggle.textContent = gridMode ? "📋 List" : "🔳 View";
   displayHerbs(document.querySelector("#categories .active").textContent);
 });
 
-// Camera button (future use)
+// Camera button
 cameraBtn.addEventListener("click", () => {
   alert("📸 Camera feature coming soon!");
 });
