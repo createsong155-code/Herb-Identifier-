@@ -1,89 +1,163 @@
-// Herb data
+// data
 const herbs = [
-  { name: "Lagundi", use: "Cough", description: "Treats cough and asthma." },
-  { name: "Sambong", use: "Kidney", description: "Good for kidney and urinary tract." },
-  { name: "Tanglad (Lemongrass)", use: "Fever", description: "Reduces fever and relieves pain." },
-  { name: "Bayabas (Guava)", use: "Wound", description: "Cleans wounds and prevents infection." },
-  { name: "Ampalaya (Bitter Gourd)", use: "Stomach Ache", description: "Helps digestion and blood sugar." }
+  {
+    name: "Lagundi",
+    category: "Cough",
+    description: "Boil 5–10 leaves for cough and asthma relief.",
+    uses: "Cough, asthma",
+    preparation: "Boil leaves; drink warm.",
+    cautions: "Avoid excess during pregnancy."
+  },
+  {
+    name: "Sambong",
+    category: "Kidney",
+    description: "Diuretic properties, used for kidney stones.",
+    uses: "Kidney health",
+    preparation: "Boil leaves; drink decoction.",
+    cautions: "Ask doctor if on meds."
+  },
+  {
+    name: "Tanglad (Lemongrass)",
+    category: "Fever",
+    description: "Reduces fever and aids digestion.",
+    uses: "Fever, digestion",
+    preparation: "Boil stalks; drink tea.",
+    cautions: "Avoid if allergic."
+  },
+  {
+    name: "Bayabas (Guava)",
+    category: "Wound",
+    description: "Antibacterial for wounds and mouth.",
+    uses: "Wound wash, mouth rinse",
+    preparation: "Boil leaves; use cooled water.",
+    cautions: "External use for wounds."
+  },
+  {
+    name: "Ampalaya (Bitter Gourd)",
+    category: "Stomach Ache",
+    description: "Used for digestion and blood sugar control.",
+    uses: "Stomach, blood sugar",
+    preparation: "Boil leaves or eat cooked fruit.",
+    cautions: "Avoid during pregnancy."
+  }
 ];
 
-let currentCategory = "All";
-let viewMode = "list";
-let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+// state
+let favorites = JSON.parse(localStorage.getItem("herbFavorites") || "[]");
+let currentFilter = "all";
+let isGrid = false;
 
-const herbList = document.getElementById("herbList");
-const filterButtons = document.querySelectorAll(".filter-btn");
-const favoritesBtn = document.getElementById("favoritesBtn");
+// elements
+const herbListEl = document.getElementById("herbList");
+const filterBtns = document.querySelectorAll(".filter-btn");
 const viewToggle = document.getElementById("viewToggle");
+const cameraBtn = document.getElementById("cameraBtn");
 
-function renderHerbs() {
-  herbList.innerHTML = "";
+// render
+function render() {
+  // set body class for grid/list
+  document.body.classList.toggle("grid", isGrid);
 
-  let filteredHerbs = [];
-  if (currentCategory === "Favorites") {
-    filteredHerbs = herbs.filter(h => favorites.includes(h.name));
-  } else if (currentCategory === "All") {
-    filteredHerbs = herbs;
-  } else {
-    filteredHerbs = herbs.filter(h => h.use === currentCategory);
+  // filter herbs
+  let list = herbs.slice();
+  if (currentFilter === "favorites") {
+    list = list.filter(h => favorites.includes(h.name));
+  } else if (currentFilter !== "all") {
+    list = list.filter(h => h.category.toLowerCase() === currentFilter.toLowerCase());
   }
 
-  herbList.className = viewMode === "grid" ? "grid-view" : "list-view";
+  herbListEl.innerHTML = "";
+  if (list.length === 0) {
+    herbListEl.innerHTML = '<p style="text-align:center;color:#666;margin-top:20px">No herbs found.</p>';
+    return;
+  }
 
-  filteredHerbs.forEach(herb => {
+  list.forEach(h => {
     const card = document.createElement("div");
-    card.classList.add("herb-card");
+    card.className = "herb-card";
 
-    const info = document.createElement("div");
-    info.innerHTML = `<h3>${herb.name}</h3>
-      <p><b>Use:</b> ${herb.use}</p>
-      <p>${herb.description}</p>`;
+    // star button
+    const star = document.createElement("button");
+    star.className = "star-btn";
+    if (favorites.includes(h.name)) star.classList.add("active");
+    star.textContent = "★";
+    star.title = favorites.includes(h.name) ? "Remove favorite" : "Add favorite";
+    star.onclick = (e) => {
+      e.stopPropagation();
+      toggleFavorite(h.name);
+    };
 
-    const favoriteButton = document.createElement("button");
-    favoriteButton.classList.add("favorite-btn");
-    favoriteButton.innerHTML = favorites.includes(herb.name) ? "⭐" : "☆";
-    if (favorites.includes(herb.name)) favoriteButton.classList.add("favorited");
+    // content
+    card.innerHTML = `
+      <h3>${h.name}</h3>
+      <p><strong>Uses:</strong> ${h.uses || h.uses === "" ? h.uses : h.category}</p>
+      <div class="herb-desc" style="display:none">
+        <p><strong>Description:</strong> ${h.description}</p>
+        <p><strong>Preparation:</strong> ${h.preparation}</p>
+        <p><strong>Cautions:</strong> ${h.cautions}</p>
+      </div>
+    `;
 
-    favoriteButton.addEventListener("click", () => {
-      toggleFavorite(herb.name);
-      favoriteButton.innerHTML = favorites.includes(herb.name) ? "⭐" : "☆";
-      favoriteButton.classList.toggle("favorited");
+    card.appendChild(star);
+    // click to toggle details
+    card.querySelector("h3").addEventListener("click", () => {
+      const d = card.querySelector(".herb-desc");
+      d.style.display = d.style.display === "block" ? "none" : "block";
     });
 
-    card.appendChild(info);
-    card.appendChild(favoriteButton);
-    herbList.appendChild(card);
+    herbListEl.appendChild(card);
   });
 }
 
+// toggle favorite
 function toggleFavorite(name) {
   if (favorites.includes(name)) {
-    favorites = favorites.filter(f => f !== name);
+    favorites = favorites.filter(n => n !== name);
   } else {
     favorites.push(name);
   }
-  localStorage.setItem("favorites", JSON.stringify(favorites));
+  localStorage.setItem("herbFavorites", JSON.stringify(favorites));
+  // visual update
+  render();
+  // update favorites button highlight
+  updateFavoritesIndicator();
 }
 
-filterButtons.forEach(btn => {
+// wire filters
+filterBtns.forEach(btn => {
   btn.addEventListener("click", () => {
-    filterButtons.forEach(b => b.classList.remove("active"));
+    filterBtns.forEach(b => b.classList.remove("active"));
     btn.classList.add("active");
-    currentCategory = btn.dataset.category;
-    renderHerbs();
+    currentFilter = btn.getAttribute("data-filter");
+    render();
   });
 });
 
-favoritesBtn.addEventListener("click", () => {
-  filterButtons.forEach(b => b.classList.remove("active"));
-  favoritesBtn.classList.add("active");
-  currentCategory = "Favorites";
-  renderHerbs();
-});
-
+// view toggle
 viewToggle.addEventListener("click", () => {
-  viewMode = viewMode === "list" ? "grid" : "list";
-  renderHerbs();
+  isGrid = !isGrid;
+  viewToggle.textContent = isGrid ? "🖼️ Grid" : "📋 View";
+  render();
 });
 
-renderHerbs();
+// camera placeholder
+cameraBtn.addEventListener("click", () => {
+  alert("Camera feature coming soon — will open camera or upload.");
+});
+
+// favorites indicator: turn favorites button gold if have favorites
+function updateFavoritesIndicator() {
+  const favBtn = document.querySelector('.filter-btn[data-filter="favorites"]');
+  if (!favBtn) return;
+  if (favorites.length > 0) {
+    favBtn.style.background = "#ffd54f";
+    favBtn.style.color = "#4e342e";
+  } else {
+    favBtn.style.background = "";
+    favBtn.style.color = "";
+  }
+}
+
+// initial render
+updateFavoritesIndicator();
+render();
