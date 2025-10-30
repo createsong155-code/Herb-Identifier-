@@ -1,108 +1,126 @@
+/* Basic page */
+* { box-sizing: border-box; }
 body {
-  font-family: Arial, sans-serif;
-  background-color: #d7f3d2;
+  font-family: Arial, Helvetica, sans-serif;
   margin: 0;
-  padding: 0;
+  background: #e8f9e9;
+  color: #1b4f2b;
+  -webkit-font-smoothing: antialiased;
 }
+.app { padding: 20px; max-width: 1100px; margin: 0 auto; position: relative; }
 
-/* Header */
-header {
-  text-align: center;
-  position: relative;
-  padding: 10px 0;
-  background-color: #b6e2a1;
-}
+/* Title */
+.title { text-align: center; margin: 0 0 12px; font-size: 28px; }
 
-header h1 {
-  margin: 0;
-  font-size: 1.6em;
-}
-
-#cameraBtn {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  background: none;
+/* Camera button (top-right) */
+.camera-btn {
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
   border: none;
-  font-size: 25px;
+  background: #2e7d32;
+  color: #fff;
+  font-size: 20px;
   cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
+.camera-btn:hover { background: #236028; }
 
-/* Filter bar */
-.filter-bar {
+/* Top row: categories + view button */
+.top-row {
   display: flex;
-  overflow-x: auto;
-  gap: 10px;
-  padding: 10px;
   align-items: center;
-  background-color: #c7ebb5;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 18px;
+  flex-wrap: nowrap;
 }
 
-.filter-bar::-webkit-scrollbar {
-  height: 6px;
+/* Category scroll bar */
+.categories {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 6px 10px;
+  -webkit-overflow-scrolling: touch;
+  flex: 1 1 auto;
+  justify-content: center;
 }
+.categories::-webkit-scrollbar { height: 8px; }
+.categories::-webkit-scrollbar-thumb { background: #bde6b6; border-radius: 8px; }
 
-.filter-btn, #favoritesBtn, #viewToggle {
-  background-color: #69b96d;
-  color: white;
+/* Filter buttons */
+.filter-btn {
+  background: #81c784;
+  color: #fff;
   border: none;
+  padding: 8px 14px;
   border-radius: 20px;
-  padding: 8px 15px;
   cursor: pointer;
   white-space: nowrap;
-  transition: background-color 0.3s;
+  font-weight: 600;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.05);
 }
+.filter-btn:hover { background: #66bb6a; }
+.filter-btn.active { background: #2e7d32; }
 
-.filter-btn.active {
-  background-color: #4a9c56;
+/* View button */
+.controls-right { flex: 0 0 auto; display:flex; align-items:center; gap:8px; }
+.view-btn {
+  background: #2e7d32;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
 }
+.view-btn:hover { background: #236028; }
 
-#viewToggle {
-  margin-left: auto;
-}
-
-/* Herb list */
-#herbList {
-  display: flex;
-  flex-direction: column;
-  padding: 15px;
-  gap: 15px;
-}
-
-/* List mode card */
+/* Herb cards - list view */
+.herb-list { margin-top: 8px; padding-bottom: 48px; } /* allow space bottom */
 .herb-card {
-  background-color: white;
-  border-radius: 15px;
-  padding: 15px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  background: #fff;
+  margin: 10px auto;
+  padding: 14px 16px;
+  border-radius: 12px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+  max-width: 820px;
+  position: relative;
+  text-align: left;
 }
+.herb-card h3 { margin: 0 0 8px; font-size: 18px; color:#1b5e30; cursor: pointer; }
+.herb-card p { margin: 6px 0; color:#333; font-size:14px; line-height:1.4; }
 
-/* Grid mode */
-.grid-view {
-  display: grid !important;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 15px;
+/* star button (default gray) */
+.star-btn {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  border: none;
+  background: none;
+  font-size: 20px;
+  color: #9a9a9a; /* default unstarred */
+  cursor: pointer;
 }
+.star-btn.active { color: gold; }
 
-.grid-view .herb-card {
-  flex-direction: column;
-  align-items: center;
+/* GRID mode: use smaller cards in grid */
+.grid .herb-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 14px;
+  align-items: start;
+}
+.grid .herb-card {
+  max-width: 100%;
   text-align: center;
 }
 
-/* Favorite star */
-.favorite-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 22px;
-  color: gray; /* default unselected */
-  transition: color 0.3s ease;
-}
-
-.favorite-btn.favorited {
-  color: gold; /* when favorited */
+/* responsive */
+@media (max-width:600px){
+  .title{ font-size:22px; }
+  .camera-btn{ width:40px;height:40px;font-size:18px;top:10px;right:10px; }
 }
