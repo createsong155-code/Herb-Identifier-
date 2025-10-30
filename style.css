@@ -106,13 +106,14 @@ h1 {
   top: 12px;
   background: none;
   border: none;
-  font-size: 22px;
+  font-size: 24px;
   cursor: pointer;
-  color: #ccc;
+  color: #ccc; /* default gray */
+  transition: color 0.2s ease;
 }
 
 .star-btn.favorited {
-  color: gold;
+  color: gold; /* turn yellow when favorited */
 }
 
 /* Grid view */
