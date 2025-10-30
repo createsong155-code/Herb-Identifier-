@@ -1,29 +1,97 @@
-<div id="herbList">
-  <div class="herb-card" data-type="cough">
-    <h3>🌿 Lagundi</h3>
-    <p><b>Description:</b> A herbal plant used to relieve cough and asthma.</p>
-    <p><b>Preparation:</b> Boil the leaves for 10 minutes and drink the decoction 3 times daily.</p>
-    <p><b>Caution:</b> Avoid excessive intake during pregnancy.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🌿 Herb Identifier App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f4fff4;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      background-color: #4CAF50;
+      color: white;
+      padding: 15px;
+      margin: 0;
+    }
+
+    .filter-buttons {
+      display: flex;
+      overflow-x: auto;
+      background-color: #eafbea;
+      padding: 10px;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .filter-buttons button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .filter-buttons button:hover {
+      background-color: #45a049;
+    }
+
+    .herb-list {
+      padding: 20px;
+      text-align: left;
+      max-width: 400px;
+      margin: auto;
+    }
+
+    .herb-item {
+      background: white;
+      border: 1px solid #c4e3c4;
+      border-radius: 10px;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🌿 Herb Identifier App</h1>
+
+  <div class="filter-buttons">
+    <button onclick="filterHerbs('all')">All</button>
+    <button onclick="filterHerbs('cough')">Cough</button>
+    <button onclick="filterHerbs('wound')">Wound</button>
+    <button onclick="filterHerbs('stomach')">Stomach Ache</button>
+    <button onclick="filterHerbs('fever')">Fever</button>
+    <button onclick="filterHerbs('kidney')">Kidney</button>
   </div>
 
-  <div class="herb-card" data-type="kidney">
-    <h3>🌿 Sambong</h3>
-    <p><b>Description:</b> Known for kidney cleansing and anti-urolithiasis properties.</p>
-    <p><b>Preparation:</b> Drink boiled leaf extract twice daily.</p>
-    <p><b>Caution:</b> Not for long-term use.</p>
+  <div class="herb-list" id="herbList">
+    <div class="herb-item" data-type="cough">🌿 Lagundi</div>
+    <div class="herb-item" data-type="kidney">🌿 Sambong</div>
+    <div class="herb-item" data-type="stomach">🌿 Tanglad (Lemongrass)</div>
+    <div class="herb-item" data-type="wound">🌿 Bayabas (Guava)</div>
+    <div class="herb-item" data-type="fever">🌿 Ampalaya (Bitter Gourd)</div>
   </div>
 
-  <div class="herb-card" data-type="stomach">
-    <h3>🌿 Tanglad (Lemongrass)</h3>
-    <p><b>Description:</b> Aids in digestion and relieves stomach discomfort.</p>
-    <p><b>Preparation:</b> Boil 1 stalk in 2 cups of water, drink as tea.</p>
-    <p><b>Caution:</b> May lower blood pressure.</p>
-  </div>
+  <script>
+    function filterHerbs(type) {
+      const herbs = document.querySelectorAll('.herb-item');
+      herbs.forEach(herb => {
+        if (type === 'all' || herb.dataset.type === type) {
+          herb.style.display = 'block';
+        } else {
+          herb.style.display = 'none';
+        }
+      });
+    }
+  </script>
 
-  <div class="herb-card" data-type="wound">
-    <h3>🌿 Bayabas (Guava)</h3>
-    <p><b>Description:</b> Used for wound washing and skin infections.</p>
-    <p><b>Preparation:</b> Boil leaves and use cooled water for washing wounds.</p>
-    <p><b>Caution:</b> For external use only.</p>
-  </div>
-</div>
+</body>
+</html>
