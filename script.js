@@ -31,7 +31,7 @@ function renderHerbs() {
     const star = document.createElement("span");
     star.classList.add("favorite-star");
     if (favorites.includes(herb.name)) star.classList.add("active");
-    star.innerHTML = "★";
+    star.textContent = "★";
     star.onclick = () => toggleFavorite(herb.name, star);
 
     herbCard.innerHTML = `
@@ -39,6 +39,7 @@ function renderHerbs() {
       <p><strong>Use:</strong> ${herb.use}</p>
       <p>${herb.description}</p>
     `;
+
     herbCard.appendChild(star);
     herbList.appendChild(herbCard);
   });
@@ -72,7 +73,7 @@ viewToggle.addEventListener("click", () => {
 });
 
 cameraButton.addEventListener("click", () => {
-  alert("Camera feature coming soon!");
+  alert("📷 Camera feature coming soon!");
 });
 
 renderHerbs();
