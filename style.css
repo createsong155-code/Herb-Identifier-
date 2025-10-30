@@ -1,126 +1,127 @@
-/* Basic page */
-* { box-sizing: border-box; }
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
-  background: #e8f9e9;
-  color: #1b4f2b;
-  -webkit-font-smoothing: antialiased;
+  font-family: Arial, sans-serif;
+  background-color: #d8f3dc;
+  color: #1b4332;
+  text-align: center;
+  padding: 20px;
+  position: relative;
 }
-.app { padding: 20px; max-width: 1100px; margin: 0 auto; position: relative; }
 
-/* Title */
-.title { text-align: center; margin: 0 0 12px; font-size: 28px; }
+h1 {
+  margin-bottom: 10px;
+}
 
-/* Camera button (top-right) */
 .camera-btn {
-  position: fixed;
-  top: 14px;
-  right: 14px;
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: #4caf50;
   border: none;
-  background: #2e7d32;
-  color: #fff;
+  color: white;
   font-size: 20px;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
   cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-}
-.camera-btn:hover { background: #236028; }
-
-/* Top row: categories + view button */
-.top-row {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  justify-content: center;
-  margin-bottom: 18px;
-  flex-wrap: nowrap;
 }
 
-/* Category scroll bar */
-.categories {
+.camera-btn:hover {
+  background-color: #388e3c;
+}
+
+#categories {
   display: flex;
+  justify-content: flex-start;
   gap: 10px;
+  margin: 20px auto;
+  padding: 0 10px;
   overflow-x: auto;
-  padding: 6px 10px;
-  -webkit-overflow-scrolling: touch;
-  flex: 1 1 auto;
-  justify-content: center;
-}
-.categories::-webkit-scrollbar { height: 8px; }
-.categories::-webkit-scrollbar-thumb { background: #bde6b6; border-radius: 8px; }
-
-/* Filter buttons */
-.filter-btn {
-  background: #81c784;
-  color: #fff;
-  border: none;
-  padding: 8px 14px;
-  border-radius: 20px;
-  cursor: pointer;
   white-space: nowrap;
-  font-weight: 600;
-  box-shadow: 0 1px 0 rgba(0,0,0,0.05);
 }
-.filter-btn:hover { background: #66bb6a; }
-.filter-btn.active { background: #2e7d32; }
 
-/* View button */
-.controls-right { flex: 0 0 auto; display:flex; align-items:center; gap:8px; }
-.view-btn {
-  background: #2e7d32;
-  color: #fff;
+#categories button {
+  background-color: #81c784;
+  color: white;
   border: none;
-  padding: 8px 12px;
+  border-radius: 20px;
+  padding: 8px 15px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+#categories button.active {
+  background-color: #388e3c;
+}
+
+#viewToggle {
+  margin: 10px 0;
+  background-color: #388e3c;
+  color: white;
+  border: none;
   border-radius: 10px;
+  padding: 8px 15px;
   cursor: pointer;
 }
-.view-btn:hover { background: #236028; }
 
-/* Herb cards - list view */
-.herb-list { margin-top: 8px; padding-bottom: 48px; } /* allow space bottom */
+#viewToggle:hover {
+  background-color: #2e7d32;
+}
+
 .herb-card {
   background: #fff;
-  margin: 10px auto;
-  padding: 14px 16px;
   border-radius: 12px;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.08);
-  max-width: 820px;
-  position: relative;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 12px 16px;
+  margin: 10px auto;
+  max-width: 600px;
   text-align: left;
+  position: relative;
+  transition: transform 0.2s ease;
 }
-.herb-card h3 { margin: 0 0 8px; font-size: 18px; color:#1b5e30; cursor: pointer; }
-.herb-card p { margin: 6px 0; color:#333; font-size:14px; line-height:1.4; }
 
-/* star button (default gray) */
+.herb-card:hover {
+  transform: scale(1.02);
+}
+
+.herb-card h3 {
+  color: #2e7d32;
+  margin-bottom: 6px;
+  cursor: pointer;
+}
+
+.herb-details {
+  display: none;
+  margin-top: 10px;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 .star-btn {
   position: absolute;
   right: 12px;
   top: 12px;
-  border: none;
   background: none;
-  font-size: 20px;
-  color: #9a9a9a; /* default unstarred */
+  border: none;
+  font-size: 22px;
   cursor: pointer;
+  color: #ccc;
 }
-.star-btn.active { color: gold; }
 
-/* GRID mode: use smaller cards in grid */
-.grid .herb-list {
+.star-btn.favorited {
+  color: gold;
+}
+
+/* Grid view */
+.grid #herb-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 14px;
-  align-items: start;
-}
-.grid .herb-card {
-  max-width: 100%;
-  text-align: center;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
 }
 
-/* responsive */
-@media (max-width:600px){
-  .title{ font-size:22px; }
-  .camera-btn{ width:40px;height:40px;font-size:18px;top:10px;right:10px; }
+.grid .herb-details {
+  display: block;
 }
