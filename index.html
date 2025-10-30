@@ -1,29 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Herb Identifier App</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="header">
-    <h1>🌿 Herb Identifier App</h1>
-    <button id="cameraBtn">📷</button>
-  </div>
+  <h1>🌿 Herb Identifier App</h1>
 
-  <div id="category-container">
+  <!-- Category + Controls -->
+  <div id="categories-container">
     <div id="categories">
-      <button data-category="all">All</button>
-      <button data-category="cough">Cough</button>
-      <button data-category="wound">Wound</button>
-      <button data-category="stomach">Stomach Ache</button>
-      <button data-category="kidney">Kidney</button>
+      <button class="active">All</button>
+      <button>Cough</button>
+      <button>Wound</button>
+      <button>Stomach Ache</button>
+      <button>Fever</button>
+      <button>Kidney</button>
     </div>
-    <button id="viewToggle">🔳 View</button>
+
+    <div id="view-controls">
+      <button id="viewToggle">🔳 View</button>
+      <button id="cameraBtn">📷</button>
+    </div>
   </div>
 
-  <div id="herb-list" class="list-view"></div>
+  <!-- Herb List -->
+  <ul id="herb-list"></ul>
 
   <script src="script.js"></script>
 </body>
