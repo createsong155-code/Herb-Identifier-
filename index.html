@@ -1,30 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Herb Identifier App</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Herb Identifier App</title>
+<link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <h1>🌿 Herb Identifier App</h1>
-    <button id="cameraBtn">📷</button>
-  </header>
+  <div class="app">
+    <h1 class="title">🌿 Herb Identifier App</h1>
 
-  <div class="filter-bar">
-    <button id="favoritesBtn">⭐ Favorites</button>
-    <button class="filter-btn active" data-category="All">All</button>
-    <button class="filter-btn" data-category="Cough">Cough</button>
-    <button class="filter-btn" data-category="Wound">Wound</button>
-    <button class="filter-btn" data-category="Stomach Ache">Stomach Ache</button>
-    <button class="filter-btn" data-category="Fever">Fever</button>
-    <button class="filter-btn" data-category="Kidney">Kidney</button>
-    <button id="viewToggle">🖼️ View</button>
+    <!-- camera top-right (absolute) -->
+    <button id="cameraBtn" class="camera-btn" title="Open camera">📷</button>
+
+    <!-- top controls: categories (scroll) + view toggle -->
+    <div class="top-row">
+      <div id="categories" class="categories">
+        <button class="filter-btn" data-filter="favorites">⭐ Favorites</button>
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="cough">Cough</button>
+        <button class="filter-btn" data-filter="wound">Wound</button>
+        <button class="filter-btn" data-filter="stomach ache">Stomach Ache</button>
+        <button class="filter-btn" data-filter="fever">Fever</button>
+        <button class="filter-btn" data-filter="kidney">Kidney</button>
+      </div>
+
+      <div class="controls-right">
+        <button id="viewToggle" class="view-btn" title="Toggle view">📋 View</button>
+      </div>
+    </div>
+
+    <!-- herbs container -->
+    <div id="herbList" class="herb-list list-view"></div>
   </div>
 
-  <div id="herbList" class="list-view"></div>
-
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
