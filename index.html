@@ -46,7 +46,7 @@
     .herb-list {
       padding: 20px;
       text-align: left;
-      max-width: 400px;
+      max-width: 420px;
       margin: auto;
     }
 
@@ -56,6 +56,23 @@
       border-radius: 10px;
       padding: 10px;
       margin-bottom: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .herb-item:hover {
+      background-color: #f0fff0;
+    }
+
+    .herb-details {
+      display: none;
+      margin-top: 8px;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .herb-details p {
+      margin: 5px 0;
     }
   </style>
 </head>
@@ -73,11 +90,55 @@
   </div>
 
   <div class="herb-list" id="herbList">
-    <div class="herb-item" data-type="cough">🌿 Lagundi</div>
-    <div class="herb-item" data-type="kidney">🌿 Sambong</div>
-    <div class="herb-item" data-type="stomach">🌿 Tanglad (Lemongrass)</div>
-    <div class="herb-item" data-type="wound">🌿 Bayabas (Guava)</div>
-    <div class="herb-item" data-type="fever">🌿 Ampalaya (Bitter Gourd)</div>
+    <div class="herb-item" data-type="cough" onclick="toggleDetails(this)">
+      🌿 Lagundi
+      <div class="herb-details">
+        <p><b>Description:</b> Used for cough and asthma relief.</p>
+        <p><b>Uses:</b> Relieves respiratory congestion.</p>
+        <p><b>Preparation:</b> Boil 10 leaves in 2 cups water, drink 3x daily.</p>
+        <p><b>Caution:</b> Avoid during pregnancy.</p>
+      </div>
+    </div>
+
+    <div class="herb-item" data-type="kidney" onclick="toggleDetails(this)">
+      🌿 Sambong
+      <div class="herb-details">
+        <p><b>Description:</b> Known for kidney cleansing and diuretic properties.</p>
+        <p><b>Uses:</b> Helps treat kidney stones.</p>
+        <p><b>Preparation:</b> Boil 5 leaves and drink twice daily.</p>
+        <p><b>Caution:</b> Not for long-term use.</p>
+      </div>
+    </div>
+
+    <div class="herb-item" data-type="stomach" onclick="toggleDetails(this)">
+      🌿 Tanglad (Lemongrass)
+      <div class="herb-details">
+        <p><b>Description:</b> Aids digestion and relieves stomach discomfort.</p>
+        <p><b>Uses:</b> Helps with bloating and gas.</p>
+        <p><b>Preparation:</b> Boil 1 stalk in 2 cups of water, drink as tea.</p>
+        <p><b>Caution:</b> Avoid if you have low blood pressure.</p>
+      </div>
+    </div>
+
+    <div class="herb-item" data-type="wound" onclick="toggleDetails(this)">
+      🌿 Bayabas (Guava)
+      <div class="herb-details">
+        <p><b>Description:</b> Used for wound washing and infections.</p>
+        <p><b>Uses:</b> Natural antiseptic for skin and gums.</p>
+        <p><b>Preparation:</b> Boil leaves, cool, and use for washing wounds.</p>
+        <p><b>Caution:</b> For external use only.</p>
+      </div>
+    </div>
+
+    <div class="herb-item" data-type="fever" onclick="toggleDetails(this)">
+      🌿 Ampalaya (Bitter Gourd)
+      <div class="herb-details">
+        <p><b>Description:</b> Reduces fever and helps balance blood sugar.</p>
+        <p><b>Uses:</b> Treats fever and diabetes support.</p>
+        <p><b>Preparation:</b> Drink boiled leaves or eat as vegetable dish.</p>
+        <p><b>Caution:</b> Avoid if pregnant.</p>
+      </div>
+    </div>
   </div>
 
   <script>
@@ -90,6 +151,13 @@
           herb.style.display = 'none';
         }
       });
+    }
+
+    function toggleDetails(element) {
+      const details = element.querySelector('.herb-details');
+      const isVisible = details.style.display === 'block';
+      document.querySelectorAll('.herb-details').forEach(d => d.style.display = 'none');
+      details.style.display = isVisible ? 'none' : 'block';
     }
   </script>
 
