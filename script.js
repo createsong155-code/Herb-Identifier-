@@ -59,16 +59,11 @@ document.addEventListener("DOMContentLoaded", function () {
         `;
 
         const details = card.querySelector(".herb-details");
-        details.style.maxHeight = "0px";
-        details.style.overflow = "hidden";
-        details.style.transition = "max-height 0.4s ease";
+        details.style.display = "none";
 
         card.querySelector(".herb-header").addEventListener("click", () => {
-          if (details.style.maxHeight === "0px") {
-            details.style.maxHeight = details.scrollHeight + "px";
-          } else {
-            details.style.maxHeight = "0px";
-          }
+          details.style.display =
+            details.style.display === "none" ? "block" : "none";
         });
 
         herbList.appendChild(card);
