@@ -1,127 +1,88 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #d8f3dc;
-  color: #1b4332;
+  background-color: #e1f3d8;
+  margin: 0;
+  padding: 0;
+}
+
+.app-container {
   text-align: center;
   padding: 20px;
-  position: relative;
 }
 
 h1 {
+  color: #2e7d32;
+}
+
+.top-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.filter-container {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 10px;
   margin-bottom: 10px;
 }
 
-.camera-btn {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background-color: #4caf50;
+.filter-btn {
+  background-color: #81c784;
   border: none;
   color: white;
-  font-size: 20px;
-  border-radius: 50%;
-  width: 45px;
-  height: 45px;
+  padding: 8px 16px;
+  border-radius: 20px;
   cursor: pointer;
-}
-
-.camera-btn:hover {
-  background-color: #388e3c;
-}
-
-#categories {
-  display: flex;
-  justify-content: flex-start;
-  gap: 10px;
-  margin: 20px auto;
-  padding: 0 10px;
-  overflow-x: auto;
   white-space: nowrap;
 }
 
-#categories button {
-  background-color: #81c784;
-  color: white;
-  border: none;
-  border-radius: 20px;
-  padding: 8px 15px;
-  cursor: pointer;
-  flex-shrink: 0;
-}
-
-#categories button.active {
+.filter-btn.active {
   background-color: #388e3c;
 }
 
-#viewToggle {
-  margin: 10px 0;
-  background-color: #388e3c;
+.view-controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+#viewToggle, #cameraButton {
+  background-color: #555;
   color: white;
   border: none;
   border-radius: 10px;
-  padding: 8px 15px;
+  padding: 6px 12px;
   cursor: pointer;
-}
-
-#viewToggle:hover {
-  background-color: #2e7d32;
 }
 
 .herb-card {
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  padding: 12px 16px;
+  background-color: white;
   margin: 10px auto;
-  max-width: 600px;
+  padding: 15px;
+  width: 85%;
+  border-radius: 12px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
   text-align: left;
   position: relative;
-  transition: transform 0.2s ease;
-}
-
-.herb-card:hover {
-  transform: scale(1.02);
 }
 
 .herb-card h3 {
-  color: #2e7d32;
-  margin-bottom: 6px;
-  cursor: pointer;
+  margin: 0 0 8px 0;
 }
 
-.herb-details {
-  display: none;
-  margin-top: 10px;
-  animation: fadeIn 0.3s ease;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-.star-btn {
+.favorite-star {
   position: absolute;
   right: 12px;
   top: 12px;
-  background: none;
-  border: none;
-  font-size: 22px;
   cursor: pointer;
-  color: #ccc;
+  font-size: 20px;
+  color: gray; /* default (not favorited) */
+  transition: color 0.3s;
 }
 
-.star-btn.favorited {
-  color: gold;
-}
-
-/* Grid view */
-.grid #herb-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 15px;
-}
-
-.grid .herb-details {
-  display: block;
+.favorite-star.active {
+  color: gold; /* favorited */
 }
