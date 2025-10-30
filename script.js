@@ -48,7 +48,6 @@ const herbList = document.getElementById("herb-list");
 const categoryButtons = document.querySelectorAll(".category");
 const viewToggle = document.getElementById("viewToggle");
 
-// Display herbs
 function displayHerbs() {
   herbList.innerHTML = "";
 
@@ -68,9 +67,11 @@ function displayHerbs() {
   filtered.forEach(h => {
     const card = document.createElement("div");
     card.className = "herb-card";
+    const isFav = favorites.includes(h.name);
+
     card.innerHTML = `
       <h3>${h.name}</h3>
-      <button class="star-btn ${favorites.includes(h.name) ? "favorited" : ""}" data-herb="${h.name}">⭐</button>
+      <button class="star-btn ${isFav ? "favorited" : ""}" data-herb="${h.name}">★</button>
       <div class="herb-details">
         <p><strong>Description:</strong> ${h.description}</p>
         <p><strong>Uses:</strong> ${h.uses}</p>
@@ -81,7 +82,7 @@ function displayHerbs() {
     herbList.appendChild(card);
   });
 
-  // Expand/collapse logic
+  // Toggle details
   document.querySelectorAll(".herb-card h3").forEach(title => {
     title.addEventListener("click", () => {
       const details = title.nextElementSibling.nextElementSibling;
@@ -89,7 +90,7 @@ function displayHerbs() {
     });
   });
 
-  // Favorite star logic
+  // Toggle favorites
   document.querySelectorAll(".star-btn").forEach(btn => {
     btn.addEventListener("click", e => {
       e.stopPropagation();
@@ -107,7 +108,6 @@ function displayHerbs() {
 
 displayHerbs();
 
-// Category selection
 categoryButtons.forEach(btn => {
   btn.addEventListener("click", () => {
     currentCategory = btn.dataset.category;
@@ -117,7 +117,6 @@ categoryButtons.forEach(btn => {
   });
 });
 
-// View toggle
 viewToggle.addEventListener("click", () => {
   document.body.classList.toggle("grid");
 });
