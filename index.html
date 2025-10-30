@@ -9,26 +9,25 @@
 <body>
   <h1>🌿 Herb Identifier App</h1>
 
-  <!-- Category + Controls -->
-  <div id="categories-container">
-    <div id="categories">
-      <button id="favoritesBtn">⭐ Favorites</button>
-      <button class="active">All</button>
-      <button>Cough</button>
-      <button>Wound</button>
-      <button>Stomach Ache</button>
-      <button>Fever</button>
-      <button>Kidney</button>
-    </div>
+  <!-- Camera button (top right) -->
+  <button id="cameraButton" class="camera-btn">📷</button>
 
-    <div id="view-controls">
-      <button id="viewToggle">🔳 View</button>
-      <button id="cameraBtn">📷</button>
-    </div>
+  <!-- Category buttons -->
+  <div id="categories">
+    <button class="category" data-category="Favorites">⭐ Favorites</button>
+    <button class="category active" data-category="all">All</button>
+    <button class="category" data-category="Cough">Cough</button>
+    <button class="category" data-category="Wound">Wound</button>
+    <button class="category" data-category="Stomach Ache">Stomach Ache</button>
+    <button class="category" data-category="Fever">Fever</button>
+    <button class="category" data-category="Kidney">Kidney</button>
   </div>
 
-  <!-- Herb List -->
-  <ul id="herb-list"></ul>
+  <!-- View toggle -->
+  <button id="viewToggle">📋 View</button>
+
+  <!-- Herb list -->
+  <div id="herb-list"></div>
 
   <script src="script.js"></script>
 </body>
