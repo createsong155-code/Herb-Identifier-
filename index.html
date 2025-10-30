@@ -3,36 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Herb Identifier App</title>
+  <title>Herb Identifier</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Header -->
-  <header class="header">
-    <h1>🌿 Herb Identifier App</h1>
-    <button id="cameraButton" class="camera-btn">📷</button>
+  <header>
+    <div class="top-bar">
+      <button id="favorites-btn">★</button>
+      <div class="scroll-container" id="filter-buttons">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="cough">Cough</button>
+        <button class="filter-btn" data-filter="wound">Wound</button>
+        <button class="filter-btn" data-filter="stomachache">Stomachache</button>
+        <button class="filter-btn" data-filter="kidney">Kidney</button>
+      </div>
+      <button id="view-toggle">🔲</button>
+      <button id="camera-btn">📷</button>
+    </div>
   </header>
 
-  <!-- Filter Section -->
-  <div class="filter-section">
-    <div class="filter-scroll">
-      <button class="filter-btn" data-filter="favorites">⭐ Favorites</button>
-      <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="Cough">Cough</button>
-      <button class="filter-btn" data-filter="Wound">Wound</button>
-      <button class="filter-btn" data-filter="Stomach Ache">Stomach Ache</button>
-      <button class="filter-btn" data-filter="Fever">Fever</button>
-      <button class="filter-btn" data-filter="Kidney">Kidney</button>
-    </div>
-  </div>
-
-  <!-- View Toggle -->
-  <div class="view-mode-container">
-    <button id="viewToggle" class="view-btn">🗂️ View</button>
-  </div>
-
-  <!-- Herb List -->
-  <div id="herbList" class="herb-list"></div>
+  <main>
+    <div id="herb-list"></div>
+  </main>
 
   <script src="script.js"></script>
 </body>
