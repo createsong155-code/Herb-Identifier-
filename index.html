@@ -12,14 +12,18 @@
     <button id="toggleViewBtn">🔳 View</button>
   </header>
 
+  <div id="category-container">
   <div id="categories">
-    <button onclick="filterHerbs('All')">All</button>
-    <button onclick="filterHerbs('Cough')">Cough</button>
-    <button onclick="filterHerbs('Wound')">Wound</button>
-    <button onclick="filterHerbs('Stomach Ache')">Stomach Ache</button>
-    <button onclick="filterHerbs('Fever')">Fever</button>
-    <button onclick="filterHerbs('Kidney')">Kidney</button>
+    <button data-category="all">All</button>
+    <button data-category="cough">Cough</button>
+    <button data-category="wound">Wound</button>
+    <button data-category="stomach">Stomach Ache</button>
+    <button data-category="kidney">Kidney</button>
+    <!-- You can add more later -->
   </div>
+
+  <button id="viewToggle">🔳 View</button>
+</div>
 
   <ul id="herb-list" class="list-view"></ul>
 
