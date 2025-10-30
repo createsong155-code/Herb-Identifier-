@@ -1,108 +1,66 @@
-/* ===== Herb Identifier App CSS ===== */
-
 body {
-  font-family: Arial, sans-serif;
-  background-color: #e6f7e6;
-  color: #2f4f2f;
-  text-align: center;
+  font-family: "Poppins", sans-serif;
+  background: #f3f9f4;
+  margin: 0;
   padding: 20px;
 }
 
-/* Remove default list styles */
-ul {
-  list-style: none;
-  padding: 0;
+h1 {
+  text-align: center;
+  color: #1b5e20;
+  margin-bottom: 15px;
 }
 
-/* Herb item basic style */
-li {
-  background-color: #c8e6c9;
-  margin: 10px;
-  padding: 10px;
-  border-radius: 10px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-li:hover {
-  background-color: #a5d6a7;
-}
-
-/* Filter buttons */
-button {
-  background-color: #4caf50;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 16px;
-} 
-
-button:hover {
-  background-color: #45a049;
-}
-
-/* Category bar */
-#categories {
+#filter-buttons {
   display: flex;
   justify-content: center;
-  gap: 10px;
-  margin-bottom: 15px;
-  overflow-x: auto;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
 }
 
-#categories button {
-  background-color: #81c784;
-  color: white;
+.filter-btn {
+  background: #a5d6a7;
   border: none;
+  padding: 8px 14px;
   border-radius: 20px;
-  padding: 8px 15px;
   cursor: pointer;
-  flex-shrink: 0;
+  font-weight: 500;
+  transition: 0.3s;
 }
 
-#categories button:hover {
-  background-color: #66bb6a;
+.filter-btn:hover {
+  background: #81c784;
 }
 
-/* Herb Card Styles */
+#herb-list {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
 .herb-card {
-  background: #fdfdfd;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  padding: 12px 16px;
+  background: #fff;
   margin: 10px 0;
+  padding: 10px 15px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  transition: 0.3s ease;
   cursor: pointer;
-  transition: transform 0.2s ease;
 }
 
 .herb-card:hover {
   transform: scale(1.01);
 }
 
-.herb-card h3 {
-  color: #2f7a2d;
-  margin-bottom: 5px;
+.herb-header h3 {
+  margin: 0;
+  font-size: 1.1em;
+  color: #1a5e2e;
 }
 
-.herb-card .purpose {
-  color: #555;
-  font-style: italic;
-  margin-bottom: 8px;
-}
-
-.herb-card .details {
+.herb-details {
+  margin-top: 8px;
   color: #333;
-  font-size: 0.9em;
+  font-size: 0.95em;
   line-height: 1.4em;
-  overflow: hidden;
-  max-height: 0;
-  transition: max-height 0.4s ease, padding 0.3s ease;
-}
-
-/* Herb details area */
-#herb-details {
-  text-align: left;
-  margin: 20px;
 }
