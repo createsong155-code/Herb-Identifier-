@@ -1,93 +1,108 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #d9f0c1;
+  background-color: #d7f3d2;
   margin: 0;
   padding: 0;
 }
 
+/* Header */
 header {
   text-align: center;
-  padding: 1em;
-  background-color: #bde0a8;
+  position: relative;
+  padding: 10px 0;
+  background-color: #b6e2a1;
 }
 
-.filter-buttons {
+header h1 {
+  margin: 0;
+  font-size: 1.6em;
+}
+
+#cameraBtn {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background: none;
+  border: none;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+/* Filter bar */
+.filter-bar {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  overflow-x: auto;
   gap: 10px;
   padding: 10px;
+  align-items: center;
+  background-color: #c7ebb5;
 }
 
-.filter-buttons button {
-  background-color: #7fc77f;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 20px;
+.filter-bar::-webkit-scrollbar {
+  height: 6px;
+}
+
+.filter-btn, #favoritesBtn, #viewToggle {
+  background-color: #69b96d;
   color: white;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.filter-buttons button:hover,
-.filter-buttons button.active {
-  background-color: #4c9a4c;
-}
-
-.view-toggle {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin: 10px 0;
-}
-
-.view-toggle button {
-  background-color: #7fc77f;
   border: none;
-  padding: 8px 12px;
-  border-radius: 8px;
+  border-radius: 20px;
+  padding: 8px 15px;
   cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.3s;
 }
 
-.view-toggle button.active {
-  background-color: #4c9a4c;
+.filter-btn.active {
+  background-color: #4a9c56;
 }
 
-.herb-container {
+#viewToggle {
+  margin-left: auto;
+}
+
+/* Herb list */
+#herbList {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 10px;
+  padding: 15px;
+  gap: 15px;
 }
 
+/* List mode card */
 .herb-card {
   background-color: white;
-  border-radius: 12px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  padding: 16px;
-  margin: 10px;
-  width: 90%;
-  transition: transform 0.2s;
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
-.herb-card:hover {
-  transform: scale(1.02);
-}
-
-.herb-card img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  margin-bottom: 10px;
-}
-
+/* Grid mode */
 .grid-view {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: 15px;
-  width: 95%;
 }
 
 .grid-view .herb-card {
-  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Favorite star */
+.favorite-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 22px;
+  color: gray; /* default unselected */
+  transition: color 0.3s ease;
+}
+
+.favorite-btn.favorited {
+  color: gold; /* when favorited */
 }
