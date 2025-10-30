@@ -42,7 +42,7 @@ h1 {
   background-color: #388e3c;
 }
 
-.view-controls {
+.right-buttons {
   display: flex;
   justify-content: center;
   gap: 10px;
@@ -58,6 +58,7 @@ h1 {
   cursor: pointer;
 }
 
+/* Herb Cards */
 .herb-card {
   background-color: white;
   margin: 10px auto;
@@ -73,16 +74,30 @@ h1 {
   margin: 0 0 8px 0;
 }
 
+/* Star button */
 .favorite-star {
   position: absolute;
   right: 12px;
   top: 12px;
   cursor: pointer;
-  font-size: 20px;
-  color: gray; /* default (not favorited) */
-  transition: color 0.3s;
+  font-size: 22px;
+  color: gray; /* Default not favorited */
+  transition: color 0.3s ease;
 }
 
 .favorite-star.active {
-  color: gold; /* favorited */
+  color: gold; /* Favorited */
+}
+
+/* Grid view layout */
+.grid-view {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 15px;
+  justify-items: center;
+}
+
+.grid-view .herb-card {
+  width: 90%;
+  text-align: center;
 }
