@@ -1,82 +1,98 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const herbList = document.getElementById("herb-list");
-
-  const herbs = [
-    {
-      name: "Lagundi",
-      description: "Used for coughs, asthma, and fever.",
-      preparation: "Boil leaves for 10 minutes and drink the decoction.",
-      cautions: "Not recommended for pregnant women.",
-      category: "Fever"
-    },
-    {
-      name: "Sambong",
-      description: "Helps with kidney stones and urinary problems.",
-      preparation: "Boil leaves and drink as tea twice daily.",
-      cautions: "Avoid excessive use for those with low blood pressure.",
-      category: "Kidney"
-    },
-    {
-      name: "Tanglad (Lemongrass)",
-      description: "Relieves headaches and helps digestion.",
-      preparation: "Boil stalks and drink the liquid as tea.",
-      cautions: "Avoid if allergic to grass family plants.",
-      category: "Headache"
-    },
-    {
-      name: "Bayabas (Guava)",
-      description: "Used for wounds and mouth infections.",
-      preparation: "Boil leaves and use the decoction for washing wounds.",
-      cautions: "External use only for wound washing.",
-      category: "Wound"
-    },
-    {
-      name: "Ampalaya (Bitter Gourd)",
-      description: "Helps lower blood sugar levels.",
-      preparation: "Boil or eat cooked leaves/fruit regularly.",
-      cautions: "Avoid high doses for those taking diabetes medicine.",
-      category: "Stomachache"
-    }
-  ];
-
-  function renderHerbs(filter = "All") {
-    herbList.innerHTML = "";
-
-    herbs
-      .filter((herb) => filter === "All" || herb.category === filter)
-      .forEach((herb) => {
-        const card = document.createElement("div");
-        card.className = "herb-card";
-        card.innerHTML = `
-          <div class="herb-header">
-            <h3>${herb.name}</h3>
-          </div>
-          <div class="herb-details">
-            <p><strong>Description:</strong> ${herb.description}</p>
-            <p><strong>Preparation:</strong> ${herb.preparation}</p>
-            <p><strong>Cautions:</strong> ${herb.cautions}</p>
-          </div>
-        `;
-
-        const details = card.querySelector(".herb-details");
-        details.style.display = "none";
-
-        card.querySelector(".herb-header").addEventListener("click", () => {
-          details.style.display =
-            details.style.display === "none" ? "block" : "none";
-        });
-
-        herbList.appendChild(card);
-      });
+const herbs = [
+  {
+    name: "Lagundi",
+    category: "Cough",
+    description: "Relieves cough and asthma symptoms.",
+    uses: "Good for colds and respiratory problems.",
+    preparation: "Boil leaves in water, drink as tea.",
+    caution: "Avoid excessive use if pregnant.",
+    image: "images/lagundi.jpg"
+  },
+  {
+    name: "Sambong",
+    category: "Kidney",
+    description: "Aids in dissolving kidney stones and uric acid.",
+    uses: "Used for urinary tract infections and kidney health.",
+    preparation: "Boil leaves in 2 cups of water, drink daily.",
+    caution: "Consult doctor if using with other medication.",
+    image: "images/sambong.jpg"
+  },
+  {
+    name: "Tanglad (Lemongrass)",
+    category: "Stomach Ache",
+    description: "Aids digestion and relieves stomach discomfort.",
+    uses: "Helps with bloating and gas.",
+    preparation: "Boil 1 stalk in 2 cups of water, drink as tea.",
+    caution: "Avoid if you have low blood pressure.",
+    image: "images/tanglad.jpg"
+  },
+  {
+    name: "Bayabas (Guava)",
+    category: "Wound",
+    description: "Used as an antiseptic and for wound washing.",
+    uses: "Helps clean cuts and wounds.",
+    preparation: "Boil young leaves and use for washing wounds.",
+    caution: "For external use only.",
+    image: "images/bayabas.jpg"
+  },
+  {
+    name: "Ampalaya (Bitter Gourd)",
+    category: "Fever",
+    description: "Reduces fever and helps control blood sugar.",
+    uses: "Also used for diabetes management.",
+    preparation: "Boil leaves or fruit in water, drink as tea.",
+    caution: "Avoid excessive use if pregnant or hypoglycemic.",
+    image: "images/ampalaya.jpg"
   }
+];
 
-  const filterButtons = document.querySelectorAll(".filter-btn");
-  filterButtons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const category = btn.textContent.trim();
-      renderHerbs(category);
-    });
+const herbList = document.getElementById('herb-list');
+const toggleBtn = document.getElementById('toggleViewBtn');
+let isGridView = false;
+
+// 🧩 RENDER FUNCTION
+function renderHerbs(filteredHerbs) {
+  herbList.innerHTML = '';
+
+  filteredHerbs.forEach(herb => {
+    const li = document.createElement('li');
+    li.classList.add('herb-card');
+    li.innerHTML = `
+      ${herb.image ? `<img src="${herb.image}" alt="${herb.name}">` : ''}
+      <h3>${herb.name}</h3>
+      <div class="details">
+        <p><b>Description:</b> ${herb.description}</p>
+        <p><b>Uses:</b> ${herb.uses}</p>
+        <p><b>Preparation:</b> ${herb.preparation}</p>
+        <p><b>Caution:</b> ${herb.caution}</p>
+      </div>
+    `;
+    herbList.appendChild(li);
   });
+}
 
-  renderHerbs("All");
+// 🌿 Filter by Category
+function filterHerbs(category) {
+  const filtered = category === 'All'
+    ? herbs
+    : herbs.filter(h => h.category === category);
+  renderHerbs(filtered);
+}
+
+// 🔳 Toggle View Button
+toggleBtn.addEventListener('click', () => {
+  isGridView = !isGridView;
+
+  if (isGridView) {
+    herbList.classList.remove('list-view');
+    herbList.classList.add('grid-view');
+    toggleBtn.textContent = '📃 List';
+  } else {
+    herbList.classList.remove('grid-view');
+    herbList.classList.add('list-view');
+    toggleBtn.textContent = '🔳 View';
+  }
 });
+
+// 🌿 Load default (All Herbs)
+renderHerbs(herbs);
