@@ -1,162 +1,188 @@
-/* 🌿 General Page Layout */
+/* =============================
+   HERB IDENTIFIER APP (Nature Theme)
+   ============================= */
+
+* {
+  box-sizing: border-box;
+}
+
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(to bottom right, #f1f8e9, #e8f5e9);
   margin: 0;
-  background: #f5f7f6;
-  color: #222;
-  transition: all 0.3s ease;
-}
-
-/* Header and Controls */
-header {
+  padding: 0;
+  color: #2e7d32;
   text-align: center;
-  background: linear-gradient(90deg, #74c69d, #52b788);
-  color: white;
-  padding: 1rem 0.5rem;
-  font-size: 1.4rem;
-  font-weight: 600;
-  letter-spacing: 1px;
 }
 
-/* Category Buttons */
-#categories {
+/* ====== HEADER ====== */
+header {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.5rem;
-  background: #e9f5ee;
-  padding: 0.7rem;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(90deg, #43a047, #66bb6a);
+  color: white;
+  padding: 14px 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+header h1 {
+  font-size: 20px;
+  font-weight: 600;
+  flex: 1;
+  text-align: center;
+}
+
+#cameraBtn,
+#viewToggle {
+  background: white;
+  color: #2e7d32;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  transition: 0.2s;
+}
+
+#cameraBtn:hover,
+#viewToggle:hover {
+  background: #c8e6c9;
+}
+
+/* ====== CATEGORY BAR ====== */
+#category-bar {
+  display: flex;
+  overflow-x: auto;
+  background: #e8f5e9;
+  padding: 10px;
+  white-space: nowrap;
+  border-bottom: 1px solid #c8e6c9;
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.05);
 }
 
 .category {
-  background: #d8f3dc;
-  border: 1px solid #95d5b2;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  font-weight: 500;
+  background: #ffffff;
+  border: 1px solid #a5d6a7;
+  border-radius: 25px;
+  padding: 6px 16px;
+  margin: 0 6px;
   cursor: pointer;
-  transition: 0.2s;
+  font-weight: 500;
+  color: #388e3c;
+  transition: all 0.2s ease;
 }
 
 .category:hover {
-  background: #b7e4c7;
+  background: #c8e6c9;
 }
 
 .category.active {
-  background: #40916c;
+  background: #43a047;
   color: white;
+  box-shadow: 0 2px 6px rgba(67, 160, 71, 0.4);
 }
 
-/* View Toggle Button */
-#viewToggle {
-  display: block;
-  margin: 1rem auto;
-  padding: 0.5rem 1.5rem;
-  background: #74c69d;
-  color: white;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
-  font-weight: 500;
-  transition: 0.2s;
-}
-
-#viewToggle:hover {
-  background: #52b788;
-}
-
-/* Herb List Area */
+/* ====== HERB LIST ====== */
 #herb-list {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 1rem;
+  gap: 15px;
+  padding: 20px;
   transition: all 0.3s ease;
 }
 
-/* Grid View Style */
+/* ====== HERB CARD ====== */
+.herb-card {
+  background: white;
+  border-radius: 15px;
+  padding: 18px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  text-align: left;
+  border: 1px solid #e0f2f1;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.herb-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+}
+
+.herb-card h3 {
+  margin: 0 0 8px;
+  cursor: pointer;
+  font-size: 18px;
+  color: #2e7d32;
+}
+
+.herb-details {
+  display: none;
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #33691e;
+  background: #f9fff9;
+  border-radius: 10px;
+  padding: 10px;
+  border: 1px dashed #c8e6c9;
+}
+
+/* ====== STAR BUTTON ====== */
+.star-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 22px;
+  color: #bdbdbd;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.star-btn:hover {
+  transform: scale(1.2);
+}
+
+.star-btn.favorited {
+  color: gold;
+  text-shadow: 0 0 8px #ffeb3b;
+}
+
+/* ====== GRID MODE ====== */
 body.grid #herb-list {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-/* Herb Cards */
-.herb-card {
-  background: white;
-  border-radius: 15px;
-  padding: 1rem;
-  margin: 0.5rem;
-  width: 90%;
-  max-width: 400px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-  position: relative;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
 body.grid .herb-card {
-  width: 250px;
+  width: 45%;
+  max-width: 320px;
+  text-align: center;
 }
 
-.herb-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
-}
-
-/* Herb Name */
-.herb-card h3 {
-  margin: 0;
-  font-size: 1.1rem;
-  color: #2d6a4f;
-  cursor: pointer;
-}
-
-/* Details (hidden by default) */
-.herb-details {
-  display: none;
-  margin-top: 0.7rem;
-  font-size: 0.95rem;
-  line-height: 1.4;
-  color: #333;
-}
-
-.herb-details p {
-  margin: 0.3rem 0;
-}
-
-/* Favorite Star Button */
-.star-btn {
-  position: absolute;
-  right: 12px;
-  top: 12px;
-  background: none;
-  border: none;
-  font-size: 1.3rem;
-  color: #ccc;
-  cursor: pointer;
-  transition: color 0.2s;
-}
-
-.star-btn:hover {
-  color: gold;
-}
-
-.star-btn.favorited {
-  color: gold;
-}
-
-/* Mobile Responsive */
-@media (max-width: 768px) {
-  .herb-card {
-    width: 95%;
+@media (max-width: 600px) {
+  body.grid .herb-card {
+    width: 100%;
   }
+}
 
-  #categories {
-    gap: 0.3rem;
-  }
+/* ====== SCROLLBAR STYLING ====== */
+#category-bar::-webkit-scrollbar {
+  height: 6px;
+}
 
-  .category {
-    padding: 0.4rem 0.8rem;
-    font-size: 0.9rem;
-  }
+#category-bar::-webkit-scrollbar-thumb {
+  background: #a5d6a7;
+  border-radius: 10px;
+}
+
+#category-bar::-webkit-scrollbar-track {
+  background: #e8f5e9;
 }
