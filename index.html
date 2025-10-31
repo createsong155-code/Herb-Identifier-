@@ -3,19 +3,179 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Herb Identifier App</title>
-  <link rel="stylesheet" href="style.css">
+  <title>🌿 Herb Identifier App</title>
+  <style>
+    /* 🌿 General Page Layout */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: #f5f7f6;
+      color: #222;
+      transition: all 0.3s ease;
+    }
+
+    /* Header and Controls */
+    header {
+      text-align: center;
+      background: linear-gradient(90deg, #74c69d, #52b788);
+      color: white;
+      padding: 1rem 0.5rem;
+      font-size: 1.4rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    /* Category Buttons */
+    #categories {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      background: #e9f5ee;
+      padding: 0.7rem;
+    }
+
+    .category {
+      background: #d8f3dc;
+      border: 1px solid #95d5b2;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .category:hover {
+      background: #b7e4c7;
+    }
+
+    .category.active {
+      background: #40916c;
+      color: white;
+    }
+
+    /* View Toggle Button */
+    #viewToggle {
+      display: block;
+      margin: 1rem auto;
+      padding: 0.5rem 1.5rem;
+      background: #74c69d;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: 0.2s;
+    }
+
+    #viewToggle:hover {
+      background: #52b788;
+    }
+
+    /* Herb List Area */
+    #herb-list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    /* Grid View Style */
+    body.grid #herb-list {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    /* Herb Cards */
+    .herb-card {
+      background: white;
+      border-radius: 15px;
+      padding: 1rem;
+      margin: 0.5rem;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+      position: relative;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    body.grid .herb-card {
+      width: 250px;
+    }
+
+    .herb-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+    }
+
+    /* Herb Name */
+    .herb-card h3 {
+      margin: 0;
+      font-size: 1.1rem;
+      color: #2d6a4f;
+      cursor: pointer;
+    }
+
+    /* Details (hidden by default) */
+    .herb-details {
+      display: none;
+      margin-top: 0.7rem;
+      font-size: 0.95rem;
+      line-height: 1.4;
+      color: #333;
+    }
+
+    .herb-details p {
+      margin: 0.3rem 0;
+    }
+
+    /* Favorite Star Button */
+    .star-btn {
+      position: absolute;
+      right: 12px;
+      top: 12px;
+      background: none;
+      border: none;
+      font-size: 1.3rem;
+      color: #ccc;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .star-btn:hover {
+      color: gold;
+    }
+
+    .star-btn.favorited {
+      color: gold;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .herb-card {
+        width: 95%;
+      }
+
+      #categories {
+        gap: 0.3rem;
+      }
+
+      .category {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <h1>🌿 Herb Identifier App</h1>
+  <header>🌿 Herb Identifier App</header>
 
-  <!-- Camera -->
-  <button id="cameraButton" class="camera-btn">📷</button>
-
-  <!-- Categories -->
   <div id="categories">
-    <button class="category" data-category="Favorites">⭐ Favorites</button>
     <button class="category active" data-category="all">All</button>
+    <button class="category" data-category="Favorites">⭐ Favorites</button>
     <button class="category" data-category="Cough">Cough</button>
     <button class="category" data-category="Wound">Wound</button>
     <button class="category" data-category="Stomach Ache">Stomach Ache</button>
@@ -23,12 +183,172 @@
     <button class="category" data-category="Kidney">Kidney</button>
   </div>
 
-  <!-- View toggle -->
-  <button id="viewToggle">📋 View</button>
+  <button id="viewToggle">Toggle View</button>
 
-  <!-- Herb List -->
   <div id="herb-list"></div>
 
-  <script src="script.js"></script>
+  <script>
+    const herbs = [
+      {
+        name: "Abang-abang – Bloodleaf / Joseph’s Coat",
+        description: "Abang-abang is a colorful plant with deep red, purple, and green leaves, often grown in home gardens not only for its beauty but also for its healing reputation.",
+        purpose: "Used to stop bleeding, treat wounds, and ease cough.",
+        preparation: "1. Crush fresh leaves and apply directly to wounds.\n2. Boil a handful of leaves in 2 cups of water; drink half cup twice daily.",
+        whenToApply: "For small wounds or mild cough.",
+        cautions: "Avoid internal use during pregnancy."
+      },
+      {
+        name: "Abtik-abtik – Speedwell",
+        description: "A low-growing creeping herb with small blue flowers found near fields and moist soil.",
+        purpose: "Used for cough, skin rashes, and sore throat.",
+        preparation: "1. Steep 1 tsp dried leaves in hot water for 5–7 minutes.\n2. Boil leaves for skin wash.",
+        whenToApply: "When having cough, skin irritation, or throat pain.",
+        cautions: "Avoid if allergic to herbs."
+      },
+      {
+        name: "Abubot – Sensitive Plant (Mimosa pudica)",
+        description: "A shy plant whose leaves fold when touched, known for calming and cooling properties.",
+        purpose: "Used for insomnia, wounds, and urinary issues.",
+        preparation: "1. Boil roots for 15 min; drink before bed.\n2. Crush leaves and apply on wounds.",
+        whenToApply: "For sleep issues, wounds, or mild UTI.",
+        cautions: "Avoid use during pregnancy."
+      },
+      {
+        name: "Akapulko – Ringworm Bush (Senna alata)",
+        description: "A tall shrub with yellow flowers, trusted for skin fungal infections.",
+        purpose: "Used for ringworm, scabies, and fungal infections.",
+        preparation: "1. Rub crushed leaves on affected skin.\n2. Mix leaves with coconut oil for ointment.",
+        whenToApply: "For fungal skin infections.",
+        cautions: "External use only."
+      },
+      {
+        name: "Alugbati – Malabar Spinach",
+        description: "A climbing vine with thick green leaves, used as food and cooling medicine.",
+        purpose: "Used for constipation, body heat, and skin health.",
+        preparation: "1. Cook in soups or sauté.\n2. Eat boiled leaves for relief.",
+        whenToApply: "For constipation or body cooling.",
+        cautions: "Excess may cause loose stools."
+      },
+      {
+        name: "Ampalaya – Bitter Gourd",
+        description: "A climbing vine with bitter fruit, symbolizing cleansing and health.",
+        purpose: "Used for diabetes, digestion, and immunity.",
+        preparation: "1. Boil leaves or fruit for tea.\n2. Cook or juice in small amounts.",
+        whenToApply: "For high blood sugar or digestion.",
+        cautions: "Avoid excess during pregnancy."
+      },
+      {
+        name: "Balbas Pusa – Cat’s Whiskers",
+        description: "A graceful herb with white flowers, used to cleanse kidneys.",
+        purpose: "Used for kidney stones, UTI, and blood pressure.",
+        preparation: "Boil leaves for 15 min; drink twice daily.",
+        whenToApply: "For urinary problems or hypertension.",
+        cautions: "Avoid long-term excessive use."
+      },
+      {
+        name: "Bayabas – Guava",
+        description: "A common healing plant with antiseptic leaves for diarrhea and wounds.",
+        purpose: "Used for diarrhea, wound washing, and oral health.",
+        preparation: "1. Boil leaves for tea or wound wash.\n2. Use cooled decoction for mouthwash.",
+        whenToApply: "For wounds, diarrhea, or mouth sores.",
+        cautions: "Excess may cause constipation."
+      },
+      {
+        name: "Caimito – Star Apple",
+        description: "A tropical tree with milky fruit and healing leaves for blood sugar and skin.",
+        purpose: "Used for diabetes, diarrhea, and skin irritation.",
+        preparation: "Boil leaves or bark and drink or apply.",
+        whenToApply: "For high blood sugar or diarrhea.",
+        cautions: "Avoid excessive use in pregnancy."
+      },
+      {
+        name: "Cucumber – Pipino",
+        description: "A hydrating vegetable known for cooling and soothing effects.",
+        purpose: "Used for skin cooling, high blood pressure, and eye puffiness.",
+        preparation: "1. Apply slices on face.\n2. Drink cucumber juice daily.\n3. Place chilled slices on eyes.",
+        whenToApply: "For cooling, relaxation, or skin care.",
+        cautions: "Avoid excessive juice intake if you have kidney problems."
+      }
+    ];
+
+    let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+    let currentCategory = "all";
+
+    const herbList = document.getElementById("herb-list");
+    const categoryButtons = document.querySelectorAll(".category");
+    const viewToggle = document.getElementById("viewToggle");
+
+    function displayHerbs() {
+      herbList.innerHTML = "";
+
+      let filtered = herbs.filter(h =>
+        currentCategory === "all"
+          ? true
+          : currentCategory === "Favorites"
+          ? favorites.includes(h.name)
+          : h.category === currentCategory
+      );
+
+      if (filtered.length === 0) {
+        herbList.innerHTML = `<p>No herbs found.</p>`;
+        return;
+      }
+
+      filtered.forEach(h => {
+        const card = document.createElement("div");
+        card.className = "herb-card";
+        const isFav = favorites.includes(h.name);
+
+        card.innerHTML = `
+          <h3>${h.name}</h3>
+          <button class="star-btn ${isFav ? "favorited" : ""}" data-herb="${h.name}">★</button>
+          <div class="herb-details">
+            <p><strong>Description:</strong> ${h.description}</p>
+            <p><strong>Purpose:</strong> ${h.purpose}</p>
+            <p><strong>Preparation:</strong> ${h.preparation}</p>
+            <p><strong>When to Apply:</strong> ${h.whenToApply}</p>
+            <p><strong>Cautions:</strong> ${h.cautions}</p>
+          </div>
+        `;
+        herbList.appendChild(card);
+      });
+
+      document.querySelectorAll(".herb-card h3").forEach(title => {
+        title.addEventListener("click", () => {
+          const details = title.nextElementSibling.nextElementSibling;
+          details.style.display = details.style.display === "block" ? "none" : "block";
+        });
+      });
+
+      document.querySelectorAll(".star-btn").forEach(btn => {
+        btn.addEventListener("click", e => {
+          e.stopPropagation();
+          const herbName = e.target.dataset.herb;
+          if (favorites.includes(herbName)) {
+            favorites = favorites.filter(f => f !== herbName);
+          } else {
+            favorites.push(herbName);
+          }
+          localStorage.setItem("favorites", JSON.stringify(favorites));
+          displayHerbs();
+        });
+      });
+    }
+
+    displayHerbs();
+
+    categoryButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        currentCategory = btn.dataset.category;
+        categoryButtons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        displayHerbs();
+      });
+    });
+
+    viewToggle.addEventListener("click", () => {
+      document.body.classList.toggle("grid");
+    });
+  </script>
 </body>
 </html>
