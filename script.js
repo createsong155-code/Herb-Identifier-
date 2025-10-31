@@ -102,7 +102,103 @@ const herbs = [
     preparation: "1. Diarrhea Remedy: Boil leaves and drink tea twice daily.\n2. Wound Wash: Boil leaves, cool, and wash wounds.\n3. Mouthwash: Use cooled decoction for gargling.",
     whenToApply: "For diarrhea, wounds, or mouth sores.",
     cautions: "Avoid overuse internally; may cause constipation."
-  }
+  },
+  {
+  name: "Caimito – Star Apple",
+  description: "A tropical fruit tree with sweet, milky flesh; its leaves and bark are used medicinally in traditional remedies.",
+  purpose: "Used for diabetes, diarrhea, and skin irritation.",
+  preparation: "1. For Diabetes: Boil 5–7 fresh leaves in 2 cups water for 10–15 min; drink 1 cup twice daily.\n2. For Diarrhea: Use decoction from bark and leaves 2–3 times daily.\n3. For Skin Irritation: Crush fresh leaves and apply as poultice.",
+  whenToApply: "For high blood sugar, loose bowel, or minor skin irritation.",
+  cautions: "Avoid excessive use in pregnancy; bark decoction may cause constipation if overconsumed."
+},
+{
+  name: "Calamansi – Philippine Lime",
+  description: "A small citrus fruit rich in vitamin C, commonly used in Filipino homes for both culinary and medicinal purposes.",
+  purpose: "Used for cough, sore throat, fever, and skin brightening.",
+  preparation: "1. For Cough & Sore Throat: Mix juice with honey and take 1 tbsp 2–3 times daily.\n2. For Skin Whitening: Apply diluted juice on dark spots for 5–10 minutes before rinsing.\n3. For Fever: Drink juice mixed with warm water.",
+  whenToApply: "For cough, fever, or minor skin discoloration.",
+  cautions: "Acidic—may irritate stomach in people with ulcers or GERD; avoid on open wounds."
+},
+{
+  name: "Camote Tops – Sweet Potato Leaves",
+  description: "Nutritious leafy vegetable rich in antioxidants and medicinal value, often used to promote recovery and improve blood health.",
+  purpose: "Used for dengue recovery, anemia, and constipation.",
+  preparation: "1. For Dengue Recovery: Boil leaves for 15–20 minutes; drink decoction to support platelet count.\n2. For Anemia: Eat steamed leaves regularly.\n3. For Constipation: Eat blanched leaves.",
+  whenToApply: "For weakness, low blood count, or constipation.",
+  cautions: "Safe as food, but excessive decoction may cause diarrhea."
+},
+{
+  name: "Camphor Tree – Tagulamos (Kapur / Laurus camphora)",
+  description: "An evergreen tree with aromatic leaves used in traditional medicine for muscle pain and respiratory relief.",
+  purpose: "Used for muscle pain, cough, and congestion.",
+  preparation: "1. For Muscle Pain: Mix camphor oil with coconut oil and massage on affected area.\n2. For Cough Relief: Inhale steam from hot water with 2–3 drops of camphor oil.",
+  whenToApply: "For body aches or congested chest.",
+  cautions: "Do not ingest camphor oil; toxic in large amounts; avoid use on infants."
+},
+{
+  name: "Carrot Leaves & Roots",
+  description: "Root vegetable rich in vitamins and beta-carotene, beneficial for eyesight and digestion.",
+  purpose: "Used for vision health, wound healing, and constipation.",
+  preparation: "1. For Vision: Eat raw or lightly steamed carrots daily.\n2. For Wound Healing: Apply grated raw carrot on wounds.\n3. For Constipation: Drink fresh carrot juice in the morning.",
+  whenToApply: "For eye health, constipation, or wound healing.",
+  cautions: "Too much beta-carotene may cause skin yellowing; monitor sugar levels if diabetic."
+},
+{
+  name: "Cassava Leaves & Roots",
+  description: "A starchy root crop and leafy plant widely used as food and medicine in rural areas.",
+  purpose: "Used for fatigue and skin irritation.",
+  preparation: "1. For Fatigue: Boil young leaves for 15–20 minutes to remove toxins; eat with meals.\n2. For Skin Irritation: Apply mashed boiled leaves on affected area.",
+  whenToApply: "For tiredness or minor skin irritation.",
+  cautions: "Raw cassava contains toxins; must be thoroughly cooked. Avoid in people with kidney problems."
+},
+{
+  name: "Catmon – Dillenia philippinensis",
+  description: "A native fruit tree with sour fruit and medicinal bark and leaves used in folk medicine.",
+  purpose: "Used for cough and mouth sores.",
+  preparation: "1. For Cough: Boil bark and leaves; drink decoction twice daily.\n2. For Mouth Sores: Gargle with cooled decoction.",
+  whenToApply: "For cough or mouth inflammation.",
+  cautions: "Avoid excessive intake; may irritate stomach."
+},
+{
+  name: "Chili Pepper – Siling Labuyo",
+  description: "A small, spicy pepper rich in capsaicin, valued for its stimulating and pain-relieving properties.",
+  purpose: "Used for arthritis, nasal congestion, and metabolism boost.",
+  preparation: "1. For Arthritis: Apply oil infused with crushed chili on affected area.\n2. For Nasal Congestion: Inhale steam from chili-infused water.\n3. For Weight Loss: Add small amounts to meals.",
+  whenToApply: "For joint pain, stuffy nose, or metabolism support.",
+  cautions: "May cause skin or eye irritation; avoid overuse if you have ulcers or heartburn."
+},
+{
+  name: "Chayote – Sayote",
+  description: "A green pear-shaped vegetable whose fruits, shoots, and leaves are widely used as food and herbal remedy.",
+  purpose: "Used for kidney stones, high blood pressure, and skin rashes.",
+  preparation: "1. For Kidney Stones: Drink decoction of leaves twice daily.\n2. For Hypertension: Eat boiled fruit regularly.\n3. For Skin Rashes: Apply mashed leaves as poultice.",
+  whenToApply: "For urinary problems, hypertension, or skin irritation.",
+  cautions: "Generally safe; may cause stomach discomfort if eaten raw in large amounts."
+},
+{
+  name: "Coconut – Lubi",
+  description: "Known as the 'Tree of Life,' every part of the coconut tree offers food and healing benefits.",
+  purpose: "Used for dehydration, skin burns, and lice removal.",
+  preparation: "1. For Dehydration: Drink fresh coconut water.\n2. For Burns: Apply virgin coconut oil to affected area.\n3. For Lice: Apply coconut oil overnight on scalp and rinse next morning.",
+  whenToApply: "For dehydration, minor burns, or lice infestation.",
+  cautions: "Generally safe; excessive coconut water may affect electrolyte balance."
+},
+{
+  name: "Coriander – Wansoy",
+  description: "An aromatic culinary and medicinal herb valued for digestive and anti-inflammatory effects.",
+  purpose: "Used for indigestion and joint pain.",
+  preparation: "1. For Indigestion: Boil 1 tsp of seeds in 1 cup of water; drink as tea.\n2. For Joint Pain: Apply paste made from fresh leaves.",
+  whenToApply: "For upset stomach or joint pain.",
+  cautions: "May cause allergic reactions in sensitive individuals."
+},
+{
+  name: "Cucumber – Pipino",
+  description: "A hydrating vegetable known for cooling, soothing, and cleansing properties.",
+  purpose: "Used for skin cooling, high blood pressure, and eye puffiness.",
+  preparation: "1. For Skin Cooling: Apply fresh slices on face.\n2. For High Blood Pressure: Drink cucumber juice daily.\n3. For Eye Puffiness: Place chilled slices over eyes for 10 minutes.",
+  whenToApply: "For cooling, relaxation, or skin care.",
+  cautions: "Safe; avoid excessive juice intake if you have kidney problems."
+}  
 ];
 
 let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
