@@ -1,6 +1,6 @@
 <script>
 const herbs = [
-  // 🌿 A SERIES
+  // 🌿 A Series
   {
     name: "Abang-abang – Bloodleaf / Joseph’s Coat",
     description: "A colorful plant with red, purple, and green leaves used to stop bleeding and ease cough.",
@@ -106,7 +106,7 @@ const herbs = [
     cautions: "Avoid overuse; may cause constipation."
   },
 
-  // 🌿 C SERIES
+  // 🌿 C Series
   {
     name: "Caimito – Star Apple",
     description: "A tropical tree with sweet fruit; leaves and bark are medicinal.",
@@ -232,3 +232,57 @@ function displayHerbs() {
     const card = document.createElement("div");
     card.className = "herb-card";
     const isFav = favorites.includes(h.name);
+
+    card.innerHTML = `
+      <h3>${h.name}</h3>
+      <button class="star-btn ${isFav ? "favorited" : ""}" data-herb="${h.name}">★</button>
+      <div class="herb-details">
+        <p><strong>Description:</strong> ${h.description}</p>
+        <p><strong>Purpose:</strong> ${h.purpose}</p>
+        <p><strong>Preparation:</strong> ${h.preparation}</p>
+        <p><strong>When to Apply:</strong> ${h.whenToApply}</p>
+        <p><strong>Cautions:</strong> ${h.cautions}</p>
+      </div>
+    `;
+    herbList.appendChild(card);
+  });
+
+  // Toggle details
+  document.querySelectorAll(".herb-card h3").forEach(title => {
+    title.addEventListener("click", () => {
+      const details = title.nextElementSibling.nextElementSibling;
+      details.style.display = details.style.display === "block" ? "none" : "block";
+    });
+  });
+
+  // Toggle favorites
+  document.querySelectorAll(".star-btn").forEach(btn => {
+    btn.addEventListener("click", e => {
+      e.stopPropagation();
+      const herbName = e.target.dataset.herb;
+      if (favorites.includes(herbName)) {
+        favorites = favorites.filter(f => f !== herbName);
+      } else {
+        favorites.push(herbName);
+      }
+      localStorage.setItem("favorites", JSON.stringify(favorites));
+      displayHerbs();
+    });
+  });
+}
+
+displayHerbs();
+
+categoryButtons.forEach(btn => {
+  btn.addEventListener("click", () => {
+    currentCategory = btn.dataset.category;
+    categoryButtons.forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    displayHerbs();
+  });
+});
+
+viewToggle.addEventListener("click", () => {
+  document.body.classList.toggle("grid");
+});
+</script>
