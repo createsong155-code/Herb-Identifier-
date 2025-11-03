@@ -274,6 +274,182 @@ const herbs = [
         whenToApply: "For cough, wounds, or mild stomach discomfort.",
         cautions: "Resin may irritate sensitive skin. Avoid ingestion in large amounts; not recommended for pregnant women."
       },
+      {
+        name: "Fennel – Anis",
+        description: "An aromatic herb with feathery leaves and sweet seeds, used to aid digestion and relieve respiratory discomfort.",
+        purpose: "Used for bloating, cough, sore throat, and improving milk flow in nursing mothers.",
+        preparation: "1. For Bloating: Crush 1 tsp fennel seeds, steep in 1 cup hot water for 10 mins, drink warm after meals.\n2. For Cough: Boil 1 tbsp seeds in 2 cups water until reduced by half, sip throughout the day.\n3. For Lactation: Mix 1 tsp fennel seeds in warm milk and drink once daily.",
+        whenToApply: "For digestive gas, sore throat, or breastfeeding support.",
+        cautions: "Avoid during pregnancy unless prescribed; may cause allergic reactions in sensitive people."
+      },
+      {
+        name: "Gabi – Taro",
+        description: "A root crop with edible tubers and leaves rich in fiber and minerals, often used in Filipino cuisine and folk remedies.",
+        purpose: "Used for boils, insect bites, and digestive energy support.",
+        preparation: "1. For Swelling: Wash gabi leaves, warm slightly, and apply as compress.\n2. For Boils: Crush leaves, mix with coconut oil, apply on affected area, and cover with clean cloth.\n3. For Nutrition: Boil tubers and eat as part of meal.",
+        whenToApply: "For skin swelling, boils, or as a nutritious energy food.",
+        cautions: "Always cook before eating; raw gabi contains calcium oxalate which can irritate mouth and throat."
+      },
+      {
+        name: "Galing-galing – Red Ginger",
+        description: "A spicy root known for anti-inflammatory and digestive properties, commonly used in herbal teas.",
+        purpose: "Used for sore throat, nausea, and respiratory conditions.",
+        preparation: "1. For Sore Throat: Boil 2–3 slices in 1 cup water, gargle while warm.\n2. For Nausea: Chew a thin slice raw or steep in hot water for tea.\n3. For Cough: Mix ginger decoction with honey and drink twice daily.",
+        whenToApply: "During cough, nausea, or throat irritation.",
+        cautions: "May cause heartburn; avoid excess if you have ulcers or bleeding disorders."
+      },
+      {
+        name: "Gatas-gatas – Asthma Weed",
+        description: "A small herb with white sap used in folk medicine for asthma, cough, and skin rashes.",
+        purpose: "Used for asthma, cough, and wound healing.",
+        preparation: "1. For Asthma: Boil a handful of plant in 2 cups water for 15 mins, drink ½ cup twice daily.\n2. For Wounds: Crush leaves, apply to affected skin.\n3. For Skin Rashes: Pound leaves, mix with coconut oil, apply to rash.",
+        whenToApply: "For breathing issues or skin inflammation.",
+        cautions: "Latex sap may irritate skin; avoid during pregnancy and breastfeeding."
+      },
+      {
+        name: "Ginger – Luya",
+        description: "Common kitchen spice with strong anti-inflammatory, antioxidant, and digestive benefits.",
+        purpose: "Used for nausea, cough, sore throat, and joint pain.",
+        preparation: "1. For Nausea: Slice fresh ginger, steep in hot water for 10 mins, drink warm.\n2. For Joint Pain: Crush ginger, wrap in cloth, and apply as a warm compress.\n3. For Cough: Boil ginger slices, add honey, drink twice daily.",
+        whenToApply: "For cough, upset stomach, or body aches.",
+        cautions: "Avoid excessive use in those with gallstones or bleeding disorders."
+      },
+      {
+        name: "Gonggong – Sea Snail Herb",
+        description: "A coastal delicacy sometimes used in traditional remedies for skin issues and nutrition.",
+        purpose: "Used for skin ailments and as nutritious food.",
+        preparation: "1. For Skin: Crush cooked snail meat with salt, apply to skin (folk use).\n2. For Food: Boil in salted water and eat.",
+        whenToApply: "For skin ailments or as high-protein nourishment.",
+        cautions: "Avoid if allergic to shellfish; improper preparation can cause food poisoning."
+      },
+      {
+        name: "Gumamela – Hibiscus",
+        description: "An ornamental flower widely used in Filipino folk medicine for cough, fever, and skin problems.",
+        purpose: "Used for cough, colds, wounds, and skin rashes.",
+        preparation: "1. For Cough: Boil flowers in 2 cups water for 10 mins, drink warm twice daily.\n2. For Wounds: Pound fresh flowers, apply juice on affected skin.\n3. For Rashes: Soak flowers in warm water and use as a skin bath.",
+        whenToApply: "For cough, fever, or irritated skin.",
+        cautions: "Generally safe; ensure flowers are pesticide-free before use."
+      },
+      {
+        name: "Hagonoy – Chromolaena odorata",
+        description: "A wild shrub with small white flowers used for wound healing, inflammation, and stomach ailments.",
+        purpose: "Used for wounds, inflammation, and diarrhea.",
+        preparation: "1. For Wounds: Crush leaves and apply to bleeding wound to stop bleeding.\n2. For Inflammation: Boil 10–15 leaves in 3 cups water, drink 1 cup twice daily.\n3. For Stomach Relief: Boil roots and drink warm decoction for diarrhea.",
+        whenToApply: "For cuts, swelling, or digestive problems.",
+        cautions: "Avoid prolonged use; not recommended for pregnant women due to possible liver effects."
+      },
+      {
+        name: "Hilbas – Mugwort (Artemisia vulgaris)",
+        description: "A traditional Visayan herb with a bitter taste, used for regulating menstruation and aiding digestion.",
+        purpose: "Used for menstrual pain, stomach ache, and postpartum baths.",
+        preparation: "1. For Menstrual Aid: Boil leaves in 3 cups water, drink ½ cup twice daily.\n2. For Stomach Ache: Make tea from dried leaves and drink after meals.\n3. For Postpartum Bath: Boil leaves in a pot of water and use for bathing.",
+        whenToApply: "For menstrual cramps, postpartum recovery, or stomach pain.",
+        cautions: "Avoid during pregnancy; may trigger uterine contractions."
+      },
+      {
+        name: "Iba – Kamias (Averrhoa bilimbi)",
+        description: "A sour fruit-bearing tree with medicinal fruits and leaves used in various home remedies.",
+        purpose: "Used for sore throat, skin rashes, and high blood pressure.",
+        preparation: "1. For Sore Throat: Boil fruits and gargle the decoction.\n2. For Skin Rash: Pound leaves and apply to itchy skin.\n3. For Hypertension: Drink diluted juice once daily.",
+        whenToApply: "For throat inflammation, rashes, or high blood pressure.",
+        cautions: "Highly acidic — may irritate stomach lining; avoid if you have ulcers."
+      },
+      {
+        name: "Ikmo – Betel Leaf (Piper betle)",
+        description: "A heart-shaped aromatic leaf commonly used in traditional medicine for oral and chest ailments.",
+        purpose: "Used for toothache, chest congestion, and wound cleansing.",
+        preparation: "1. For Toothache: Chew fresh leaf and hold juice near affected tooth.\n2. For Congestion: Warm leaf and place on chest for relief.\n3. For Wound Cleaning: Boil leaves and use cooled water to wash wounds.",
+        whenToApply: "For chest cold, toothache, or wound cleaning.",
+        cautions: "Avoid long-term chewing with areca nut — linked to oral cancer; external use is safer."
+      },
+      {
+        name: "Fennel – Anis",
+        description: "An aromatic herb with feathery leaves and sweet seeds, used to aid digestion and relieve respiratory discomfort.",
+        purpose: "Used for bloating, cough, sore throat, and improving milk flow in nursing mothers.",
+        preparation: "1. For Bloating: Crush 1 tsp fennel seeds, steep in 1 cup hot water for 10 mins, drink warm after meals.\n2. For Cough: Boil 1 tbsp seeds in 2 cups water until reduced by half, sip throughout the day.\n3. For Lactation: Mix 1 tsp fennel seeds in warm milk and drink once daily.",
+        whenToApply: "For digestive gas, sore throat, or breastfeeding support.",
+        cautions: "Avoid during pregnancy unless prescribed; may cause allergic reactions in sensitive people."
+      },
+      {
+        name: "Gabi – Taro",
+        description: "A root crop with edible tubers and leaves rich in fiber and minerals, often used in Filipino cuisine and folk remedies.",
+        purpose: "Used for boils, insect bites, and digestive energy support.",
+        preparation: "1. For Swelling: Wash gabi leaves, warm slightly, and apply as compress.\n2. For Boils: Crush leaves, mix with coconut oil, apply on affected area, and cover with clean cloth.\n3. For Nutrition: Boil tubers and eat as part of meal.",
+        whenToApply: "For skin swelling, boils, or as a nutritious energy food.",
+        cautions: "Always cook before eating; raw gabi contains calcium oxalate which can irritate mouth and throat."
+      },
+      {
+        name: "Galing-galing – Red Ginger",
+        description: "A spicy root known for anti-inflammatory and digestive properties, commonly used in herbal teas.",
+        purpose: "Used for sore throat, nausea, and respiratory conditions.",
+        preparation: "1. For Sore Throat: Boil 2–3 slices in 1 cup water, gargle while warm.\n2. For Nausea: Chew a thin slice raw or steep in hot water for tea.\n3. For Cough: Mix ginger decoction with honey and drink twice daily.",
+        whenToApply: "During cough, nausea, or throat irritation.",
+        cautions: "May cause heartburn; avoid excess if you have ulcers or bleeding disorders."
+      },
+      {
+        name: "Gatas-gatas – Asthma Weed",
+        description: "A small herb with white sap used in folk medicine for asthma, cough, and skin rashes.",
+        purpose: "Used for asthma, cough, and wound healing.",
+        preparation: "1. For Asthma: Boil a handful of plant in 2 cups water for 15 mins, drink ½ cup twice daily.\n2. For Wounds: Crush leaves, apply to affected skin.\n3. For Skin Rashes: Pound leaves, mix with coconut oil, apply to rash.",
+        whenToApply: "For breathing issues or skin inflammation.",
+        cautions: "Latex sap may irritate skin; avoid during pregnancy and breastfeeding."
+      },
+      {
+        name: "Ginger – Luya",
+        description: "Common kitchen spice with strong anti-inflammatory, antioxidant, and digestive benefits.",
+        purpose: "Used for nausea, cough, sore throat, and joint pain.",
+        preparation: "1. For Nausea: Slice fresh ginger, steep in hot water for 10 mins, drink warm.\n2. For Joint Pain: Crush ginger, wrap in cloth, and apply as a warm compress.\n3. For Cough: Boil ginger slices, add honey, drink twice daily.",
+        whenToApply: "For cough, upset stomach, or body aches.",
+        cautions: "Avoid excessive use in those with gallstones or bleeding disorders."
+      },
+      {
+        name: "Gonggong – Sea Snail Herb",
+        description: "A coastal delicacy sometimes used in traditional remedies for skin issues and nutrition.",
+        purpose: "Used for skin ailments and as nutritious food.",
+        preparation: "1. For Skin: Crush cooked snail meat with salt, apply to skin (folk use).\n2. For Food: Boil in salted water and eat.",
+        whenToApply: "For skin ailments or as high-protein nourishment.",
+        cautions: "Avoid if allergic to shellfish; improper preparation can cause food poisoning."
+      },
+      {
+        name: "Gumamela – Hibiscus",
+        description: "An ornamental flower widely used in Filipino folk medicine for cough, fever, and skin problems.",
+        purpose: "Used for cough, colds, wounds, and skin rashes.",
+        preparation: "1. For Cough: Boil flowers in 2 cups water for 10 mins, drink warm twice daily.\n2. For Wounds: Pound fresh flowers, apply juice on affected skin.\n3. For Rashes: Soak flowers in warm water and use as a skin bath.",
+        whenToApply: "For cough, fever, or irritated skin.",
+        cautions: "Generally safe; ensure flowers are pesticide-free before use."
+      },
+      {
+        name: "Hagonoy – Chromolaena odorata",
+        description: "A wild shrub with small white flowers used for wound healing, inflammation, and stomach ailments.",
+        purpose: "Used for wounds, inflammation, and diarrhea.",
+        preparation: "1. For Wounds: Crush leaves and apply to bleeding wound to stop bleeding.\n2. For Inflammation: Boil 10–15 leaves in 3 cups water, drink 1 cup twice daily.\n3. For Stomach Relief: Boil roots and drink warm decoction for diarrhea.",
+        whenToApply: "For cuts, swelling, or digestive problems.",
+        cautions: "Avoid prolonged use; not recommended for pregnant women due to possible liver effects."
+      },
+      {
+        name: "Hilbas – Mugwort (Artemisia vulgaris)",
+        description: "A traditional Visayan herb with a bitter taste, used for regulating menstruation and aiding digestion.",
+        purpose: "Used for menstrual pain, stomach ache, and postpartum baths.",
+        preparation: "1. For Menstrual Aid: Boil leaves in 3 cups water, drink ½ cup twice daily.\n2. For Stomach Ache: Make tea from dried leaves and drink after meals.\n3. For Postpartum Bath: Boil leaves in a pot of water and use for bathing.",
+        whenToApply: "For menstrual cramps, postpartum recovery, or stomach pain.",
+        cautions: "Avoid during pregnancy; may trigger uterine contractions."
+      },
+      {
+        name: "Iba – Kamias (Averrhoa bilimbi)",
+        description: "A sour fruit-bearing tree with medicinal fruits and leaves used in various home remedies.",
+        purpose: "Used for sore throat, skin rashes, and high blood pressure.",
+        preparation: "1. For Sore Throat: Boil fruits and gargle the decoction.\n2. For Skin Rash: Pound leaves and apply to itchy skin.\n3. For Hypertension: Drink diluted juice once daily.",
+        whenToApply: "For throat inflammation, rashes, or high blood pressure.",
+        cautions: "Highly acidic — may irritate stomach lining; avoid if you have ulcers."
+      },
+      {
+        name: "Ikmo – Betel Leaf (Piper betle)",
+        description: "A heart-shaped aromatic leaf commonly used in traditional medicine for oral and chest ailments.",
+        purpose: "Used for toothache, chest congestion, and wound cleansing.",
+        preparation: "1. For Toothache: Chew fresh leaf and hold juice near affected tooth.\n2. For Congestion: Warm leaf and place on chest for relief.\n3. For Wound Cleaning: Boil leaves and use cooled water to wash wounds.",
+        whenToApply: "For chest cold, toothache, or wound cleaning.",
+        cautions: "Avoid long-term chewing with areca nut — linked to oral cancer; external use is safer."
+      },
    ];
 
 let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
