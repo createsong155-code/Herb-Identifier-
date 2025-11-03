@@ -1,4 +1,4 @@
-// 🌿 Herb Identifier App (Full A–E Data)
+// 🌿 Herb Identifier App (Full A–C Data)
 // Detailed herbal information version – matches previous index.html data
 
 const herbs = [
