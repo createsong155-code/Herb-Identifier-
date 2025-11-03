@@ -1,230 +1,215 @@
-<script>
+// 🌿 Herb Identifier App (A–C Herbs Data + Logic)
+// -----------------------------------------------
+// This file controls the herb list display, favorites system, and view toggle.
+// Data covers herbs from A to C, each with detailed information.
+
+// 🪴 1. HERB DATA
 const herbs = [
-  // 🌿 A Series
   {
     name: "Abang-abang – Bloodleaf / Joseph’s Coat",
-    description: "A colorful plant with red, purple, and green leaves used to stop bleeding and ease cough.",
-    purpose: "Stops bleeding, heals small wounds, relieves mild cough, and boosts blood health.",
-    preparation: "1. Crush leaves and apply on wounds. 2. Boil a handful of leaves in 2 cups of water for 10 mins; drink half a cup twice daily.",
-    whenToApply: "For wounds, bleeding, or cough.",
-    cautions: "Avoid internal use during pregnancy."
+    description:
+      "A colorful plant with red, purple, and green leaves, grown in home gardens for its healing properties. Traditionally believed to strengthen the blood, stop bleeding, and ease cough.",
+    purpose: "Used to stop bleeding, treat wounds, and relieve cough.",
+    preparation:
+      "1. Fresh Poultice: Crush leaves and apply directly to wounds.\n2. Decoction for Cough: Boil a handful of leaves in 2 cups water for 10 minutes; drink half a cup twice daily.",
+    whenToApply: "For wounds, cough, or blood nourishment.",
+    cautions:
+      "Avoid internal use during pregnancy. May cause mild stomach upset in sensitive individuals."
   },
   {
     name: "Abtik-abtik – Speedwell",
-    description: "A creeping herb with small blue flowers used for cough, rashes, and sore throat.",
-    purpose: "Soothes throat, reduces skin irritation, and relieves mild cough.",
-    preparation: "1. Steep 1 tsp dried leaves in hot water; drink warm. 2. Boil leaves and use water to wash affected skin.",
-    whenToApply: "When having cough or skin irritation.",
-    cautions: "Avoid if allergic to herbal plants."
+    description:
+      "A low-growing herb with tiny blue flowers, often used for cough and skin irritation. Known for its cooling and anti-inflammatory effect.",
+    purpose: "For cough, skin rashes, and sore throat.",
+    preparation:
+      "1. Tea: Steep 1 tsp dried leaves in hot water for 5–7 mins; drink warm.\n2. Skin Wash: Boil leaves, cool, and wash affected skin.",
+    whenToApply: "For mild cough, rashes, or throat irritation.",
+    cautions: "Avoid if allergic to similar herbs."
   },
   {
     name: "Abubot – Sensitive Plant (Mimosa pudica)",
-    description: "A shy plant whose leaves close when touched, used for calming and wound healing.",
-    purpose: "For insomnia, wounds, and urinary tract discomfort.",
-    preparation: "1. Boil roots for 15 mins; drink before bed. 2. Crush fresh leaves and apply on wounds.",
-    whenToApply: "For sleeplessness or small wounds.",
-    cautions: "Avoid use during pregnancy; may lower blood pressure."
+    description:
+      "A small, touch-sensitive plant used as a calming herb. Its leaves and roots are known for their soothing and cooling effects.",
+    purpose: "For insomnia, wounds, and urinary issues.",
+    preparation:
+      "1. Sleep Tea: Boil roots in water for 15 minutes; drink before bed.\n2. Poultice: Crush leaves and apply to wounds.",
+    whenToApply: "For sleeplessness, minor wounds, or urinary discomfort.",
+    cautions: "Avoid during pregnancy; may lower blood pressure."
   },
   {
-    name: "Akapulko / Sibukaw – Ringworm Bush",
-    description: "A tall shrub with yellow flowers used as natural antifungal medicine.",
-    purpose: "Cures ringworm, scabies, and other fungal skin infections.",
-    preparation: "1. Rub crushed leaves on skin twice daily. 2. Mix with coconut oil to make ointment.",
-    whenToApply: "For fungal skin infections.",
-    cautions: "External use only."
+    name: "Akapulko / Sibukaw – Ringworm Bush (Senna alata)",
+    description:
+      "A tall shrub with yellow flowers, widely used to treat fungal infections like ringworm and scabies. Acts as a natural antifungal remedy.",
+    purpose: "For fungal skin infections and itchiness.",
+    preparation:
+      "1. Leaf Rub: Rub crushed fresh leaves on affected area twice daily.\n2. Ointment: Mix crushed leaves with coconut oil.\n3. Decoction: Boil leaves and use as skin wash.",
+    whenToApply: "For ringworm, scabies, or itchy skin.",
+    cautions: "External use only; ingestion may cause stomach upset."
   },
   {
     name: "Alugbati – Malabar Spinach",
-    description: "A leafy vine used as food and medicine, known for cooling and cleansing the body.",
-    purpose: "Relieves constipation, cools the body, and improves skin health.",
-    preparation: "1. Eat steamed or boiled leaves. 2. Drink boiled leaf water as cooling tea.",
-    whenToApply: "For constipation or heat in the body.",
+    description:
+      "A vine vegetable rich in vitamins and iron. Used to cool the body, ease constipation, and promote healthy skin.",
+    purpose: "For constipation, skin health, and cooling the body.",
+    preparation:
+      "1. As Food: Cook leaves in soups or sautéed dishes.\n2. Tea: Boil leaves, strain, and drink for cooling effect.",
+    whenToApply: "For heatiness, constipation, or skin rashes.",
     cautions: "Overeating may cause loose stools."
   },
   {
     name: "Ampalaya – Bitter Gourd",
-    description: "A bitter vine known for its health benefits, especially for blood sugar and digestion.",
+    description:
+      "A climbing vine with bitter-tasting fruit used to purify the blood and control blood sugar levels. A common medicinal vegetable in Filipino homes.",
     purpose: "For diabetes, digestion, and immunity.",
-    preparation: "1. Boil sliced leaves or fruit for 10 mins; drink half cup twice daily. 2. Eat as vegetable dish or juice.",
-    whenToApply: "For diabetes or low immunity.",
-    cautions: "Avoid excessive use during pregnancy."
+    preparation:
+      "1. Tea: Boil sliced leaves/fruit for 10 mins; drink half cup twice daily.\n2. Juice: Blend leaves with water, drink small amounts.",
+    whenToApply: "For high blood sugar or digestive imbalance.",
+    cautions: "Avoid excessive intake during pregnancy; may lower blood sugar."
   },
   {
     name: "Anis – Anise",
-    description: "A sweet-scented seed used for stomach gas and cough relief.",
-    purpose: "Eases bloating, cough, and bad breath.",
-    preparation: "1. Boil 1 tsp seeds in water for 5 mins; drink warm. 2. Chew a few seeds after meals.",
-    whenToApply: "For stomach gas or cough.",
-    cautions: "Avoid if allergic to celery or carrot family."
+    description:
+      "A fragrant seed used for both food and medicine, known to relieve gas, soothe cough, and freshen the breath.",
+    purpose: "For bloating, cough, and bad breath.",
+    preparation:
+      "1. Tea: Boil 1 tsp seeds in 1 cup water for 5 mins; drink warm.\n2. Chew seeds after meals for digestion.",
+    whenToApply: "After meals or when coughing.",
+    cautions: "Avoid if allergic to celery or carrot family plants."
   },
   {
     name: "Anonas – Custard Apple",
-    description: "A fruit tree with bark and leaves used to treat diarrhea and wounds.",
-    purpose: "Treats diarrhea, dysentery, and aids wound healing.",
-    preparation: "1. Boil bark in water; sip as tea. 2. Crush leaves and apply to wounds.",
-    whenToApply: "For diarrhea or wounds.",
+    description:
+      "A fruit tree with medicinal bark and leaves. Traditionally used for diarrhea and wound care.",
+    purpose: "For diarrhea, dysentery, and wounds.",
+    preparation:
+      "1. Diarrhea Remedy: Boil bark, drink small sips.\n2. Poultice: Crush leaves and apply to skin wounds.",
+    whenToApply: "For diarrhea or skin injuries.",
     cautions: "Overuse may cause constipation."
   },
   {
     name: "Atis – Sugar Apple",
-    description: "A sweet fruit whose leaves and seeds have medicinal use for fever and lice.",
-    purpose: "Used for dysentery, fever, and head lice.",
-    preparation: "1. Boil leaves for fever bath. 2. Crush seeds, mix with coconut oil, apply to scalp, rinse after 30 mins.",
-    whenToApply: "For fever or lice.",
+    description:
+      "A sweet fruit-bearing tree with medicinal leaves and seeds. Used for fever baths and lice treatment.",
+    purpose: "For fever and head lice.",
+    preparation:
+      "1. Fever Bath: Boil leaves in water and use for sponge bath.\n2. Lice Remedy: Mix crushed seeds with coconut oil, apply for 30 mins then rinse.",
+    whenToApply: "During fever or lice infestation.",
     cautions: "Seeds are toxic if swallowed."
   },
   {
     name: "Balbas Pusa – Cat’s Whiskers",
-    description: "An herb with white flowers resembling whiskers, used for kidney cleansing.",
-    purpose: "Treats kidney stones, UTI, and high blood pressure.",
-    preparation: "Boil leaves for 15 mins; drink twice daily.",
-    whenToApply: "For urinary or kidney issues.",
-    cautions: "Avoid overuse; may lower blood pressure too much."
+    description:
+      "A herb known for cleansing the kidneys and lowering blood pressure. Commonly used as tea for urinary health.",
+    purpose: "For kidney stones, UTI, and high blood pressure.",
+    preparation:
+      "1. Tea: Boil leaves in water for 15 mins; drink twice daily.\n2. Use regularly for cleansing effect.",
+    whenToApply: "For urinary issues or mild hypertension.",
+    cautions: "Avoid long-term use; may lower blood pressure too much."
   },
   {
     name: "Banaba – Giant Crape Myrtle",
-    description: "A tree with purple flowers, known for lowering blood sugar and aiding weight loss.",
-    purpose: "For diabetes, weight loss, and kidney cleansing.",
-    preparation: "Boil dried leaves for 10 mins; drink 1 cup twice daily.",
-    whenToApply: "For high blood sugar or kidney issues.",
-    cautions: "May enhance effect of anti-diabetic drugs."
+    description:
+      "A tree with purple flowers, known for lowering blood sugar and aiding weight loss.",
+    purpose: "For diabetes, weight management, and kidney health.",
+    preparation:
+      "Boil dried leaves for 10 minutes; drink 1 cup twice daily.",
+    whenToApply: "For high blood sugar or detox.",
+    cautions: "May enhance anti-diabetic drugs."
   },
   {
     name: "Bawang – Garlic",
-    description: "A common kitchen remedy for infections and high blood pressure.",
-    purpose: "For colds, infection, and heart health.",
-    preparation: "Eat 1–2 raw cloves daily or use in food. Warm in coconut oil for earache.",
-    whenToApply: "For hypertension, colds, or infections.",
-    cautions: "Avoid excess use before surgery."
+    description:
+      "A healing kitchen staple that strengthens the heart, lowers blood pressure, and fights infections.",
+    purpose: "For hypertension, colds, and immunity.",
+    preparation:
+      "1. Eat 1–2 raw cloves daily.\n2. Warm in coconut oil for ear drops.\n3. Include in cooking daily.",
+    whenToApply: "For colds, infections, or high BP.",
+    cautions: "May irritate stomach; avoid excess before surgery."
   },
   {
     name: "Bayabas – Guava",
-    description: "A common herbal plant used for diarrhea, oral health, and wounds.",
-    purpose: "Used for diarrhea, wound washing, and mouth sores.",
-    preparation: "1. Boil leaves and drink tea. 2. Use cooled water to wash wounds or gargle.",
-    whenToApply: "For diarrhea, wounds, or mouth sores.",
-    cautions: "Avoid overuse; may cause constipation."
+    description:
+      "A well-known herbal plant used to cleanse wounds, treat diarrhea, and maintain oral health.",
+    purpose: "For diarrhea, wounds, and mouth sores.",
+    preparation:
+      "1. Boil leaves and drink tea twice daily.\n2. Use decoction for wound washing or gargling.",
+    whenToApply: "For diarrhea, wounds, or oral care.",
+    cautions: "Avoid excessive internal use; may cause constipation."
   },
-
-  // 🌿 C Series
   {
     name: "Caimito – Star Apple",
-    description: "A tropical tree with sweet fruit; leaves and bark are medicinal.",
-    purpose: "Used for diabetes, diarrhea, and skin irritation.",
-    preparation: "Boil 5–7 leaves for 10–15 mins; drink 1 cup twice daily. Apply crushed leaves on skin.",
-    whenToApply: "For diabetes or diarrhea.",
-    cautions: "Avoid in pregnancy; bark may cause constipation."
+    description:
+      "A tropical fruit tree whose leaves and bark are used for diabetes, diarrhea, and skin irritation.",
+    purpose: "For diabetes, diarrhea, and skin irritation.",
+    preparation:
+      "Boil 5–7 fresh leaves in 2 cups water; drink 1 cup twice daily.",
+    whenToApply: "For high blood sugar or loose bowel.",
+    cautions: "Avoid excessive use during pregnancy."
   },
   {
     name: "Calamansi – Philippine Lime",
-    description: "A small citrus fruit rich in vitamin C, used for cough and sore throat.",
-    purpose: "For cough, sore throat, and skin care.",
-    preparation: "Mix juice with honey; take 1 tbsp 3x daily. Use diluted juice on skin for 5 mins.",
-    whenToApply: "For cough, fever, or dark spots.",
-    cautions: "Avoid on open wounds; may irritate stomach."
+    description:
+      "A citrus fruit rich in vitamin C, used to soothe cough, fever, and brighten skin.",
+    purpose: "For cough, sore throat, fever, and skin care.",
+    preparation:
+      "1. Mix juice with honey; take 1 tbsp twice daily.\n2. Apply diluted juice to dark spots.",
+    whenToApply: "For cough, sore throat, or fever.",
+    cautions:
+      "Acidic; avoid in people with ulcers or sensitive skin."
   },
   {
     name: "Camote Tops – Sweet Potato Leaves",
-    description: "Nutritious leaves known to help dengue recovery and anemia.",
-    purpose: "Used for dengue recovery, anemia, and constipation.",
-    preparation: "Boil leaves for 15 mins; drink or eat. Eat steamed for anemia.",
-    whenToApply: "For dengue recovery or anemia.",
-    cautions: "Overuse may cause diarrhea."
+    description:
+      "A nutritious vegetable for blood and recovery support, commonly used during dengue recovery.",
+    purpose: "For dengue, anemia, and constipation.",
+    preparation:
+      "1. Boil leaves for 15–20 mins; drink decoction.\n2. Eat steamed leaves regularly.",
+    whenToApply: "For weakness or low platelet count.",
+    cautions: "Safe as food; excess may cause diarrhea."
   },
   {
-    name: "Camphor Tree – Tagulamos / Kapur",
-    description: "Aromatic tree used for muscle pain and cough relief.",
-    purpose: "Used for muscle pain and cough.",
-    preparation: "Mix camphor oil with coconut oil and massage; inhale steam with 2–3 drops oil.",
-    whenToApply: "For cough or sore muscles.",
-    cautions: "Do not ingest; avoid on infants."
-  },
-  {
-    name: "Carrot – Roots and Leaves",
-    description: "A root vegetable high in vitamins and beta-carotene.",
-    purpose: "Good for vision, wounds, and digestion.",
-    preparation: "Eat raw or steamed; apply grated carrot to wounds; drink juice for constipation.",
-    whenToApply: "For vision and digestion.",
-    cautions: "Overuse may yellow the skin."
-  },
-  {
-    name: "Cassava – Leaves and Roots",
-    description: "A starchy root used as food and energy source.",
-    purpose: "Used for fatigue and skin irritation.",
-    preparation: "Boil young leaves 15–20 mins; eat with meals; mash boiled leaves for skin.",
-    whenToApply: "For fatigue or skin irritation.",
-    cautions: "Never eat raw; may contain toxins."
-  },
-  {
-    name: "Catmon – Dillenia philippinensis",
-    description: "A native tree with sour fruit used for cough and mouth sores.",
-    purpose: "Treats cough and mouth sores.",
-    preparation: "Boil bark and leaves; drink or gargle twice daily.",
-    whenToApply: "For cough or mouth ulcers.",
-    cautions: "May irritate stomach if overused."
-  },
-  {
-    name: "Chili Pepper – Siling Labuyo",
-    description: "Small spicy pepper rich in capsaicin, used for pain and metabolism.",
-    purpose: "Used for arthritis, nasal congestion, and metabolism boost.",
-    preparation: "Apply oil infused with crushed chili to affected area; inhale steam for congestion.",
-    whenToApply: "For pain or congestion.",
-    cautions: "Avoid eyes; may irritate stomach."
-  },
-  {
-    name: "Chayote – Sayote",
-    description: "A green pear-shaped vegetable used for kidney and skin issues.",
-    purpose: "For kidney stones, hypertension, and rashes.",
-    preparation: "Boil fruit or leaves and drink decoction twice daily.",
-    whenToApply: "For kidney stones or hypertension.",
-    cautions: "Safe; avoid eating raw in excess."
-  },
-  {
-    name: "Coconut – Lubi",
-    description: "The ‘tree of life,’ with many medicinal and food uses.",
-    purpose: "For dehydration, skin burns, and lice.",
-    preparation: "Drink fresh water; apply virgin coconut oil to skin or scalp.",
-    whenToApply: "For dehydration, burns, or lice.",
-    cautions: "Too much water may imbalance electrolytes."
-  },
-  {
-    name: "Coriander – Wansoy",
-    description: "An aromatic herb used for cooking and digestion.",
-    purpose: "For indigestion and joint pain.",
-    preparation: "Boil seeds for tea; apply fresh paste for joint pain.",
-    whenToApply: "For digestion or pain.",
-    cautions: "Avoid if allergic."
+    name: "Carrot – Lugas",
+    description:
+      "A vitamin-rich root used for vision, digestion, and wound healing.",
+    purpose: "For eyesight, wounds, and digestion.",
+    preparation:
+      "1. Eat raw or steamed.\n2. Drink carrot juice for constipation.",
+    whenToApply: "Daily for eye and digestive health.",
+    cautions:
+      "Too much may turn skin yellow-orange temporarily."
   },
   {
     name: "Cucumber – Pipino",
-    description: "Hydrating vegetable used for cooling and soothing the body.",
-    purpose: "For skin cooling, high blood pressure, and puffy eyes.",
-    preparation: "Apply slices on skin or eyes; drink juice daily.",
-    whenToApply: "For hot weather or high blood pressure.",
-    cautions: "Avoid excessive juice if kidney issues."
+    description:
+      "A hydrating vegetable for cooling and soothing the body, often used for skin care and blood pressure.",
+    purpose: "For skin cooling, high BP, and puffiness.",
+    preparation:
+      "1. Apply slices to skin or eyes.\n2. Drink cucumber juice daily.",
+    whenToApply: "For tired eyes or hot weather.",
+    cautions: "Avoid excess juice if you have kidney issues."
   }
 ];
 
+// 🧡 2. FAVORITES SYSTEM
 let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 let currentCategory = "all";
 
+// 🔗 3. DOM ELEMENTS
 const herbList = document.getElementById("herb-list");
 const categoryButtons = document.querySelectorAll(".category");
 const viewToggle = document.getElementById("viewToggle");
 
+// 🌱 4. DISPLAY HERBS FUNCTION
 function displayHerbs() {
   herbList.innerHTML = "";
+  let filtered = herbs;
 
-  let filtered = herbs.filter(h =>
-    currentCategory === "all"
-      ? true
-      : currentCategory === "Favorites"
-      ? favorites.includes(h.name)
-      : h.category === currentCategory
-  );
+  if (currentCategory === "Favorites") {
+    filtered = herbs.filter(h => favorites.includes(h.name));
+  }
 
   if (filtered.length === 0) {
-    herbList.innerHTML = `<p>No herbs found.</p>`;
+    herbList.innerHTML = "<p>No herbs found.</p>";
     return;
   }
 
@@ -244,18 +229,19 @@ function displayHerbs() {
         <p><strong>Cautions:</strong> ${h.cautions}</p>
       </div>
     `;
+
     herbList.appendChild(card);
   });
 
-  // Toggle details
+  // 🌿 Toggle detail visibility
   document.querySelectorAll(".herb-card h3").forEach(title => {
     title.addEventListener("click", () => {
-      const details = title.nextElementSibling.nextElementSibling;
+      const details = title.parentElement.querySelector(".herb-details");
       details.style.display = details.style.display === "block" ? "none" : "block";
     });
   });
 
-  // Toggle favorites
+  // ⭐ Favorite button logic
   document.querySelectorAll(".star-btn").forEach(btn => {
     btn.addEventListener("click", e => {
       e.stopPropagation();
@@ -271,8 +257,10 @@ function displayHerbs() {
   });
 }
 
+// 🌸 5. INITIALIZE DISPLAY
 displayHerbs();
 
+// 📂 6. CATEGORY FILTER BUTTONS
 categoryButtons.forEach(btn => {
   btn.addEventListener("click", () => {
     currentCategory = btn.dataset.category;
@@ -282,7 +270,7 @@ categoryButtons.forEach(btn => {
   });
 });
 
+// 🖼️ 7. VIEW TOGGLE (List/Grid)
 viewToggle.addEventListener("click", () => {
   document.body.classList.toggle("grid");
 });
-</script>
