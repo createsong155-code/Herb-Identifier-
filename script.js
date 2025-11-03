@@ -450,7 +450,7 @@ const herbs = [
         whenToApply: "For chest cold, toothache, or wound cleaning.",
         cautions: "Avoid long-term chewing with areca nut — linked to oral cancer; external use is safer."
       },
-   ];
+];
 
 let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 let currentCategory = "all";
