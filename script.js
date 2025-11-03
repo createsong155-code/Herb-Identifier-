@@ -201,7 +201,7 @@ const herbs = [
         preparation: "1. For Skin Cooling: Apply fresh cucumber slices on the face for 10 minutes.\n2. For High Blood Pressure: Drink cucumber juice daily.\n3. For Eye Puffiness: Place chilled slices over eyes for 10 minutes.",
         whenToApply: "For tired eyes, heat rash, or high blood pressure.",
         cautions: "Safe for general use; avoid excessive juice intake for those with kidney problems."
-      }
+      },
       {
         name: "Dalandan – Native Orange",
         description: "A local citrus fruit with a sour-sweet taste and rich vitamin C content, often used for treating colds and boosting immunity.",
