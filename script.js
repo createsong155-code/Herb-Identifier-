@@ -273,8 +273,8 @@ const herbs = [
         preparation: "1. For Cough & Bronchitis: Inhale steam with a small piece of resin or add a few drops of resin oil to hot water.\n2. For Wounds: Apply resin directly to affected area or mix with coconut oil.\n3. For Stomach Pain: Boil bark in water and drink as mild tea.",
         whenToApply: "For cough, wounds, or mild stomach discomfort.",
         cautions: "Resin may irritate sensitive skin. Avoid ingestion in large amounts; not recommended for pregnant women."
-      }
-];
+      },
+   ];
 
 let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 let currentCategory = "all";
