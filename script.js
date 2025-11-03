@@ -202,7 +202,6 @@ const herbs = [
         whenToApply: "For tired eyes, heat rash, or high blood pressure.",
         cautions: "Safe for general use; avoid excessive juice intake for those with kidney problems."
       },
-      let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
       {
         name: "Dalandan – Native Orange",
         description: "A local citrus fruit with a sour-sweet taste and rich vitamin C content, often used for treating colds and boosting immunity.",
