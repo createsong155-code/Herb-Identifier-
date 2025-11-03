@@ -34,6 +34,7 @@ const herbs = [
         whenToApply: "For fungal skin infections such as ringworm, scabies, and itchiness.",
         cautions: "For external use only. Ingestion may cause stomach upset."
       },
+      let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
       {
         name: "Alugbati – Malabar Spinach",
         description: "Alugbati is a soft, climbing vine with thick green leaves often used as both food and medicine. It cools the body, promotes bowel movement, and supports skin health. In Filipino homes, it is cooked in soups or eaten steamed for its gentle cleansing effect and high nutritional value. The plant symbolizes simple, nourishing healing straight from the garden.",
