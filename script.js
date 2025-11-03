@@ -554,7 +554,110 @@ const herbs = [
         whenToApply: "During cough, asthma, or throat irritation.",
         cautions: "Avoid large doses during pregnancy; strong aroma may cause nausea if too concentrated."
       },
-      
+      {
+        name: "Lagnas – Blumea camphor (Sambong)",
+        description: "A fragrant medicinal plant used for kidney and urinary health. Its leaves have diuretic, anti-inflammatory, and antimicrobial properties.",
+        purpose: "Used for kidney stones, urinary tract infection, and fever.",
+        preparation: "1. For Kidney Stones: Boil 5–7 fresh leaves in 2 cups water for 10 minutes; drink ½ cup twice daily.\n2. For UTI: Boil leaves, cool, and drink like tea.\n3. For Fever: Use leaf decoction as sponge bath to help lower body temperature.",
+        whenToApply: "For urinary pain, kidney discomfort, or fever.",
+        cautions: "Avoid prolonged use in people with low blood pressure. Not for pregnant women without medical advice."
+      },
+      {
+        name: "Lagundi – Five-leaved Chaste Tree (Vitex negundo)",
+        description: "One of the most popular Philippine medicinal herbs, approved by the DOH. Known for its powerful effect on cough, asthma, and fever.",
+        purpose: "Used for cough, asthma, and fever relief.",
+        preparation: "1. For Cough: Boil 10 leaves in 2 cups water for 10–15 minutes; drink ½ cup every 4 hours.\n2. For Asthma: Boil leaves and drink daily until symptoms improve.\n3. For Fever: Use decoction as sponge bath to cool the body.",
+        whenToApply: "For cough, fever, or difficulty breathing.",
+        cautions: "Generally safe, but avoid excessive use. Consult doctor if symptoms persist beyond 7 days."
+      },
+      {
+        name: "Lemongrass – Tanglad",
+        description: "A fragrant grass commonly used in cooking and traditional healing for its calming and cleansing properties.",
+        purpose: "Used for fever, stomach ache, and high blood pressure.",
+        preparation: "1. For Fever: Boil 3 stalks in 4 cups water for 10 minutes; drink ½ cup every 4 hours.\n2. For Stomach Ache: Drink warm lemongrass tea after meals.\n3. For High Blood Pressure: Drink daily as mild herbal tea.",
+        whenToApply: "For fever, bloating, or hypertension.",
+        cautions: "Safe for most people; avoid high doses during pregnancy due to mild uterine stimulation."
+      },
+      {
+        name: "Luyang Dilaw – Turmeric (Curcuma longa)",
+        description: "A bright yellow rhizome widely used as a spice and natural anti-inflammatory remedy in Philippine folk medicine.",
+        purpose: "Used for arthritis, wounds, and liver health.",
+        preparation: "1. For Arthritis: Boil sliced rhizome in 2 cups water for 10 minutes; drink warm twice daily.\n2. For Wounds: Apply turmeric paste directly on cuts or sores.\n3. For Liver Health: Mix turmeric powder with honey and drink once daily.",
+        whenToApply: "For joint pain, liver cleansing, or wound care.",
+        cautions: "Avoid excessive intake in people with gallstones or bleeding disorders."
+      },
+      {
+        name: "Luya Tagalog – Native Ginger",
+        description: "A smaller, spicier ginger variety used in Visayan and Tagalog herbal healing traditions.",
+        purpose: "Used for sore throat, cough, and joint pain.",
+        preparation: "1. For Sore Throat: Boil crushed slices in 1 cup water and gargle.\n2. For Cough: Mix decoction with honey and drink twice daily.\n3. For Joint Pain: Apply warm ginger compress to affected area.",
+        whenToApply: "For cough, sore throat, or joint stiffness.",
+        cautions: "May cause heartburn if taken on an empty stomach."
+      },
+      {
+        name: "Malunggay – Moringa (Moringa oleifera)",
+        description: "Called the ‘Miracle Tree,’ malunggay is packed with nutrients and used to boost milk production and strengthen the immune system.",
+        purpose: "Used for breastfeeding, nutrition, and wound healing.",
+        preparation: "1. For Breastfeeding: Eat cooked malunggay leaves daily to enhance milk flow.\n2. For Nutrition: Include in soups or sautéed dishes for vitamin boost.\n3. For Wounds: Apply crushed leaves on minor wounds for faster healing.",
+        whenToApply: "For weakness, breastfeeding, or small wounds.",
+        cautions: "Safe as food; avoid taking strong root decoction during pregnancy."
+      },
+      {
+        name: "Mangga – Mango (Mangifera indica)",
+        description: "A tropical fruit tree valued for its sweet fruits and medicinal leaves, bark, and seeds.",
+        purpose: "Used for diarrhea, mouth sores, and scabies.",
+        preparation: "1. For Diarrhea: Boil young leaves and drink decoction twice daily.\n2. For Mouth Sores: Gargle with cooled decoction.\n3. For Scabies: Apply bark decoction on skin rashes.",
+        whenToApply: "For diarrhea, oral ulcers, or itchy skin.",
+        cautions: "Avoid unripe fruit in excess; may irritate throat. Bark decoction not for long-term use."
+      },
+      {
+        name: "Mais – Corn (Zea mays)",
+        description: "Common cereal crop whose silk and husk have medicinal properties in folk healing.",
+        purpose: "Used for urinary infection, kidney stones, and prostate support.",
+        preparation: "1. For UTI: Boil corn silk in 3 cups water for 15 minutes; drink 1 cup twice daily.\n2. For Kidney Stones: Continue drinking decoction daily for 3–5 days.\n3. For Prostate Health: Combine with sambong tea for added benefit.",
+        whenToApply: "For urinary pain or kidney discomfort.",
+        cautions: "Safe in moderate use; may lower potassium if overused."
+      },
+      {
+        name: "Mangosteen – Manggustin (Garcinia mangostana)",
+        description: "A fruit with thick purple rind rich in antioxidants and xanthones, used for immunity and wound healing.",
+        purpose: "Used for diarrhea, skin infections, and immune health.",
+        preparation: "1. For Diarrhea: Boil dried rind in water for 15 minutes; drink twice daily.\n2. For Wound Healing: Apply crushed rind externally.\n3. For Immunity: Drink rind decoction as tea once daily.",
+        whenToApply: "For diarrhea, infections, or low immunity.",
+        cautions: "Avoid in constipation or when taking blood-thinning medications."
+      },
+      {
+        name: "Niyog-niyogan – Rangoon Creeper (Quisqualis indica)",
+        description: "A climbing vine with fragrant flowers; its seeds are known as a natural deworming remedy.",
+        purpose: "Used for intestinal worms and stomach pain.",
+        preparation: "1. For Deworming: Eat 2–3 roasted seeds for children, 5–7 for adults, once a month.\n2. For Stomach Pain: Boil leaves in water and drink as mild tea.",
+        whenToApply: "For stomach worms or pain.",
+        cautions: "Seeds are potent; overdose may cause hiccups or vomiting. Use correct dosage only."
+      },
+      {
+        name: "Narra – Rosewood Tree (Pterocarpus indicus)",
+        description: "The national tree of the Philippines; bark and leaves are used in traditional medicine for skin and urinary issues.",
+        purpose: "Used for urinary infection, diabetes, and skin diseases.",
+        preparation: "1. For UTI: Boil bark in water for 15 minutes; drink twice daily.\n2. For Skin Diseases: Apply decoction as wash.\n3. For Diabetes: Drink cooled decoction once daily as herbal tea.",
+        whenToApply: "For UTI, rashes, or high blood sugar.",
+        cautions: "Avoid long-term high doses; may affect kidney function."
+      },
+      {
+        name: "Okra – Lady Finger (Abelmoschus esculentus)",
+        description: "A green pod vegetable rich in fiber and mucilage, helpful for digestion and blood sugar control.",
+        purpose: "Used for diabetes, constipation, and sore throat.",
+        preparation: "1. For Diabetes: Soak sliced okra pods in water overnight and drink in morning.\n2. For Constipation: Eat boiled or sautéed okra regularly.\n3. For Sore Throat: Boil pods and drink mucilaginous water warm.",
+        whenToApply: "For blood sugar management, sore throat, or digestion issues.",
+        cautions: "Safe in food use; may cause mild gas in sensitive individuals."
+      },
+      {
+        name: "Oregano – Kalabo / Wild Thyme (Coleus amboinicus)",
+        description: "A common home remedy plant with strong aroma and natural antibacterial effects.",
+        purpose: "Used for cough, sore throat, and nasal congestion.",
+        preparation: "1. For Cough: Boil 5–7 leaves in 2 cups water; drink warm twice daily.\n2. For Sore Throat: Mix leaf juice with honey and take 1 tablespoon.\n3. For Congestion: Inhale steam from boiled leaves.",
+        whenToApply: "During cough, cold, or sore throat.",
+        cautions: "Avoid high doses during pregnancy; may cause nausea if too concentrated."
+      }
 ];
 
 let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
