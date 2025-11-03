@@ -449,7 +449,7 @@ const herbs = [
         preparation: "1. For Toothache: Chew fresh leaf and hold juice near affected tooth.\n2. For Congestion: Warm leaf and place on chest for relief.\n3. For Wound Cleaning: Boil leaves and use cooled water to wash wounds.",
         whenToApply: "For chest cold, toothache, or wound cleaning.",
         cautions: "Avoid long-term chewing with areca nut — linked to oral cancer; external use is safer."
-      },
+      }
 ];
 
 let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
