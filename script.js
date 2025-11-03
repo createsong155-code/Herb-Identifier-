@@ -449,7 +449,112 @@ const herbs = [
         preparation: "1. For Toothache: Chew fresh leaf and hold juice near affected tooth.\n2. For Congestion: Warm leaf and place on chest for relief.\n3. For Wound Cleaning: Boil leaves and use cooled water to wash wounds.",
         whenToApply: "For chest cold, toothache, or wound cleaning.",
         cautions: "Avoid long-term chewing with areca nut — linked to oral cancer; external use is safer."
-      }
+      },
+      {
+        name: "Jatropha – Tuba-tuba (Jatropha curcas)",
+        description: "A small tree with milky sap, commonly grown as a backyard medicinal plant. Known for its strong anti-inflammatory and healing properties.",
+        purpose: "Used for rheumatism, insect bites, and wound cleaning.",
+        preparation: "1. For Rheumatism: Heat leaves lightly and apply as a warm compress on aching joints.\n2. For Insect Bites: Crush fresh leaves and apply directly on the bite.\n3. For Wound Cleaning: Boil leaves in water and wash wounds with the decoction.",
+        whenToApply: "For joint pain, skin irritation, or minor wounds.",
+        cautions: "Sap is toxic if swallowed; external use only. Wash hands after handling."
+      },
+      {
+        name: "Jasmine – Sampaguita (Jasminum sambac)",
+        description: "The national flower of the Philippines, known for its fragrant white blooms and soothing properties. Used in folk medicine for calming and treating headaches.",
+        purpose: "Used for headaches, fever, and relaxation.",
+        preparation: "1. For Headache: Crush fresh flowers and apply on the forehead.\n2. For Fever: Boil leaves and use as sponge bath.\n3. For Relaxation: Soak flowers in warm water and use for aromatherapy or bath.",
+        whenToApply: "For stress, fever, or headaches.",
+        cautions: "Safe for external use; avoid internal ingestion of large amounts."
+      },
+      {
+        name: "Jampong – Mixed Garden Herbs (Folk Blend)",
+        description: "A traditional Visayan herbal mixture of boiled backyard herbs like alugbati, oregano, and tanglad used to cleanse the body and relieve cough or fatigue.",
+        purpose: "Used for cough, fever, and body detox.",
+        preparation: "1. Decoction: Combine handfuls of mixed herbs (e.g., oregano, alugbati, tanglad), boil in 4 cups of water until reduced to half, drink ½ cup twice daily.\n2. Steam Inhalation: Use hot decoction for steam bath to relieve congestion.",
+        whenToApply: "For fever, cough, or fatigue.",
+        cautions: "Avoid excessive intake; may cause dizziness if too concentrated."
+      },
+      {
+        name: "Jus Kalabo – Oregano Juice",
+        description: "A strong herbal juice extracted from fresh oregano leaves; used for cough, sore throat, and mild infections.",
+        purpose: "Used for cough, colds, and sore throat.",
+        preparation: "1. For Cough Relief: Crush fresh leaves, extract the juice, and take 1 tablespoon twice daily.\n2. For Sore Throat: Mix juice with honey and sip slowly.\n3. For Nasal Congestion: Inhale steam from oregano leaf decoction.",
+        whenToApply: "For cough, sore throat, or nasal congestion.",
+        cautions: "Concentrated juice may cause throat irritation; dilute with water if too strong."
+      },
+      {
+        name: "Kalamansi – Philippine Lime (Citrus microcarpa)",
+        description: "A small citrus fruit rich in vitamin C, widely used in Filipino households for food, cleansing, and medicine.",
+        purpose: "Used for cough, sore throat, and skin cleansing.",
+        preparation: "1. For Cough & Cold: Mix fresh juice with honey and warm water; drink twice daily.\n2. For Sore Throat: Gargle with warm water mixed with kalamansi juice and salt.\n3. For Skin Use: Apply diluted juice on pimples or dark spots for 5 minutes before rinsing.",
+        whenToApply: "During cough, colds, or skin irritation.",
+        cautions: "Avoid direct use on open wounds; acidic juice may irritate stomach lining if taken in excess."
+      },
+      {
+        name: "Kalabasa – Squash (Cucurbita maxima)",
+        description: "A nutrient-rich vegetable high in vitamin A and fiber; used in traditional medicine for eyesight, wounds, and deworming.",
+        purpose: "Used for eye health, wound healing, and intestinal worms.",
+        preparation: "1. For Eyesight: Include boiled or steamed squash regularly in diet.\n2. For Wound Healing: Apply mashed cooked squash on minor wounds.\n3. For Deworming: Eat cooked squash seeds or grind them into a paste with honey.",
+        whenToApply: "For weak eyesight, small wounds, or suspected worms.",
+        cautions: "Generally safe; avoid overconsumption of seeds for children."
+      },
+      {
+        name: "Kalachuchi – Frangipani (Plumeria acutifolia)",
+        description: "A fragrant flowering tree used for ornamental and medicinal purposes. Its bark and leaves have anti-inflammatory and healing properties.",
+        purpose: "Used for cough, skin sores, and swelling.",
+        preparation: "1. For Cough: Boil bark in water and drink in small doses.\n2. For Skin Sores: Apply crushed leaves on affected area.\n3. For Swelling: Use bark decoction as a wash on inflamed areas.",
+        whenToApply: "For cough, boils, or swollen skin.",
+        cautions: "Sap can be irritating; avoid contact with eyes or open wounds."
+      },
+      {
+        name: "Kantutay – Lantana (Lantana camara)",
+        description: "A small shrub with colorful flowers; known in folk medicine for its antibacterial and anti-inflammatory properties.",
+        purpose: "Used for cough, asthma, and wounds.",
+        preparation: "1. For Cough & Asthma: Boil leaves and flowers in 3 cups water for 15 minutes; drink ½ cup twice daily.\n2. For Wounds: Apply crushed leaves directly on the wound.\n3. For Bath: Use leaf decoction as wash for skin infections.",
+        whenToApply: "For cough, asthma, or infected wounds.",
+        cautions: "Avoid internal use in large amounts; toxic if ingested in excess."
+      },
+      {
+        name: "Kamote – Sweet Potato (Ipomoea batatas)",
+        description: "A root crop rich in fiber and beta-carotene; used both as food and herbal remedy.",
+        purpose: "Used for digestion, energy, and dengue recovery.",
+        preparation: "1. For Digestion: Eat boiled kamote regularly as a fiber source.\n2. For Dengue Recovery: Boil young leaves for 15 minutes; drink decoction twice daily.\n3. For Constipation: Eat steamed kamote with plenty of water.",
+        whenToApply: "For weak body, constipation, or dengue recovery.",
+        cautions: "Safe as food; may cause bloating if eaten in excess."
+      },
+      {
+        name: "Kamoteng Kahoy – Cassava (Manihot esculenta)",
+        description: "A starchy tuber commonly grown for food; also used in folk medicine for fatigue and skin irritation.",
+        purpose: "Used for fatigue and skin rashes.",
+        preparation: "1. For Fatigue: Boil young leaves for 15 minutes to remove toxins; eat with rice.\n2. For Skin Irritation: Mash boiled leaves and apply on affected skin.",
+        whenToApply: "For tiredness or skin irritation.",
+        cautions: "Raw cassava is toxic; must be thoroughly cooked. Avoid excessive use for those with kidney problems."
+      },
+      {
+        name: "Kangkong – Water Spinach (Ipomoea aquatica)",
+        description: "A common leafy vegetable that grows in water; popular for its cooling and cleansing properties.",
+        purpose: "Used for constipation, anemia, and fever.",
+        preparation: "1. For Constipation: Eat boiled or sautéed kangkong with meals.\n2. For Anemia: Include regularly in diet for iron support.\n3. For Fever: Use boiled leaves as sponge bath.",
+        whenToApply: "For fever, constipation, or blood nourishment.",
+        cautions: "Avoid harvesting from dirty water sources; may carry parasites."
+      },
+      {
+        name: "Kaparang – Healing Leaf (Visayan Folk Herb)",
+        description: "A local Visayan shrub used in folk medicine for fever and skin rashes; known for its cooling properties.",
+        purpose: "Used for fever, headache, and skin irritation.",
+        preparation: "1. For Fever: Boil leaves in 3 cups of water, drink ½ cup twice daily.\n2. For Headache: Crush fresh leaves and apply on forehead.\n3. For Skin Rashes: Apply crushed leaves directly on affected area.",
+        whenToApply: "During fever or skin inflammation.",
+        cautions: "Limited data; use moderately and avoid internal use for children."
+      },
+      {
+        name: "Kalabo – Oregano (Coleus amboinicus)",
+        description: "A strong aromatic herb widely used in Filipino homes for cough and respiratory issues.",
+        purpose: "Used for cough, sore throat, and asthma.",
+        preparation: "1. For Cough: Boil 5–7 leaves in 2 cups water, drink warm twice daily.\n2. For Sore Throat: Extract juice from crushed leaves and mix with honey.\n3. For Asthma: Inhale steam from boiled oregano leaves.",
+        whenToApply: "During cough, asthma, or throat irritation.",
+        cautions: "Avoid large doses during pregnancy; strong aroma may cause nausea if too concentrated."
+      },
+      
 ];
 
 let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
