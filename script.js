@@ -202,6 +202,78 @@ const herbs = [
         whenToApply: "For tired eyes, heat rash, or high blood pressure.",
         cautions: "Safe for general use; avoid excessive juice intake for those with kidney problems."
       }
+      {
+        name: "Dalandan – Native Orange",
+        description: "A local citrus fruit with a sour-sweet taste and rich vitamin C content, often used for treating colds and boosting immunity.",
+        purpose: "Used for cough, cold, sore throat, and general body weakness.",
+        preparation: "1. For Cough & Cold: Mix fresh dalandan juice with honey and drink 1–2 times daily.\n2. For Sore Throat: Gargle warm water mixed with dalandan juice and a pinch of salt.\n3. For Weakness: Eat the fresh fruit or drink juice to restore energy.",
+        whenToApply: "During cough, colds, sore throat, or fatigue.",
+        cautions: "Acidic; avoid in people with stomach ulcers or GERD. May erode tooth enamel if taken in excess."
+      },
+      {
+        name: "Damong Maria – Mugwort (Artemisia vulgaris)",
+        description: "Aromatic shrub with silvery-green leaves and strong medicinal aroma. Traditionally valued as a stomach and menstrual pain reliever.",
+        purpose: "Used for stomach ache, menstrual pain, and wound care.",
+        preparation: "1. For Stomach Ache: Boil 5–7 leaves in 2 cups of water; drink ½ cup as needed.\n2. For Menstrual Pain: Drink the decoction twice daily during the menstrual cycle.\n3. For Skin Wounds: Crush fresh leaves and apply on affected area.",
+        whenToApply: "For stomach discomfort, menstrual cramps, or minor wounds.",
+        cautions: "Avoid during pregnancy; large doses may cause nausea or vomiting."
+      },
+      {
+        name: "Duhat – Java Plum",
+        description: "A tropical tree with purple, sweet-astringent fruits. Its bark and leaves are also used in folk medicine for blood sugar and digestion.",
+        purpose: "Used for diabetes, diarrhea, and mouth ulcers.",
+        preparation: "1. For Diabetes: Boil bark or leaves in water; drink ½ cup twice daily.\n2. For Diarrhea: Eat ripe fruit or take leaf decoction twice daily.\n3. For Mouth Ulcers: Gargle with fruit decoction or leaf tea.",
+        whenToApply: "For high blood sugar, loose bowel, or mouth sores.",
+        cautions: "May lower blood sugar significantly; monitor if on diabetic medication."
+      },
+      {
+        name: "Dahon ng Saging – Banana Leaf",
+        description: "Common household plant whose large green leaves are used as natural bandages and cooling wraps for wounds or burns.",
+        purpose: "Used for burns, wounds, and skin inflammation.",
+        preparation: "1. For Burns & Scalds: Wash banana leaf and apply directly to affected area to cool the skin.\n2. For Wound Dressing: Wrap wounds with a cleaned leaf as a natural bandage.\n3. For Fever: Use banana leaves for a cool compress.",
+        whenToApply: "For fresh burns, cuts, or feverish body heat.",
+        cautions: "External use only. Make sure the leaf is clean and pesticide-free before applying."
+      },
+      {
+        name: "Duhat-duhat – Local Shrub",
+        description: "A small local shrub similar to duhat but mainly valued for its astringent bark and leaves used to manage diarrhea.",
+        purpose: "Used for diarrhea and stomach upset.",
+        preparation: "1. Decoction: Boil bark and leaves in 3 cups water for 15 minutes; drink ½ cup twice daily.\n2. Gargle: Use cooled decoction for oral rinsing to relieve mouth ulcers.",
+        whenToApply: "For loose bowel or mouth inflammation.",
+        cautions: "Overuse may cause constipation; avoid long-term daily use."
+      },
+      {
+        name: "Euphorbia – Tawa-tawa (Asthma Weed)",
+        description: "A small grass-like weed known in Filipino folk medicine as a natural remedy for dengue recovery and asthma. It supports platelet count and strengthens the lungs.",
+        purpose: "Used for dengue recovery, asthma, and skin wounds.",
+        preparation: "1. For Dengue: Boil the whole washed plant (roots, stems, leaves) in 4 cups of water until reduced to half; drink ½ cup 3–4 times daily.\n2. For Asthma: Boil a handful of leaves and drink the decoction in small amounts once daily.\n3. For Wounds: Crush leaves and apply directly as poultice.",
+        whenToApply: "For dengue recovery, breathing difficulty, or small cuts.",
+        cautions: "Avoid overdose — can cause nausea and liver irritation. Not recommended for pregnant women or long-term use."
+      },
+      {
+        name: "Eucalyptus – Kalipay Tree",
+        description: "A tall aromatic tree with camphor-like scent; its oil and leaves are widely used to relieve cough, cold, and muscle pain.",
+        purpose: "Used for cough, asthma, and muscle aches.",
+        preparation: "1. For Cough & Cold: Inhale steam from hot water with 3–4 drops of eucalyptus oil.\n2. For Asthma Relief: Mix a few drops of eucalyptus oil with coconut oil and use as chest rub.\n3. For Wounds: Boil leaves and use cooled decoction to wash infected skin.",
+        whenToApply: "For congestion, asthma, or muscle stiffness.",
+        cautions: "Oil must always be diluted; ingestion is toxic. Avoid using on small children or near eyes."
+      },
+      {
+        name: "Eggplant – Talong",
+        description: "A common vegetable with purple skin, rich in fiber and antioxidants. It supports heart health and aids digestion.",
+        purpose: "Used for high cholesterol, burns, and constipation.",
+        preparation: "1. For High Cholesterol: Eat roasted or boiled eggplant regularly as part of meals.\n2. For Burns: Apply roasted eggplant skin directly to minor burns.\n3. For Constipation: Include in diet for fiber support.",
+        whenToApply: "For high cholesterol, mild burns, or bowel sluggishness.",
+        cautions: "Safe in moderation; may cause mild allergic reaction in sensitive individuals."
+      },
+      {
+        name: "Elemi – Pili Resin Tree (Canarium luzonicum)",
+        description: "A native tree producing fragrant resin used for healing wounds and relieving respiratory issues. Known locally as a natural disinfectant and aromatic healer.",
+        purpose: "Used for cough, bronchitis, wounds, and stomach pain.",
+        preparation: "1. For Cough & Bronchitis: Inhale steam with a small piece of resin or add a few drops of resin oil to hot water.\n2. For Wounds: Apply resin directly to affected area or mix with coconut oil.\n3. For Stomach Pain: Boil bark in water and drink as mild tea.",
+        whenToApply: "For cough, wounds, or mild stomach discomfort.",
+        cautions: "Resin may irritate sensitive skin. Avoid ingestion in large amounts; not recommended for pregnant women."
+      }
 ];
 
 let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
