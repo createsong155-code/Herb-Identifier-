@@ -785,8 +785,255 @@ const herbs = [
         preparation: "1. For Arthritis: Boil whole plant in 3 cups water for 15 minutes; drink ½ cup twice daily.\n2. For Gout: Eat fresh leaves as salad or boil and drink as tea.\n3. For Urinary Infections: Drink decoction 2× daily for 3 days.",
         whenToApply: "For swollen joints, gout pain, or urinary infection.",
         cautions: "Avoid excessive daily intake; may lower blood pressure or sugar levels."
+      },
+      {
+        name: "Rosas – Rose",
+        description: "A fragrant flowering plant valued for its beauty and medicinal uses. The petals and essential oil are known for their soothing, antiseptic, and skin-toning properties.",
+        purpose: "Used for skin care, relaxation, and sore throat relief.",
+        preparation: "1. For Skin Toner: Soak fresh rose petals in warm water overnight and use the infused water to wash your face.\n2. For Relaxation: Add rose petals to a warm bath to soothe stress.\n3. For Sore Throat: Boil petals in water for 10 minutes, cool, and use as a gargle.",
+        whenToApply: "For dry skin, stress, or throat discomfort.",
+        cautions: "Ensure petals are pesticide-free; rose oil may irritate sensitive skin when undiluted."
+      },
+      {
+        name: "Rosas de Baybayon – Beach Rose",
+        description: "A wild coastal shrub with pink or white flowers used in folk medicine for wounds and inflammation.",
+        purpose: "Used for skin infections, minor wounds, and swelling.",
+        preparation: "1. For Wounds: Crush fresh flowers and leaves, apply directly on the wound.\n2. For Inflammation: Boil leaves and use the water for washing affected skin.\n3. For Relaxation: Use petals in bath water to reduce body heat.",
+        whenToApply: "For wounds, rashes, or body inflammation.",
+        cautions: "External use only; may cause irritation in very sensitive skin."
+      },
+      {
+        name: "Rabanos – Radish",
+        description: "A crunchy root vegetable rich in vitamin C and natural detoxifying compounds.",
+        purpose: "Used for cough, kidney cleansing, and digestion.",
+        preparation: "1. For Cough: Drink juice extracted from grated fresh radish mixed with honey.\n2. For Kidney Health: Eat raw radish slices daily or drink boiled radish water.\n3. For Digestion: Include radish in salads and meals.",
+        whenToApply: "During cough, sluggish digestion, or urinary discomfort.",
+        cautions: "Avoid excess raw intake if prone to gas or bloating."
+      },
+      {
+        name: "Romero – Rosemary",
+        description: "A fragrant Mediterranean herb used for improving circulation, memory, and relieving pain.",
+        purpose: "Used for muscle pain, hair growth, and headache.",
+        preparation: "1. For Hair Growth: Boil rosemary leaves in water, cool, and rinse hair after shampooing.\n2. For Muscle Pain: Mix rosemary oil with coconut oil and massage on affected area.\n3. For Headache: Inhale aroma or apply a few drops of diluted rosemary oil to temples.",
+        whenToApply: "For muscle aches, hair care, or fatigue.",
+        cautions: "Avoid high doses internally; may raise blood pressure or cause uterine contractions."
+      },
+      {
+        name: "Sambong – Blumea balsamifera",
+        description: "A well-known Philippine medicinal herb approved by the Department of Health (DOH) for kidney and urinary health.",
+        purpose: "Used for kidney stones, cough, and fever.",
+        preparation: "1. For Kidney Stones: Boil 1 cup of dried sambong leaves in 4 cups of water for 10 minutes, strain, and drink ½ cup 3× daily.\n2. For Cough: Boil fresh leaves and drink the decoction warm.\n3. For Fever: Use boiled sambong leaves as sponge bath water.",
+        whenToApply: "During fever, cough, or urinary discomfort.",
+        cautions: "Avoid prolonged use without breaks; may increase urination excessively."
+      },
+      {
+        name: "Saluyot – Jute Leaves",
+        description: "A leafy green vegetable with slimy texture when cooked, known for its rich nutrients and cooling properties.",
+        purpose: "Used for constipation, skin health, and heat rashes.",
+        preparation: "1. For Constipation: Boil leaves for 5 minutes and eat as soup or side dish.\n2. For Skin Glow: Drink decoction daily for hydration and vitamins.\n3. For Heat Rash: Apply cooled boiled water from leaves as skin wash.",
+        whenToApply: "For constipation, skin dryness, or heat rash.",
+        cautions: "Safe as food; avoid excess intake in people with kidney problems."
+      },
+      {
+        name: "Sili – Chili Pepper (Siling Labuyo)",
+        description: "A small, fiery pepper rich in capsaicin that stimulates circulation and metabolism.",
+        purpose: "Used for arthritis pain, nasal congestion, and metabolism support.",
+        preparation: "1. For Arthritis Pain: Infuse crushed chili in coconut oil and apply to sore joints.\n2. For Nasal Congestion: Inhale steam from hot water with chili essence.\n3. For Metabolism Boost: Add small amounts to meals regularly.",
+        whenToApply: "For arthritis, cold symptoms, or sluggish metabolism.",
+        cautions: "May cause skin irritation or stomach upset; avoid in ulcers or heartburn."
+      },
+      {
+        name: "Sibukaw – Mahogany Tree Bark",
+        description: "A hardwood tree producing reddish bark and sap used in traditional medicine for diarrhea and blood cleansing.",
+        purpose: "Used for diarrhea, wounds, and anemia.",
+        preparation: "1. For Diarrhea: Boil small bark pieces in water for 10 minutes; drink ½ cup twice daily.\n2. For Wound Wash: Use cooled decoction to clean wounds.\n3. For Blood Purification: Drink mild bark tea once daily for 3 days only.",
+        whenToApply: "For loose bowel, minor wounds, or blood toning.",
+        cautions: "Avoid continuous use; strong decoction may cause constipation or stomach cramps."
+      },
+      {
+        name: "Suha – Pomelo",
+        description: "A large citrus fruit rich in vitamin C and fiber; helps detoxify and strengthen immunity.",
+        purpose: "Used for cough, fever, and digestion.",
+        preparation: "1. For Cough: Eat fresh fruit or drink juice mixed with honey.\n2. For Fever: Eat chilled segments to cool the body.\n3. For Digestion: Eat after meals to aid metabolism.",
+        whenToApply: "During fever, cough, or after heavy meals.",
+        cautions: "Avoid combining with certain medicines (like statins); may cause acidity in sensitive stomachs."
+      },
+      {
+        name: "Sambag – Tamarind",
+        description: "A tropical fruit tree producing sour pods rich in vitamin C, used as food and medicine.",
+        purpose: "Used for fever, sore throat, and constipation.",
+        preparation: "1. For Fever: Boil pulp in water to make a cooling drink.\n2. For Sore Throat: Gargle with warm tamarind water.\n3. For Constipation: Eat ripe pulp or drink as juice.",
+        whenToApply: "For fever, throat pain, or constipation.",
+        cautions: "Avoid excessive intake; sour pulp may irritate stomach lining."
+      },
+      {
+        name: "Tsaang Gubat – Wild Tea Tree (Ehretia microphylla)",
+        description: "A small shrub with dark green leaves used in traditional medicine as a tea for stomach and intestinal problems. Recognized by the Philippine Department of Health for its digestive benefits.",
+        purpose: "Used for stomach ache, diarrhea, and mouth ulcers.",
+        preparation: "1. For Stomach Ache: Boil 1 cup of fresh leaves in 2 cups of water for 10 minutes, strain, and drink ½ cup after meals.\n2. For Diarrhea: Drink the same decoction twice daily until symptoms subside.\n3. For Mouth Ulcers: Gargle with cooled tea twice a day.",
+        whenToApply: "When experiencing stomach cramps, loose bowel, or mouth sores.",
+        cautions: "Avoid very strong decoction; may cause mild dizziness or low blood pressure in sensitive individuals."
+      },
+      {
+        name: "Tanglad – Lemongrass",
+        description: "An aromatic grass used as a culinary spice and herbal medicine. Known for antibacterial, calming, and fever-reducing effects.",
+        purpose: "Used for fever, stomach pain, and stress relief.",
+        preparation: "1. For Fever: Boil stalks in 4 cups water for 10 minutes and use for sponge bath.\n2. For Stomach Pain: Drink warm decoction like tea.\n3. For Stress: Inhale steam from boiling lemongrass water or add to bath.",
+        whenToApply: "During fever, stomach upset, or anxiety.",
+        cautions: "Avoid in early pregnancy; large amounts may lower blood pressure."
+      },
+      {
+        name: "Tubo – Sugarcane",
+        description: "A tall grass with sweet juice, used as a natural energy source and soothing remedy for sore throat.",
+        purpose: "Used for sore throat, fatigue, and dehydration.",
+        preparation: "1. For Sore Throat: Drink freshly pressed sugarcane juice.\n2. For Fatigue: Sip small amounts of sugarcane juice during physical exertion.\n3. For Dehydration: Mix with a pinch of salt and drink as a natural electrolyte.",
+        whenToApply: "During hot weather, fatigue, or sore throat.",
+        cautions: "Use only clean, fresh stalks; excessive intake may raise blood sugar."
+      },
+      {
+        name: "Tubli – Derris Root",
+        description: "A wild vine root known for its use as fish poison in old times but also used medicinally in very small, controlled doses for skin conditions and rheumatism.",
+        purpose: "Used externally for skin diseases and joint pain.",
+        preparation: "1. For Skin Diseases: Pound roots and mix with coconut oil, apply as ointment.\n2. For Joint Pain: Rub diluted root extract on affected area twice daily.",
+        whenToApply: "For joint stiffness or chronic skin irritation.",
+        cautions: "Toxic if ingested; external use only under supervision."
+      },
+      {
+        name: "Turmeric – Dulaw / Luyang Dilaw",
+        description: "A yellow root spice with strong anti-inflammatory and antioxidant properties. Widely used for body detox, pain relief, and skin glow.",
+        purpose: "Used for arthritis, sore throat, and liver health.",
+        preparation: "1. For Arthritis: Boil 1 tsp grated turmeric in 2 cups water for 10 minutes; drink twice daily.\n2. For Sore Throat: Mix turmeric powder with honey and take 1 teaspoon 2× daily.\n3. For Liver Detox: Drink turmeric tea once daily for 1 week.",
+        whenToApply: "For inflammation, sore throat, or body detox.",
+        cautions: "Avoid large doses during pregnancy; may thin blood or upset stomach if overused."
+      },
+      {
+        name: "Tuba-tuba – Physic Nut (Jatropha curcas)",
+        description: "A medium shrub with milky sap traditionally used for pain relief and wound healing. The leaves and oil are used externally.",
+        purpose: "Used for arthritis, toothache, and wound care.",
+        preparation: "1. For Arthritis: Warm leaves and apply to affected area for 10–15 minutes.\n2. For Toothache: Drop a tiny bit of warmed leaf juice near the aching tooth.\n3. For Wound: Apply crushed fresh leaves to affected skin.",
+        whenToApply: "For muscle pain, toothache, or minor wounds.",
+        cautions: "Toxic if swallowed; external use only. Avoid contact with eyes or open deep wounds."
+      },
+      {
+        name: "Ulasimang Bato – Pansit-Pansitan (Peperomia pellucida)",
+        description: "A small, glossy-leaved plant with water-filled stems. Used for lowering uric acid and treating gout, as well as soothing inflammation.",
+        purpose: "Used for gout, arthritis, and skin inflammation.",
+        preparation: "1. For Gout: Eat a handful of fresh raw leaves daily as salad.\n2. For Arthritis: Boil leaves for 10 minutes, strain, and drink ½ cup twice daily.\n3. For Skin Inflammation: Apply crushed leaves on swollen area.",
+        whenToApply: "During gout attacks, arthritis, or skin swelling.",
+        cautions: "Avoid prolonged use without breaks; may lower uric acid excessively."
+      },
+      {
+        name: "Ubi – Purple Yam",
+        description: "A root crop with a naturally sweet taste and purple flesh, rich in antioxidants and energy-giving carbohydrates.",
+        purpose: "Used for energy, blood nourishment, and skin health.",
+        preparation: "1. For Energy: Boil or steam and eat as snack or dessert.\n2. For Blood Nourishment: Mix with milk or coconut milk for added nutrients.\n3. For Skin Glow: Eat regularly or use boiled water as natural toner.",
+        whenToApply: "For low energy, fatigue, or as daily food.",
+        cautions: "Safe when cooked; raw ubi may cause stomach discomfort."
+      },
+      {
+        name: "Upo – Bottle Gourd",
+        description: "A light green gourd vegetable used for cooling and detoxifying the body.",
+        purpose: "Used for fever, high blood pressure, and urinary health.",
+        preparation: "1. For Fever: Drink boiled upo water cooled.\n2. For High Blood Pressure: Eat boiled or sautéed young upo daily.\n3. For Detox: Juice raw upo and drink half cup in the morning.",
+        whenToApply: "During fever, heat rash, or high blood pressure.",
+        cautions: "Drink juice in moderation; excessive raw juice may cause stomach upset."
+      },
+      {
+        name: "Valeriana – Valerian Root",
+        description: "A European-origin herb also used in the Philippines for calming and sleep improvement. Root extracts have mild sedative effects.",
+        purpose: "Used for insomnia, anxiety, and restlessness.",
+        preparation: "1. For Insomnia: Steep 1 tsp dried root in 1 cup hot water for 10 minutes; drink before bedtime.\n2. For Anxiety: Drink valerian tea once during stressful periods.\n3. For Relaxation: Add a few drops of valerian tincture to bath water.",
+        whenToApply: "During insomnia, anxiety, or nervous tension.",
+        cautions: "Avoid combining with alcohol or sedative drugs; may cause drowsiness."
+      },
+      {
+        name: "Violeta – Blue Ternate (Butterfly Pea)",
+        description: "A bright blue flower often made into tea for its calming and antioxidant properties.",
+        purpose: "Used for anxiety, memory support, and eye health.",
+        preparation: "1. For Relaxation: Steep 3–5 fresh or dried flowers in hot water for 5 minutes.\n2. For Memory: Mix blue ternate tea with honey and lemon.\n3. For Eye Health: Drink daily as gentle tonic.",
+        whenToApply: "During stress, eye strain, or as a daily calming tea.",
+        cautions: "Safe for general use; avoid excess intake if pregnant."
+      },
+      {
+        name: "Walis-walisan – Rough Broom Weed (Scoparia dulcis)",
+        description: "A small wild herb commonly found in rural areas, known for its bitter taste and cleansing properties. Traditionally used for diabetes, fever, and as a natural body detoxifier.",
+        purpose: "Used for diabetes, urinary infection, and body detox.",
+        preparation: "1. For Diabetes: Boil a handful of leaves in 3 cups of water until reduced to 1 cup; drink ½ cup twice daily.\n2. For Fever: Drink leaf decoction twice a day.\n3. For Detox: Use as herbal tea once daily for 3–5 days.",
+        whenToApply: "During fever, urinary tract infection, or to cleanse the body.",
+        cautions: "Avoid long-term continuous use; may lower blood sugar excessively."
+      },
+      {
+        name: "Waling-waling – Queen Orchid (Vanda sanderiana)",
+        description: "A rare and beautiful Philippine orchid, known as the 'Queen of Orchids.' Traditionally used in some regions for minor skin and wound treatment.",
+        purpose: "Used for wounds, skin inflammation, and as natural perfume.",
+        preparation: "1. For Wounds: Crush fresh petals and apply juice to the affected skin.\n2. For Inflammation: Mix crushed petals with coconut oil and apply gently.\n3. For Relaxation: Boil petals in water and use as aromatic bath.",
+        whenToApply: "For minor skin irritation or to refresh the skin.",
+        cautions: "Avoid internal use; not for open wounds or ingestion."
+      },
+      {
+        name: "Watermelon – Pakwan",
+        description: "A hydrating fruit with cooling effects, rich in water, vitamins, and antioxidants. Its seeds and rind also have traditional medicinal uses.",
+        purpose: "Used for hydration, urinary cleansing, and blood pressure regulation.",
+        preparation: "1. For Hydration: Eat fresh fruit or drink its juice.\n2. For Urinary Health: Boil seeds in water for 10 minutes; drink half cup twice daily.\n3. For Cooling: Apply blended rind on sunburned skin for 10 minutes.",
+        whenToApply: "During hot weather, dehydration, or mild hypertension.",
+        cautions: "Generally safe; excessive intake may affect sugar levels in diabetics."
+      },
+      {
+        name: "Wart Plant – Tagulinao (Euphorbia hirta variant)",
+        description: "A local weed known for its milky sap, used in folk medicine for warts and skin irritation.",
+        purpose: "Used for warts, insect bites, and minor wounds.",
+        preparation: "1. For Warts: Apply a small drop of sap directly to wart once daily.\n2. For Insect Bites: Rub crushed leaf juice on the bite.\n3. For Minor Cuts: Apply sap gently to prevent infection.",
+        whenToApply: "When treating warts, bites, or small skin injuries.",
+        cautions: "Sap may irritate skin or eyes; wash hands immediately after use."
+      },
+      {
+        name: "Yambo – Velvet Apple (Diospyros blancoi)",
+        description: "A fruit tree native to the Philippines, bearing soft, velvet-skinned fruit with a unique sweet aroma. Leaves and bark are used medicinally.",
+        purpose: "Used for diarrhea, cough, and fever.",
+        preparation: "1. For Diarrhea: Boil bark and leaves in 3 cups water; drink ½ cup twice daily.\n2. For Cough: Drink fruit decoction once or twice daily.\n3. For Fever: Use cooled bark decoction as sponge bath.",
+        whenToApply: "During fever, diarrhea, or cough.",
+        cautions: "Avoid bark decoction in large amounts; may cause constipation."
+      },
+      {
+        name: "Yantok – Rattan Vine",
+        description: "A climbing vine known for its strong stems and traditional use in pain relief and wound care in rural folk medicine.",
+        purpose: "Used for pain relief and wound disinfection.",
+        preparation: "1. For Body Pain: Boil vine bark in water and use as bath.\n2. For Wound Cleaning: Use cooled decoction to wash affected area.",
+        whenToApply: "For sore muscles or minor wounds.",
+        cautions: "External use only; avoid ingestion."
+      },
+      {
+        name: "Yerbabuena – Peppermint / Mint",
+        description: "A popular aromatic herb known for its cooling and soothing properties, approved by the Philippine Department of Health for pain and stomach relief.",
+        purpose: "Used for headache, toothache, and stomach pain.",
+        preparation: "1. For Headache: Crush fresh leaves and apply to temples.\n2. For Toothache: Chew leaves gently and keep juice near aching tooth.\n3. For Stomach Pain: Boil leaves for 5 minutes; drink as tea.",
+        whenToApply: "During headache, mild toothache, or stomach upset.",
+        cautions: "Avoid high doses in people with acid reflux or gallbladder problems."
+      },
+      {
+        name: "Ylang-Ylang – Ilang-Ilang Tree",
+        description: "A fragrant tropical tree valued for its essential oil used in aromatherapy and skin care. Flowers are soothing and aromatic.",
+        purpose: "Used for relaxation, skin care, and mild hypertension.",
+        preparation: "1. For Relaxation: Boil flowers in water for 10 minutes and inhale steam.\n2. For Skin Care: Mix flower oil with coconut oil and apply to skin.\n3. For Blood Pressure: Inhale essential oil aroma for calming effect.",
+        whenToApply: "During stress, anxiety, or when needing skin refreshment.",
+        cautions: "External and aromatherapy use only; ingestion may cause nausea."
+      },
+      {
+        name: "Zingiber – Native Ginger",
+        description: "A native ginger variety similar to luya, prized for its stronger aroma and medicinal potency.",
+        purpose: "Used for sore throat, colds, and body warmth.",
+        preparation: "1. For Sore Throat: Boil sliced rhizome in water for 10 minutes; drink tea.\n2. For Colds: Inhale steam from ginger decoction.\n3. For Body Warmth: Drink ginger tea with honey once or twice daily.",
+        whenToApply: "During colds, sore throat, or when body feels cold.",
+        cautions: "Avoid excessive use; may cause heartburn or irritation in sensitive stomachs."
+      },
+      {
+        name: "Zizyphus – Suha-suha (Jujube Tree)",
+        description: "A tree with small round fruits and medicinal leaves traditionally used for calming and improving sleep.",
+        purpose: "Used for insomnia, anxiety, and digestive discomfort.",
+        preparation: "1. For Sleep: Boil dried leaves or fruits in 2 cups of water for 10 minutes; drink before bed.\n2. For Anxiety: Mix leaf decoction with honey.\n3. For Digestion: Drink mild tea after meals.",
+        whenToApply: "During sleeplessness, stress, or upset stomach.",
+        cautions: "Safe in moderate use; may cause drowsiness in large doses."
       }
-      
 ];
 
 let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
