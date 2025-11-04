@@ -714,6 +714,78 @@ const herbs = [
         whenToApply: "For colds, low energy, or skin discoloration.",
         cautions: "Avoid in people with acid reflux or citrus allergy."
       },
+      {
+        name: "Okra – Lady Finger",
+        description: "A green, slim pod vegetable rich in fiber, vitamins, and antioxidants. Commonly used for digestion and blood sugar regulation.",
+        purpose: "Used for constipation, diabetes management, and skin inflammation.",
+        preparation: "1. For Constipation: Boil fresh okra pods and drink the water or eat the cooked pods daily.\n2. For Diabetes: Soak sliced okra in water overnight; drink in the morning before meals.\n3. For Skin Inflammation: Crush fresh pods and apply as a soothing paste to minor rashes.",
+        whenToApply: "For digestion issues, high blood sugar, or mild skin inflammation.",
+        cautions: "Generally safe; excessive consumption may cause bloating or gas in sensitive individuals."
+      },
+      {
+        name: "Kalabo – Oregano",
+        description: "A fragrant herbal plant with antibacterial and anti-inflammatory properties, used widely in treating respiratory and skin conditions.",
+        purpose: "Used for cough, asthma, and skin infections.",
+        preparation: "1. For Cough & Colds: Boil 5–7 leaves in 1 cup water for 5 minutes and drink warm.\n2. For Asthma: Crush leaves and inhale the steam from boiled leaves.\n3. For Skin Infection: Apply freshly crushed leaves or juice on affected area twice daily.",
+        whenToApply: "For cough, colds, or skin infection symptoms.",
+        cautions: "Avoid excessive use during pregnancy; may trigger mild skin irritation in some individuals."
+      },
+      {
+        name: "Sibuya – Onion",
+        description: "A common kitchen staple rich in sulfur compounds that help fight bacteria, reduce inflammation, and improve circulation.",
+        purpose: "Used for cough, colds, and insect bites.",
+        preparation: "1. For Cough: Mix chopped onion with honey, let sit for 30 minutes, and take 1 tbsp of the syrup.\n2. For Colds: Inhale the aroma of freshly chopped onion to relieve congestion.\n3. For Insect Bites: Apply onion juice directly to the affected skin.",
+        whenToApply: "For cough, cold symptoms, or insect bites.",
+        cautions: "May irritate eyes or skin; avoid use on open wounds."
+      },
+      {
+        name: "Kapayas – Papaya",
+        description: "A tropical fruit tree with nutritious fruits and enzyme-rich leaves known for aiding digestion and healing wounds.",
+        purpose: "Used for digestion, wound healing, and menstrual pain.",
+        preparation: "1. For Digestion: Eat ripe papaya daily or drink juice made from fresh fruit.\n2. For Wound Healing: Apply mashed young papaya or leaf extract to wounds.\n3. For Menstrual Pain: Boil papaya leaves in water and drink ½ cup twice daily.",
+        whenToApply: "During indigestion, delayed menstruation, or wound recovery.",
+        cautions: "Avoid unripe papaya in pregnancy — may cause uterine contractions."
+      },
+      {
+        name: "Pandan – Fragrant Screw Pine",
+        description: "An aromatic leaf plant used in both cooking and herbal medicine; known for its cooling, pain-relieving, and anti-inflammatory effects.",
+        purpose: "Used for headache, arthritis pain, and hypertension.",
+        preparation: "1. For Headache: Tie a fresh pandan leaf on the forehead or inhale the aroma for relief.\n2. For Arthritis: Boil 5 leaves in 2 cups water, drink ½ cup twice daily.\n3. For High Blood Pressure: Drink pandan tea once daily to promote relaxation.",
+        whenToApply: "For mild headache, high blood pressure, or joint pain.",
+        cautions: "Safe in moderation; excessive tea intake may cause low blood pressure."
+      },
+      {
+        name: "Patola – Sponge Gourd",
+        description: "A vine vegetable with fibrous fruits used for food and herbal remedies; known for its cooling and cleansing properties.",
+        purpose: "Used for cough, fever, and skin itch.",
+        preparation: "1. For Cough: Boil sliced fruits or leaves in 2 cups water for 10 minutes; drink warm.\n2. For Fever: Drink patola tea once or twice daily to reduce body heat.\n3. For Itchy Skin: Rub fresh leaf juice on affected area.",
+        whenToApply: "During cough, mild fever, or skin irritation.",
+        cautions: "Generally safe; avoid eating overly mature fruits as they become bitter."
+      },
+      {
+        name: "Pechay – Bok Choy",
+        description: "A leafy green vegetable rich in vitamins and minerals that support bone and immune health.",
+        purpose: "Used for bone strength, anemia, and body detox.",
+        preparation: "1. For Nutrition: Eat steamed or stir-fried pechay daily.\n2. For Detox: Blend raw leaves with water for a cleansing drink.\n3. For Anemia: Combine pechay with iron-rich foods in meals.",
+        whenToApply: "As a daily food for general health and detox support.",
+        cautions: "Safe; excessive raw intake may affect thyroid function due to goitrogen content."
+      },
+      {
+        name: "Pinya – Pineapple",
+        description: "A tropical fruit rich in vitamin C and bromelain enzymes that aid digestion and reduce inflammation.",
+        purpose: "Used for sore throat, digestion, and cough.",
+        preparation: "1. For Sore Throat: Drink fresh pineapple juice.\n2. For Digestion: Eat slices after meals to improve metabolism.\n3. For Cough: Mix juice with honey and take 2 tbsp twice daily.",
+        whenToApply: "For cough, throat irritation, or digestive discomfort.",
+        cautions: "Avoid on empty stomach; high acidity may irritate the stomach lining."
+      },
+      {
+        name: "Pansit-pansitan – Shiny Bush (Peperomia pellucida)",
+        description: "A small, shiny green herb found in moist areas; recognized for its cooling, anti-inflammatory, and uric acid–reducing properties.",
+        purpose: "Used for arthritis, gout, and urinary infections.",
+        preparation: "1. For Arthritis: Boil whole plant in 3 cups water for 15 minutes; drink ½ cup twice daily.\n2. For Gout: Eat fresh leaves as salad or boil and drink as tea.\n3. For Urinary Infections: Drink decoction 2× daily for 3 days.",
+        whenToApply: "For swollen joints, gout pain, or urinary infection.",
+        cautions: "Avoid excessive daily intake; may lower blood pressure or sugar levels."
+      }
       
 ];
 
