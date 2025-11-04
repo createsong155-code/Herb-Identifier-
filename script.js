@@ -578,6 +578,142 @@ const herbs = [
         whenToApply: "When having cold, cough, or skin rashes.",
         cautions: "Avoid excessive use during pregnancy; consult a doctor if taken internally."
       },
+      {
+        name: "Lagundi – Five-Leaved Chaste Tree (Vitex negundo)",
+        description: "A widely recognized medicinal shrub in the Philippines, officially endorsed by the DOH for its proven benefits in treating cough, asthma, and fever.",
+        purpose: "Used for cough, asthma, fever, and headache relief.",
+        preparation: "1. For Cough & Asthma: Boil 5–7 fresh leaves in 2 cups of water for 10–15 minutes; drink half a cup 3× daily.\n2. For Headache: Pound fresh leaves and apply to forehead as poultice.\n3. For Fever: Drink leaf decoction twice daily until temperature lowers.",
+        whenToApply: "During cough, colds, fever, or headache episodes.",
+        cautions: "Avoid use during pregnancy unless advised by a healthcare provider. Prolonged excessive use may cause mild stomach irritation."
+      },
+      {
+        name: "Lemongrass – Tanglad",
+        description: "An aromatic tropical grass known for its refreshing citrus scent. It helps relieve stomach pain, fever, stress, and promotes relaxation.",
+        purpose: "Used for stomach pain, fever, and stress relief.",
+        preparation: "1. For Stomach Pain: Boil 3–5 stalks in 3 cups water for 10 minutes; drink ½ cup while warm.\n2. For Fever: Bathe in cooled boiled lemongrass water or apply compress.\n3. For Stress Relief: Inhale steam from boiling lemongrass or use as tea before bed.",
+        whenToApply: "For stomach discomfort, fever, or anxiety.",
+        cautions: "Avoid in early pregnancy as it may stimulate uterine contractions. May slightly lower blood pressure."
+      },
+      {
+        name: "Linga – Sesame (Sesamum indicum)",
+        description: "Small nutrient-rich seeds known for their high calcium, iron, and healthy fat content. Often used in Filipino food and traditional medicine.",
+        purpose: "Used to improve lactation, soften skin, and strengthen bones.",
+        preparation: "1. For Lactating Mothers: Eat 1–2 tablespoons of roasted sesame seeds daily or mix in meals.\n2. For Skin Softening: Apply sesame oil directly on skin after bath.\n3. For Nutritional Support: Add ground sesame to porridge or desserts.",
+        whenToApply: "Daily for nourishment or as topical oil for dry skin.",
+        cautions: "Avoid if allergic to nuts or seeds. Consume moderately due to high calorie content."
+      },
+      {
+        name: "Luya – Ginger (Zingiber officinale)",
+        description: "A common kitchen spice with strong anti-inflammatory and warming properties. Used traditionally to relieve sore throat, nausea, and colds.",
+        purpose: "Used for sore throat, nausea, cough, and body pain.",
+        preparation: "1. For Sore Throat: Boil 4–5 slices of ginger in 2 cups of water for 10 minutes; drink warm tea.\n2. For Nausea: Chew a thin raw slice or sip ginger tea slowly.\n3. For Joint Pain: Pound ginger and apply as warm compress over sore area.",
+        whenToApply: "During cold weather, sore throat, or after meals to aid digestion.",
+        cautions: "Avoid excessive intake during pregnancy; may interact with blood-thinning medicines. May cause mild heartburn if taken on an empty stomach."
+      },
+      {
+        name: "Lumboy – Java Plum (Syzygium cumini)",
+        description: "A tropical tree producing dark purple fruits with sweet-astringent flavor. Its bark, leaves, and fruits are known for blood sugar and digestive benefits.",
+        purpose: "Used for diabetes, diarrhea, and mouth ulcers.",
+        preparation: "1. For Diabetes: Boil bark or leaves in water and drink half a cup twice daily.\n2. For Diarrhea: Eat ripe fruit or take leaf decoction twice daily.\n3. For Mouth Ulcers: Gargle with fruit decoction or tea made from leaves.",
+        whenToApply: "For high blood sugar, loose bowel, or mouth sores.",
+        cautions: "May lower blood sugar significantly; monitor glucose levels if taking diabetic medication."
+      },
+      {
+        name: "Lunas-bagon – Wild Pepper Leaf",
+        description: "A local medicinal herb used for fever, inflammation, and digestive relief. The leaves are aromatic and used in decoction form in rural areas.",
+        purpose: "Used for fever, stomach ache, and swelling.",
+        preparation: "1. For Fever: Boil 5 leaves in 2 cups water for 10 minutes; drink half a cup warm.\n2. For Stomach Ache: Chew a fresh leaf or drink decoction.\n3. For Swelling: Pound leaves and apply as poultice on swollen area.",
+        whenToApply: "For fever, indigestion, or local inflammation.",
+        cautions: "Avoid long-term daily use; may cause mild drowsiness."
+      },
+      {
+        name: "Malunggay – Moringa (Moringa oleifera)",
+        description: "A highly nutritious tree known as the 'Miracle Tree', rich in vitamins A, C, calcium, and iron. Traditionally used to boost immunity and enhance milk production in mothers.",
+        purpose: "Used to strengthen the immune system, support lactation, and improve overall vitality.",
+        preparation: "1. For Immunity: Boil 1 cup fresh leaves in 2 cups of water for 10 minutes; drink daily as tea.\n2. For Nursing Mothers: Eat cooked leaves in soups or mix dried leaf powder into meals.\n3. For Energy: Drink tea made from dried leaves once daily.",
+        whenToApply: "For low energy, weak immunity, or for breastfeeding support.",
+        cautions: "Avoid excessive intake during pregnancy as it may stimulate uterine contractions. Overuse may cause digestive upset."
+      },
+      {
+        name: "Mansanilya – Chamomile (Matricaria chamomilla)",
+        description: "A fragrant flower known for its calming and soothing effects. Used as tea for relaxation, stomach pain, and inflammation.",
+        purpose: "Used to relieve anxiety, promote sleep, and soothe digestion.",
+        preparation: "1. For Relaxation: Steep 1 tablespoon dried flowers in 1 cup hot water for 10 minutes; drink before bedtime.\n2. For Stomach Pain: Drink chamomile tea after meals.\n3. For Inflammation: Soak a cloth in cooled tea and apply as warm compress.",
+        whenToApply: "During anxiety, stress, or stomach pain episodes.",
+        cautions: "Avoid if allergic to daisy or ragweed family plants. May interact with blood-thinning medications."
+      },
+      {
+        name: "Mansanitas – Indian Jujube (Ziziphus mauritiana)",
+        description: "A small fruit-bearing tree with vitamin-rich berries. Used for energy, digestion, and mild diarrhea treatment.",
+        purpose: "Used for low energy, stomach upset, and mild diarrhea.",
+        preparation: "1. For Digestion: Eat 3–5 fresh fruits daily.\n2. For Diarrhea: Boil leaves in 2 cups of water for 10 minutes; drink ½ cup twice daily.\n3. For Fatigue: Eat fruit regularly or drink fruit decoction.",
+        whenToApply: "During digestive imbalance, fatigue, or diarrhea.",
+        cautions: "Avoid excess intake if diabetic, as the fruit may increase blood sugar levels."
+      },
+      {
+        name: "Mangosteen – Mangosteen (Garcinia mangostana)",
+        description: "A tropical fruit known as the 'Queen of Fruits' due to its rich antioxidants and healing properties. The rind and pulp are used in folk medicine.",
+        purpose: "Used for skin health, boosting immunity, and reducing inflammation.",
+        preparation: "1. For Immunity: Eat fresh mangosteen pulp daily when in season.\n2. For Skin Health: Boil dried rind in 2 cups water for 15 minutes; drink half a cup daily.\n3. For Inflammation: Apply cooled rind decoction as wash on affected skin.",
+        whenToApply: "For low immunity, skin issues, or inflammation.",
+        cautions: "Avoid excessive rind tea; tannins may cause constipation or stomach upset."
+      },
+      {
+        name: "Marigold – Marigold (Tagetes erecta)",
+        description: "A bright yellow-orange flower commonly grown in gardens, known for its anti-inflammatory and wound-healing properties.",
+        purpose: "Used for wounds, skin rashes, and inflammation.",
+        preparation: "1. For Wounds: Crush fresh petals and apply directly to affected area.\n2. For Skin Inflammation: Steep petals in hot water for 10 minutes and use as warm wash.\n3. For Eye Relief: Apply cooled infusion with clean cloth on eyelids.",
+        whenToApply: "For minor wounds, eye irritation, or skin redness.",
+        cautions: "Test on small skin area before use. Avoid contact with open deep wounds."
+      },
+      {
+        name: "Mustasa – Mustard Greens (Brassica juncea)",
+        description: "A leafy vegetable with a spicy flavor, rich in vitamins and minerals. Traditionally used to improve circulation and digestion.",
+        purpose: "Used for poor digestion, chest congestion, and joint pain.",
+        preparation: "1. For Digestion: Eat cooked or fresh leaves regularly.\n2. For Chest Congestion: Crush mustard seeds, mix with warm water, and apply on chest for 10 minutes.\n3. For Joint Pain: Use seed poultice wrapped in cloth and apply to joints.",
+        whenToApply: "During colds, congestion, or poor appetite.",
+        cautions: "Do not apply mustard poultice on broken skin; may cause burns. Avoid large amounts for those with thyroid problems."
+      },
+      {
+        name: "Nangka – Jackfruit (Artocarpus heterophyllus)",
+        description: "A large tropical fruit rich in fiber and natural sugars. Young fruits and leaves are used medicinally for digestion and blood circulation.",
+        purpose: "Used for energy, digestion, and constipation relief.",
+        preparation: "1. For Energy: Eat fresh ripe fruit or boil unripe fruit for savory dishes.\n2. For Digestion: Boil young leaves in water for 10 minutes and drink as tea.\n3. For Constipation: Eat ripe fruit regularly with water.",
+        whenToApply: "When fatigued, constipated, or low in energy.",
+        cautions: "Avoid eating raw seeds. Excess fruit intake may raise blood sugar levels."
+      },
+      {
+        name: "Neem – Neem Tree (Azadirachta indica)",
+        description: "A powerful antibacterial and antifungal tree used in traditional Filipino and Indian medicine. Known for skin cleansing and detoxification.",
+        purpose: "Used for acne, dandruff, and skin infections.",
+        preparation: "1. For Skin Wash: Boil 10 leaves in 2 cups of water for 10 minutes; use as skin rinse.\n2. For Dandruff: Mix neem leaf decoction with coconut oil; apply on scalp for 20 minutes before rinsing.\n3. For Detox: Drink weak tea made from 2–3 leaves once a week only.",
+        whenToApply: "For acne, itchy scalp, or skin infection.",
+        cautions: "Avoid internal use during pregnancy. Strong decoctions may irritate stomach or liver if taken frequently."
+      },
+      {
+        name: "Niyog – Coconut (Cocos nucifera)",
+        description: "A versatile tropical tree known as the 'Tree of Life' — every part has food and medicinal value. Coconut water and oil are widely used in folk remedies.",
+        purpose: "Used for hydration, skin and hair health, and wound healing.",
+        preparation: "1. For Hydration: Drink fresh coconut water daily.\n2. For Skin & Hair: Apply virgin coconut oil to skin or scalp.\n3. For Burns & Wounds: Apply oil to affected area to promote healing.",
+        whenToApply: "For dehydration, dry skin, or minor wounds.",
+        cautions: "Avoid excessive coconut water if you have kidney issues or high potassium levels."
+      },
+      {
+        name: "Niyog-niyogan – Chinese Honeysuckle (Quisqualis indica)",
+        description: "A native climbing vine with fragrant flowers and medicinal seeds. Traditionally used as a deworming remedy for children and adults.",
+        purpose: "Used to expel intestinal worms and improve digestion.",
+        preparation: "1. For Deworming: Eat 2–4 toasted mature seeds for children or 8–10 for adults, once a month; chew thoroughly.\n2. For Stomach Cleansing: Boil leaves and drink as weak tea once weekly.",
+        whenToApply: "Once monthly for deworming or as mild stomach cleanser.",
+        cautions: "Seeds are toxic in excess; do not eat immature seeds. Avoid during pregnancy."
+      },
+      {
+        name: "Naranja – Orange (Citrus sinensis)",
+        description: "A vitamin C-rich fruit that strengthens immunity and promotes healthy skin. Also used for colds and fatigue.",
+        purpose: "Used for colds, sore throat, and vitamin C deficiency.",
+        preparation: "1. For Colds: Drink freshly squeezed orange juice 1–2× daily.\n2. For Sore Throat: Mix juice with warm water and honey for gargling.\n3. For Skin: Rub orange peel gently on dark spots, then rinse.",
+        whenToApply: "For colds, low energy, or skin discoloration.",
+        cautions: "Avoid in people with acid reflux or citrus allergy."
+      },
       
 ];
 
