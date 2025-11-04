@@ -481,183 +481,104 @@ const herbs = [
         preparation: "1. For Cough Relief: Crush fresh leaves, extract the juice, and take 1 tablespoon twice daily.\n2. For Sore Throat: Mix juice with honey and sip slowly.\n3. For Nasal Congestion: Inhale steam from oregano leaf decoction.",
         whenToApply: "For cough, sore throat, or nasal congestion.",
         cautions: "Concentrated juice may cause throat irritation; dilute with water if too strong."
+      },      
+      {
+        name: "Kalabo – Oregano",
+        description: "A fragrant herb with antibacterial and anti-inflammatory properties, widely used in Filipino households as a remedy for cough and colds.",
+        purpose: "Used for cough, colds, asthma, and skin infections.",
+        preparation: "1. For Cough & Colds: Boil 5–7 fresh leaves in 1 cup water for 5 minutes; drink warm.\n2. For Asthma: Crush leaves and inhale steam from boiled leaves for 10 minutes.\n3. For Skin Infections: Crush leaves and apply juice directly to affected area twice daily.",
+        whenToApply: "When experiencing cough, colds, or skin irritation.",
+        cautions: "Avoid excessive use during pregnancy. May cause allergic reactions in sensitive skin."
       },
       {
-        name: "Kalamansi – Philippine Lime (Citrus microcarpa)",
-        description: "A small citrus fruit rich in vitamin C, widely used in Filipino households for food, cleansing, and medicine.",
-        purpose: "Used for cough, sore throat, and skin cleansing.",
-        preparation: "1. For Cough & Cold: Mix fresh juice with honey and warm water; drink twice daily.\n2. For Sore Throat: Gargle with warm water mixed with kalamansi juice and salt.\n3. For Skin Use: Apply diluted juice on pimples or dark spots for 5 minutes before rinsing.",
-        whenToApply: "During cough, colds, or skin irritation.",
-        cautions: "Avoid direct use on open wounds; acidic juice may irritate stomach lining if taken in excess."
+        name: "Kalabasa – Squash",
+        description: "A nutrient-rich vegetable high in vitamin A and antioxidants. Commonly eaten and used for eye and skin health in folk medicine.",
+        purpose: "Used for eye health, constipation, and skin soothing.",
+        preparation: "1. For Eye Health: Eat steamed or boiled squash daily.\n2. For Constipation: Drink squash soup twice daily.\n3. For Skin Soothing: Mash boiled squash and apply as warm compress.",
+        whenToApply: "For improving eyesight, relieving constipation, or calming skin irritation.",
+        cautions: "Avoid overconsumption for people with diabetes unless blood sugar is monitored."
       },
       {
-        name: "Kalabasa – Squash (Cucurbita maxima)",
-        description: "A nutrient-rich vegetable high in vitamin A and fiber; used in traditional medicine for eyesight, wounds, and deworming.",
-        purpose: "Used for eye health, wound healing, and intestinal worms.",
-        preparation: "1. For Eyesight: Include boiled or steamed squash regularly in diet.\n2. For Wound Healing: Apply mashed cooked squash on minor wounds.\n3. For Deworming: Eat cooked squash seeds or grind them into a paste with honey.",
-        whenToApply: "For weak eyesight, small wounds, or suspected worms.",
-        cautions: "Generally safe; avoid overconsumption of seeds for children."
+        name: "Kalachuchi – Frangipani (Plumeria acuminata)",
+        description: "A fragrant flowering tree with milky sap, traditionally used for its anti-inflammatory and healing properties. Commonly found near homes and gardens in the Philippines.",
+        purpose: "Used for wound cleaning, skin ulcers, and toothache.",
+        preparation: "1. For Wound Cleaning: Boil bark or flowers in water; use cooled decoction to wash wounds.\n2. For Skin Ulcers: Apply mashed fresh leaves or sap (diluted) to affected skin.\n3. For Toothache: Warm a few drops of diluted sap and apply carefully to affected tooth using cotton.",
+        whenToApply: "For wounds, ulcers, or minor pain relief.",
+        cautions: "Latex sap may irritate skin; toxic if swallowed in large amounts. Avoid contact with eyes and open wounds."
       },
       {
-        name: "Kalachuchi – Frangipani (Plumeria acutifolia)",
-        description: "A fragrant flowering tree used for ornamental and medicinal purposes. Its bark and leaves have anti-inflammatory and healing properties.",
-        purpose: "Used for cough, skin sores, and swelling.",
-        preparation: "1. For Cough: Boil bark in water and drink in small doses.\n2. For Skin Sores: Apply crushed leaves on affected area.\n3. For Swelling: Use bark decoction as a wash on inflamed areas.",
-        whenToApply: "For cough, boils, or swollen skin.",
-        cautions: "Sap can be irritating; avoid contact with eyes or open wounds."
+        name: "Kamantigi – Touch-Me-Not / Impatiens balsamina",
+        description: "A colorful flowering plant known for its soft stems and seed pods that burst when touched. Traditionally used for treating wounds, boils, and urinary issues.",
+        purpose: "Used for wounds, boils, and urinary tract infections.",
+        preparation: "1. For Wounds: Crush fresh leaves and apply directly to affected skin.\n2. For Boils: Pound leaves, mix with a small amount of coconut oil, and apply as poultice.\n3. For Urinary Problems: Boil 10 fresh leaves in 2 cups water until reduced by half; drink once daily.",
+        whenToApply: "When having boils, minor wounds, or urinary discomfort.",
+        cautions: "Avoid internal use during pregnancy. May cause mild skin irritation in sensitive individuals."
       },
       {
-        name: "Kantutay – Lantana (Lantana camara)",
-        description: "A small shrub with colorful flowers; known in folk medicine for its antibacterial and anti-inflammatory properties.",
-        purpose: "Used for cough, asthma, and wounds.",
-        preparation: "1. For Cough & Asthma: Boil leaves and flowers in 3 cups water for 15 minutes; drink ½ cup twice daily.\n2. For Wounds: Apply crushed leaves directly on the wound.\n3. For Bath: Use leaf decoction as wash for skin infections.",
-        whenToApply: "For cough, asthma, or infected wounds.",
-        cautions: "Avoid internal use in large amounts; toxic if ingested in excess."
+        name: "Kamias – Bilimbi (Averrhoa bilimbi)",
+        description: "A sour fruit-bearing tree whose fruits and leaves are used for cough, skin care, and high blood pressure. Its natural acidity provides strong cleansing and detoxifying effects.",
+        purpose: "Used for cough, sore throat, itchy skin, and high blood pressure.",
+        preparation: "1. For Cough: Boil sliced fruits with sugar and water; drink syrup twice daily.\n2. For Skin Itch: Rub fresh sliced fruit on affected skin.\n3. For High Blood Pressure: Blend fruit with water and drink in small amounts.",
+        whenToApply: "For respiratory issues, itchy skin, or hypertension.",
+        cautions: "Avoid use in people with ulcers or acid reflux due to high acidity."
       },
       {
-        name: "Kamote – Sweet Potato (Ipomoea batatas)",
-        description: "A root crop rich in fiber and beta-carotene; used both as food and herbal remedy.",
-        purpose: "Used for digestion, energy, and dengue recovery.",
-        preparation: "1. For Digestion: Eat boiled kamote regularly as a fiber source.\n2. For Dengue Recovery: Boil young leaves for 15 minutes; drink decoction twice daily.\n3. For Constipation: Eat steamed kamote with plenty of water.",
-        whenToApply: "For weak body, constipation, or dengue recovery.",
-        cautions: "Safe as food; may cause bloating if eaten in excess."
+        name: "Kamote – Sweet Potato",
+        description: "A starchy, nutritious root crop rich in beta-carotene, fiber, and antioxidants. Commonly eaten for energy and used in herbal traditions to improve digestion and skin health.",
+        purpose: "Used for constipation, skin nourishment, and energy support.",
+        preparation: "1. For Constipation: Eat steamed or boiled tubers daily.\n2. For Skin Care: Mash boiled kamote and apply on dry or irritated skin.\n3. For Energy: Eat baked or roasted tubers as part of meals.",
+        whenToApply: "For constipation, low energy, or skin dryness.",
+        cautions: "Safe when cooked; avoid raw consumption as it may cause stomach discomfort. Diabetics should monitor sugar intake."
       },
       {
         name: "Kamoteng Kahoy – Cassava (Manihot esculenta)",
-        description: "A starchy tuber commonly grown for food; also used in folk medicine for fatigue and skin irritation.",
-        purpose: "Used for fatigue and skin rashes.",
-        preparation: "1. For Fatigue: Boil young leaves for 15 minutes to remove toxins; eat with rice.\n2. For Skin Irritation: Mash boiled leaves and apply on affected skin.",
-        whenToApply: "For tiredness or skin irritation.",
-        cautions: "Raw cassava is toxic; must be thoroughly cooked. Avoid excessive use for those with kidney problems."
+        description: "A staple starchy root crop known for its leaves and tubers used as food and medicine in rural areas. Provides strength and supports skin recovery when properly cooked.",
+        purpose: "Used for fatigue and skin irritation.",
+        preparation: "1. For Fatigue: Boil young cassava leaves for 15–20 minutes to remove toxins; eat with meals.\n2. For Skin Irritation: Apply mashed boiled leaves on affected area as poultice.\n3. For Nutrition: Eat boiled or grilled root as a source of energy.",
+        whenToApply: "For tiredness, weak body, or skin irritation.",
+        cautions: "Raw cassava contains cyanide compounds — always cook thoroughly. Avoid in people with kidney issues or thyroid problems."
       },
       {
-        name: "Kangkong – Water Spinach (Ipomoea aquatica)",
-        description: "A common leafy vegetable that grows in water; popular for its cooling and cleansing properties.",
-        purpose: "Used for constipation, anemia, and fever.",
-        preparation: "1. For Constipation: Eat boiled or sautéed kangkong with meals.\n2. For Anemia: Include regularly in diet for iron support.\n3. For Fever: Use boiled leaves as sponge bath.",
-        whenToApply: "For fever, constipation, or blood nourishment.",
-        cautions: "Avoid harvesting from dirty water sources; may carry parasites."
+        name: "Kangkong – Water Spinach",
+        description: "A common leafy vegetable rich in iron and fiber, often used both as food and herbal remedy in the Philippines.",
+        purpose: "Used for constipation, anemia, and minor burns.",
+        preparation: "1. For Constipation: Eat steamed or sautéed kangkong leaves.\n2. For Anemia: Include fresh leaves in daily meals.\n3. For Burns: Apply crushed fresh leaves directly to affected area.",
+        whenToApply: "During constipation, low iron levels, or minor skin burns.",
+        cautions: "Avoid excessive intake for people prone to kidney stones (contains oxalates)."
       },
       {
-        name: "Kaparang – Healing Leaf (Visayan Folk Herb)",
-        description: "A local Visayan shrub used in folk medicine for fever and skin rashes; known for its cooling properties.",
-        purpose: "Used for fever, headache, and skin irritation.",
-        preparation: "1. For Fever: Boil leaves in 3 cups of water, drink ½ cup twice daily.\n2. For Headache: Crush fresh leaves and apply on forehead.\n3. For Skin Rashes: Apply crushed leaves directly on affected area.",
-        whenToApply: "During fever or skin inflammation.",
-        cautions: "Limited data; use moderately and avoid internal use for children."
+        name: "Kantutay – Lantana (Lantana camara)",
+        description: "A flowering plant with antiseptic and aromatic leaves. Widely used in rural herbal medicine for skin, respiratory, and mild headache relief.",
+        purpose: "Used for skin rashes, cough, and mild headaches.",
+        preparation: "1. For Skin Rashes: Boil leaves and use the water for washing.\n2. For Cough: Boil leaves in water, add honey, and drink moderately.\n3. For Headache: Crush leaves and inhale their aroma.",
+        whenToApply: "When having skin irritation, cough, or mild headache.",
+        cautions: "Leaves and unripe berries are toxic if ingested in large amounts; use only in small doses."
       },
       {
-        name: "Kalabo – Oregano (Coleus amboinicus)",
-        description: "A strong aromatic herb widely used in Filipino homes for cough and respiratory issues.",
-        purpose: "Used for cough, sore throat, and asthma.",
-        preparation: "1. For Cough: Boil 5–7 leaves in 2 cups water, drink warm twice daily.\n2. For Sore Throat: Extract juice from crushed leaves and mix with honey.\n3. For Asthma: Inhale steam from boiled oregano leaves.",
-        whenToApply: "During cough, asthma, or throat irritation.",
-        cautions: "Avoid large doses during pregnancy; strong aroma may cause nausea if too concentrated."
+        name: "Kape – Coffee Plant",
+        description: "The coffee plant produces beans and leaves used for energy and mild medicinal purposes. In folk medicine, its leaves are brewed for asthma and fatigue.",
+        purpose: "Used for fatigue, asthma, and mild respiratory relief.",
+        preparation: "1. For Fatigue: Drink brewed coffee in moderation.\n2. For Asthma: Boil coffee leaves in water for 10 minutes; drink small portions.\n3. For Cough: Inhale steam from boiled leaves mixed with ginger.",
+        whenToApply: "For tiredness or mild breathing discomfort.",
+        cautions: "Avoid excessive intake — may raise blood pressure or cause palpitations."
       },
       {
-        name: "Lagnas – Blumea camphor (Sambong)",
-        description: "A fragrant medicinal plant used for kidney and urinary health. Its leaves have diuretic, anti-inflammatory, and antimicrobial properties.",
-        purpose: "Used for kidney stones, urinary tract infection, and fever.",
-        preparation: "1. For Kidney Stones: Boil 5–7 fresh leaves in 2 cups water for 10 minutes; drink ½ cup twice daily.\n2. For UTI: Boil leaves, cool, and drink like tea.\n3. For Fever: Use leaf decoction as sponge bath to help lower body temperature.",
-        whenToApply: "For urinary pain, kidney discomfort, or fever.",
-        cautions: "Avoid prolonged use in people with low blood pressure. Not for pregnant women without medical advice."
+        name: "Kasla – Cassia Alata / Ringworm Bush",
+        description: "A tall shrub similar to Akapulko, used for treating fungal skin infections such as ringworm and scabies. Known for its strong antifungal action.",
+        purpose: "Used for fungal infections and skin cleansing.",
+        preparation: "1. For Fungal Infections: Crush fresh leaves and apply paste twice daily.\n2. For Skin Cleansing: Boil leaves and use decoction as body wash.",
+        whenToApply: "When treating ringworm, scabies, or itchy skin.",
+        cautions: "For external use only. Avoid ingestion; may cause stomach discomfort."
       },
       {
-        name: "Lagundi – Five-leaved Chaste Tree (Vitex negundo)",
-        description: "One of the most popular Philippine medicinal herbs, approved by the DOH. Known for its powerful effect on cough, asthma, and fever.",
-        purpose: "Used for cough, asthma, and fever relief.",
-        preparation: "1. For Cough: Boil 10 leaves in 2 cups water for 10–15 minutes; drink ½ cup every 4 hours.\n2. For Asthma: Boil leaves and drink daily until symptoms improve.\n3. For Fever: Use decoction as sponge bath to cool the body.",
-        whenToApply: "For cough, fever, or difficulty breathing.",
-        cautions: "Generally safe, but avoid excessive use. Consult doctor if symptoms persist beyond 7 days."
+        name: "Katuray – Vegetable Hummingbird Tree (Sesbania grandiflora)",
+        description: "A small tree with edible white or pink flowers and leaves, used traditionally to relieve colds and soothe skin irritations.",
+        purpose: "Used for cough, colds, and skin irritation.",
+        preparation: "1. For Colds: Boil flowers in water for 10 minutes; drink as tea.\n2. For Skin Irritation: Crush flowers and apply to affected area.\n3. For Cough: Drink flower tea twice daily with honey.",
+        whenToApply: "When having cold, cough, or skin rashes.",
+        cautions: "Avoid excessive use during pregnancy; consult a doctor if taken internally."
       },
-      {
-        name: "Lemongrass – Tanglad",
-        description: "A fragrant grass commonly used in cooking and traditional healing for its calming and cleansing properties.",
-        purpose: "Used for fever, stomach ache, and high blood pressure.",
-        preparation: "1. For Fever: Boil 3 stalks in 4 cups water for 10 minutes; drink ½ cup every 4 hours.\n2. For Stomach Ache: Drink warm lemongrass tea after meals.\n3. For High Blood Pressure: Drink daily as mild herbal tea.",
-        whenToApply: "For fever, bloating, or hypertension.",
-        cautions: "Safe for most people; avoid high doses during pregnancy due to mild uterine stimulation."
-      },
-      {
-        name: "Luyang Dilaw – Turmeric (Curcuma longa)",
-        description: "A bright yellow rhizome widely used as a spice and natural anti-inflammatory remedy in Philippine folk medicine.",
-        purpose: "Used for arthritis, wounds, and liver health.",
-        preparation: "1. For Arthritis: Boil sliced rhizome in 2 cups water for 10 minutes; drink warm twice daily.\n2. For Wounds: Apply turmeric paste directly on cuts or sores.\n3. For Liver Health: Mix turmeric powder with honey and drink once daily.",
-        whenToApply: "For joint pain, liver cleansing, or wound care.",
-        cautions: "Avoid excessive intake in people with gallstones or bleeding disorders."
-      },
-      {
-        name: "Luya Tagalog – Native Ginger",
-        description: "A smaller, spicier ginger variety used in Visayan and Tagalog herbal healing traditions.",
-        purpose: "Used for sore throat, cough, and joint pain.",
-        preparation: "1. For Sore Throat: Boil crushed slices in 1 cup water and gargle.\n2. For Cough: Mix decoction with honey and drink twice daily.\n3. For Joint Pain: Apply warm ginger compress to affected area.",
-        whenToApply: "For cough, sore throat, or joint stiffness.",
-        cautions: "May cause heartburn if taken on an empty stomach."
-      },
-      {
-        name: "Malunggay – Moringa (Moringa oleifera)",
-        description: "Called the ‘Miracle Tree,’ malunggay is packed with nutrients and used to boost milk production and strengthen the immune system.",
-        purpose: "Used for breastfeeding, nutrition, and wound healing.",
-        preparation: "1. For Breastfeeding: Eat cooked malunggay leaves daily to enhance milk flow.\n2. For Nutrition: Include in soups or sautéed dishes for vitamin boost.\n3. For Wounds: Apply crushed leaves on minor wounds for faster healing.",
-        whenToApply: "For weakness, breastfeeding, or small wounds.",
-        cautions: "Safe as food; avoid taking strong root decoction during pregnancy."
-      },
-      {
-        name: "Mangga – Mango (Mangifera indica)",
-        description: "A tropical fruit tree valued for its sweet fruits and medicinal leaves, bark, and seeds.",
-        purpose: "Used for diarrhea, mouth sores, and scabies.",
-        preparation: "1. For Diarrhea: Boil young leaves and drink decoction twice daily.\n2. For Mouth Sores: Gargle with cooled decoction.\n3. For Scabies: Apply bark decoction on skin rashes.",
-        whenToApply: "For diarrhea, oral ulcers, or itchy skin.",
-        cautions: "Avoid unripe fruit in excess; may irritate throat. Bark decoction not for long-term use."
-      },
-      {
-        name: "Mais – Corn (Zea mays)",
-        description: "Common cereal crop whose silk and husk have medicinal properties in folk healing.",
-        purpose: "Used for urinary infection, kidney stones, and prostate support.",
-        preparation: "1. For UTI: Boil corn silk in 3 cups water for 15 minutes; drink 1 cup twice daily.\n2. For Kidney Stones: Continue drinking decoction daily for 3–5 days.\n3. For Prostate Health: Combine with sambong tea for added benefit.",
-        whenToApply: "For urinary pain or kidney discomfort.",
-        cautions: "Safe in moderate use; may lower potassium if overused."
-      },
-      {
-        name: "Mangosteen – Manggustin (Garcinia mangostana)",
-        description: "A fruit with thick purple rind rich in antioxidants and xanthones, used for immunity and wound healing.",
-        purpose: "Used for diarrhea, skin infections, and immune health.",
-        preparation: "1. For Diarrhea: Boil dried rind in water for 15 minutes; drink twice daily.\n2. For Wound Healing: Apply crushed rind externally.\n3. For Immunity: Drink rind decoction as tea once daily.",
-        whenToApply: "For diarrhea, infections, or low immunity.",
-        cautions: "Avoid in constipation or when taking blood-thinning medications."
-      },
-      {
-        name: "Niyog-niyogan – Rangoon Creeper (Quisqualis indica)",
-        description: "A climbing vine with fragrant flowers; its seeds are known as a natural deworming remedy.",
-        purpose: "Used for intestinal worms and stomach pain.",
-        preparation: "1. For Deworming: Eat 2–3 roasted seeds for children, 5–7 for adults, once a month.\n2. For Stomach Pain: Boil leaves in water and drink as mild tea.",
-        whenToApply: "For stomach worms or pain.",
-        cautions: "Seeds are potent; overdose may cause hiccups or vomiting. Use correct dosage only."
-      },
-      {
-        name: "Narra – Rosewood Tree (Pterocarpus indicus)",
-        description: "The national tree of the Philippines; bark and leaves are used in traditional medicine for skin and urinary issues.",
-        purpose: "Used for urinary infection, diabetes, and skin diseases.",
-        preparation: "1. For UTI: Boil bark in water for 15 minutes; drink twice daily.\n2. For Skin Diseases: Apply decoction as wash.\n3. For Diabetes: Drink cooled decoction once daily as herbal tea.",
-        whenToApply: "For UTI, rashes, or high blood sugar.",
-        cautions: "Avoid long-term high doses; may affect kidney function."
-      },
-      {
-        name: "Okra – Lady Finger (Abelmoschus esculentus)",
-        description: "A green pod vegetable rich in fiber and mucilage, helpful for digestion and blood sugar control.",
-        purpose: "Used for diabetes, constipation, and sore throat.",
-        preparation: "1. For Diabetes: Soak sliced okra pods in water overnight and drink in morning.\n2. For Constipation: Eat boiled or sautéed okra regularly.\n3. For Sore Throat: Boil pods and drink mucilaginous water warm.",
-        whenToApply: "For blood sugar management, sore throat, or digestion issues.",
-        cautions: "Safe in food use; may cause mild gas in sensitive individuals."
-      },
-      {
-        name: "Oregano – Kalabo / Wild Thyme (Coleus amboinicus)",
-        description: "A common home remedy plant with strong aroma and natural antibacterial effects.",
-        purpose: "Used for cough, sore throat, and nasal congestion.",
-        preparation: "1. For Cough: Boil 5–7 leaves in 2 cups water; drink warm twice daily.\n2. For Sore Throat: Mix leaf juice with honey and take 1 tablespoon.\n3. For Congestion: Inhale steam from boiled leaves.",
-        whenToApply: "During cough, cold, or sore throat.",
-        cautions: "Avoid high doses during pregnancy; may cause nausea if too concentrated."
-      }
+      
 ];
 
 let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
