@@ -3,42 +3,75 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Herb Identifier</title>
+  <title>Herb Identifier App</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="manifest" href="manifest.json" />
-  <meta name="theme-color" content="#2e8b57" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
+  <!-- HEADER -->
   <header>
-    <h1>Herb Identifier</h1>
-    <div class="top-right">
-      <button id="cameraButton" class="icon-btn">Camera</button>
-      <button id="darkMode" class="icon-btn">Moon</button>
-    </div>
+    <div class="logo-left">🍃</div>
+    <h1>Herb Identifier App</h1>
+    <button id="menuToggle" class="icon-btn">☰</button>
   </header>
 
-  <nav class="categories">
-    <button class="category active" data-category="all">All</button>
-    <button class="category" data-category="Favorites">Favorites</button>
-    <button class="category" data-category="Cough">Cough</button>
-    <button class="category" data-category="Wound">Wound</button>
-    <button class="category" data-category="Stomach Ache">Stomach Ache</button>
-    <button class="category" data-category="Fever">Fever</button>
-    <button class="category" data-category="Kidney">Kidney</button>
-    <button id="viewToggle" class="view-btn">View</button>
-  </nav>
-
-  <div id="search-bar">
-    <input type="text" id="searchInput" placeholder="Search herbs..." />
+  <!-- HAMBURGER MENU (Half Screen) -->
+  <div id="sideMenu" class="side-menu">
+    <span class="close-menu">&times;</span>
+    <ul>
+      <li>User Account</li>
+      <li>Dark Mode</li>
+      <li>Background</li>
+      <li>Font and Sizes</li>
+      <li>Feedback and Suggestions</li>
+      <li>Captured</li>
+      <li>Donations</li>
+      <li>Share and Support</li>
+      <li>About App</li> <!-- Suggestion: Add About section for app info -->
+      <li>Settings</li> <!-- Suggestion: General settings like notifications -->
+      <li>Logout</li> <!-- Suggestion: If user accounts are added -->
+    </ul>
   </div>
 
-  <main id="herb-list" class="herb-list"></main>
+  <!-- TABS (Home | Survival Life Hack | Donation) -->
+  <nav class="tabs">
+    <button class="tab active" data-tab="home">Home</button>
+    <button class="tab" data-tab="survival">Survival Life Hack</button>
+    <button class="tab" data-tab="donation">Donation</button>
+  </nav>
 
+  <!-- SEARCH BAR -->
+  <div id="search-bar">
+    <input type="text" id="searchInput" placeholder="Search herbs or symptoms..." />
+  </div>
+
+  <!-- MAIN CONTENT (Home Tab - Herb List) -->
+  <main id="herb-list" class="herb-list tab-content active" data-tab="home"></main>
+
+  <!-- Survival Tab (Placeholder for Future Symptoms) -->
+  <div id="survival-tab" class="tab-content" data-tab="survival">
+    <h2>Survival Life Hack</h2>
+    <p>Coming soon: Symptoms like headache, stomach ache, fever, and more arranged from head to feet.</p>
+    <!-- Add symptoms list here later -->
+  </div>
+
+  <!-- Donation Tab (Placeholder) -->
+  <div id="donation-tab" class="tab-content" data-tab="donation">
+    <h2>Donation</h2>
+    <p>Support the app development. Thank you!</p>
+    <!-- Add donation links/forms here -->
+  </div>
+
+  <!-- FLOATING CAMERA BUTTON -->
+  <button id="floatingCamera" class="floating-btn">📷</button>
+
+  <!-- FLOATING CAPTURED FOLDER BUTTON (Under Camera) -->
+  <button id="capturedFolder" class="floating-btn folder-btn">📁</button>
+
+  <!-- MODAL FOR HERB DETAILS -->
   <div id="herb-modal" class="modal">
     <div class="modal-content">
-      <span class="close">×</span>
+      <span class="close">&times;</span>
       <div id="modal-body"></div>
     </div>
   </div>
