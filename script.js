@@ -51,3 +51,9 @@ function openModal(id) {
 window.save = (id, suggest) => { const h = herbs.find(x => x.id === id); h.notes = document.getElementById('notes-input').value; storage.save(); alert(suggest ? "Saved! Try with Luya." : "Saved!"); modal.style.display = 'none'; render(); };
 window.fav = (id) => { const h = herbs.find(x => x.id === id); h.favorite = !h.favorite; storage.save(); render(); openModal(id); };
 document.getElementById('cameraButton').onclick = () => alert("Camera coming soon!");
+// Dark Mode
+document.getElementById('darkMode').onclick = () => {
+  document.body.classList.toggle('dark');
+  const isDark = document.body.classList.contains('dark');
+  document.getElementById('darkMode').textContent = isDark ? 'Sun' : 'Moon';
+};
