@@ -3,31 +3,45 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Herb Identifier App</title>
+  <title>Herb Identifier</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#2e8b57" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
+
   <header>
-    <h1>🌿 Herb Identifier App</h1>
+    <h1>Herb Identifier</h1>
     <div class="top-right">
-      <button id="cameraButton" class="camera-btn">📷</button>
+      <button id="cameraButton" class="icon-btn">Camera</button>
     </div>
   </header>
 
   <nav class="categories">
     <button class="category active" data-category="all">All</button>
-    <button class="category" data-category="Favorites">⭐ Favorites</button>
+    <button class="category" data-category="Favorites">Favorites</button>
     <button class="category" data-category="Cough">Cough</button>
     <button class="category" data-category="Wound">Wound</button>
     <button class="category" data-category="Stomach Ache">Stomach Ache</button>
     <button class="category" data-category="Fever">Fever</button>
     <button class="category" data-category="Kidney">Kidney</button>
-    <button id="viewToggle" class="view-btn">🖼️ View</button>
+    <button id="viewToggle" class="view-btn">View</button>
   </nav>
+
+  <div id="search-bar">
+    <input type="text" id="searchInput" placeholder="Search herbs..." />
+  </div>
 
   <main id="herb-list" class="herb-list"></main>
 
-  <script src="script.js"></script> 
+  <div id="herb-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">×</span>
+      <div id="modal-body"></div>
+    </div>
+  </div>
 
+  <script src="script.js"></script>
 </body>
 </html>
