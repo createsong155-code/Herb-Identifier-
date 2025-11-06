@@ -61,8 +61,8 @@ body.grid .herb-card img { width: 100%; height: 110px; object-fit: cover; border
 .side-menu {
   position: fixed;
   top: 0; right: -100%;
-  width: 78%;           /* ← Reduced from 90% */
-  max-width: 340px;     /* ← Smaller max */
+  width: 78%;
+  max-width: 340px;
   height: 100vh;
   background: #ffffff !important;
   box-shadow: -4px 0 20px rgba(0,0,0,0.1);
@@ -81,7 +81,7 @@ body.grid .herb-card img { width: 100%; height: 110px; object-fit: cover; border
   content: '';
   position: fixed;
   top: 0; left: 0; width: 100vw; height: 100vh;
-  background: rgba(0,0,0,0.32);   /* ← Lighter (was 0.45) */
+  background: rgba(0,0,0,0.32);
   opacity: 0;
   transition: opacity 0.32s ease;
   pointer-events: none;
@@ -110,18 +110,30 @@ body.grid .herb-card img { width: 100%; height: 110px; object-fit: cover; border
   font-weight: 600;
   color: #2e8b57;
 }
-/* MODERN CLOSE BUTTON */
-.menu-header .icon-btn {
-  background: transparent;
-  color: #666;
-  font-size: 1.4rem;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  transition: background 0.2s ease;
+
+/* RED X IN GRAY CIRCLE — FULLY OVERRIDDEN */
+.close-circle {
+  background: #e0e0e0 !important;
+  color: #d32f2f !important;
+  font-weight: bold !important;
+  font-size: 1.4rem !important;
+  width: 36px !important;
+  height: 36px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 50% !important;
+  transition: all 0.2s ease !important;
+  padding: 0 !important;
+  border: none !important;
 }
-.menu-header .icon-btn:hover {
-  background: #f0f0f0;
+.close-circle:hover {
+  background: #d0d0d0 !important;
+  transform: scale(1.05) !important;
+}
+.close-circle span {
+  line-height: 1 !important;
+  font-size: inherit !important;
 }
 
 .menu-section {
