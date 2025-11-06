@@ -56,6 +56,7 @@ body.grid .herb-card img { width: 100%; height: 110px; object-fit: cover; border
 .modal-btn { flex: 1; padding: 14px; border: none; border-radius: 14px; font-weight: 600; cursor: pointer; }
 .save-btn { background: #2e8b57; color: white; }
 .save-suggest-btn { background: #ffb800; color: #333; }
+
 /* HAMBURGER MENU */
 .side-menu {
   position: fixed;
