@@ -51,6 +51,7 @@ function openModal(id) {
 window.save = (id, suggest) => { const h = herbs.find(x => x.id === id); h.notes = document.getElementById('notes-input').value; storage.save(); alert(suggest ? "Saved! Try with Luya." : "Saved!"); modal.style.display = 'none'; render(); };
 window.fav = (id) => { const h = herbs.find(x => x.id === id); h.favorite = !h.favorite; storage.save(); render(); openModal(id); };
 document.getElementById('cameraButton').onclick = () => alert("Camera coming soon!");
+
 // HAMBURGER MENU TOGGLE
 document.getElementById('hamburgerMenu').onclick = () => {
   document.getElementById('sideMenu').classList.add('active');
