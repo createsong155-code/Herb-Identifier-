@@ -27,18 +27,21 @@ header {
 }
 
 .leaf-logo {
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   background: white;
-  color: #2e8b57;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: bold;
-  font-size: 1.1rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  overflow: hidden;
 }
 
+.leaf-logo svg {
+  width: 26px;
+  height: 26px;
+}
 header h1 {
   font-size: 1.25rem;
   font-weight: 600;
