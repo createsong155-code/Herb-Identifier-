@@ -9,7 +9,21 @@ const herbs = [
   { id: 8, name: "Tanglad", local: "Tanglad", english: "Lemongrass", category: "Cough", image: "https://via.placeholder.com/400x300/2e8b57/white?text=Tanglad", description: "Calming tea.", preparation: "Boil stalks.", use: "Cough, stress.", caution: "Safe.", notes: "", favorite: false }
 ];
 
-const storage = { load() { const d = JSON.parse(localStorage.getItem('herbApp') || '{}'); herbs.forEach(h => { h.notes = d.notes?.[h.id] || ''; h.favorite = d.favorites?.includes(h.id) || false; }); }, save() { const d = { notes: {}, favorites: herbs.filter(h => h.favorite).map(h => h.id) }; herbs.forEach(h => { if (h.notes) d.notes[h.id] = h.notes; }); localStorage.setItem('herbApp', JSON.stringify(d)); } }; storage.load();
+const storage = { 
+  load() { 
+    const d = JSON.parse(localStorage.getItem('herbApp') || '{}'); 
+    herbs.forEach(h => { 
+      h.notes = d.notes?.[h.id] || ''; 
+      h.favorite = d.favorites?.includes(h.id) || false; 
+    }); 
+  }, 
+  save() { 
+    const d = { notes: {}, favorites: herbs.filter(h => h.favorite).map(h => h.id) }; 
+    herbs.forEach(h => { if (h.notes) d.notes[h.id] = h.notes; }); 
+    localStorage.setItem('herbApp', JSON.stringify(d)); 
+  } 
+}; 
+storage.load();
 
 function render(f = herbs) {
   const list = document.getElementById('herb-list');
@@ -22,11 +36,24 @@ function render(f = herbs) {
 }
 render();
 
-document.getElementById('viewToggle').onclick = () => { document.body.classList.toggle('grid'); document.getElementById('viewToggle').textContent = document.body.classList.contains('grid') ? 'List' : 'Grid'; };
-document.querySelectorAll('.category').forEach(b => b.onclick = () => { document.querySelectorAll('.category').forEach(x => x.classList.remove('active')); b.classList.add('active'); const c = b.dataset.category; render(c === 'Favorites' ? herbs.filter(h => h.favorite) : c === 'all' ? herbs : herbs.filter(h => h.category === c)); });
+document.getElementById('viewToggle').onclick = () => { 
+  document.body.classList.toggle('grid'); 
+  document.getElementById('viewToggle').textContent = document.body.classList.contains('grid') ? 'List' : 'Grid'; 
+};
+
+document.querySelectorAll('.category').forEach(b => b.onclick = () => { 
+  document.querySelectorAll('.category').forEach(x => x.classList.remove('active')); 
+  b.classList.add('active'); 
+  const c = b.dataset.category; 
+  render(c === 'Favorites' ? herbs.filter(h => h.favorite) : c === 'all' ? herbs : herbs.filter(h => h.category === c)); 
+});
+
 document.getElementById('searchInput').oninput = e => render(herbs.filter(h => h.name.toLowerCase().includes(e.target.value.toLowerCase())));
 
-const modal = document.getElementById('herb-modal'); document.querySelector('.close').onclick = () => modal.style.display = 'none'; window.onclick = e => e.target === modal && (modal.style.display = 'none');
+const modal = document.getElementById('herb-modal'); 
+document.querySelector('.close').onclick = () => modal.style.display = 'none'; 
+window.onclick = e => e.target === modal && (modal.style.display = 'none');
+
 function openModal(id) {
   const h = herbs.find(x => x.id === id);
   document.getElementById('modal-body').innerHTML = `
@@ -48,9 +75,22 @@ function openModal(id) {
   modal.style.display = 'block';
 }
 
-window.save = (id, suggest) => { const h = herbs.find(x => x.id === id); h.notes = document.getElementById('notes-input').value; storage.save(); alert(suggest ? "Saved! Try with Luya." : "Saved!"); modal.style.display = 'none'; render(); };
-window.fav = (id) => { const h = herbs.find(x => x.id === id); h.favorite = !h.favorite; storage.save(); render(); openModal(id); };
-document.getElementById('cameraButton').onclick = () => alert("Camera coming soon!");
+window.save = (id, suggest) => { 
+  const h = herbs.find(x => x.id === id); 
+  h.notes = document.getElementById('notes-input').value; 
+  storage.save(); 
+  alert(suggest ? "Saved! Try with Luya." : "Saved!"); 
+  modal.style.display = 'none'; 
+  render(); 
+};
+
+window.fav = (id) => { 
+  const h = herbs.find(x => x.id === id); 
+  h.favorite = !h.favorite; 
+  storage.save(); 
+  render(); 
+  openModal(id); 
+};
 
 // HAMBURGER MENU TOGGLE
 document.getElementById('hamburgerMenu').onclick = () => {
@@ -68,4 +108,3 @@ window.addEventListener('click', (e) => {
     menu.classList.remove('active');
   }
 });
-
