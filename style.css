@@ -205,3 +205,9 @@ window.fav = (id) => {
 
 document.getElementById('floatingCamera').onclick = () => alert("Camera opened!");
 document.getElementById('capturedFolder').onclick = () => alert("Captured folder!");
+  // Dark Mode
+document.getElementById('darkMode').onclick = () => {
+  document.body.classList.toggle('dark');
+  const isDark = document.body.classList.contains('dark');
+  document.getElementById('darkMode').textContent = isDark ? 'Sun' : 'Moon';
+};
