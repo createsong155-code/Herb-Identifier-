@@ -73,6 +73,7 @@ body.grid .herb-card img { width: 100%; height: 110px; object-fit: cover; border
   flex-direction: column;
   gap: 20px;
 }
+.side-menu.active { right: 0; } /* ← THIS LINE WAS MISSING! */
 
 /* DARK OVERLAY (BEHIND MENU) */
 .side-menu::before {
