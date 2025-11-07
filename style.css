@@ -13,7 +13,7 @@ body {
   flex-direction: column; 
 }
 
-/* HEADER — CLEAN & MODERN */
+/* HEADER */
 header {
   background: #2e8b57;
   color: white;
@@ -28,12 +28,12 @@ header {
   height: 56px;
 }
 
-.menu-trigger {
+/* LEFT SIDE */
+.header-left {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 1px; /* ← TIGHTER GAP */
-  cursor: pointer;
+  gap: 10px;
+  margin-left: 16px;
 }
 
 .leaf-logo {
@@ -46,7 +46,6 @@ header {
   justify-content: center;
   box-shadow: 0 1px 3px rgba(0,0,0,0.1);
   overflow: hidden;
-  margin: 8px 12px 8px 8px;
 }
 
 .leaf-logo svg {
@@ -60,31 +59,20 @@ header h1 {
   margin: 0;
 }
 
-/* MENU ALIGNMENT — PERFECT */
-
+/* RIGHT SIDE — PERFECT BALANCE */
 .header-right {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
   gap: 4px;
   margin-right: 16px;
-  margin-left: 24px;
+  margin-left: auto;
 }
 
-.header-right .hamburger-icon {
-  margin-top: 3px;
-}
-
-.header-right .menu-label {
-  font-size: 0.7rem;
-  margin-top: 1px;
-}
-/* HAMBURGER MENU BUTTON */
 .menu-trigger {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
+  gap: 2px;
   cursor: pointer;
 }
 
@@ -99,7 +87,7 @@ header h1 {
   gap: 4px;
   padding: 0 !important;
   border: none !important;
-  margin-top: 2px;     /* ← ONLY THIS */
+  margin-top: 2px;
 }
 
 .hamburger-icon span {
@@ -120,7 +108,7 @@ header h1 {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  margin-top: 0; /* ← REMOVES EXTRA SPACE */
+  margin-top: 0;
 }
 
 /* CATEGORIES */
