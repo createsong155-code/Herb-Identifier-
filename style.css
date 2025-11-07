@@ -99,8 +99,7 @@ header h1 {
   gap: 4px;
   padding: 0 !important;
   border: none !important;
-  margin-top: 1px;     /* ← PULLS ICON DOWN */
-  margin-bottom: -2px; /* ← MAKES IT TOUCH TEXT */
+  margin-top: 2px;     /* ← ONLY THIS */
 }
 
 .hamburger-icon span {
