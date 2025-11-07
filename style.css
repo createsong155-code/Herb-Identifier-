@@ -38,10 +38,9 @@ header {
   overflow: hidden;
 }
 
-.leaf-logo img {
+.leaf-logo svg {
   width: 24px;
   height: 24px;
-  object-fit: contain;
 }
 header h1 {
   font-size: 1.25rem;
