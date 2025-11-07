@@ -5,6 +5,21 @@ header {
   background: #2e8b57; color: white; padding: 14px 16px; display: flex; justify-content: space-between; align-items: center;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000;
 }
+/* ——— ADD THIS BLOCK TO style.css ——— */
+
+/* MENU ICON + TEXT — PERFECT ALIGNMENT */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-right: 16px;
+}
+
+.header-right .hamburger-icon {
+  margin-top: 2px; /* Moves icon down to match MENU text */
+}
+
+/* ——— END OF BLOCK ——— */
 /* MESSENGER-STYLE HEADER */
 header {
   background: #2e8b57;
