@@ -33,7 +33,7 @@ header {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-left: 16px;
+  margin-left: 12px;
 }
 
 .leaf-logo {
@@ -64,7 +64,7 @@ header h1 {
   display: flex;
   align-items: center;
   gap: 4px;
-  margin-right: 16px;
+  margin-right: 20px;
   margin-left: auto;
 }
 
