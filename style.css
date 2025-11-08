@@ -424,56 +424,7 @@ body.grid .herb-card img {
 .text-red { color: #d32f2f; }
 }
 
-/* ========================================
-   FINAL FOOTER — ICON NAVIGATION
-   ======================================== */
-.footer-nav {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: white;
-  border-top: 1px solid #e0e0e0;
-  display: flex;
-  justify-content: space-around;
-  padding: 8px 0;
-  z-index: 1000;
-  box-shadow: 0 -2px 10px rgba(0,0,0,0.08);
-}
-
-.footer-btn {
-  background: none;
-  border: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  padding: 8px;
-  flex: 1;
-  color: #888;
-  font-size: 0.7rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: color 0.2s;
-}
-
-.footer-btn .icon {
-  width: 24px;
-  height: 24px;
-  stroke: currentColor;
-}
-
-.footer-btn.active,
-.footer-btn:hover {
-  color: #2e8b57;
-}
-
-.footer-btn.active .icon,
-.footer-btn:hover .icon {
-  stroke: #2e8b57;
-}
-
-/* Footer -- 3 Buttons */
+/* Footer -- 4 Buttons */
 .footer {
   position: fixed;
   bottom: 0;
@@ -508,13 +459,11 @@ body.grid .herb-card img {
   stroke: currentColor;
 }
 
-.footer-btn.active,
-.footer-btn:hover {
+.footer-btn.active, .footer-btn:hover {
   color: #fff;
 }
 
-.footer-btn.active .icon,
-.footer-btn:hover .icon {
+.footer-btn.active .icon, .footer-btn:hover .icon {
   stroke: #fff;
 }
 
@@ -522,3 +471,4 @@ body.grid .herb-card img {
 body {
   padding-bottom: 60px;
 }
+
