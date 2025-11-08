@@ -108,3 +108,11 @@ window.addEventListener('click', (e) => {
     menu.classList.remove('active');
   }
 });
+
+// Footer Buttons -- Active State
+document.querySelectorAll('.footer-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.footer-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
