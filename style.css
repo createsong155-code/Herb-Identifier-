@@ -458,16 +458,17 @@ body.grid .herb-card img {
   stroke: currentColor;
 }
 
-.footer-btn.active, .footer-btn:hover {
+.footer-btn.active,
+.footer-btn:hover {
   color: #fff;
 }
 
-.footer-btn.active .icon, .footer-btn:hover .icon {
+.footer-btn.active .icon,
+.footer-btn:hover .icon {
   stroke: #fff;
 }
 
-/* Body Padding for Footer */
+/* Body padding so content isn't hidden under footer */
 body {
-  padding-bottom: 60px;
+  padding-bottom: 60px !important;
 }
-
