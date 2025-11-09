@@ -497,3 +497,28 @@ body.grid .herb-card img {
 body {
   padding-bottom: 56px !important;
 }
+
+.herb-card {
+  position: relative;
+  background: #fff;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  margin-bottom: 1rem;
+}
+
+.favorite-btn {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: #ccc; /* empty star */
+  cursor: pointer;
+  transition: color 0.3s;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+.favorite-btn.filled {
+  color: gold; /* filled star */
+}
