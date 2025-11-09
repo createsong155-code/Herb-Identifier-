@@ -40,16 +40,16 @@ function render(f = herbs) {
 }
 render();
 
-// TOGGLE FAVORITE (Golden Star)
+// TOGGLE FAVORITE
 function toggleFav(id, e) {
-  e.stopPropagation(); // Prevent modal from opening
+  e.stopPropagation();
   const h = herbs.find(x => x.id === id);
   h.favorite = !h.favorite;
   storage.save();
-  render(); // Re-render to update star
+  render();
 }
 
-// VIEW TOGGLE (Grid / List)
+// VIEW TOGGLE
 document.getElementById('viewToggle').onclick = () => { 
   document.body.classList.toggle('grid'); 
   document.getElementById('viewToggle').textContent = document.body.classList.contains('grid') ? 'List' : 'Grid'; 
@@ -80,7 +80,7 @@ function openModal(id) {
     <div class="detail-section"><h4>Local:</h4><p>${h.local}</p></div>
     <div class="detail-section"><h4>English:</h4><p>${h.english}</p></div>
     <div class="detail-section"><h4>Description:</h4><p>${h.description}</p></div>
-    <div class="detail-section"><h4>Preparation:</h4><p>${h.preparation}</p></div>
+    <div class="detail-section"><h4>Preparation:</h4><p>${h.preparation"}</p></div>
     <div class="detail-section"><h4>Use:</h4><p>${h.use}</p></div>
     <div class="detail-section"><h4>Caution:</h4><p>${h.caution}</p></div>
     <div class="detail-section"><h4>Notes:</h4><textarea id="notes-input">${h.notes}</textarea></div>
@@ -126,18 +126,13 @@ window.addEventListener('click', (e) => {
   }
 });
 
-// FOOTER: FULLY WORKING
+// FOOTER
 function filterCategory(cat) {
   document.querySelectorAll('.footer-btn').forEach(btn => btn.classList.remove('active'));
   event.target.closest('.footer-btn').classList.add('active');
-
-  let targetCategory = null;
-  if (cat === 'all') {
-    targetCategory = document.querySelector('.category[data-category="all"]');
-  } else if (cat === 'Favorites') {
-    targetCategory = document.querySelector('.category[data-category="Favorites"]');
-  }
-  if (targetCategory) targetCategory.click();
+  const target = cat === 'all' ? document.querySelector('.category[data-category="all"]') 
+               : cat === 'Favorites' ? document.querySelector('.category[data-category="Favorites"]') : null;
+  if (target) target.click();
 }
 
 function openSupport() {
@@ -148,28 +143,4 @@ function openDashboard() {
   const favCount = herbs.filter(h => h.favorite).length;
   const noteCount = Object.keys(JSON.parse(localStorage.getItem('herbApp') || '{}').notes || {}).length;
   alert(`My Dashboard\n\nFavorites: ${favCount}\nSaved Notes: ${noteCount}\n\nComing soon: Full dashboard view!`);
-}
-
-/* CARD CONTENT & STAR */
-.card-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 16px;
-}
-
-.star-btn {
-  font-size: 1.3rem;
-  cursor: pointer;
-  color: #ccc;
-  transition: all 0.3s ease;
-}
-
-.star-btn.favorited {
-  color: #ffd700;
-  text-shadow: 0 0 8px #ffd700;
-}
-
-.star-btn:hover {
-  transform: scale(1.2);
 }
