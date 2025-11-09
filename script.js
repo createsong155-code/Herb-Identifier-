@@ -28,17 +28,17 @@ storage.load();
 // RENDER WITH GOLDEN STAR
 function render(f = herbs) {
   const list = document.getElementById('herb-list');
+  if (!list) return; // Safety
   list.innerHTML = f.map(h => `
     <div class="herb-card" onclick="openModal(${h.id})">
       ${document.body.classList.contains('grid') ? `<img src="${h.image}" alt="${h.name}">` : ''}
       <div class="card-content">
         <h3>${h.name} <span class="tag">${h.category}</span></h3>
-        <span class="star-btn ${h.favorite ? 'favorited' : ''}" onclick="toggleFav(${h.id}, event)">★</span>
+        <span class="star-btn ${h.favorite ? 'favorited' : ''}" onclick="toggleFav(${h.id}, event)">Star</span>
       </div>
     </div>
   `).join('');
 }
-render();
 
 // TOGGLE FAVORITE
 function toggleFav(id, e) {
@@ -50,27 +50,28 @@ function toggleFav(id, e) {
 }
 
 // VIEW TOGGLE
-document.getElementById('viewToggle').onclick = () => { 
+document.getElementById('viewToggle')?.addEventListener('click', () => { 
   document.body.classList.toggle('grid'); 
   document.getElementById('viewToggle').textContent = document.body.classList.contains('grid') ? 'List' : 'Grid'; 
-};
+});
 
 // CATEGORY FILTER
-document.querySelectorAll('.category').forEach(b => b.onclick = () => { 
+document.querySelectorAll('.category').forEach(b => b.addEventListener('click', () => { 
   document.querySelectorAll('.category').forEach(x => x.classList.remove('active')); 
   b.classList.add('active'); 
   const c = b.dataset.category; 
   render(c === 'Favorites' ? herbs.filter(h => h.favorite) : c === 'all' ? herbs : herbs.filter(h => h.category === c)); 
-});
+}));
 
 // SEARCH
-document.getElementById('searchInput').oninput = e => 
-  render(herbs.filter(h => h.name.toLowerCase().includes(e.target.value.toLowerCase())));
+document.getElementById('searchInput')?.addEventListener('input', e => 
+  render(herbs.filter(h => h.name.toLowerCase().includes(e.target.value.toLowerCase())))
+);
 
 // MODAL
 const modal = document.getElementById('herb-modal'); 
-document.querySelector('.close').onclick = () => modal.style.display = 'none'; 
-window.onclick = e => e.target === modal && (modal.style.display = 'none');
+document.querySelector('.close')?.addEventListener('click', () => modal.style.display = 'none'); 
+window.addEventListener('click', e => e.target === modal && (modal.style.display = 'none'));
 
 function openModal(id) {
   const h = herbs.find(x => x.id === id);
@@ -80,7 +81,7 @@ function openModal(id) {
     <div class="detail-section"><h4>Local:</h4><p>${h.local}</p></div>
     <div class="detail-section"><h4>English:</h4><p>${h.english}</p></div>
     <div class="detail-section"><h4>Description:</h4><p>${h.description}</p></div>
-    <div class="detail-section"><h4>Preparation:</h4><p>${h.preparation"}</p></div>
+    <div class="detail-section"><h4>Preparation:</h4><p>${h.preparation}</p></div>
     <div class="detail-section"><h4>Use:</h4><p>${h.use}</p></div>
     <div class="detail-section"><h4>Caution:</h4><p>${h.caution}</p></div>
     <div class="detail-section"><h4>Notes:</h4><textarea id="notes-input">${h.notes}</textarea></div>
@@ -111,13 +112,13 @@ window.fav = (id) => {
 };
 
 // HAMBURGER MENU
-document.getElementById('hamburgerMenu').onclick = () => {
+document.getElementById('hamburgerMenu')?.addEventListener('click', () => {
   document.getElementById('sideMenu').classList.add('active');
-};
+});
 
-document.getElementById('closeMenu').onclick = () => {
+document.getElementById('closeMenu')?.addEventListener('click', () => {
   document.getElementById('sideMenu').classList.remove('active');
-};
+});
 
 window.addEventListener('click', (e) => {
   const menu = document.getElementById('sideMenu');
@@ -144,3 +145,8 @@ function openDashboard() {
   const noteCount = Object.keys(JSON.parse(localStorage.getItem('herbApp') || '{}').notes || {}).length;
   alert(`My Dashboard\n\nFavorites: ${favCount}\nSaved Notes: ${noteCount}\n\nComing soon: Full dashboard view!`);
 }
+
+// RENDER AFTER PAGE LOADS
+document.addEventListener('DOMContentLoaded', () => {
+  render(); // NOW SAFE
+});
