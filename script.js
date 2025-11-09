@@ -25,22 +25,37 @@ const storage = {
 }; 
 storage.load();
 
+// RENDER WITH GOLDEN STAR
 function render(f = herbs) {
   const list = document.getElementById('herb-list');
   list.innerHTML = f.map(h => `
     <div class="herb-card" onclick="openModal(${h.id})">
       ${document.body.classList.contains('grid') ? `<img src="${h.image}" alt="${h.name}">` : ''}
-      <h3> ${h.name} <span class="tag">${h.category}</span> ${h.favorite ? '[Star]' : ''}</h3>
+      <div class="card-content">
+        <h3>${h.name} <span class="tag">${h.category}</span></h3>
+        <span class="star-btn ${h.favorite ? 'favorited' : ''}" onclick="toggleFav(${h.id}, event)">★</span>
+      </div>
     </div>
   `).join('');
 }
 render();
 
+// TOGGLE FAVORITE (Golden Star)
+function toggleFav(id, e) {
+  e.stopPropagation(); // Prevent modal from opening
+  const h = herbs.find(x => x.id === id);
+  h.favorite = !h.favorite;
+  storage.save();
+  render(); // Re-render to update star
+}
+
+// VIEW TOGGLE (Grid / List)
 document.getElementById('viewToggle').onclick = () => { 
   document.body.classList.toggle('grid'); 
   document.getElementById('viewToggle').textContent = document.body.classList.contains('grid') ? 'List' : 'Grid'; 
 };
 
+// CATEGORY FILTER
 document.querySelectorAll('.category').forEach(b => b.onclick = () => { 
   document.querySelectorAll('.category').forEach(x => x.classList.remove('active')); 
   b.classList.add('active'); 
@@ -48,8 +63,11 @@ document.querySelectorAll('.category').forEach(b => b.onclick = () => {
   render(c === 'Favorites' ? herbs.filter(h => h.favorite) : c === 'all' ? herbs : herbs.filter(h => h.category === c)); 
 });
 
-document.getElementById('searchInput').oninput = e => render(herbs.filter(h => h.name.toLowerCase().includes(e.target.value.toLowerCase())));
+// SEARCH
+document.getElementById('searchInput').oninput = e => 
+  render(herbs.filter(h => h.name.toLowerCase().includes(e.target.value.toLowerCase())));
 
+// MODAL
 const modal = document.getElementById('herb-modal'); 
 document.querySelector('.close').onclick = () => modal.style.display = 'none'; 
 window.onclick = e => e.target === modal && (modal.style.display = 'none');
@@ -57,7 +75,7 @@ window.onclick = e => e.target === modal && (modal.style.display = 'none');
 function openModal(id) {
   const h = herbs.find(x => x.id === id);
   document.getElementById('modal-body').innerHTML = `
-    <h2> ${h.name}</h2>
+    <h2>${h.name}</h2>
     <img src="${h.image}" alt="${h.name}">
     <div class="detail-section"><h4>Local:</h4><p>${h.local}</p></div>
     <div class="detail-section"><h4>English:</h4><p>${h.english}</p></div>
@@ -91,7 +109,8 @@ window.fav = (id) => {
   render(); 
   openModal(id); 
 };
-// HAMBURGER MENU TOGGLE
+
+// HAMBURGER MENU
 document.getElementById('hamburgerMenu').onclick = () => {
   document.getElementById('sideMenu').classList.add('active');
 };
@@ -100,7 +119,6 @@ document.getElementById('closeMenu').onclick = () => {
   document.getElementById('sideMenu').classList.remove('active');
 };
 
-// Close when clicking outside
 window.addEventListener('click', (e) => {
   const menu = document.getElementById('sideMenu');
   if (menu.classList.contains('active') && !menu.contains(e.target) && e.target.id !== 'hamburgerMenu') {
@@ -108,28 +126,18 @@ window.addEventListener('click', (e) => {
   }
 });
 
-// ———————————————————————————————————————
-// FOOTER: FULLY WORKING (Filter + Active State)
-// ———————————————————————————————————————
-
+// FOOTER: FULLY WORKING
 function filterCategory(cat) {
-  // 1. Update active button in footer
-  document.querySelectorAll('.footer-btn').forEach(btn => {
-    btn.classList.remove('active');
-  });
+  document.querySelectorAll('.footer-btn').forEach(btn => btn.classList.remove('active'));
   event.target.closest('.footer-btn').classList.add('active');
 
-  // 2. Click the matching category button
   let targetCategory = null;
   if (cat === 'all') {
     targetCategory = document.querySelector('.category[data-category="all"]');
   } else if (cat === 'Favorites') {
     targetCategory = document.querySelector('.category[data-category="Favorites"]');
   }
-
-  if (targetCategory) {
-    targetCategory.click();
-  }
+  if (targetCategory) targetCategory.click();
 }
 
 function openSupport() {
@@ -140,4 +148,28 @@ function openDashboard() {
   const favCount = herbs.filter(h => h.favorite).length;
   const noteCount = Object.keys(JSON.parse(localStorage.getItem('herbApp') || '{}').notes || {}).length;
   alert(`My Dashboard\n\nFavorites: ${favCount}\nSaved Notes: ${noteCount}\n\nComing soon: Full dashboard view!`);
+}
+
+/* CARD CONTENT & STAR */
+.card-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+}
+
+.star-btn {
+  font-size: 1.3rem;
+  cursor: pointer;
+  color: #ccc;
+  transition: all 0.3s ease;
+}
+
+.star-btn.favorited {
+  color: #ffd700;
+  text-shadow: 0 0 8px #ffd700;
+}
+
+.star-btn:hover {
+  transform: scale(1.2);
 }
