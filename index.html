@@ -96,20 +96,7 @@
   </div>
 
   <!-- MAIN CONTENT -->
-  <main id="herb-list" class="herb-list">
-  <!-- Example herb cards -->
-  <div class="herb-card">
-    <h3>Lemongrass</h3>
-    <p>Used for fever, cough, and stomach pain.</p>
-    <button class="favorite-btn" data-name="Lemongrass">★</button>
-  </div>
-
-  <div class="herb-card">
-    <h3>Neem</h3>
-    <p>Good for skin and antibacterial uses.</p>
-    <button class="favorite-btn" data-name="Neem">★</button>
-  </div>
-</main>
+  <main id="herb-list" class="herb-list"></main>
 
   <!-- MODAL -->
   <div id="herb-modal" class="modal">
@@ -153,34 +140,6 @@
 </footer>
 
   <script src="script.js"></script>
-
-  <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const favoriteButtons = document.querySelectorAll(".favorite-btn");
-
-  const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-
-  favoriteButtons.forEach(btn => {
-    if (favorites.includes(btn.dataset.name)) {
-      btn.classList.add("filled");
-    }
-
-    btn.addEventListener("click", () => {
-      const herbName = btn.dataset.name;
-      btn.classList.toggle("filled");
-
-      if (btn.classList.contains("filled")) {
-        favorites.push(herbName);
-      } else {
-        const index = favorites.indexOf(herbName);
-        if (index !== -1) favorites.splice(index, 1);
-      }
-
-      localStorage.setItem("favorites", JSON.stringify(favorites));
-    });
-  });
-});
-  </script>
 
 </body>
 </html>
