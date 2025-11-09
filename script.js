@@ -91,7 +91,6 @@ window.fav = (id) => {
   render(); 
   openModal(id); 
 };
-
 // HAMBURGER MENU TOGGLE
 document.getElementById('hamburgerMenu').onclick = () => {
   document.getElementById('sideMenu').classList.add('active');
@@ -109,10 +108,36 @@ window.addEventListener('click', (e) => {
   }
 });
 
-// Footer Buttons -- Active State
-document.querySelectorAll('.footer-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.footer-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
+// ———————————————————————————————————————
+// FOOTER: FULLY WORKING (Filter + Active State)
+// ———————————————————————————————————————
+
+function filterCategory(cat) {
+  // 1. Update active button in footer
+  document.querySelectorAll('.footer-btn').forEach(btn => {
+    btn.classList.remove('active');
   });
-});
+  event.target.closest('.footer-btn').classList.add('active');
+
+  // 2. Click the matching category button
+  let targetCategory = null;
+  if (cat === 'all') {
+    targetCategory = document.querySelector('.category[data-category="all"]');
+  } else if (cat === 'Favorites') {
+    targetCategory = document.querySelector('.category[data-category="Favorites"]');
+  }
+
+  if (targetCategory) {
+    targetCategory.click();
+  }
+}
+
+function openSupport() {
+  alert("Support Center\n\nEmail: support@herbapp.com\nPhone: +63 912 345 6789\n\nOr tap 'Support / Help Center' in Menu");
+}
+
+function openDashboard() {
+  const favCount = herbs.filter(h => h.favorite).length;
+  const noteCount = Object.keys(JSON.parse(localStorage.getItem('herbApp') || '{}').notes || {}).length;
+  alert(`My Dashboard\n\nFavorites: ${favCount}\nSaved Notes: ${noteCount}\n\nComing soon: Full dashboard view!`);
+}
