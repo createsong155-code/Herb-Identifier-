@@ -154,5 +154,33 @@
 
   <script src="script.js"></script>
 
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const favoriteButtons = document.querySelectorAll(".favorite-btn");
+
+  const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+  favoriteButtons.forEach(btn => {
+    if (favorites.includes(btn.dataset.name)) {
+      btn.classList.add("filled");
+    }
+
+    btn.addEventListener("click", () => {
+      const herbName = btn.dataset.name;
+      btn.classList.toggle("filled");
+
+      if (btn.classList.contains("filled")) {
+        favorites.push(herbName);
+      } else {
+        const index = favorites.indexOf(herbName);
+        if (index !== -1) favorites.splice(index, 1);
+      }
+
+      localStorage.setItem("favorites", JSON.stringify(favorites));
+    });
+  });
+});
+  </script>
+
 </body>
 </html>
