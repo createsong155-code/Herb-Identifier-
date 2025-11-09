@@ -213,6 +213,11 @@ header h1 {
   align-self: flex-start;
 }
 
+/* LIST VIEW: Fix h3 padding when no image */
+.herb-card h3 {
+  padding: 0 !important;
+}
+
 /* GRID VIEW */
 body.grid .herb-list { 
   display: grid; 
