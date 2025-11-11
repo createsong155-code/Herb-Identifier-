@@ -189,3 +189,40 @@ function openDashboard() {
 
 // RENDER ON LOAD
 render();
+
+// MENU & FOOTER (unchanged)
+document.getElementById('hamburgerMenu')?.addEventListener('click', () => {
+  document.getElementById('sideMenu').classList.add('active');
+});
+document.getElementById('closeMenu')?.addEventListener('click', () => {
+  document.getElementById('sideMenu').classList.remove('active');
+});
+window.addEventListener('click', (e) => {
+  const menu = document.getElementById('sideMenu');
+  if (menu.classList.contains('active') && !menu.contains(e.target) && e.target.id !== 'hamburgerMenu') {
+    menu.classList.remove('active');
+  }
+});
+
+function filterCategory(cat) {
+  document.querySelectorAll('.footer-btn').forEach(btn => btn.classList.remove('active'));
+  event.target.closest('.footer-btn').classList.add('active');
+  const target = cat === 'all' ? document.querySelector('.category[data-category="all"]') 
+               : cat === 'Favorites' ? document.querySelector('.category[data-category="Favorites"]') : null;
+  if (target) target.click();
+}
+
+function openSupport() {
+  alert("Support Center\n\nEmail: support@herbapp.com\nPhone: +63 912 345 6789\n\nOr tap 'Support / Help Center' in Menu");
+}
+
+function openDashboard() {
+  const favCount = herbs.filter(h => h.favorite).length;
+  const noteCount = Object.keys(JSON.parse(localStorage.getItem('herbApp') || '{}').notes || {}).length;
+  alert(`My Dashboard\n\nFavorites: ${favCount}\nSaved Notes: ${noteCount}\n\nComing soon: Full dashboard view!`);
+}
+
+// RENDER AFTER DOM IS READY
+document.addEventListener('DOMContentLoaded', () => {
+  render();
+});
