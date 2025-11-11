@@ -243,6 +243,11 @@ body.grid .herb-card img {
   transition: all 0.3s ease;
   user-select: none;
   padding: 4px;
+  position: relative;
+}
+
+.star-btn::before {
+  content: "Star";
 }
 
 .star-btn:hover {
