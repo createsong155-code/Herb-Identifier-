@@ -82,47 +82,46 @@ function openModal(id) {
   const modalBody = document.getElementById('modal-body');
 
   modalBody.innerHTML = `
-    <h2>${h.name} ${h.favorite ? 'Star' : ''}</h2>
+  <h2>${h.name} ${h.favorite ? 'Star' : ''}</h2>
 
-    <!-- SWIPE GALLERY -->
-    <div class="image-swiper">
-      <div class="swiper-container">
-        <div class="swiper-wrapper">
-          ${h.images.map(img => `
-            <div class="swiper-slide">
-              <img src="${img.url}" alt="${h.name} ${img.part}">
-              <div class="image-label">${img.part}</div>
-            </div>
-          `).join('')}
-        </div>
-        <div class="swiper-pagination"></div>
+  <!-- SWIPE GALLERY (NO LABEL) -->
+  <div class="image-swiper">
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        ${h.images.map(img => `
+          <div class="swiper-slide">
+            <img src="${img.url}" alt="${h.name} ${img.part}">
+          </div>
+        `).join('')}
       </div>
+      <div class="swiper-pagination"></div>
     </div>
+  </div>
 
-    <!-- ONE CLEAN LIST -->
-    <div class="info-list">
-      <p><strong>Local:</strong> ${h.local}</p>
-      <p><strong>English:</strong> ${h.english}</p>
-      <p><strong>Scientific:</strong> <i>${h.scientific}</i></p>
-      <p><strong>Part Used:</strong> <span class="part-badge">${h.partUsed}</span></p>
-      <hr>
-      <p><strong>Use:</strong> ${h.use}</p>
-      <p><strong>Preparation:</strong> ${h.preparation}</p>
-      <p><strong>Caution:</strong> ${h.caution}</p>
-    </div>
+  <!-- ONE CLEAN LIST -->
+  <div class="info-list">
+    <p><strong>Local:</strong> ${h.local}</p>
+    <p><strong>English:</strong> ${h.english}</p>
+    <p><strong>Scientific:</strong> <i>${h.scientific}</i></p>
+    <p><strong>Part Used:</strong> <span class="part-badge">${h.partUsed}</span></p>
+    <hr>
+    <p><strong>Use:</strong> ${h.use}</p>
+    <p><strong>Preparation:</strong> ${h.preparation}</p>
+    <p><strong>Caution:</strong> ${h.caution}</p>
+  </div>
 
-    <div class="notes-section">
-      <textarea id="notes-input" placeholder="Add your notes...">${h.notes}</textarea>
-    </div>
+  <div class="notes-section">
+    <textarea id="notes-input" placeholder="Add your notes...">${h.notes}</textarea>
+  </div>
 
-    <div class="modal-buttons">
-      <button class="modal-btn save-btn" onclick="save(${id},false)">Save</button>
-      <button class="modal-btn save-suggest-btn" onclick="save(${id},true)">Save & Suggest</button>
-      <button class="modal-btn ${h.favorite?'save-btn':'save-suggest-btn'}" onclick="fav(${id})">
-        ${h.favorite?'Unfav':'Fav'}
-      </button>
-    </div>
-  `;
+  <div class="modal-buttons">
+    <button class="modal-btn save-btn" onclick="save(${id},false)">Save</button>
+    <button class="modal-btn save-suggest-btn" onclick="save(${id},true)">Save & Suggest</button>
+    <button class="modal-btn ${h.favorite?'save-btn':'save-suggest-btn'}" onclick="fav(${id})">
+      ${h.favorite?'Unfav':'Fav'}
+    </button>
+  </div>
+`;
 
   // INIT SWIPER
   new Swiper('.swiper-container', {
