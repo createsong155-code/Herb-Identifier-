@@ -235,24 +235,27 @@ body.grid .herb-card img {
   border-radius: 12px 12px 0 0; 
 }
 
-/* GOLDEN STAR SYMBOL */
+/* REAL STAR SYMBOL - WORKS EVERYWHERE */
 .star-btn {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   cursor: pointer;
-  color: #ccc;
   transition: all 0.3s ease;
   user-select: none;
   padding: 4px;
-  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
 }
 
 .star-btn::before {
-  content: "Star";
-  font-family: "Segoe UI Emoji", "Apple Color Emoji", sans-serif;
+  content: "★";
+  color: #ccc;
 }
 
 .star-btn.favorited::before {
-  content: "Star";
+  content: "★";
   color: #ffd700;
   text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
   animation: pulseStar 1.5s infinite;
@@ -264,7 +267,7 @@ body.grid .herb-card img {
 
 @keyframes pulseStar {
   0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.15); }
+  50% { transform: scale(1.2); }
 }
 
 /* MODAL */
