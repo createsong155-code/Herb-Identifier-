@@ -81,8 +81,12 @@ function openModal(id) {
   const h = herbs.find(x => x.id === id);
   const modalBody = document.getElementById('modal-body');
 
+  function openModal(id) {
+  const h = herbs.find(x => x.id === id);
+  const modalBody = document.getElementById('modal-body');
+
   modalBody.innerHTML = `
-    <h2>${h.name} ${h.favorite ? '★' : ''}</h2>
+    <h2>${h.name} ${h.favorite ? 'Star' : ''}</h2>
 
     <!-- SWIPE GALLERY -->
     <div class="image-swiper">
@@ -99,26 +103,15 @@ function openModal(id) {
       </div>
     </div>
 
-    <!-- TABS -->
-    <div class="content-tabs">
-      <button class="tab-btn active" data-tab="general">General</button>
-      <button class="tab-btn" data-tab="use">Use</button>
-      <button class="tab-btn" data-tab="caution">Caution</button>
-    </div>
-
-    <div id="general" class="tab-content active">
+    <!-- ONE CLEAN LIST -->
+    <div class="info-list">
       <p><strong>Local:</strong> ${h.local}</p>
       <p><strong>English:</strong> ${h.english}</p>
       <p><strong>Scientific:</strong> <i>${h.scientific}</i></p>
       <p><strong>Part Used:</strong> <span class="part-badge">${h.partUsed}</span></p>
-    </div>
-
-    <div id="use" class="tab-content">
+      <hr>
       <p><strong>Use:</strong> ${h.use}</p>
       <p><strong>Preparation:</strong> ${h.preparation}</p>
-    </div>
-
-    <div id="caution" class="tab-content">
       <p><strong>Caution:</strong> ${h.caution}</p>
     </div>
 
@@ -140,16 +133,6 @@ function openModal(id) {
     loop: h.images.length > 1,
     pagination: { el: '.swiper-pagination', clickable: true },
     grabCursor: true,
-  });
-
-  // TAB SWITCH
-  document.querySelectorAll('.tab-btn').forEach(btn => {
-    btn.onclick = () => {
-      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-      document.getElementById(btn.dataset.tab).classList.add('active');
-      btn.classList.add('active');
-    };
   });
 
   modal.style.display = 'block';
