@@ -1,14 +1,7 @@
-const herbs = [
-  { id: 1, name: "Lagundi", local: "Lagundi", english: "Five-Leaved Chaste Tree", category: "Cough", image: "https://via.placeholder.com/400x300/2e8b57/white?text=Lagundi", description: "Anti-asthma and cough remedy.", preparation: "Boil leaves in water.", use: "Cough, asthma.", caution: "Avoid if pregnant.", notes: "", favorite: false },
-  { id: 2, name: "Akapulko", local: "Akapulko", english: "Ringworm Bush", category: "Wound", image: "https://via.placeholder.com/400x300/2e8b57/white?text=Akapulko", description: "For skin infections.", preparation: "Crush leaves.", use: "Ringworm, wounds.", caution: "Patch test.", notes: "", favorite: false },
-  { id: 3, name: "Luya", local: "Luya", english: "Ginger", category: "Stomach Ache", image: "https://via.placeholder.com/400x300/2e8b57/white?text=Luya", description: "Relieves nausea.", preparation: "Brew as tea.", use: "Stomach ache.", caution: "Safe.", notes: "", favorite: false },
-  { id: 4, name: "Bayabas", local: "Bayabas", english: "Guava", category: "Wound", image: "https://via.placeholder.com/400x300/2e8b57/white?text=Bayabas", description: "Antiseptic leaves.", preparation: "Boil leaves.", use: "Wounds, diarrhea.", caution: "Safe.", notes: "", favorite: false },
-  { id: 5, name: "Sambong", local: "Sambong", english: "Blumea", category: "Fever", image: "https://via.placeholder.com/400x300/2e8b57/white?text=Sambong", description: "Fever reducer.", preparation: "Drink as tea.", use: "Fever, stones.", caution: "Moderate use.", notes: "", favorite: false },
-  { id: 6, name: "Malunggay", local: "Malunggay", english: "Moringa", category: "Kidney", image: "https://via.placeholder.com/400x300/2e8b57/white?text=Malunggay", description: "Superfood.", preparation: "Add to soup.", use: "Nutrition.", caution: "Safe.", notes: "", favorite: false },
-  { id: 7, name: "Kalabo", local: "Kalabo", english: "Oregano", category: "Cough", image: "https://via.placeholder.com/400x300/2e8b57/white?text=Kalabo", description: "For cough.", preparation: "Steep leaves.", use: "Colds.", caution: "Safe.", notes: "", favorite: false },
-  { id: 8, name: "Tanglad", local: "Tanglad", english: "Lemongrass", category: "Cough", image: "https://via.placeholder.com/400x300/2e8b57/white?text=Tanglad", description: "Calming tea.", preparation: "Boil stalks.", use: "Cough, stress.", caution: "Safe.", notes: "", favorite: false }
-];
+// herbs.json will be loaded here (see below)
+let herbs = [];
 
+// STORAGE
 const storage = { 
   load() { 
     const d = JSON.parse(localStorage.getItem('herbApp') || '{}'); 
@@ -23,24 +16,32 @@ const storage = {
     localStorage.setItem('herbApp', JSON.stringify(d)); 
   } 
 }; 
-storage.load();
 
-// RENDER WITH GOLDEN STAR
+// LOAD HERBS
+fetch('herbs.json')
+  .then(r => r.json())
+  .then(data => {
+    herbs = data;
+    storage.load();
+    render();
+  });
+
+// RENDER
 function render(f = herbs) {
   const list = document.getElementById('herb-list');
   if (!list) return;
   list.innerHTML = f.map(h => `
     <div class="herb-card" onclick="openModal(${h.id})">
-      ${document.body.classList.contains('grid') ? `<img src="${h.image}" alt="${h.name}">` : ''}
+      ${document.body.classList.contains('grid') ? `<img src="${h.images[0].url}" alt="${h.name}">` : ''}
       <div class="card-content">
         <h3>${h.name} <span class="tag">${h.category}</span></h3>
-        <span class="star-btn ${h.favorite ? 'favorited' : ''}" onclick="toggleFav(${h.id}, event)">★</span>
+        <span class="star-btn ${h.favorite ? 'favorited' : ''}" onclick="toggleFav(${h.id}, event)">Star</span>
       </div>
     </div>
   `).join('');
 }
 
-// TOGGLE FAVORITE
+// TOGGLE FAV
 function toggleFav(id, e) {
   e.stopPropagation();
   const h = herbs.find(x => x.id === id);
@@ -75,22 +76,79 @@ window.addEventListener('click', e => e.target === modal && (modal.style.display
 
 function openModal(id) {
   const h = herbs.find(x => x.id === id);
-  document.getElementById('modal-body').innerHTML = `
-    <h2>${h.name}</h2>
-    <img src="${h.image}" alt="${h.name}">
-    <div class="detail-section"><h4>Local:</h4><p>${h.local}</p></div>
-    <div class="detail-section"><h4>English:</h4><p>${h.english}</p></div>
-    <div class="detail-section"><h4>Description:</h4><p>${h.description}</p></div>
-    <div class="detail-section"><h4>Preparation:</h4><p>${h.preparation}</p></div>
-    <div class="detail-section"><h4>Use:</h4><p>${h.use}</p></div>
-    <div class="detail-section"><h4>Caution:</h4><p>${h.caution}</p></div>
-    <div class="detail-section"><h4>Notes:</h4><textarea id="notes-input">${h.notes}</textarea></div>
+  const modalBody = document.getElementById('modal-body');
+
+  modalBody.innerHTML = `
+    <h2>${h.name} ${h.favorite ? 'Star' : ''}</h2>
+
+    <!-- SWIPE GALLERY -->
+    <div class="image-swiper">
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          ${h.images.map(img => `
+            <div class="swiper-slide">
+              <img src="${img.url}" alt="${h.name} ${img.part}">
+              <div class="image-label">${img.part}</div>
+            </div>
+          `).join('')}
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+
+    <!-- TABS -->
+    <div class="content-tabs">
+      <button class="tab-btn active" data-tab="general">General</button>
+      <button class="tab-btn" data-tab="use">Use</button>
+      <button class="tab-btn" data-tab="caution">Caution</button>
+    </div>
+
+    <div id="general" class="tab-content active">
+      <p><strong>Local:</strong> ${h.local}</p>
+      <p><strong>English:</strong> ${h.english}</p>
+      <p><strong>Scientific:</strong> <i>${h.scientific}</i></p>
+      <p><strong>Part Used:</strong> <span class="part-badge">${h.partUsed}</span></p>
+    </div>
+
+    <div id="use" class="tab-content">
+      <p><strong>Use:</strong> ${h.use}</p>
+      <p><strong>Preparation:</strong> ${h.preparation}</p>
+    </div>
+
+    <div id="caution" class="tab-content">
+      <p><strong>Caution:</strong> ${h.caution}</p>
+    </div>
+
+    <div class="notes-section">
+      <textarea id="notes-input" placeholder="Add your notes...">${h.notes}</textarea>
+    </div>
+
     <div class="modal-buttons">
       <button class="modal-btn save-btn" onclick="save(${id},false)">Save</button>
       <button class="modal-btn save-suggest-btn" onclick="save(${id},true)">Save & Suggest</button>
-      <button class="modal-btn ${h.favorite?'save-btn':'save-suggest-btn'}" onclick="fav(${id})">${h.favorite?'Unfav':'Fav'}</button>
+      <button class="modal-btn ${h.favorite?'save-btn':'save-suggest-btn'}" onclick="fav(${id})">
+        ${h.favorite?'Unfav':'Fav'}
+      </button>
     </div>
   `;
+
+  // INIT SWIPER
+  new Swiper('.swiper-container', {
+    loop: h.images.length > 1,
+    pagination: { el: '.swiper-pagination', clickable: true },
+    grabCursor: true,
+  });
+
+  // TAB SWITCH
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.onclick = () => {
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById(btn.dataset.tab).classList.add('active');
+      btn.classList.add('active');
+    };
+  });
+
   modal.style.display = 'block';
 }
 
@@ -111,15 +169,13 @@ window.fav = (id) => {
   openModal(id); 
 };
 
-// HAMBURGER MENU
+// MENU & FOOTER (unchanged)
 document.getElementById('hamburgerMenu')?.addEventListener('click', () => {
   document.getElementById('sideMenu').classList.add('active');
 });
-
 document.getElementById('closeMenu')?.addEventListener('click', () => {
   document.getElementById('sideMenu').classList.remove('active');
 });
-
 window.addEventListener('click', (e) => {
   const menu = document.getElementById('sideMenu');
   if (menu.classList.contains('active') && !menu.contains(e.target) && e.target.id !== 'hamburgerMenu') {
@@ -127,7 +183,6 @@ window.addEventListener('click', (e) => {
   }
 });
 
-// FOOTER
 function filterCategory(cat) {
   document.querySelectorAll('.footer-btn').forEach(btn => btn.classList.remove('active'));
   event.target.closest('.footer-btn').classList.add('active');
@@ -145,8 +200,3 @@ function openDashboard() {
   const noteCount = Object.keys(JSON.parse(localStorage.getItem('herbApp') || '{}').notes || {}).length;
   alert(`My Dashboard\n\nFavorites: ${favCount}\nSaved Notes: ${noteCount}\n\nComing soon: Full dashboard view!`);
 }
-
-// RENDER AFTER PAGE LOADS
-document.addEventListener('DOMContentLoaded', () => {
-  render(); // NOW SAFE
-});
