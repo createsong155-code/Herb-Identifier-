@@ -1,5 +1,16 @@
-// herbs.json will be loaded here (see below)
-let herbs = [];
+// TEMPORARY 8 HERBS (until herbs.json is ready)
+const tempHerbs = [
+  { id: 1, name: "Lagundi", local: "Lagundi", english: "Five-Leaved Chaste Tree", scientific: "Vitex negundo", category: "Cough", partUsed: "Leaves", use: "Cough, asthma.", preparation: "Boil leaves in water.", caution: "Avoid if pregnant.", notes: "", favorite: false, images: [{ part: "Leaf", url: "https://via.placeholder.com/400x300/2e8b57/white?text=Leaf" }] },
+  { id: 2, name: "Akapulko", local: "Akapulko", english: "Ringworm Bush", scientific: "Senna alata", category: "Wound", partUsed: "Leaves", use: "Ringworm, wounds.", preparation: "Crush leaves.", caution: "Patch test.", notes: "", favorite: false, images: [{ part: "Leaf", url: "https://via.placeholder.com/400x300/2e8b57/white?text=Leaf" }] },
+  { id: 3, name: "Luya", local: "Luya", english: "Ginger", scientific: "Zingiber officinale", category: "Stomach Ache", partUsed: "Rhizome", use: "Stomach ache.", preparation: "Brew as tea.", caution: "Safe.", notes: "", favorite: false, images: [{ part: "Root", url: "https://via.placeholder.com/400x300/2e8b57/white?text=Root" }] },
+  { id: 4, name: "Bayabas", local: "Bayabas", english: "Guava", scientific: "Psidium guajava", category: "Wound", partUsed: "Leaves", use: "Wounds, diarrhea.", preparation: "Boil leaves.", caution: "Safe.", notes: "", favorite: false, images: [{ part: "Leaf", url: "https://via.placeholder.com/400x300/2e8b57/white?text=Leaf" }, { part: "Fruit", url: "https://via.placeholder.com/400x300/2e8b57/white?text=Fruit" }] },
+  { id: 5, name: "Sambong", local: "Sambong", english: "Blumea", scientific: "Blumea balsamifera", category: "Fever", partUsed: "Leaves", use: "Fever, stones.", preparation: "Drink as tea.", caution: "Moderate use.", notes: "", favorite: false, images: [{ part: "Leaf", url: "https://via.placeholder.com/400x300/2e8b57/white?text=Leaf" }] },
+  { id: 6, name: "Malunggay", local: "Malunggay", english: "Moringa", scientific: "Moringa oleifera", category: "Kidney", partUsed: "Leaves", use: "Nutrition.", preparation: "Add to soup.", caution: "Safe.", notes: "", favorite: false, images: [{ part: "Leaf", url: "https://via.placeholder.com/400x300/2e8b57/white?text=Leaf" }] },
+  { id: 7, name: "Kalabo", local: "Kalabo", english: "Oregano", scientific: "Plectranthus amboinicus", category: "Cough", partUsed: "Leaves", use: "Colds.", preparation: "Steep leaves.", caution: "Safe.", notes: "", favorite: false, images: [{ part: "Leaf", url: "https://via.placeholder.com/400x300/2e8b57/white?text=Leaf" }] },
+  { id: 8, name: "Tanglad", local: "Tanglad", english: "Lemongrass", scientific: "Cymbopogon citratus", category: "Cough", partUsed: "Stalk", use: "Cough, stress.", preparation: "Boil stalks.", caution: "Safe.", notes: "", favorite: false, images: [{ part: "Stalk", url: "https://via.placeholder.com/400x300/2e8b57/white?text=Stalk" }] }
+];
+
+let herbs = tempHerbs; // Use temp until full JSON
 
 // STORAGE
 const storage = { 
@@ -16,15 +27,7 @@ const storage = {
     localStorage.setItem('herbApp', JSON.stringify(d)); 
   } 
 }; 
-
-// LOAD HERBS
-fetch('herbs.json')
-  .then(r => r.json())
-  .then(data => {
-    herbs = data;
-    storage.load();
-    render();
-  });
+storage.load();
 
 // RENDER
 function render(f = herbs) {
@@ -35,7 +38,7 @@ function render(f = herbs) {
       ${document.body.classList.contains('grid') ? `<img src="${h.images[0].url}" alt="${h.name}">` : ''}
       <div class="card-content">
         <h3>${h.name} <span class="tag">${h.category}</span></h3>
-        <span class="star-btn ${h.favorite ? 'favorited' : ''}" onclick="toggleFav(${h.id}, event)">Star</span>
+        <span class="star-btn ${h.favorite ? 'favorited' : ''}" onclick="toggleFav(${h.id}, event)">★</span>
       </div>
     </div>
   `).join('');
@@ -79,7 +82,7 @@ function openModal(id) {
   const modalBody = document.getElementById('modal-body');
 
   modalBody.innerHTML = `
-    <h2>${h.name} ${h.favorite ? 'Star' : ''}</h2>
+    <h2>${h.name} ${h.favorite ? '★' : ''}</h2>
 
     <!-- SWIPE GALLERY -->
     <div class="image-swiper">
@@ -200,3 +203,6 @@ function openDashboard() {
   const noteCount = Object.keys(JSON.parse(localStorage.getItem('herbApp') || '{}').notes || {}).length;
   alert(`My Dashboard\n\nFavorites: ${favCount}\nSaved Notes: ${noteCount}\n\nComing soon: Full dashboard view!`);
 }
+
+// RENDER ON LOAD
+render();
