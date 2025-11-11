@@ -1,4 +1,4 @@
-// TEMPORARY 8 HERBS (until herbs.json is ready)
+// TEMPORARY 8 HERBS
 const tempHerbs = [
   { id: 1, name: "Lagundi", local: "Lagundi", english: "Five-Leaved Chaste Tree", scientific: "Vitex negundo", category: "Cough", partUsed: "Leaves", use: "Cough, asthma.", preparation: "Boil leaves in water.", caution: "Avoid if pregnant.", notes: "", favorite: false, images: [{ part: "Leaf", url: "https://via.placeholder.com/400x300/2e8b57/white?text=Leaf" }] },
   { id: 2, name: "Akapulko", local: "Akapulko", english: "Ringworm Bush", scientific: "Senna alata", category: "Wound", partUsed: "Leaves", use: "Ringworm, wounds.", preparation: "Crush leaves.", caution: "Patch test.", notes: "", favorite: false, images: [{ part: "Leaf", url: "https://via.placeholder.com/400x300/2e8b57/white?text=Leaf" }] },
@@ -10,7 +10,7 @@ const tempHerbs = [
   { id: 8, name: "Tanglad", local: "Tanglad", english: "Lemongrass", scientific: "Cymbopogon citratus", category: "Cough", partUsed: "Stalk", use: "Cough, stress.", preparation: "Boil stalks.", caution: "Safe.", notes: "", favorite: false, images: [{ part: "Stalk", url: "https://via.placeholder.com/400x300/2e8b57/white?text=Stalk" }] }
 ];
 
-let herbs = tempHerbs; // Use temp until full JSON
+let herbs = tempHerbs;
 
 // STORAGE
 const storage = { 
@@ -38,7 +38,7 @@ function render(f = herbs) {
       ${document.body.classList.contains('grid') ? `<img src="${h.images[0].url}" alt="${h.name}">` : ''}
       <div class="card-content">
         <h3>${h.name} <span class="tag">${h.category}</span></h3>
-        <span class="star-btn ${h.favorite ? 'favorited' : ''}" onclick="toggleFav(${h.id}, event)">★</span>
+        <span class="star-btn ${h.favorite ? 'favorited' : ''}" onclick="toggleFav(${h.id}, event)">Star</span>
       </div>
     </div>
   `).join('');
@@ -78,10 +78,6 @@ document.querySelector('.close')?.addEventListener('click', () => modal.style.di
 window.addEventListener('click', e => e.target === modal && (modal.style.display = 'none'));
 
 function openModal(id) {
-  const h = herbs.find(x => x.id === id);
-  const modalBody = document.getElementById('modal-body');
-
-  function openModal(id) {
   const h = herbs.find(x => x.id === id);
   const modalBody = document.getElementById('modal-body');
 
@@ -155,42 +151,7 @@ window.fav = (id) => {
   openModal(id); 
 };
 
-// MENU & FOOTER (unchanged)
-document.getElementById('hamburgerMenu')?.addEventListener('click', () => {
-  document.getElementById('sideMenu').classList.add('active');
-});
-document.getElementById('closeMenu')?.addEventListener('click', () => {
-  document.getElementById('sideMenu').classList.remove('active');
-});
-window.addEventListener('click', (e) => {
-  const menu = document.getElementById('sideMenu');
-  if (menu.classList.contains('active') && !menu.contains(e.target) && e.target.id !== 'hamburgerMenu') {
-    menu.classList.remove('active');
-  }
-});
-
-function filterCategory(cat) {
-  document.querySelectorAll('.footer-btn').forEach(btn => btn.classList.remove('active'));
-  event.target.closest('.footer-btn').classList.add('active');
-  const target = cat === 'all' ? document.querySelector('.category[data-category="all"]') 
-               : cat === 'Favorites' ? document.querySelector('.category[data-category="Favorites"]') : null;
-  if (target) target.click();
-}
-
-function openSupport() {
-  alert("Support Center\n\nEmail: support@herbapp.com\nPhone: +63 912 345 6789\n\nOr tap 'Support / Help Center' in Menu");
-}
-
-function openDashboard() {
-  const favCount = herbs.filter(h => h.favorite).length;
-  const noteCount = Object.keys(JSON.parse(localStorage.getItem('herbApp') || '{}').notes || {}).length;
-  alert(`My Dashboard\n\nFavorites: ${favCount}\nSaved Notes: ${noteCount}\n\nComing soon: Full dashboard view!`);
-}
-
-// RENDER ON LOAD
-render();
-
-// MENU & FOOTER (unchanged)
+// MENU & FOOTER
 document.getElementById('hamburgerMenu')?.addEventListener('click', () => {
   document.getElementById('sideMenu').classList.add('active');
 });
