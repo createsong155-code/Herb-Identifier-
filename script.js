@@ -110,6 +110,7 @@ function openModal(id) {
     <p><strong>Local:</strong> ${h.local}</p>
     <p><strong>English:</strong> ${h.english}</p>
     <p><strong>Scientific:</strong> <i>${h.scientific}</i></p>
+${h.description ? `<p class="description"><strong>Description:</strong> ${h.description}</p>` : ''}
     <p><strong>Part Used:</strong> <span class="part-badge">${h.partUsed}</span></p>
     <hr>
     <p><strong>Use:</strong> ${h.use}</p>
