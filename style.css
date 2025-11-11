@@ -235,7 +235,7 @@ body.grid .herb-card img {
   border-radius: 12px 12px 0 0; 
 }
 
-/* GOLDEN STAR FAVORITE */
+/* GOLDEN STAR SYMBOL */
 .star-btn {
   font-size: 1.4rem;
   cursor: pointer;
@@ -244,10 +244,16 @@ body.grid .herb-card img {
   user-select: none;
   padding: 4px;
   position: relative;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .star-btn::before {
   content: "Star";
+  font-family: "Segoe UI Emoji", "Apple Color Emoji", sans-serif;
 }
 
 .star-btn.favorited::before {
