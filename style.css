@@ -244,11 +244,6 @@ body.grid .herb-card img {
   user-select: none;
   padding: 4px;
   position: relative;
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .star-btn::before {
@@ -261,6 +256,10 @@ body.grid .herb-card img {
   color: #ffd700;
   text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
   animation: pulseStar 1.5s infinite;
+}
+
+.star-btn:hover::before {
+  transform: scale(1.2);
 }
 
 @keyframes pulseStar {
