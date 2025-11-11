@@ -250,11 +250,8 @@ body.grid .herb-card img {
   content: "Star";
 }
 
-.star-btn:hover {
-  transform: scale(1.2);
-}
-
-.star-btn.favorited {
+.star-btn.favorited::before {
+  content: "Star";
   color: #ffd700;
   text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
   animation: pulseStar 1.5s infinite;
