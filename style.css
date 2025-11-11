@@ -593,3 +593,21 @@ body.grid .herb-card img {
   background: #ffb800; color: #333; padding: 4px 10px;
   border-radius: 20px; font-size: 0.8rem; font-weight: 600;
 }
+
+/* ONE LIST STYLE */
+.info-list {
+  line-height: 1.7;
+  padding: 8px 0;
+}
+.info-list p {
+  margin: 8px 0;
+}
+.info-list hr {
+  border: 0;
+  border-top: 1.5px solid #e0f2e0;
+  margin: 14px 0;
+}
+.info-list strong {
+  color: #2e8b57;
+  margin-right: 8px;
+}
