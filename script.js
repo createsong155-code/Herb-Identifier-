@@ -1,16 +1,23 @@
-// TEMPORARY 8 HERBS
-const tempHerbs = [
-  { id: 1, name: "Lagundi", local: "Lagundi", english: "Five-Leaved Chaste Tree", scientific: "Vitex negundo", category: "Cough", partUsed: "Leaves", use: "Cough, asthma.", preparation: "Boil leaves in water.", caution: "Avoid if pregnant.", notes: "", favorite: false, images: [{ part: "Leaf", url: "https://via.placeholder.com/400x300/2e8b57/white?text=Leaf" }] },
-  { id: 2, name: "Akapulko", local: "Akapulko", english: "Ringworm Bush", scientific: "Senna alata", category: "Wound", partUsed: "Leaves", use: "Ringworm, wounds.", preparation: "Crush leaves.", caution: "Patch test.", notes: "", favorite: false, images: [{ part: "Leaf", url: "https://via.placeholder.com/400x300/2e8b57/white?text=Leaf" }] },
-  { id: 3, name: "Luya", local: "Luya", english: "Ginger", scientific: "Zingiber officinale", category: "Stomach Ache", partUsed: "Rhizome", use: "Stomach ache.", preparation: "Brew as tea.", caution: "Safe.", notes: "", favorite: false, images: [{ part: "Root", url: "https://via.placeholder.com/400x300/2e8b57/white?text=Root" }] },
-  { id: 4, name: "Bayabas", local: "Bayabas", english: "Guava", scientific: "Psidium guajava", category: "Wound", partUsed: "Leaves", use: "Wounds, diarrhea.", preparation: "Boil leaves.", caution: "Safe.", notes: "", favorite: false, images: [{ part: "Leaf", url: "https://via.placeholder.com/400x300/2e8b57/white?text=Leaf" }, { part: "Fruit", url: "https://via.placeholder.com/400x300/2e8b57/white?text=Fruit" }] },
-  { id: 5, name: "Sambong", local: "Sambong", english: "Blumea", scientific: "Blumea balsamifera", category: "Fever", partUsed: "Leaves", use: "Fever, stones.", preparation: "Drink as tea.", caution: "Moderate use.", notes: "", favorite: false, images: [{ part: "Leaf", url: "https://via.placeholder.com/400x300/2e8b57/white?text=Leaf" }] },
-  { id: 6, name: "Malunggay", local: "Malunggay", english: "Moringa", scientific: "Moringa oleifera", category: "Kidney", partUsed: "Leaves", use: "Nutrition.", preparation: "Add to soup.", caution: "Safe.", notes: "", favorite: false, images: [{ part: "Leaf", url: "https://via.placeholder.com/400x300/2e8b57/white?text=Leaf" }] },
-  { id: 7, name: "Kalabo", local: "Kalabo", english: "Oregano", scientific: "Plectranthus amboinicus", category: "Cough", partUsed: "Leaves", use: "Colds.", preparation: "Steep leaves.", caution: "Safe.", notes: "", favorite: false, images: [{ part: "Leaf", url: "https://via.placeholder.com/400x300/2e8b57/white?text=Leaf" }] },
-  { id: 8, name: "Tanglad", local: "Tanglad", english: "Lemongrass", scientific: "Cymbopogon citratus", category: "Cough", partUsed: "Stalk", use: "Cough, stress.", preparation: "Boil stalks.", caution: "Safe.", notes: "", favorite: false, images: [{ part: "Stalk", url: "https://via.placeholder.com/400x300/2e8b57/white?text=Stalk" }] }
+// FULL HERBS DATABASE
+const herbs = [
+  {
+    "id": 1,
+    "name": "Akapulko",
+    "local": "Akapulko",
+    "bisaya": "Katanda",
+    "english": "Ringworm Bush",
+    "scientific": "Senna alata",
+    "category": "Wound",
+    "partUsed": "Leaves",
+    "use": "Ringworm, scabies, eczema, fungal infections",
+    "preparation": "Crush fresh leaves into paste. Apply directly to affected skin 2x/day. Wash after 30 mins.",
+    "caution": "Patch test first. Avoid open wounds. Not for internal use.",
+    "images": [
+      { "part": "Leaf", "url": "https://herbapp.ph/img/akapulko-leaf.jpg" },
+      { "part": "Flower", "url": "https://herbapp.ph/img/akapulko-flower.jpg" }
+    ]
+  }
 ];
-
-let herbs = tempHerbs;
 
 // STORAGE
 const storage = { 
