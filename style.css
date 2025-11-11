@@ -611,3 +611,12 @@ body.grid .herb-card img {
   color: #2e8b57;
   margin-right: 8px;
 }
+
+/* DESCRIPTION UNDER SCIENTIFIC NAME */
+.description {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 8px 0;
+  line-height: 1.5;
+  font-style: italic;
+}
