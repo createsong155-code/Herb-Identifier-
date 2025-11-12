@@ -620,3 +620,29 @@ body.grid .herb-card img {
   line-height: 1.5;
   font-style: italic;
 }
+
+.prep-list {
+  margin: 16px 0 12px 0;
+  line-height: 1.6;
+}
+
+.prep-list strong {
+  color: #2e8b57;
+  font-size: 1rem;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.prep-item {
+  margin: 10px 0;
+  padding-left: 12px;
+  position: relative;
+}
+
+.use-label {
+  font-weight: 600;
+  color: #2e8b57;
+  display: inline-block;
+  width: 110px;
+  font-size: 0.95rem;
+}
