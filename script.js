@@ -1,6 +1,7 @@
 // FULL HERBS DATABASE
 const herbs = [
   [
+    
   {
   "id": 1,
   "name": "Akapulko",
