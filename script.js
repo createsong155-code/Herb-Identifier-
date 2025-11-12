@@ -107,17 +107,26 @@ function openModal(id) {
   </div>
 
   <!-- ONE CLEAN LIST -->
-  <div class="info-list">
-    <p><strong>Local:</strong> ${h.local}</p>
-    <p><strong>English:</strong> ${h.english}</p>
-    <p><strong>Scientific:</strong> <i>${h.scientific}</i></p>
-    ${h.description ? `<p class="description"><strong>Description:</strong> ${h.description}</p>` : ''}
-    <p><strong>Part Used:</strong> <span class="part-badge">${h.partUsed}</span></p>
-    <hr>
-    <p><strong>Use:</strong> ${h.use}</p>
-    <p><strong>Preparation:</strong> ${h.preparation}</p>
-    <p><strong>Caution:</strong> ${h.caution}</p>
+<div class="info-list">
+  <p><strong>Local:</strong> ${h.local}</p>
+  <p><strong>English:</strong> ${h.english}</p>
+  <p><strong>Scientific:</strong> <i>${h.scientific}</i></p>
+  <p><strong>Description:</strong> <i>${h.description}</i></p>
+  <p><strong>Part Used:</strong> <span class="part-badge">${h.partUsed}</span></p>
+
+  <div class="prep-list">
+    <strong>Preparation by Use:</strong>
+    ${Object.entries(h.preparation || {}).map(([use, prep]) => `
+      <p class="prep-item">
+        <span class="use-label">${use}:</span> ${prep}
+      </p>
+    `).join('')}
   </div>
+
+  <hr>
+  <p><strong>Use:</strong> ${h.use}</p>
+  <p><strong>Caution:</strong> ${h.caution}</p>
+</div>
 
   <div class="notes-section">
     <textarea id="notes-input" placeholder="Add your notes...">${h.notes}</textarea>
