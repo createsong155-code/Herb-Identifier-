@@ -118,6 +118,170 @@ const herbs = [
       { "part": "Fruit", "url": "avocado-fruit.jpg" },
       { "part": "Leaf", "url": "avocado-leaf.jpg" }
     ]
+  },
+
+  {
+    "id": 6,
+    "name": "Balbas Pusa",
+    "local": "Balbas Pusa",
+    "bisaya": "Balbas Pusa",
+    "english": "Cat’s Whiskers",
+    "scientific": "Orthosiphon aristatus",
+    "description": "An herb with white, whisker-like flowers. Traditionally used as a diuretic and to help manage kidney and urinary problems.",
+    "category": "Urinary / Kidney / Detox",
+    "partUsed": "Leaves",
+    "use": ["Kidney Stones", "Urinary Tract Infection", "Water Retention", "Detoxification"],
+    "preparation": {
+      "Kidney Stones": "Boil 1 cup of fresh leaves in 3 cups of water for 15 minutes. Drink 1 cup three times daily.",
+      "Urinary Tract Infection": "Drink a mild decoction (10 leaves in 2 cups water, boiled 10 mins) twice daily for 5 days.",
+      "Water Retention": "Drink one cup of decoction daily to stimulate urination.",
+      "Detoxification": "Take as herbal tea (1 tsp dried leaves per cup) once daily for 1 week."
+    },
+    "caution": "Avoid excessive use to prevent electrolyte imbalance. Not advised for pregnant or breastfeeding women. Always stay hydrated when using this herb.",
+    "images": [
+      { "part": "Leaf", "url": "balbas-pusa-leaf.jpg" },
+      { "part": "Flower", "url": "balbas-pusa-flower.jpg" }
+    ]
+  },
+
+  {
+    "id": 7,
+    "name": "Banaba",
+    "local": "Banaba",
+    "bisaya": "Banaba",
+    "english": "Queen’s Crape Myrtle",
+    "scientific": "Lagerstroemia speciosa",
+    "description": "A tree with purple flowers known for its leaves’ ability to lower blood sugar and promote urinary health.",
+    "category": "Diabetes / Urinary / Weight Management",
+    "partUsed": "Leaves",
+    "use": ["Diabetes", "Urinary Problems", "Weight Loss"],
+    "preparation": {
+      "Diabetes": "Boil 1 cup of dried leaves in 4 cups of water for 15 minutes. Drink 1 cup before meals twice daily.",
+      "Urinary Problems": "Drink ½ cup of the decoction three times daily for relief.",
+      "Weight Loss": "Use as daily herbal tea (2–3 dried leaves steeped in hot water for 10 minutes)."
+    },
+    "caution": "May enhance the effect of diabetes medication. Avoid if experiencing low blood sugar. Long-term high doses are not advised.",
+    "images": [
+      { "part": "Leaf", "url": "banaba-leaf.jpg" },
+      { "part": "Flower", "url": "banaba-flower.jpg" }
+    ]
+  },
+
+  {
+    "id": 8,
+    "name": "Bawang",
+    "local": "Bawang",
+    "bisaya": "Ahos",
+    "english": "Garlic",
+    "scientific": "Allium sativum",
+    "description": "A common kitchen herb and potent natural antibiotic used for high blood pressure, cholesterol, and infections.",
+    "category": "Heart / Antibacterial / Respiratory",
+    "partUsed": "Bulb",
+    "use": ["High Blood Pressure", "Cholesterol", "Cough", "Infection"],
+    "preparation": {
+      "High Blood Pressure": "Eat 1–2 raw cloves daily or mix with honey on an empty stomach.",
+      "Cholesterol": "Crush 3 cloves and steep in warm water for 10 minutes. Drink once daily.",
+      "Cough": "Boil 3 crushed cloves in 1 cup of milk and drink before bedtime.",
+      "Infection": "Apply crushed garlic directly on affected area; mix with coconut oil for milder effect."
+    },
+    "caution": "May cause stomach upset or burning when eaten raw. Avoid excessive use before surgery. Not recommended for people on blood-thinning medication.",
+    "images": [
+      { "part": "Bulb", "url": "bawang-bulb.jpg" },
+      { "part": "Plant", "url": "bawang-plant.jpg" }
+    ]
+  },
+
+  {
+    "id": 9,
+    "name": "Bayabas",
+    "local": "Bayabas",
+    "bisaya": "Bayabas",
+    "english": "Guava",
+    "scientific": "Psidium guajava",
+    "description": "A small tropical tree with edible fruit and medicinal leaves known for treating wounds and stomach ailments.",
+    "category": "Wound / Digestive / Oral Health",
+    "partUsed": "Leaves, Fruit",
+    "use": ["Wounds", "Diarrhea", "Toothache", "Mouth Ulcers"],
+    "preparation": {
+      "Wounds": "Boil 10 leaves in 2 cups of water for 10 minutes. Use cooled decoction to wash wounds twice daily.",
+      "Diarrhea": "Drink ½ cup of leaf decoction 3 times a day until symptoms improve.",
+      "Toothache": "Chew 2–3 fresh leaves for instant relief.",
+      "Mouth Ulcers": "Use decoction as mouth rinse after meals."
+    },
+    "caution": "Avoid overuse as strong decoction may cause constipation. Not for chronic diarrhea without medical advice.",
+    "images": [
+      { "part": "Leaf", "url": "bayabas-leaf.jpg" },
+      { "part": "Fruit", "url": "bayabas-fruit.jpg" }
+    ]
+  },
+
+  {
+    "id": 10,
+    "name": "Bignay",
+    "local": "Bignay",
+    "bisaya": "Bignay",
+    "english": "Bignay",
+    "scientific": "Antidesma bunius",
+    "description": "A tree producing small red fruits used for detoxification and managing blood pressure.",
+    "category": "Heart / Detox / Urinary",
+    "partUsed": "Leaves, Fruit",
+    "use": ["High Blood Pressure", "Detoxification", "Urinary Problems"],
+    "preparation": {
+      "High Blood Pressure": "Boil 10 leaves in 3 cups of water for 15 minutes. Drink 1 cup twice daily.",
+      "Detoxification": "Drink juice made from fresh ripe fruits once a day.",
+      "Urinary Problems": "Drink mild leaf decoction (5 leaves per 2 cups water) twice daily."
+    },
+    "caution": "Avoid unripe fruits in large amounts—they can be slightly toxic. Pregnant women should avoid strong decoctions.",
+    "images": [
+      { "part": "Fruit", "url": "bignay-fruit.jpg" },
+      { "part": "Leaf", "url": "bignay-leaf.jpg" }
+    ]
+  },
+
+  {
+    "id": 11,
+    "name": "Bitter Cola",
+    "local": "Ampalaya",
+    "bisaya": "Paliya",
+    "english": "Bitter Gourd",
+    "scientific": "Momordica charantia",
+    "description": "A repeat entry referring to Bitter Gourd, also known as Ampalaya. Commonly used for diabetes and skin problems.",
+    "category": "Diabetes / Skin / Digestion",
+    "partUsed": "Leaves, Fruit",
+    "use": ["Diabetes", "Fungal Infections", "Indigestion"],
+    "preparation": {
+      "Diabetes": "Drink ½ cup of boiled fruit decoction twice daily before meals.",
+      "Fungal Infections": "Apply crushed leaf juice to affected skin twice daily.",
+      "Indigestion": "Eat sautéed young leaves or drink light decoction after meals."
+    },
+    "caution": "Same as Ampalaya: avoid during pregnancy; excessive use may cause hypoglycemia.",
+    "images": [
+      { "part": "Fruit", "url": "bitter-gourd-fruit.jpg" },
+      { "part": "Leaf", "url": "bitter-gourd-leaf.jpg" }
+    ]
+  },
+
+  {
+    "id": 12,
+    "name": "Blumea",
+    "local": "Sambong",
+    "bisaya": "Sambong",
+    "english": "Blumea",
+    "scientific": "Blumea balsamifera",
+    "description": "A fragrant medicinal shrub used for kidney stones, cough, and body detoxification.",
+    "category": "Kidney / Respiratory / Detox",
+    "partUsed": "Leaves",
+    "use": ["Kidney Stones", "Cough", "Body Detox"],
+    "preparation": {
+      "Kidney Stones": "Boil 10 leaves in 2 cups of water for 15 minutes. Drink 1 cup twice daily for 5 days.",
+      "Cough": "Boil leaves and drink the warm decoction twice a day.",
+      "Body Detox": "Drink one cup of mild tea from dried leaves daily for 1 week."
+    },
+    "caution": "Avoid use in pregnancy and breastfeeding. May cause increased urination; drink plenty of water.",
+    "images": [
+      { "part": "Leaf", "url": "sambong-leaf.jpg" },
+      { "part": "Plant", "url": "sambong-plant.jpg" }
+    ]
   }
 ];
 
