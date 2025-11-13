@@ -95,19 +95,19 @@ function openModal(id) {
   modalBody.innerHTML = `
   <h2>${h.name} ${h.favorite ? 'Star' : ''}</h2>
 
-  <!-- SWIPE GALLERY (NO LABEL) -->
-  <div class="image-swiper">
-    <div class="swiper-container">
-      <div class="swiper-wrapper">
-        ${h.images.map(img => `
-          <div class="swiper-slide">
-            <img src="${img.url}" alt="${h.name} ${img.part}">
-          </div>
-        `).join('')}
-      </div>
-      <div class="swiper-pagination"></div>
+  <!-- SWIPE GALLERY (TAP TO FULLSCREEN) -->
+<div class="image-swiper">
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      ${h.images.map(img => `
+        <div class="swiper-slide" onclick="openFullscreen('${img.url}')">
+          <img src="${img.url}" alt="${h.name} ${img.part}" style="width:100%; height:180px; object-fit:cover; border-radius:12px; cursor:pointer;">
+        </div>
+      `).join('')}
     </div>
+    <div class="swiper-pagination"></div>
   </div>
+</div>
 
   <!-- ONE CLEAN LIST -->
 <div class="info-list">
