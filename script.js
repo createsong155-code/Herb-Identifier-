@@ -250,13 +250,17 @@ function openFullscreen(herbId, startIndex = 0) {
       zoom: true,
     });
     
-    // Double-tap zoom
+    // Double-tap zoom + reset
     let lastTap = 0;
     wrapper.querySelectorAll('img').forEach(img => {
       img.onclick = (e) => {
         const now = Date.now();
         if (now - lastTap < 300) {
           img.classList.toggle('zoomed');
+          // Reset zoom when double-tapped again
+          if (!img.classList.contains('zoomed')) {
+            img.style.transform = 'scale(1)';
+          }
         }
         lastTap = now;
       };
