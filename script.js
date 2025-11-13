@@ -282,7 +282,7 @@ const herbs = [
       { "part": "Leaf", "url": "sambong-leaf.jpg" },
       { "part": "Plant", "url": "sambong-plant.jpg" }
     ]
-  }
+  },
 ];
 
 // STORAGE
