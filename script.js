@@ -95,7 +95,7 @@ function openModal(id) {
   modalBody.innerHTML = `
     <h2>${h.name} ${h.favorite ? 'Star' : ''}</h2>
 
-    <!-- SWIPE GALLERY (TAP TO FULLSCREEN SWIPE) -->
+    <!-- SWIPE GALLERY (TAP TO FULLSCREEN) -->
     <div class="image-swiper">
       <div class="swiper-container">
         <div class="swiper-wrapper">
@@ -144,7 +144,6 @@ function openModal(id) {
     </div>
   `;
 
-  // INIT MODAL SWIPER
   setTimeout(() => {
     new Swiper('.swiper-container', {
       loop: h.images.length > 1,
@@ -211,7 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
   render();
 });
 
-// FULLSCREEN SWIPER GALLERY
+// FULLSCREEN SWIPER GALLERY — FULL IMAGE + PINCH ZOOM
 let fullscreenSwiper;
 
 function openFullscreen(herbId, startIndex = 0) {
@@ -219,47 +218,44 @@ function openFullscreen(herbId, startIndex = 0) {
   const modal = document.getElementById('fullscreen-modal');
   const wrapper = document.getElementById('fullscreen-swiper-wrapper');
   
-  // Clear old slides
   wrapper.innerHTML = '';
   
-  // Add all images
   h.images.forEach(img => {
     const slide = document.createElement('div');
     slide.className = 'swiper-slide';
-    slide.innerHTML = `<img src="${img.url}" alt="${img.part}">`;
+    slide.innerHTML = `
+      <div class="swiper-zoom-container">
+        <img src="${img.url}" alt="${img.part}">
+      </div>
+    `;
     wrapper.appendChild(slide);
   });
   
   modal.style.display = 'block';
   
-  // Destroy old swiper if exists
   if (fullscreenSwiper) {
     fullscreenSwiper.destroy(true, true);
   }
   
-  // Init new swiper
   setTimeout(() => {
     fullscreenSwiper = new Swiper('.fullscreen-swiper-container', {
       initialSlide: startIndex,
       loop: h.images.length > 1,
-      pagination: {
-        el: '.fullscreen-pagination',
-        clickable: true,
-      },
+      pagination: { el: '.fullscreen-pagination', clickable: true },
       grabCursor: true,
-      zoom: true,
+      zoom: { maxRatio: 5, minRatio: 1 },
     });
     
-    // Double-tap zoom + reset
     let lastTap = 0;
     wrapper.querySelectorAll('img').forEach(img => {
       img.onclick = (e) => {
         const now = Date.now();
         if (now - lastTap < 300) {
-          img.classList.toggle('zoomed');
-          // Reset zoom when double-tapped again
-          if (!img.classList.contains('zoomed')) {
-            img.style.transform = 'scale(1)';
+          const zoom = fullscreenSwiper.zoom;
+          if (fullscreenSwiper.zoom.scale > 1) {
+            zoom.out();
+          } else {
+            zoom.in();
           }
         }
         lastTap = now;
