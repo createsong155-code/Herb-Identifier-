@@ -518,6 +518,145 @@ const herbs = [
       { "part": "Seed", "url": "durian-seed.jpg" }
     ]
   },
+
+  {
+    "id": 23,
+    "name": "Gabi",
+    "local": "Gabi",
+    "bisaya": "Taro",
+    "english": "Taro",
+    "scientific": "Colocasia esculenta",
+    "description": "A root crop with large, heart-shaped leaves. Both its tubers and leaves are used as food and traditional remedy for inflammation and skin irritations.",
+    "category": "Anti-inflammatory / Skin / Nutrition",
+    "partUsed": "Leaves, Roots",
+    "use": ["Wounds", "Insect Bites", "Swelling"],
+    "preparation": {
+      "Wounds": "Pound fresh leaves and apply directly to the affected area as a poultice to reduce irritation.",
+      "Insect Bites": "Rub the milky juice of the leaf stalk over the bite to soothe itching.",
+      "Swelling": "Apply warm crushed leaves over swollen areas and secure with clean cloth for 30 minutes."
+    },
+    "caution": "Always cook before eating. Raw gabi contains calcium oxalate crystals that can irritate the skin and throat. Avoid applying on open wounds. Wash hands thoroughly after handling raw leaves or roots.",
+    "images": [
+      { "part": "Leaf", "url": "gabi-leaf.jpg" },
+      { "part": "Root", "url": "gabi-root.jpg" }
+    ]
+  },
+  
+  {
+    "id": 24,
+    "name": "Gatas-gatas",
+    "local": "Gatas-gatas",
+    "bisaya": "Tawa-tawa",
+    "english": "Asthma Weed",
+    "scientific": "Euphorbia hirta",
+    "description": "A small weed with milky sap widely used in Philippine folk medicine for dengue, cough, and asthma.",
+    "category": "Respiratory / Dengue / Immune Support",
+    "partUsed": "Whole Plant",
+    "use": ["Dengue Fever", "Asthma", "Cough"],
+    "preparation": {
+      "Dengue Fever": "Boil a handful of the whole plant in 3 cups of water for 15 minutes. Strain and drink 1/2 cup every 3 hours to increase platelet count.",
+      "Asthma": "Boil 1 tablespoon of dried leaves in 2 cups of water for 10 minutes. Drink half a cup twice daily.",
+      "Cough": "Prepare a decoction from leaves and drink 2–3 tablespoons every 3 hours until symptoms improve."
+    },
+    "caution": "Use only under supervision of a health professional for dengue treatment. Avoid large doses due to possible stomach upset. Not for pregnant women or young children.",
+    "images": [
+      { "part": "Leaf", "url": "gatasgatas-leaf.jpg" },
+      { "part": "Plant", "url": "gatasgatas-plant.jpg" }
+    ]
+  },
+  
+  {
+    "id": 25,
+    "name": "Ginger",
+    "local": "Luya",
+    "bisaya": "Luya",
+    "english": "Ginger",
+    "scientific": "Zingiber officinale",
+    "description": "An aromatic rhizome used both as food and medicine. Known for its anti-inflammatory, antibacterial, and warming effects.",
+    "category": "Respiratory / Digestive / Pain Relief",
+    "partUsed": "Rhizome",
+    "use": ["Cough", "Sore Throat", "Nausea", "Joint Pain"],
+    "preparation": {
+      "Cough": "Boil crushed ginger slices in 2 cups of water for 10 minutes. Add honey and drink warm 2–3 times daily.",
+      "Sore Throat": "Chew small fresh slices or gargle with ginger tea 2 times a day.",
+      "Nausea": "Drink warm ginger tea before travel or meals to ease upset stomach.",
+      "Joint Pain": "Apply warm compress soaked in ginger decoction over affected areas for 20 minutes."
+    },
+    "caution": "Avoid large doses if you have ulcers or acid reflux. May interact with blood-thinning medications. Pregnant women should use moderately.",
+    "images": [
+      { "part": "Rhizome", "url": "ginger-root.jpg" },
+      { "part": "Plant", "url": "ginger-plant.jpg" }
+    ]
+  },
+  
+  {
+    "id": 26,
+    "name": "Gotu Kola",
+    "local": "Takip-kuhol",
+    "bisaya": "Takip-kuhol",
+    "english": "Gotu Kola",
+    "scientific": "Centella asiatica",
+    "description": "A small creeping herb used for improving memory, wound healing, and blood circulation. Also used to calm the nerves and relieve anxiety.",
+    "category": "Brain / Circulation / Wound Healing",
+    "partUsed": "Leaves",
+    "use": ["Memory Enhancement", "Wounds", "Anxiety"],
+    "preparation": {
+      "Memory Enhancement": "Drink tea made from 5–7 fresh leaves boiled in 1½ cups of water daily.",
+      "Wounds": "Pound leaves and apply juice directly to wounds for faster healing.",
+      "Anxiety": "Drink mild decoction once daily as a calming tonic."
+    },
+    "caution": "Avoid prolonged use in large amounts. May cause dizziness or headaches in sensitive individuals. Not for pregnant or breastfeeding women.",
+    "images": [
+      { "part": "Leaf", "url": "gotukola-leaf.jpg" },
+      { "part": "Plant", "url": "gotukola-plant.jpg" }
+    ]
+  },
+  
+  {
+    "id": 27,
+    "name": "Guava",
+    "local": "Bayabas",
+    "bisaya": "Bayabas",
+    "english": "Guava",
+    "scientific": "Psidium guajava",
+    "description": "A small tree with aromatic leaves and edible fruit. Known for its antiseptic and anti-inflammatory properties, often used for wound washing and oral care.",
+    "category": "Skin / Oral / Digestive Health",
+    "partUsed": "Leaves, Fruit",
+    "use": ["Wounds", "Mouth Ulcers", "Diarrhea"],
+    "preparation": {
+      "Wounds": "Boil young leaves in water for 10 minutes and use as a wash to clean wounds twice daily.",
+      "Mouth Ulcers": "Gargle with decoction of leaves 2–3 times daily.",
+      "Diarrhea": "Drink ½ cup of leaf decoction twice daily until symptoms subside."
+    },
+    "caution": "Avoid very concentrated decoctions; may cause constipation. Pregnant women should consult a doctor before internal use.",
+    "images": [
+      { "part": "Leaf", "url": "guava-leaf.jpg" },
+      { "part": "Fruit", "url": "guava-fruit.jpg" }
+    ]
+  },
+  
+  {
+    "id": 28,
+    "name": "Guyabano",
+    "local": "Guyabano",
+    "bisaya": "Guyabano",
+    "english": "Soursop",
+    "scientific": "Annona muricata",
+    "description": "A tropical fruit tree whose leaves and fruit are used for fever, hypertension, and as an antioxidant. The leaves are believed to have anticancer properties in folk medicine.",
+    "category": "Immune / Fever / Hypertension",
+    "partUsed": "Leaves, Fruit",
+    "use": ["Fever", "Hypertension", "Insomnia"],
+    "preparation": {
+      "Fever": "Boil 10 leaves in 3 cups of water for 10 minutes. Drink one cup twice daily.",
+      "Hypertension": "Drink tea made from 5 dried leaves once a day to help lower blood pressure.",
+      "Insomnia": "Drink warm decoction of leaves before bedtime to promote sleep."
+    },
+    "caution": "Prolonged or high intake may affect nerve function. Avoid if pregnant or breastfeeding. May lower blood pressure excessively when combined with medication.",
+    "images": [
+      { "part": "Leaf", "url": "guyabano-leaf.jpg" },
+      { "part": "Fruit", "url": "guyabano-fruit.jpg" }
+    ]
+  },
 ];
 
 // STORAGE
