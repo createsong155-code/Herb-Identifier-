@@ -1,26 +1,26 @@
 // FULL HERBS DATABASE
 const herbs = [
   {
-  "id": 1,
-  "name": "Akapulko",
-  "local": "Akapulko",
-  "bisaya": "Katanda",
-  "english": "Ringworm Bush",
-  "scientific": "Senna alata",
-  "description": "A shrub with yellow flowers and long pods. Leaves contain antifungal compounds effective against ringworm and scabies.",
-  "category": "Wound",
-  "partUsed": "Leaves",
-  "use": "Ringworm, scabies, eczema, fungal infections",
-  "preparation": {
-    "Ringworm": "Crush fresh leaves into paste. Apply directly to affected skin 2x/day. Wash after 30 mins.",
-    "Scabies": "Boil 10 leaves in 2 cups water for 10 mins. Use cooled liquid to wash affected area 2x/day."
-  },
-  "caution": "Patch test first. Avoid open wounds. Not for internal use.",
-  "images": [
-    { "part": "Leaf", "url": "akapulko-leaf.jpg" },
-    { "part": "Flower", "url": "akapulko-flower.jpg" }
-  ]
-}
+    "id": 1,
+    "name": "Akapulko",
+    "local": "Akapulko",
+    "bisaya": "Katanda",
+    "english": "Ringworm Bush",
+    "scientific": "Senna alata",
+    "description": "A shrub with yellow flowers and long pods. Leaves contain antifungal compounds effective against ringworm and scabies.",
+    "category": "Wound",
+    "partUsed": "Leaves",
+    "use": "Ringworm, scabies, eczema, fungal infections",
+    "preparation": {
+      "Ringworm": "Crush fresh leaves into paste. Apply directly to affected skin 2x/day. Wash after 30 mins.",
+      "Scabies": "Boil 10 leaves in 2 cups water for 10 mins. Use cooled liquid to wash affected area 2x/day."
+    },
+    "caution": "Patch test first. Avoid open wounds. Not for internal use.",
+    "images": [
+      { "part": "Leaf", "url": "akapulko-leaf.jpg" },
+      { "part": "Flower", "url": "akapulko-flower.jpg" }
+    ]
+  }
 ];
 
 // STORAGE
@@ -45,14 +45,14 @@ function render(f = herbs) {
   const list = document.getElementById('herb-list');
   if (!list) return;
   list.innerHTML = f.map(h => `
-  <div class="herb-card" onclick="openModal(${h.id})">
-    ${document.body.classList.contains('grid') ? `<img src="${h.images[0].url}" alt="${h.name}">` : ''}
-    <div class="card-content">
-      <h3>${h.name} <span class="tag">${h.category}</span></h3>
-      <span class="star-btn ${h.favorite ? 'favorited' : ''}" onclick="toggleFav(${h.id}, event)">Star</span>
+    <div class="herb-card" onclick="openModal(${h.id})">
+      ${document.body.classList.contains('grid') ? `<img src="${h.images[0].url}" alt="${h.name}">` : ''}
+      <div class="card-content">
+        <h3>${h.name} <span class="tag">${h.category}</span></h3>
+        <span class="star-btn ${h.favorite ? 'favorited' : ''}" onclick="toggleFav(${h.id}, event)">Star</span>
+      </div>
     </div>
-  </div>
-`).join('');
+  `).join('');
 }
 
 // TOGGLE FAV
@@ -93,58 +93,58 @@ function openModal(id) {
   const modalBody = document.getElementById('modal-body');
 
   modalBody.innerHTML = `
-  <h2>${h.name} ${h.favorite ? 'Star' : ''}</h2>
+    <h2>${h.name} ${h.favorite ? 'Star' : ''}</h2>
 
-  <!-- SWIPE GALLERY (TAP TO FULLSCREEN) -->
-  <div class="image-swiper">
-    <div class="swiper-container">
-      <div class="swiper-wrapper">
-        ${h.images.map(img => `
-          <div class="swiper-slide" onclick="openFullscreen('${img.url}')">
-            <img src="${img.url}" alt="${h.name} ${img.part}" style="width:100%; height:180px; object-fit:cover; border-radius:12px; cursor:pointer;">
-          </div>
+    <!-- SWIPE GALLERY (TAP TO FULLSCREEN SWIPE) -->
+    <div class="image-swiper">
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          ${h.images.map((img, index) => `
+            <div class="swiper-slide" onclick="openFullscreen(${id}, ${index})">
+              <img src="${img.url}" alt="${h.name} ${img.part}" style="width:100%; height:180px; object-fit:cover; border-radius:12px; cursor:pointer;">
+            </div>
+          `).join('')}
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+
+    <!-- INFO LIST -->
+    <div class="info-list">
+      <p><strong>Local:</strong> ${h.local}</p>
+      <p><strong>English:</strong> ${h.english}</p>
+      <p><strong>Scientific:</strong> <i>${h.scientific}</i></p>
+      <p><strong>Description:</strong> <i>${h.description}</i></p>
+      <p><strong>Part Used:</strong> <span class="part-badge">${h.partUsed}</span></p>
+
+      <div class="prep-list">
+        <strong>Preparation by Use:</strong>
+        ${Object.entries(h.preparation || {}).map(([use, prep]) => `
+          <p class="prep-item">
+            <span class="use-label">${use}:</span> ${prep}
+          </p>
         `).join('')}
       </div>
-      <div class="swiper-pagination"></div>
-    </div>
-  </div>
 
-  <!-- INFO LIST -->
-  <div class="info-list">
-    <p><strong>Local:</strong> ${h.local}</p>
-    <p><strong>English:</strong> ${h.english}</p>
-    <p><strong>Scientific:</strong> <i>${h.scientific}</i></p>
-    <p><strong>Description:</strong> <i>${h.description}</i></p>
-    <p><strong>Part Used:</strong> <span class="part-badge">${h.partUsed}</span></p>
-
-    <div class="prep-list">
-      <strong>Preparation by Use:</strong>
-      ${Object.entries(h.preparation || {}).map(([use, prep]) => `
-        <p class="prep-item">
-          <span class="use-label">${use}:</span> ${prep}
-        </p>
-      `).join('')}
+      <hr>
+      <p><strong>Use:</strong> ${h.use}</p>
+      <p><strong>Caution:</strong> ${h.caution}</p>
     </div>
 
-    <hr>
-    <p><strong>Use:</strong> ${h.use}</p>
-    <p><strong>Caution:</strong> ${h.caution}</p>
-  </div>
+    <div class="notes-section">
+      <textarea id="notes-input" placeholder="Add your notes...">${h.notes}</textarea>
+    </div>
 
-  <div class="notes-section">
-    <textarea id="notes-input" placeholder="Add your notes...">${h.notes}</textarea>
-  </div>
-
-  <div class="modal-buttons">
-    <button class="modal-btn save-btn" onclick="save(${id},false)">Save</button>
-    <button class="modal-btn save-suggest-btn" onclick="save(${id},true)">Save & Suggest</button>
-    <button class="modal-btn ${h.favorite?'save-btn':'save-suggest-btn'}" onclick="fav(${id})">
-      ${h.favorite?'Unfav':'Fav'}
-    </button>
-  </div>
+    <div class="modal-buttons">
+      <button class="modal-btn save-btn" onclick="save(${id},false)">Save</button>
+      <button class="modal-btn save-suggest-btn" onclick="save(${id},true)">Save & Suggest</button>
+      <button class="modal-btn ${h.favorite?'save-btn':'save-suggest-btn'}" onclick="fav(${id})">
+        ${h.favorite?'Unfav':'Fav'}
+      </button>
+    </div>
   `;
 
-  // INIT SWIPER
+  // INIT MODAL SWIPER
   setTimeout(() => {
     new Swiper('.swiper-container', {
       loop: h.images.length > 1,
@@ -211,24 +211,57 @@ document.addEventListener('DOMContentLoaded', () => {
   render();
 });
 
-// FULLSCREEN IMAGE VIEWER (SIMPLE & WORKING)
-function openFullscreen(src) {
+// FULLSCREEN SWIPER GALLERY
+let fullscreenSwiper;
+
+function openFullscreen(herbId, startIndex = 0) {
+  const h = herbs.find(x => x.id === herbId);
   const modal = document.getElementById('fullscreen-modal');
-  const img = document.getElementById('fullscreen-img');
+  const wrapper = document.getElementById('fullscreen-swiper-wrapper');
   
-  img.src = src;
-  modal.style.display = 'flex';
+  // Clear old slides
+  wrapper.innerHTML = '';
   
-  img.classList.remove('zoomed');
+  // Add all images
+  h.images.forEach(img => {
+    const slide = document.createElement('div');
+    slide.className = 'swiper-slide';
+    slide.innerHTML = `<img src="${img.url}" alt="${img.part}">`;
+    wrapper.appendChild(slide);
+  });
   
-  let lastTap = 0;
-  img.onclick = (e) => {
-    const now = Date.now();
-    if (now - lastTap < 300) {
-      img.classList.toggle('zoomed');
-    }
-    lastTap = now;
-  };
+  modal.style.display = 'block';
+  
+  // Destroy old swiper if exists
+  if (fullscreenSwiper) {
+    fullscreenSwiper.destroy(true, true);
+  }
+  
+  // Init new swiper
+  setTimeout(() => {
+    fullscreenSwiper = new Swiper('.fullscreen-swiper-container', {
+      initialSlide: startIndex,
+      loop: h.images.length > 1,
+      pagination: {
+        el: '.fullscreen-pagination',
+        clickable: true,
+      },
+      grabCursor: true,
+      zoom: true,
+    });
+    
+    // Double-tap zoom
+    let lastTap = 0;
+    wrapper.querySelectorAll('img').forEach(img => {
+      img.onclick = (e) => {
+        const now = Date.now();
+        if (now - lastTap < 300) {
+          img.classList.toggle('zoomed');
+        }
+        lastTap = now;
+      };
+    });
+  }, 0);
 }
 
 // Close fullscreen
