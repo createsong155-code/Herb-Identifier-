@@ -399,6 +399,10 @@ body.grid .herb-card img {
   justify-content: center;
 }
 
+#fullscreen-img.zoomed {
+  transform: scale(2);
+}
+
 /* Double-tap zoom */
 #fullscreen-img.zoomed {
   transform: scale(2);
