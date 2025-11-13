@@ -283,6 +283,120 @@ const herbs = [
       { "part": "Plant", "url": "sambong-plant.jpg" }
     ]
   },
+
+  {
+    "id": 13,
+    "name": "Caimito",
+    "local": "Kaymito",
+    "bisaya": "Kaymito",
+    "english": "Star Apple",
+    "scientific": "Chrysophyllum cainito",
+    "description": "A fruit-bearing tree known for its sweet, milky fruit and medicinal leaves used for diabetes and diarrhea.",
+    "category": "Diabetes / Digestive Health",
+    "partUsed": "Leaves, Bark, Fruit",
+    "use": ["Diabetes", "Diarrhea", "Cough"],
+    "preparation": {
+      "Diabetes": "Boil 10 young leaves in 2 cups of water for 15 minutes. Drink half a cup twice daily.",
+      "Diarrhea": "Prepare a decoction of bark (1 tablespoon dried bark per cup of water). Drink one cup twice a day until symptoms improve.",
+      "Cough": "Drink warm tea made from boiled leaves twice daily."
+    },
+    "caution": "Do not exceed recommended doses as the bark decoction may cause constipation. Pregnant women should avoid bark preparations. Always consult a doctor before long-term use.",
+    "images": [
+      { "part": "Leaf", "url": "caimito-leaf.jpg" },
+      { "part": "Fruit", "url": "caimito-fruit.jpg" }
+    ]
+  },
+  {
+    "id": 14,
+    "name": "Calamansi",
+    "local": "Kalamansi",
+    "bisaya": "Kalamansi",
+    "english": "Calamondin",
+    "scientific": "Citrofortunella microcarpa",
+    "description": "A small citrus fruit rich in vitamin C. Commonly used for cough, sore throat, and skin whitening.",
+    "category": "Cough / Skin Care / Digestive",
+    "partUsed": "Fruit, Juice, Peel",
+    "use": ["Cough", "Sore Throat", "Skin Whitening", "Indigestion"],
+    "preparation": {
+      "Cough": "Mix calamansi juice with honey and drink one tablespoon every 4 hours.",
+      "Sore Throat": "Gargle with diluted calamansi juice (1 part juice to 3 parts warm water) twice daily.",
+      "Skin Whitening": "Apply diluted juice on face or elbows for 5–10 minutes, then rinse. Use once daily only.",
+      "Indigestion": "Drink a glass of warm water with calamansi juice before meals to stimulate digestion."
+    },
+    "caution": "Avoid applying undiluted juice on sensitive skin as it may cause irritation. Overuse may erode tooth enamel. Not advisable for those with acid reflux or ulcers.",
+    "images": [
+      { "part": "Fruit", "url": "calamansi-fruit.jpg" },
+      { "part": "Tree", "url": "calamansi-tree.jpg" }
+    ]
+  },
+  {
+    "id": 15,
+    "name": "Carmona",
+    "local": "Tsaang Gubat",
+    "bisaya": "Tsaang Gubat",
+    "english": "Wild Tea",
+    "scientific": "Carmona retusa",
+    "description": "A shrub with glossy leaves used as herbal tea for stomach problems and skin allergies.",
+    "category": "Digestive / Skin / Oral Health",
+    "partUsed": "Leaves",
+    "use": ["Stomachache", "Diarrhea", "Allergies", "Mouth Sores"],
+    "preparation": {
+      "Stomachache": "Boil 1 cup of leaves in 3 cups of water for 15 minutes. Drink half a cup 2–3 times daily.",
+      "Diarrhea": "Drink 1/2 cup of strong leaf decoction three times a day after meals.",
+      "Allergies": "Drink leaf tea daily and use cooled decoction to wash affected skin.",
+      "Mouth Sores": "Use leaf decoction as mouth rinse twice daily."
+    },
+    "caution": "Do not drink excessively as it may cause nausea. Avoid during pregnancy. Stop use if allergic reaction occurs.",
+    "images": [
+      { "part": "Leaf", "url": "carmona-leaf.jpg" },
+      { "part": "Plant", "url": "carmona-plant.jpg" }
+    ]
+  },
+  {
+    "id": 16,
+    "name": "Cassava",
+    "local": "Balanghoy",
+    "bisaya": "Balanghoy",
+    "english": "Cassava",
+    "scientific": "Manihot esculenta",
+    "description": "A root crop rich in carbohydrates, used both as food and traditional remedy for wounds and diarrhea.",
+    "category": "Nutrition / Wound Care / Digestive",
+    "partUsed": "Roots, Leaves",
+    "use": ["Wounds", "Diarrhea", "Malnutrition"],
+    "preparation": {
+      "Wounds": "Apply grated raw cassava on minor wounds for cooling relief. Replace twice daily.",
+      "Diarrhea": "Boil young leaves and drink the water once cooled, half a cup twice daily.",
+      "Malnutrition": "Eat cooked cassava as part of a balanced diet. Avoid eating raw roots."
+    },
+    "caution": "Raw cassava contains cyanogenic compounds that can be toxic. Always cook thoroughly. Avoid for those with kidney disease or cyanide sensitivity.",
+    "images": [
+      { "part": "Root", "url": "cassava-root.jpg" },
+      { "part": "Leaf", "url": "cassava-leaf.jpg" }
+    ]
+  },
+  {
+    "id": 17,
+    "name": "Coconut",
+    "local": "Lubi",
+    "bisaya": "Lubi",
+    "english": "Coconut",
+    "scientific": "Cocos nucifera",
+    "description": "A versatile tropical plant used for food, medicine, and skincare. Coconut water, oil, and meat all provide health benefits.",
+    "category": "Hydration / Skin / Hair / Digestive",
+    "partUsed": "Water, Oil, Meat, Shell",
+    "use": ["Dehydration", "Dry Skin", "Hair Loss", "Constipation"],
+    "preparation": {
+      "Dehydration": "Drink fresh coconut water to replenish electrolytes.",
+      "Dry Skin": "Apply virgin coconut oil to affected areas after bathing.",
+      "Hair Loss": "Massage warm coconut oil into scalp and leave overnight. Rinse in the morning.",
+      "Constipation": "Eat grated coconut meat or drink coconut milk once daily."
+    },
+    "caution": "Avoid excessive coconut water intake in kidney disease due to high potassium. People with oily skin should use coconut oil sparingly to prevent acne.",
+    "images": [
+      { "part": "Fruit", "url": "coconut-fruit.jpg" },
+      { "part": "Oil", "url": "coconut-oil.jpg" }
+    ]
+  },
 ];
 
 // STORAGE
