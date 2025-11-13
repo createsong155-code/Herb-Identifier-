@@ -22,6 +22,31 @@ const herbs = [
       { "part": "Leaf", "url": "akapulko-leaf.jpg" },
       { "part": "Flower", "url": "akapulko-flower.jpg" }
     ]
+  },
+
+  {
+  "id": 2,
+  "name": "Alagaw",
+  "local": "Alagaw",
+  "bisaya": "Alagaw",
+  "english": "Premna / Fragrant Premna",
+  "scientific": "Premna odorata",
+  "description": "A small tree or shrub with aromatic leaves often used in traditional medicine. The leaves and roots are valued for their expectorant, antipyretic, and anti-inflammatory properties.",
+  "category": "Respiratory / Fever / Digestive",
+  "partUsed": "Leaves, Roots",
+  "use": ["Cough", "Colds", "Fever", "Stomachache", "Indigestion"],
+  "preparation": {
+    "Cough": "Boil 10–12 fresh leaves in 2 cups of water for 10 minutes. Strain and drink half a cup 2–3 times daily.",
+    "Colds": "Inhale steam from boiled leaves for 5–10 minutes to help clear nasal passages.",
+    "Fever": "Drink decoction of leaves and roots (boiled for 15 minutes) 3 times daily until fever subsides.",
+    "Stomachache": "Pound a few young leaves and mix with warm water. Drink half a cup to relieve discomfort.",
+    "Indigestion": "Chew a few fresh leaves after meals or drink leaf decoction once daily."
+  },
+  "caution": "Avoid excessive intake as strong decoctions may cause stomach irritation. Not recommended for pregnant or breastfeeding women. Always consult a health professional if symptoms persist.",
+  "images": [
+    { "part": "Leaf", "url": "alagaw-leaf.jpg" },
+    { "part": "Plant", "url": "alagaw-plant.jpg" }
+  ]
   }
 ];
 
