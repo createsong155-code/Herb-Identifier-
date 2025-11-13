@@ -401,6 +401,123 @@ const herbs = [
       { "part": "Oil", "url": "coconut-oil.jpg" }
     ]
   },
+
+  {
+    "id": 18,
+    "name": "Damong Maria",
+    "local": "Damong Maria",
+    "bisaya": "Damong Maria",
+    "english": "Wormwood",
+    "scientific": "Artemisia vulgaris",
+    "description": "A fragrant herb with gray-green leaves known for its healing and cleansing properties. Traditionally used for stomach pain, menstrual cramps, and wound disinfection.",
+    "category": "Digestive / Women’s Health / Skin Care",
+    "partUsed": "Leaves",
+    "use": ["Stomachache", "Menstrual Cramps", "Wounds", "Appetite Loss"],
+    "preparation": {
+      "Stomachache": "Boil 10 leaves in 2 cups of water for 10 minutes. Strain and drink half a cup twice daily.",
+      "Menstrual Cramps": "Prepare a warm compress using boiled leaves wrapped in cloth and place over the lower abdomen for relief.",
+      "Wounds": "Pound fresh leaves and apply directly to the wound to prevent infection.",
+      "Appetite Loss": "Drink a mild tea made from 5 leaves boiled in 1½ cups of water before meals."
+    },
+    "caution": "Do not use during pregnancy as it may cause uterine contractions. Avoid long-term use due to possible toxicity. Those with epilepsy should not use this herb internally.",
+    "images": [
+      { "part": "Leaf", "url": "damongmaria-leaf.jpg" },
+      { "part": "Plant", "url": "damongmaria-plant.jpg" }
+    ]
+  },
+  
+  {
+    "id": 19,
+    "name": "Dangla",
+    "local": "Dangla",
+    "bisaya": "Dangla",
+    "english": "Indian Mulberry",
+    "scientific": "Vitex negundo",
+    "description": "A medicinal shrub known for its aromatic leaves used in traditional remedies for cough, asthma, and rheumatism.",
+    "category": "Respiratory / Pain Relief / Skin Care",
+    "partUsed": "Leaves, Roots",
+    "use": ["Cough", "Asthma", "Rheumatism", "Wounds"],
+    "preparation": {
+      "Cough": "Boil 10 leaves in 3 cups of water for 15 minutes. Strain and drink half a cup 3 times daily.",
+      "Asthma": "Inhale steam from boiled leaves for 10 minutes daily to ease breathing.",
+      "Rheumatism": "Pound leaves into a paste and apply warm on painful joints twice daily.",
+      "Wounds": "Use leaf decoction as a wash to help disinfect and dry wounds."
+    },
+    "caution": "Avoid use during pregnancy and lactation. Large doses may cause stomach irritation. Always consult a doctor if respiratory symptoms persist.",
+    "images": [
+      { "part": "Leaf", "url": "dangla-leaf.jpg" },
+      { "part": "Plant", "url": "dangla-plant.jpg" }
+    ]
+  },
+  
+  {
+    "id": 20,
+    "name": "Dita",
+    "local": "Dita",
+    "bisaya": "Dita",
+    "english": "Devil’s Tree",
+    "scientific": "Alstonia scholaris",
+    "description": "A tall tree with milky sap traditionally used for fever, diarrhea, and malaria. Its bark is a known bitter tonic.",
+    "category": "Fever / Malaria / Digestive",
+    "partUsed": "Bark, Leaves",
+    "use": ["Fever", "Malaria", "Diarrhea"],
+    "preparation": {
+      "Fever": "Boil 1 tablespoon of dried bark in 2 cups of water for 15 minutes. Drink ½ cup 2–3 times daily.",
+      "Malaria": "Prepare a strong decoction from bark and drink one small cup twice daily during fever episodes.",
+      "Diarrhea": "Drink a mild decoction from bark once in the morning and once at night until symptoms improve."
+    },
+    "caution": "Avoid excessive intake as the bark is highly bitter and can irritate the stomach. Not for pregnant women or children. Always consult a healthcare provider for suspected malaria.",
+    "images": [
+      { "part": "Bark", "url": "dita-bark.jpg" },
+      { "part": "Leaf", "url": "dita-leaf.jpg" }
+    ]
+  },
+  
+  {
+    "id": 21,
+    "name": "Duhat",
+    "local": "Lomboy",
+    "bisaya": "Lomboy",
+    "english": "Java Plum",
+    "scientific": "Syzygium cumini",
+    "description": "A tropical fruit tree producing dark purple fruits rich in antioxidants. Traditionally used for diabetes, diarrhea, and oral health.",
+    "category": "Diabetes / Digestive / Oral Health",
+    "partUsed": "Fruit, Leaves, Bark",
+    "use": ["Diabetes", "Diarrhea", "Mouth Ulcers"],
+    "preparation": {
+      "Diabetes": "Eat fresh fruits daily or drink juice made from ripe duhat. Leaves can also be boiled for a mild tea twice daily.",
+      "Diarrhea": "Drink decoction made from bark boiled for 10 minutes, half a cup twice daily.",
+      "Mouth Ulcers": "Use leaf decoction as a gargle 2–3 times a day."
+    },
+    "caution": "Avoid excessive consumption as it may lower blood sugar too much. Not recommended for hypoglycemics. May cause constipation if eaten in large quantities.",
+    "images": [
+      { "part": "Fruit", "url": "duhat-fruit.jpg" },
+      { "part": "Leaf", "url": "duhat-leaf.jpg" }
+    ]
+  },
+  
+  {
+    "id": 22,
+    "name": "Durian",
+    "local": "Durian",
+    "bisaya": "Durian",
+    "english": "Durian",
+    "scientific": "Durio zibethinus",
+    "description": "A tropical fruit known as the 'king of fruits' for its strong odor and rich nutritional content. Used for energy, skin health, and fertility.",
+    "category": "Energy / Skin / Reproductive Health",
+    "partUsed": "Fruit, Seeds, Husk",
+    "use": ["Fatigue", "Skin Health", "Fertility"],
+    "preparation": {
+      "Fatigue": "Eat small portions of ripe fruit for natural energy boost.",
+      "Skin Health": "Use finely ground seeds mixed with honey as a facial mask once weekly.",
+      "Fertility": "Consume fruit moderately as part of a balanced diet; it is believed to increase body warmth and vitality."
+    },
+    "caution": "Avoid overconsumption due to high sugar and fat content. Not recommended for diabetics or those with heart disease. Do not mix with alcohol—it may cause palpitations and indigestion.",
+    "images": [
+      { "part": "Fruit", "url": "durian-fruit.jpg" },
+      { "part": "Seed", "url": "durian-seed.jpg" }
+    ]
+  },
 ];
 
 // STORAGE
