@@ -47,7 +47,79 @@ const herbs = [
       { "part": "Leaf", "url": "alagaw-leaf.jpg" },
       { "part": "Plant", "url": "alagaw-plant.jpg" }
     ]
+  },
+
+  {
+    "id": 3,
+    "name": "Ampalaya",
+    "local": "Ampalaya",
+    "bisaya": "Paliya",
+    "english": "Bitter Melon",
+    "scientific": "Momordica charantia",
+    "description": "A climbing vine with bitter fruit widely used in traditional medicine. Known for its blood sugar–lowering properties and digestive benefits.",
+    "category": "Diabetes / Digestion / Skin",
+    "partUsed": "Leaves, Fruit",
+    "use": ["Diabetes", "Indigestion", "Skin Rashes", "Worm Infestation"],
+    "preparation": {
+      "Diabetes": "Boil chopped leaves or sliced fruit (1 cup) in 2 cups of water for 10 minutes. Drink ½ cup before meals twice daily.",
+      "Indigestion": "Eat sautéed young ampalaya leaves or drink a mild leaf decoction once daily after meals.",
+      "Skin Rashes": "Pound fresh leaves and apply the juice to affected skin twice daily until rash subsides.",
+      "Worm Infestation": "Eat 2 tablespoons of ampalaya seed pulp early morning on an empty stomach for 3 consecutive days."
+    },
+    "caution": "May lower blood sugar excessively if combined with diabetes medication. Avoid during pregnancy and breastfeeding due to potential uterine contractions. Not for small children in large amounts.",
+    "images": [
+      { "part": "Fruit", "url": "ampalaya-fruit.jpg" },
+      { "part": "Leaf", "url": "ampalaya-leaf.jpg" }
+    ]
+  },
+
+  {
+    "id": 4,
+    "name": "Atis",
+    "local": "Atis",
+    "bisaya": "Atis",
+    "english": "Sugar Apple",
+    "scientific": "Annona squamosa",
+    "description": "A small fruit tree bearing sweet, scaly green fruit. Its leaves and seeds are used in folk medicine for skin and stomach ailments.",
+    "category": "Digestive / Skin / Parasitic",
+    "partUsed": "Leaves, Seeds, Fruit",
+    "use": ["Indigestion", "Dysentery", "Lice", "Skin Infections"],
+    "preparation": {
+      "Indigestion": "Boil 5 leaves in 2 cups of water for 10 minutes. Strain and drink warm, once or twice daily.",
+      "Dysentery": "Pound young leaves and extract the juice. Mix with a small amount of honey and drink twice a day.",
+      "Lice": "Grind seeds into paste, mix with coconut oil, and apply on scalp for 15 minutes. Rinse thoroughly. Avoid contact with eyes.",
+      "Skin Infections": "Apply crushed fresh leaves as poultice once daily on affected area."
+    },
+    "caution": "Seed paste is toxic if ingested; for external use only. Avoid during pregnancy. May cause skin irritation—do a patch test first.",
+    "images": [
+      { "part": "Fruit", "url": "atis-fruit.jpg" },
+      { "part": "Leaf", "url": "atis-leaf.jpg" }
+    ]
+  },
+
+  {
+    "id": 5,
+    "name": "Avocado",
+    "local": "Abokado",
+    "bisaya": "Abokado",
+    "english": "Avocado",
+    "scientific": "Persea americana",
+    "description": "A fruit-bearing tree valued for its nutritious fruit. Leaves and seeds are used in traditional medicine for hypertension and digestive problems.",
+    "category": "Heart / Digestive / Skin",
+    "partUsed": "Leaves, Seed, Fruit",
+    "use": ["High Blood Pressure", "Diarrhea", "Wound Healing"],
+    "preparation": {
+      "High Blood Pressure": "Boil 10 avocado leaves in 3 cups of water for 15 minutes. Drink 1 cup morning and evening.",
+      "Diarrhea": "Dry and grind seed into fine powder. Mix 1 teaspoon with warm water and drink once daily until symptoms stop.",
+      "Wound Healing": "Mash ripe fruit and apply as skin mask or paste to minor wounds to promote healing and moisturize skin."
+    },
+    "caution": "Avoid excessive leaf decoction as it may affect liver function. Pregnant women should not take concentrated leaf extracts. Seed preparations must be used cautiously and never raw.",
+    "images": [
+      { "part": "Fruit", "url": "avocado-fruit.jpg" },
+      { "part": "Leaf", "url": "avocado-leaf.jpg" }
+    ]
   }
+];
 ];
 
 // STORAGE
