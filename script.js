@@ -96,7 +96,7 @@ function openModal(id) {
   const modalBody = document.getElementById('modal-body');
 
   modalBody.innerHTML = `
-    <h2>${h.name} ${h.favorite ? 'Star' : ''}</h2>
+    <h2>${h.name} | ${h.bisaya} | ${h.english}${h.favorite ? ' Star' : ''}</h2>
 
     <!-- SWIPE GALLERY (TAP TO FULLSCREEN) -->
     <div class="image-swiper">
