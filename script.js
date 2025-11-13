@@ -49,7 +49,7 @@ function render(f = herbs) {
       ${document.body.classList.contains('grid') ? `<img src="${h.images[0].url}" alt="${h.name}">` : ''}
       <div class="card-content">
         <h3>${h.name} <span class="tag">${h.category}</span></h3>
-        <span class="star-btn ${h.favorite ? 'favorited' : ''}" onclick="toggleFav(${h.id}, event)">Star</span>
+        <span class="star-btn ${h.favorite ? 'favorited' : ''}" onclick="toggleFav(${h.id}, event)"></span>
       </div>
     </div>
   `).join('');
