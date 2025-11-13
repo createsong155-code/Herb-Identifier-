@@ -48,7 +48,10 @@ function render(f = herbs) {
     <div class="herb-card" onclick="openModal(${h.id})">
       ${document.body.classList.contains('grid') ? `<img src="${h.images[0].url}" alt="${h.name}">` : ''}
       <div class="card-content">
-        <h3>${h.name} <span class="tag">${h.category}</span></h3>
+        <h3>
+          ${h.name} | ${h.bisaya} | ${h.english}
+          <span class="tag">${h.category}</span>
+        </h3>
         <span class="star-btn ${h.favorite ? 'favorited' : ''}" onclick="toggleFav(${h.id}, event)"></span>
       </div>
     </div>
