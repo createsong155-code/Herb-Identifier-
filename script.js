@@ -144,12 +144,14 @@ function openModal(id) {
   </div>
 `;
 
-  // INIT SWIPER
-  new Swiper('.swiper-container', {
-    loop: h.images.length > 1,
-    pagination: { el: '.swiper-pagination', clickable: true },
-    grabCursor: true,
-  });
+  // INIT SWIPER (after DOM update)
+  setTimeout(() => {
+    new Swiper('.swiper-container', {
+      loop: h.images.length > 1,
+      pagination: { el: '.swiper-pagination', clickable: true },
+      grabCursor: true,
+    });
+  }, 0);
 
   modal.style.display = 'block';
 }
