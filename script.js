@@ -17,8 +17,8 @@ const herbs = [
   },
   "caution": "Patch test first. Avoid open wounds. Not for internal use.",
   "images": [
-    { "part": "Leaf", "url": "img/images/akapulko-leaf.jpg" },
-    { "part": "Flower", "url": "img/images/akapulko-flower.jpg" }
+    { "part": "Leaf", "url": "akapulko-leaf.jpg" },
+    { "part": "Flower", "url": "akapulko-flower.jpg" }
   ]
 }
 ];
