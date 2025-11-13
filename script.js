@@ -8,14 +8,16 @@ const herbs = [
     "english": "Ringworm Bush",
     "scientific": "Senna alata",
     "description": "A shrub with yellow flowers and long pods. Leaves contain antifungal compounds effective against ringworm and scabies.",
-    "category": "Wound",
+    "category": "Wound / Skin Conditions",
     "partUsed": "Leaves",
-    "use": "Ringworm, scabies, eczema, fungal infections",
+    "use": ["Ringworm", "Scabies", "Eczema", "Fungal Infections"],
     "preparation": {
-      "Ringworm": "Crush fresh leaves into paste. Apply directly to affected skin 2x/day. Wash after 30 mins.",
-      "Scabies": "Boil 10 leaves in 2 cups water for 10 mins. Use cooled liquid to wash affected area 2x/day."
+      "Ringworm": "Crush fresh leaves into a paste and apply directly to affected skin twice daily. Wash after 30 minutes.",
+      "Scabies": "Boil about 10 leaves in 2 cups of water for 10 minutes. Let it cool and use the liquid to wash the affected area twice a day.",
+      "Eczema": "Apply leaf paste thinly over the area for soothing relief; discontinue if irritation occurs.",
+      "Fungal Infections": "Use decoction (boiled leaves) as a skin rinse after bathing once daily until symptoms improve."
     },
-    "caution": "Patch test first. Avoid open wounds. Not for internal use.",
+    "caution": "Conduct a patch test before use. Avoid application on open wounds. Not for internal consumption. Discontinue if rash or irritation occurs. Keep out of reach of children and avoid contact with eyes.",
     "images": [
       { "part": "Leaf", "url": "akapulko-leaf.jpg" },
       { "part": "Flower", "url": "akapulko-flower.jpg" }
