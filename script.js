@@ -207,3 +207,36 @@ function openDashboard() {
 document.addEventListener('DOMContentLoaded', () => {
   render();
 });
+
+// FULLSCREEN IMAGE VIEWER
+function openFullscreen(src) {
+  const modal = document.getElementById('fullscreen-modal');
+  const img = document.getElementById('fullscreen-img');
+  
+  img.src = src;
+  modal.style.display = 'flex';
+  
+  // Reset zoom
+  img.classList.remove('zoomed');
+  
+  // Double-tap to zoom
+  let lastTap = 0;
+  img.onclick = (e) => {
+    const now = Date.now();
+    if (now - lastTap < 300) {
+      img.classList.toggle('zoomed');
+    }
+    lastTap = now;
+  };
+}
+
+// Close fullscreen
+document.querySelector('.fullscreen-close').onclick = () => {
+  document.getElementById('fullscreen-modal').style.display = 'none';
+};
+
+document.getElementById('fullscreen-modal').onclick = (e) => {
+  if (e.target === document.getElementById('fullscreen-modal')) {
+    e.target.style.display = 'none';
+  }
+};
