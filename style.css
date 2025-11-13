@@ -635,8 +635,7 @@ body.grid .herb-card img {
 
 .prep-item {
   margin: 10px 0;
-  padding-left: 12px;
-  position: relative;
+  padding-left: 0;
 }
 
 .use-label {
