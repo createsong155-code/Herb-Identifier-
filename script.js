@@ -3,8 +3,8 @@ const herbs = [
   {
     "id": 1,
     "name": "Akapulko",
-    "local": "Akapulko",
-    "bisaya": "Katanda/Sibukaw",
+    "local": "Akapulko Sibukaw",
+    "bisaya": "Katanda",
     "english": "Ringworm Bush",
     "scientific": "Senna alata",
     "description": "A shrub with yellow flowers and long pods. Leaves contain antifungal compounds effective against ringworm and scabies.",
