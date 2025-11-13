@@ -17,8 +17,8 @@ const herbs = [
   },
   "caution": "Patch test first. Avoid open wounds. Not for internal use.",
   "images": [
-    { "part": "Leaf", "url": "https://cdn.pixabay.com/photo/2016/11/29/05/45/senna-alata-1867801_1280.jpg" },
-    { "part": "Flower", "url": "https://cdn.pixabay.com/photo/2016/11/29/05/45/senna-alata-1867800_1280.jpg" }
+    { "part": "Leaf", "url": "img/akapulko-leaf.jpg" },
+    { "part": "Flower", "url": "img/akapulko-flower.jpg" }
   ]
 }
 ];
