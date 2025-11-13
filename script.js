@@ -1,23 +1,28 @@
 // FULL HERBS DATABASE
 const herbs = [
   {
-    "id": 1,
-    "name": "Akapulko",
-    "local": "Akapulko",
-    "bisaya": "Katanda",
-    "english": "Ringworm Bush",
-    "scientific": "Senna alata",
-    "description": "A shrub with yellow flowers and long pods. Leaves contain antifungal compounds effective against ringworm and scabies.",
-    "category": "Wound",
-    "partUsed": "Leaves",
-    "use": "Ringworm, scabies, eczema, fungal infections",
-    "preparation": "Crush fresh leaves into paste. Apply directly to affected skin 2x/day. Wash after 30 mins.",
-    "caution": "Patch test first. Avoid open wounds. Not for internal use.",
-    "images": [
-      { "part": "Leaf", "url": "https://herbapp.ph/img/akapulko-leaf.jpg" },
-      { "part": "Flower", "url": "https://herbapp.ph/img/akapulko-flower.jpg" }
-    ]
-  }
+  "id": 1,
+  "name": "Akapulko",
+  "local": "Akapulko",
+  "bisaya": "Katanda",
+  "english": "Ringworm Bush",
+  "scientific": "Senna alata",
+  "description": "A shrub with yellow flowers and long pods. Leaves contain antifungal compounds effective against ringworm and scabies.",
+  "category": "Wound",
+  "partUsed": "Leaves",
+  "use": "Ringworm, scabies, eczema, fungal infections",
+  "preparation": {
+    "Ringworm": "Crush fresh leaves into paste. Apply directly to affected skin 2x/day. Wash after 30 mins.",
+    "Scabies": "Boil 10 leaves in 2 cups water for 10 mins. Use cooled liquid to wash affected area 2x/day.",
+    "Eczema": "Mix crushed leaves with coconut oil. Apply gently to inflamed skin 2x/day.",
+    "Fungal Infections": "Dry leaves, powder them, mix with petroleum jelly. Apply as ointment 2x/day."
+  },
+  "caution": "Patch test first. Avoid open wounds. Not for internal use.",
+  "images": [
+    { "part": "Leaf", "url": "https://herbapp.ph/img/akapulko-leaf.jpg" },
+    { "part": "Flower", "url": "https://herbapp.ph/img/akapulko-flower.jpg" }
+  ]
+}
 ];
 
 // STORAGE
