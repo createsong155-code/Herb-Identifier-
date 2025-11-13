@@ -95,19 +95,157 @@ function openModal(id) {
   modalBody.innerHTML = `
   <h2>${h.name} ${h.favorite ? 'Star' : ''}</h2>
 
-  <!-- SWIPE GALLERY (TAP TO FULLSCREEN) -->
-<div class="image-swiper">
-  <div class="swiper-container">
-    <div class="swiper-wrapper">
-      ${h.images.map(img => `
-        <div class="swiper-slide" onclick="openFullscreen('${img.url}')">
-          <img src="${img.url}" alt="${h.name} ${img.part}" style="width:100%; height:180px; object-fit:cover; border-radius:12px; cursor:pointer;">
-        </div>
-      `).join('')}
-    </div>
-    <div class="swiper-pagination"></div>
-  </div>
-</div>
+  // FULLSCREEN SWIPER GALLERY
+let fullscreenSwiper;
+
+function openFullscreen(imageArray, startIndex = 0) {
+  const modal = document.getElementById('fullscreen-modal');
+  const wrapper = document.getElementById('fullscreen-swiper-wrapper');
+  
+  // Clear old slides
+  wrapper.innerHTML = '';
+  
+  // Add all images
+  imageArray.forEach(img => {
+    const slide = document.createElement('div');
+    slide.className = 'swiper-slide';
+    slide.innerHTML = `<img src="${img.url}" alt="${img.part}">`;
+    wrapper.appendChild(slide);
+  });
+  
+  modal.style.display = 'block';
+  
+  // Destroy old swiper if exists
+  if (fullscreenSwiper) {
+    fullscreenSwiper.destroy(true, true);
+  }
+  
+  // Init new swiper
+  setTimeout(() => {
+    fullscreenSwiper = new Swiper('.fullscreen-swiper-container', {
+      initialSlide: startIndex,
+      loop: imageArray.length > 1,
+      pagination: {
+        el: '.fullscreen-pagination',
+        clickable: true,
+      },
+      grabGrab: true,
+      zoom: true,
+    });
+    
+    // Double-tap zoom on current image
+    let lastTap = 0;
+    wrapper.querySelectorAll('img').forEach(img => {
+      img.onclick = (e) => {
+        const now = Date.now();
+        if (now - lastTap < 300) {
+          img.classList.toggle('zoomed');
+        }
+        lastTap = now;
+      };
+    });
+  }, 0);
+}// FULLSCREEN SWIPER GALLERY
+let fullscreenSwiper;
+
+function openFullscreen(imageArray, startIndex = 0) {
+  const modal = document.getElementById('fullscreen-modal');
+  const wrapper = document.getElementById('fullscreen-swiper-wrapper');
+  
+  // Clear old slides
+  wrapper.innerHTML = '';
+  
+  // Add all images
+  imageArray.forEach(img => {
+    const slide = document.createElement('div');
+    slide.className = 'swiper-slide';
+    slide.innerHTML = `<img src="${img.url}" alt="${img.part}">`;
+    wrapper.appendChild(slide);
+  });
+  
+  modal.style.display = 'block';
+  
+  // Destroy old swiper if exists
+  if (fullscreenSwiper) {
+    fullscreenSwiper.destroy(true, true);
+  }
+  
+  // Init new swiper
+  setTimeout(() => {
+    fullscreenSwiper = new Swiper('.fullscreen-swiper-container', {
+      initialSlide: startIndex,
+      loop: imageArray.length > 1,
+      pagination: {
+        el: '.fullscreen-pagination',
+        clickable: true,
+      },
+      grabGrab: true,
+      zoom: true,
+    });
+    
+    // Double-tap zoom on current image
+    let lastTap = 0;
+    wrapper.querySelectorAll('img').forEach(img => {
+      img.onclick = (e) => {
+        const now = Date.now();
+        if (now - lastTap < 300) {
+          img.classList.toggle('zoomed');
+        }
+        lastTap = now;
+      };
+    });
+  }, 0);
+}// FULLSCREEN SWIPER GALLERY
+let fullscreenSwiper;
+
+function openFullscreen(imageArray, startIndex = 0) {
+  const modal = document.getElementById('fullscreen-modal');
+  const wrapper = document.getElementById('fullscreen-swiper-wrapper');
+  
+  // Clear old slides
+  wrapper.innerHTML = '';
+  
+  // Add all images
+  imageArray.forEach(img => {
+    const slide = document.createElement('div');
+    slide.className = 'swiper-slide';
+    slide.innerHTML = `<img src="${img.url}" alt="${img.part}">`;
+    wrapper.appendChild(slide);
+  });
+  
+  modal.style.display = 'block';
+  
+  // Destroy old swiper if exists
+  if (fullscreenSwiper) {
+    fullscreenSwiper.destroy(true, true);
+  }
+  
+  // Init new swiper
+  setTimeout(() => {
+    fullscreenSwiper = new Swiper('.fullscreen-swiper-container', {
+      initialSlide: startIndex,
+      loop: imageArray.length > 1,
+      pagination: {
+        el: '.fullscreen-pagination',
+        clickable: true,
+      },
+      grabGrab: true,
+      zoom: true,
+    });
+    
+    // Double-tap zoom on current image
+    let lastTap = 0;
+    wrapper.querySelectorAll('img').forEach(img => {
+      img.onclick = (e) => {
+        const now = Date.now();
+        if (now - lastTap < 300) {
+          img.classList.toggle('zoomed');
+        }
+        lastTap = now;
+      };
+    });
+  }, 0);
+}
 
   <!-- ONE CLEAN LIST -->
 <div class="info-list">
