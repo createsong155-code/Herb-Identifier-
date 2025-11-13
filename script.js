@@ -17,8 +17,8 @@ const herbs = [
   },
   "caution": "Patch test first. Avoid open wounds. Not for internal use.",
   "images": [
-    { "part": "Leaf", "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Senna_alata_%28Cassia_alata%29_03.JPG/400px-Senna_alata_%28Cassia_alata%29_03.JPG" },
-    { "part": "Flower", "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Senna_alata_%28Cassia_alata%29_02.JPG/400px-Senna_alata_%28Cassia_alata%29_02.JPG" }
+    { "part": "Leaf", "url": "https://cdn.pixabay.com/photo/2016/11/29/05/45/senna-alata-1867801_1280.jpg" },
+    { "part": "Flower", "url": "https://cdn.pixabay.com/photo/2016/11/29/05/45/senna-alata-1867800_1280.jpg" }
   ]
 }
 ];
