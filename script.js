@@ -13,14 +13,12 @@ const herbs = [
   "use": "Ringworm, scabies, eczema, fungal infections",
   "preparation": {
     "Ringworm": "Crush fresh leaves into paste. Apply directly to affected skin 2x/day. Wash after 30 mins.",
-    "Scabies": "Boil 10 leaves in 2 cups water for 10 mins. Use cooled liquid to wash affected area 2x/day.",
-    "Eczema": "Mix crushed leaves with coconut oil. Apply gently to inflamed skin 2x/day.",
-    "Fungal Infections": "Dry leaves, powder them, mix with petroleum jelly. Apply as ointment 2x/day."
+    "Scabies": "Boil 10 leaves in 2 cups water for 10 mins. Use cooled liquid to wash affected area 2x/day."
   },
   "caution": "Patch test first. Avoid open wounds. Not for internal use.",
   "images": [
-    { "part": "Leaf", "url": "https://herbapp.ph/img/akapulko-leaf.jpg" },
-    { "part": "Flower", "url": "https://herbapp.ph/img/akapulko-flower.jpg" }
+    { "part": "Leaf", "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Senna_alata_%28Cassia_alata%29_03.JPG/400px-Senna_alata_%28Cassia_alata%29_03.JPG" },
+    { "part": "Flower", "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Senna_alata_%28Cassia_alata%29_02.JPG/400px-Senna_alata_%28Cassia_alata%29_02.JPG" }
   ]
 }
 ];
