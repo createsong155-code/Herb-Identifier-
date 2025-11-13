@@ -120,7 +120,6 @@ const herbs = [
     ]
   }
 ];
-];
 
 // STORAGE
 const storage = { 
