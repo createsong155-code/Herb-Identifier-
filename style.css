@@ -792,10 +792,10 @@ body.grid .herb-card img {
 
 /* === PREPARATION TITLE BOLD === */
 .prep-title {
-  display: block !important;
   font-weight: 700 !important;
   color: #2e8b15 !important;
-  font-size: 1rem !important;
+  display: block !important;
   margin-bottom: 8px !important;
+  font-size: 1rem !important;
   line-height: 1.4 !important;
 }
