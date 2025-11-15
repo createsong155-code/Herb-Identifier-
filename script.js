@@ -11,13 +11,6 @@ const herbs = [
   "category": "Wound / Skin Conditions",
   "partUsed": "Leaves",
   "use": ["Ringworm", "Scabies", "Eczema", "Fungal Infections"],
-  "benefits": [
-    "Natural antifungal action against ringworm, an-an, and athlete’s foot",
-    "Helps reduce itchiness and skin irritation",
-    "Antibacterial properties help cleanse minor skin infections",
-    "Promotes faster healing of mild fungal patches",
-    "Easy to prepare and widely available in the Philippines"
-  ],
   "preparation": {
     "Ringworm": "Crush fresh leaves into a paste and apply directly to affected skin twice daily. Wash after 30 minutes.",
     "Scabies": "Boil about 10 leaves in 2 cups of water for 10 minutes. Let it cool and use the liquid to wash the affected area twice a day.",
@@ -26,8 +19,8 @@ const herbs = [
   },
   "caution": "Conduct a patch test before use. Avoid application on open wounds. Not for internal consumption. Discontinue if rash or irritation occurs. Keep out of reach of children and avoid contact with eyes.",
   "images": [
-    { "part": 'Leaf', "url": "akapulko-leaf.jpg" },
-    { "part": 'Flower', "url": "akapulko-flower.jpg" }
+    { "part": "Leaf", "url": "akapulko-leaf.jpg" },
+    { "part": "Flower", "url": "akapulko-flower.jpg" }
   ],
   "searchTerms": [
     "akapulko", "katanda", "ringworm bush", "antifungal",
@@ -38,6 +31,199 @@ const herbs = [
   
 {
   "id": 2,
+  "name": "Alagaw",
+  "local": "Alagaw",
+  "bisaya": "Alagaw",
+  "english": "Premna",
+  "scientific": "Premna odorata",
+  "description": "A small tree or shrub with aromatic leaves often used in traditional medicine. The leaves and roots are valued for expectorant, antipyretic, and anti-inflammatory properties.",
+  "category": "Respiratory / Fever / Digestive",
+  "partUsed": "Leaves, Roots",
+  "use": ["Cough", "Colds", "Fever", "Stomachache", "Indigestion"],
+  "preparation": {
+    "Cough": "Boil 10–12 fresh leaves in 2 cups water for 10 minutes. Strain and drink half a cup 2–3 times daily.",
+    "Colds": "Inhale steam from boiled leaves for 5–10 minutes to help clear nasal passages.",
+    "Fever": "Drink decoction of leaves and roots (boiled for 15 minutes) 3 times daily until fever subsides.",
+    "Stomachache": "Pound a few young leaves and mix with warm water. Drink half a cup to relieve discomfort.",
+    "Indigestion": "Chew a few fresh leaves after meals or drink leaf decoction once daily."
+  },
+  "caution": "Avoid excessive intake as strong decoctions may cause stomach irritation. Not recommended for pregnant or breastfeeding women. Consult a health professional if symptoms persist.",
+  "images": [
+    { "part": "Leaf", "url": "alagaw-leaf.jpg" },
+    { "part": "Plant", "url": "alagaw-plant.jpg" }
+  ],
+  "searchTerms": [
+    "alagaw", "premna", "respiratory", "fever",
+    "digestive", "cough", "stomachache", "indigestion"
+  ]
+},
+  
+{
+  "id": 3,
+  "name": "Ampalaya",
+  "local": "Paliya",
+  "bisaya": "Paliya",
+  "english": "Bitter Melon",
+  "scientific": "Momordica charantia",
+  "description": "A climbing vine producing bitter fruits. Known for its ability to support blood sugar regulation.",
+  "category": "Diabetes / Digestion / Detox",
+  "partUsed": "Fruit, Leaves",
+  "use": ["Blood Sugar Control", "Digestive Health", "Detoxification"],
+  "preparation": {
+    "Blood Sugar Control": "Boil slices of ripe or unripe fruit in water for 10 minutes. Drink once or twice daily.",
+    "Digestive Health": "Stew fruit with small amount of water and eat to improve digestion.",
+    "Detoxification": "Drink fresh juice of fruit or leaves in the morning to help cleanse the body."
+  },
+  "caution": "May lower blood sugar excessively if combined with diabetes medications. Avoid in pregnancy. Can be bitter to taste.",
+  "images": [
+    { "part": "Fruit", "url": "ampalaya-fruit.jpg" },
+    { "part": "Leaves", "url": "ampalaya-leaves.jpg" }
+  ],
+  "searchTerms": [
+    "ampalaya", "bitter melon", "diabetes", "digestion",
+    "detox", "paliya", "momordica charantia"
+  ]
+},
+  
+{
+  "id": 4,
+  "name": "Atis",
+  "local": "Atis",
+  "bisaya": "Atis",
+  "english": "Sugar Apple",
+  "scientific": "Annona squamosa",
+  "description": "A small tropical tree with sweet, segmented fruits. Rich in vitamins, minerals, and fiber.",
+  "category": "Nutrition / Digestion / Immunity",
+  "partUsed": "Fruit, Seeds",
+  "use": ["Digestive Health", "Energy Boost", "Immune Support"],
+  "preparation": {
+    "Digestive Health": "Eat the ripe fruit directly. Avoid seeds.",
+    "Energy Boost": "Blend fruit into smoothies or eat as is for natural energy.",
+    "Immune Support": "Consume fruit regularly to gain vitamins and antioxidants."
+  },
+  "caution": "Avoid seeds; may cause digestive discomfort. Allergic reactions are rare.",
+  "images": [
+    { "part": "Fruit", "url": "atis-fruit.jpg" },
+    { "part": "Tree", "url": "atis-tree.jpg" }
+  ],
+  "searchTerms": [
+    "atis", "sugar apple", "annona squamosa", "nutrition",
+    "digestion", "immune", "fruit", "tropical"
+  ]
+},
+  
+{
+  "id": 5,
+  "name": "Avocado",
+  "local": "Abokado",
+  "bisaya": "Abokado",
+  "english": "Avocado",
+  "scientific": "Persea americana",
+  "description": "A tropical tree that produces nutrient-rich fruits with creamy flesh. Rich in healthy fats, vitamins, and minerals.",
+  "category": "Nutrition / Skin / Heart",
+  "partUsed": "Fruit, Leaves",
+  "use": ["Skin Health", "Heart Health", "Digestive Health"],
+  "preparation": {
+    "Skin Health": "Mash the ripe fruit and apply as a face mask 2–3 times weekly.",
+    "Heart Health": "Eat fresh slices or smoothies daily to support cholesterol balance.",
+    "Digestive Health": "Drink avocado smoothies or eat raw fruit to improve digestion."
+  },
+  "caution": "Allergic reactions are rare but possible. Consume in moderation due to high-calorie content.",
+  "images": [
+    { "part": "Fruit", "url": "avocado-fruit.jpg" },
+    { "part": "Tree", "url": "avocado-tree.jpg" }
+  ],
+  "searchTerms": [
+    "avocado", "abokado", "fruit", "healthy fat",
+    "heart", "cholesterol", "skin", "digestion",
+    "vitamins", "nutrients", "persea americana"
+  ]
+},
+  
+{
+  "id": 5,
+  "name": "Avocado",
+  "local": "Abokado",
+  "bisaya": "Abokado",
+  "english": "Avocado",
+  "scientific": "Persea americana",
+  "description": "A tropical tree that produces nutrient-rich fruits with creamy flesh. Rich in healthy fats, vitamins, and minerals.",
+  "category": "Nutrition / Skin / Heart",
+  "partUsed": "Fruit, Leaves",
+  "use": ["Skin Health", "Heart Health", "Digestive Health"],
+  "preparation": {
+    "Skin Health": "Mash the ripe fruit and apply as a face mask 2–3 times weekly.",
+    "Heart Health": "Eat fresh slices or smoothies daily to support cholesterol balance.",
+    "Digestive Health": "Drink avocado smoothies or eat raw fruit to improve digestion."
+  },
+  "caution": "Allergic reactions are rare but possible. Consume in moderation due to high-calorie content.",
+  "images": [
+    { "part": "Fruit", "url": "avocado-fruit.jpg" },
+    { "part": "Tree", "url": "avocado-tree.jpg" }
+  ],
+  "searchTerms": [
+    "avocado", "abokado", "fruit", "healthy fat",
+    "heart", "cholesterol", "skin", "digestion",
+    "vitamins", "nutrients", "persea americana"
+  ]
+},
+  
+{
+  "id": 6,
+  "name": "Balbas Pusa",
+  "local": "Balbas Pusa",
+  "bisaya": "Balbas Pusa",
+  "english": "Cat’s Whiskers",
+  "scientific": "Orthosiphon aristatus",
+  "description": "A medicinal plant with long, whisker-like flowers. Traditionally used for kidney and urinary issues.",
+  "category": "Kidney / Urinary / Detox",
+  "partUsed": "Leaves, Stems",
+  "use": ["Kidney Health", "Urinary Tract Infection", "Detox"],
+  "preparation": {
+    "Kidney Health": "Boil 10–15 fresh leaves in 2 cups water for 10 minutes. Drink half a cup 2x/day.",
+    "Urinary Tract Infection": "Steep dried leaves in hot water for 5 minutes. Drink warm 2x/day.",
+    "Detox": "Use fresh leaf decoction daily to support kidney function."
+  },
+  "caution": "Not recommended for pregnant or breastfeeding women. Monitor for dehydration if used in high amounts.",
+  "images": [
+    { "part": "Leaf", "url": "balbaspusa-leaf.jpg" },
+    { "part": "Flower", "url": "balbaspusa-flower.jpg" }
+  ],
+  "searchTerms": [
+    "balbas pusa", "cats whiskers", "orthosiphon", 
+    "kidney", "urinary", "detox", "herbal tea"
+  ]
+},
+  
+{
+  "id": 7,
+  "name": "Banaba",
+  "local": "Banaba",
+  "bisaya": "Banaba",
+  "english": "Queen’s Crape Myrtle",
+  "scientific": "Lagerstroemia speciosa",
+  "description": "A tree with beautiful purple flowers, used traditionally for blood sugar management and kidney support.",
+  "category": "Diabetes / Kidney / Heart",
+  "partUsed": "Leaves",
+  "use": ["Blood Sugar Control", "Kidney Health", "Heart Health"],
+  "preparation": {
+    "Blood Sugar Control": "Boil 8–10 leaves in 2 cups water for 10 minutes. Drink cooled decoction twice daily.",
+    "Kidney Health": "Steep dried leaves in hot water and drink once daily.",
+    "Heart Health": "Consume as tea 2–3 times a week to support cardiovascular function."
+  },
+  "caution": "Avoid high doses in combination with diabetes medications to prevent hypoglycemia.",
+  "images": [
+    { "part": "Leaf", "url": "banaba-leaf.jpg" },
+    { "part": "Flower", "url": "banaba-flower.jpg" }
+  ],
+  "searchTerms": [
+    "banaba", "queen's crape myrtle", "diabetes",
+    "blood sugar", "kidney", "lagerstroemia speciosa"
+  ]
+},
+  
+{
+  "id": 8,
   "name": "Bawang",
   "local": "Bawang",
   "bisaya": "Ahos",
@@ -60,11 +246,65 @@ const herbs = [
     { "part": "Cloves", "url": "bawang-cloves.jpg" }
   ],
   "searchTerms": [
-    "bawang", "ahos", "garlic", "antibiotic", 
-    "blood pressure", "immune", "heart", "cholesterol", 
+    "bawang", "ahos", "garlic", "antibiotic",
+    "blood pressure", "immune", "heart", "cholesterol",
     "allicin", "colds", "infection"
   ]
-}
+},
+  
+{
+  "id": 9,
+  "name": "Bayabas",
+  "local": "Bayabas",
+  "bisaya": "Bayabas",
+  "english": "Guava",
+  "scientific": "Psidium guajava",
+  "description": "A small tropical tree bearing nutrient-rich fruits, used for digestive health and wound healing.",
+  "category": "Digestive / Wound / Immunity",
+  "partUsed": "Leaves, Fruit",
+  "use": ["Digestive Health", "Wound Healing", "Immune Support"],
+  "preparation": {
+    "Digestive Health": "Drink tea made from boiled leaves 2x/day.",
+    "Wound Healing": "Crush leaves and apply paste directly to minor wounds.",
+    "Immune Support": "Consume fresh fruit daily."
+  },
+  "caution": "Avoid excessive consumption as it may cause constipation. Do not use on deep or infected wounds.",
+  "images": [
+    { "part": "Leaf", "url": "bayabas-leaf.jpg" },
+    { "part": "Fruit", "url": "bayabas-fruit.jpg" }
+  ],
+  "searchTerms": [
+    "bayabas", "guava", "psidium guajava", "digestive",
+    "wound", "immune", "leaves", "fruit"
+  ]
+},
+  
+{
+  "id": 10,
+  "name": "Bignay",
+  "local": "Bignay",
+  "bisaya": "Bignay",
+  "english": "Bignay",
+  "scientific": "Antidesma bunius",
+  "description": "A small tree or shrub producing edible berries, traditionally used for digestive and blood support.",
+  "category": "Digestive / Blood / Immunity",
+  "partUsed": "Fruit, Leaves",
+  "use": ["Digestive Health", "Blood Support", "Immune Boost"],
+  "preparation": {
+    "Digestive Health": "Eat ripe fruits directly or make juice daily.",
+    "Blood Support": "Boil leaves in water for 10 minutes and drink as tea once daily.",
+    "Immune Boost": "Consume fresh fruit regularly to strengthen immunity."
+  },
+  "caution": "Avoid if allergic to berries. Consult a health professional before using as remedy for blood disorders.",
+  "images": [
+    { "part": "Fruit", "url": "bignay-fruit.jpg" },
+    { "part": "Leaves", "url": "bignay-leaves.jpg" }
+  ],
+  "searchTerms": [
+    "bignay", "antidesma bunius", "berries", "fruit",
+    "digestive", "blood", "immune"
+  ]
+},  
   // ← PASTE Bawang BELOW THIS LINE
   
   // ← Add more herbs here
