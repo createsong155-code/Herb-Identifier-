@@ -141,34 +141,6 @@ const herbs = [
 },
   
 {
-  "id": 5,
-  "name": "Avocado",
-  "local": "Abokado",
-  "bisaya": "Abokado",
-  "english": "Avocado",
-  "scientific": "Persea americana",
-  "description": "A tropical tree that produces nutrient-rich fruits with creamy flesh. Rich in healthy fats, vitamins, and minerals.",
-  "category": "Nutrition / Skin / Heart",
-  "partUsed": "Fruit, Leaves",
-  "use": ["Skin Health", "Heart Health", "Digestive Health"],
-  "preparation": {
-    "Skin Health": "Mash the ripe fruit and apply as a face mask 2–3 times weekly.",
-    "Heart Health": "Eat fresh slices or smoothies daily to support cholesterol balance.",
-    "Digestive Health": "Drink avocado smoothies or eat raw fruit to improve digestion."
-  },
-  "caution": "Allergic reactions are rare but possible. Consume in moderation due to high-calorie content.",
-  "images": [
-    { "part": "Fruit", "url": "avocado-fruit.jpg" },
-    { "part": "Tree", "url": "avocado-tree.jpg" }
-  ],
-  "searchTerms": [
-    "avocado", "abokado", "fruit", "healthy fat",
-    "heart", "cholesterol", "skin", "digestion",
-    "vitamins", "nutrients", "persea americana"
-  ]
-},
-  
-{
   "id": 6,
   "name": "Balbas Pusa",
   "local": "Balbas Pusa",
