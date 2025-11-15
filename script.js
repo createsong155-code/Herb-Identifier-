@@ -1,28 +1,32 @@
 // FULL HERBS DATABASE
 const herbs = [
   {
-    "id": 1,
-    "name": "Akapulko",
-    "local": "Akapulko Sibukaw",
-    "bisaya": "Katanda",
-    "english": "Ringworm Bush",
-    "scientific": "Senna alata",
-    "description": "A shrub with yellow flowers and long pods. Leaves contain antifungal compounds effective against ringworm and scabies.",
-    "category": "Wound / Skin Conditions",
-    "partUsed": "Leaves",
-    "use": ["Ringworm", "Scabies", "Eczema", "Fungal Infections"],
-    "preparation": {
-      "Ringworm": "Crush fresh leaves into a paste and apply directly to affected skin twice daily. Wash after 30 minutes.",
-      "Scabies": "Boil about 10 leaves in 2 cups of water for 10 minutes. Let it cool and use the liquid to wash the affected area twice a day.",
-      "Eczema": "Apply leaf paste thinly over the area for soothing relief; discontinue if irritation occurs.",
-      "Fungal Infections": "Use decoction (boiled leaves) as a skin rinse after bathing once daily until symptoms improve."
-    },
-    "caution": "Conduct a patch test before use. Avoid application on open wounds. Not for internal consumption. Discontinue if rash or irritation occurs. Keep out of reach of children and avoid contact with eyes.",
-    "images": [
-      { "part": "Leaf", "url": "akapulko-leaf.jpg" },
-      { "part": "Flower", "url": "akapulko-flower.jpg" }
-    ]
+  "id": 1,
+  "name": "Akapulko",
+  "local": "Akapulko Sibukaw",
+  "bisaya": "Katanda",
+  "english": "Ringworm Bush",
+  "scientific": "Senna alata",
+  "description": "A shrub with yellow flowers and long pods. Leaves contain antifungal compounds effective against ringworm and scabies.",
+  "category": "Wound / Skin Conditions",
+  "partUsed": "Leaves",
+  "use": ["Ringworm", "Scabies", "Eczema", "Fungal Infections"],
+  "preparation": {
+    "Ringworm": "Crush fresh leaves into a paste and apply directly to affected skin twice daily. Wash after 30 minutes.",
+    "Scabies": "Boil about 10 leaves in 2 cups of water for 10 minutes. Let it cool and use the liquid to wash the affected area twice a day.",
+    "Eczema": "Apply leaf paste thinly over the area for soothing relief; discontinue if irritation occurs.",
+    "Fungal Infections": "Use decoction (boiled leaves) as a skin rinse after bathing once daily until symptoms improve."
   },
+  "caution": "Conduct a patch test before use. Avoid application on open wounds. Not for internal consumption. Discontinue if rash or irritation occurs. Keep out of reach of children and avoid contact with eyes.",
+  "images": [
+    { "part": "Leaf", "url": "akapulko-leaf.jpg" },
+    { "part": "Flower", "url": "akapulko-flower.jpg" }
+  ],
+  "searchTerms": [
+    "akapulko", "katanda", "ringworm", "scabies", "eczema", 
+    "fungal", "skin infection", "antifungal", "yellow flower", 
+    "sibukaw", "ringworm bush", "senna alata"
+},
 
   // ← PASTE Bawang BELOW THIS LINE
   {
