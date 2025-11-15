@@ -97,6 +97,21 @@ function render(f = herbs) {
   `).join('');
 }
 
+// FADE TABS: HERBS & SURVIVAL
+document.querySelectorAll('.fade-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.fade-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    
+    const mode = tab.dataset.mode;
+    if (mode === 'survival') {
+      alert("SURVIVAL MODE COMING SOON!\n\n• Wild edibles\n• First aid plants\n• Water purification\n• Emergency herbs");
+    } else {
+      render(); // Refresh herbs
+    }
+  });
+});
+
 // TOGGLE FAV
 function toggleFav(id, e) {
   e.stopPropagation();
