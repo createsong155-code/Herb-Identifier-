@@ -178,7 +178,8 @@ function openModal(id) {
       <p><strong>Part Used:</strong> <span class="part-badge">${h.partUsed}</span></p>
 
       <div class="prep-list">
-        <strong>Preparation by Use:</strong>
+        
+        <strong class="prep-title">Preparation by Use:</strong>
         ${Object.entries(h.preparation || {}).map(([use, prep]) => `
           <p class="prep-item">
             <span class="use-label">${use}:</span> ${prep}
