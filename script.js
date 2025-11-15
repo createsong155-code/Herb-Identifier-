@@ -11,6 +11,13 @@ const herbs = [
   "category": "Wound / Skin Conditions",
   "partUsed": "Leaves",
   "use": ["Ringworm", "Scabies", "Eczema", "Fungal Infections"],
+  "benefits": [
+    "Natural antifungal action against ringworm, an-an, and athlete’s foot",
+    "Helps reduce itchiness and skin irritation",
+    "Antibacterial properties help cleanse minor skin infections",
+    "Promotes faster healing of mild fungal patches",
+    "Easy to prepare and widely available in the Philippines"
+  ],
   "preparation": {
     "Ringworm": "Crush fresh leaves into a paste and apply directly to affected skin twice daily. Wash after 30 minutes.",
     "Scabies": "Boil about 10 leaves in 2 cups of water for 10 minutes. Let it cool and use the liquid to wash the affected area twice a day.",
@@ -19,15 +26,16 @@ const herbs = [
   },
   "caution": "Conduct a patch test before use. Avoid application on open wounds. Not for internal consumption. Discontinue if rash or irritation occurs. Keep out of reach of children and avoid contact with eyes.",
   "images": [
-    { "part": "Leaf", "url": "akapulko-leaf.jpg" },
-    { "part": "Flower", "url": "akapulko-flower.jpg" }
+    { "part": 'Leaf', "url": "akapulko-leaf.jpg" },
+    { "part": 'Flower', "url": "akapulko-flower.jpg" }
   ],
   "searchTerms": [
-    "akapulko", "katanda", "ringworm bush", "antifungal", 
-    "ringworm", "scabies", "eczema", "fungal infection", 
+    "akapulko", "katanda", "ringworm bush", "antifungal",
+    "ringworm", "scabies", "eczema", "fungal infection",
     "skin", "yellow flower", "sibukaw", "senna alata"
   ]
 },
+  
 {
   "id": 2,
   "name": "Bawang",
