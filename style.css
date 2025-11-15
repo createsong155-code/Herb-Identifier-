@@ -791,9 +791,9 @@ body.grid .herb-card img {
 }
 
 .prep-list > strong {
+  display: block;
   font-weight: 700 !important;
   color: #2e8b15 !important;
   font-size: 1rem !important;
-  display: block;
-  margin-bottom: 8px;
+  margin-bottom: 8px !important;
 }
