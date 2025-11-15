@@ -803,8 +803,8 @@ body.grid .herb-card img {
 
 /* === STICKY MINI TABS === */
 .sticky-mini-tabs {
-  position: sticky;
-  bottom: 80px; /* Above footer */
+  position: fixed;
+  bottom: 95px; /* Above footer */
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -814,7 +814,7 @@ body.grid .herb-card img {
   border-radius: 30px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   backdrop-filter: blur(10px);
-  z-index: 900;
+  z-index: 800; /* Below footer (900) */
   border: 1px solid rgba(46, 139, 87, 0.2);
 }
 
@@ -839,9 +839,4 @@ body.grid .herb-card img {
 
 .mini-tab:hover {
   transform: scale(1.03);
-}
-
-/* Ensure footer doesn't overlap */
-footer {
-  padding-bottom: 100px !important;
 }
