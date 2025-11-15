@@ -52,7 +52,6 @@ const herbs = [
   "images": [
     { "part": "Leaf", "url": "alagaw-leaf.jpg" },
     { "part": "Plant", "url": "alagaw-plant.jpg" }
-     
   ],
   "searchTerms": [
     "alagaw", "premna", "respiratory", "fever",
