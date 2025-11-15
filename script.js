@@ -352,3 +352,12 @@ document.getElementById('fullscreen-modal').onclick = (e) => {
     e.target.style.display = 'none';
   }
 };
+
+// FLOATING BUTTONS
+function openCamera() {
+  alert("Camera Scan Coming Soon!\n\n• Identify herbs by photo\n• AI-powered recognition");
+}
+
+function openSavedHerbs() {
+  alert("Saved Herbs Folder\n\n• Your favorite plants\n• Offline access\n• Export to PDF");
+}
