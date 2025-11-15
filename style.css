@@ -840,3 +840,34 @@ body.grid .herb-card img {
 .mini-tab:hover {
   transform: scale(1.03);
 }
+
+/* === HEADER TITLE & TAGLINE === */
+.header-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 12px;
+}
+
+.header-title h1 {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 0.5px;
+}
+
+.tagline {
+  margin: 2px 0 0 0;
+  font-size: 0.68rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+/* Responsive: smaller screens */
+@media (max-width: 360px) {
+  .header-title h1 { font-size: 1.15rem; }
+  .tagline { font-size: 0.6rem; }
+}
