@@ -790,7 +790,7 @@ body.grid .herb-card img {
   transform: scale(1.1);
 }
 
-.prep-list > strong {
+.prep-list strong {
   display: block;
   font-weight: 700 !important;
   color: #2e8b15 !important;
