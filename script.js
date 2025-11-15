@@ -23,37 +23,42 @@ const herbs = [
     { "part": "Flower", "url": "akapulko-flower.jpg" }
   ],
   "searchTerms": [
-    "akapulko", "katanda", "ringworm", "scabies", "eczema", 
-    "fungal", "skin infection", "antifungal", "yellow flower", 
-    "sibukaw", "ringworm bush", "senna alata"
+    "akapulko", "katanda", "ringworm bush", "antifungal", 
+    "ringworm", "scabies", "eczema", "fungal infection", 
+    "skin", "yellow flower", "sibukaw", "senna alata"
+  ]
 },
-
+{
+  "id": 2,
+  "name": "Bawang",
+  "local": "Bawang",
+  "bisaya": "Ahos",
+  "english": "Garlic",
+  "scientific": "Allium sativum",
+  "description": "A pungent bulb widely used as a spice and natural medicine. Contains allicin, a powerful antimicrobial compound that supports heart health and boosts immunity.",
+  "category": "Heart / Antibacterial / Respiratory",
+  "partUsed": "Bulb",
+  "use": ["High Blood Pressure", "Colds", "Infections", "Cholesterol", "Immune Boost"],
+  "preparation": {
+    "High Blood Pressure": "Eat 1–2 raw cloves daily on an empty stomach. Crush and let sit 10 minutes before consuming to activate allicin.",
+    "Colds": "Boil 3 crushed cloves in 1 cup water for 5 minutes. Add honey and drink warm 2x/day.",
+    "Infections": "Crush 2 cloves into a paste. Mix with honey and take 1 tsp 3x/day.",
+    "Cholesterol": "Consume 1 raw clove daily or take garlic oil capsules as directed.",
+    "Immune Boost": "Add fresh garlic to meals daily or take aged garlic extract supplements."
+  },
+  "caution": "May cause stomach upset if taken in excess. Avoid before surgery due to blood-thinning effects. Consult a doctor if on blood pressure medication. Not recommended for those with bleeding disorders.",
+  "images": [
+    { "part": "Bulb", "url": "bawang-bulb.jpg" },
+    { "part": "Cloves", "url": "bawang-cloves.jpg" }
+  ],
+  "searchTerms": [
+    "bawang", "ahos", "garlic", "antibiotic", 
+    "blood pressure", "immune", "heart", "cholesterol", 
+    "allicin", "colds", "infection"
+  ]
+}
   // ← PASTE Bawang BELOW THIS LINE
-  {
-    "id": 2,
-    "name": "Bawang",
-    "local": "Bawang",
-    "bisaya": "Ahos",
-    "english": "Garlic",
-    "scientific": "Allium sativum",
-    "description": "A pungent bulb widely used as a spice and natural medicine. Contains allicin, a powerful antimicrobial compound that supports heart health and boosts immunity.",
-    "category": "Heart / Antibacterial / Respiratory",
-    "partUsed": "Bulb",
-    "use": ["High Blood Pressure", "Colds", "Infections", "Cholesterol", "Immune Boost"],
-    "preparation": {
-      "High Blood Pressure": "Eat 1–2 raw cloves daily on an empty stomach. Crush and let sit 10 minutes before consuming to activate allicin.",
-      "Colds": "Boil 3 crushed cloves in 1 cup water for 5 minutes. Add honey and drink warm 2x/day.",
-      "Infections": "Crush 2 cloves into a paste. Mix with honey and take 1 tsp 3x/day.",
-      "Cholesterol": "Consume 1 raw clove daily or take garlic oil capsules as directed.",
-      "Immune Boost": "Add fresh garlic to meals daily or take aged garlic extract supplements."
-    },
-    "caution": "May cause stomach upset if taken in excess. Avoid before surgery due to blood-thinning effects. Consult a doctor if on blood pressure medication. Not recommended for those with bleeding disorders.",
-    "images": [
-      { "part": "Bulb", "url": "bawang-bulb.jpg" },
-      { "part": "Cloves", "url": "bawang-cloves.jpg" }
-    ],
-    "searchTerms": ["garlic", "ajos", "bawang", "antibiotic", "blood pressure", "immune", "heart", "cholesterol", "allicin", "colds", "infection"]
-  }
+  
   // ← Add more herbs here
 ];
 
