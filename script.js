@@ -179,7 +179,9 @@ function openModal(id) {
 
       <div class="prep-list">
         
-        <strong class="prep-title">Preparation by Use:</strong>
+        <strong class="prep-title" style="font-weight:700 !important; color:#2e8b15 !important; display:block !important; margin-bottom:8px !important; font-size:1rem !important;">
+  Preparation by Use:
+</strong>
         ${Object.entries(h.preparation || {}).map(([use, prep]) => `
           <p class="prep-item">
             <span class="use-label">${use}:</span> ${prep}
