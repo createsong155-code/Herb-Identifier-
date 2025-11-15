@@ -21,6 +21,7 @@ const herbs = [
   "images": [
     { "part": "Leaf", "url": "akapulko-leaf.jpg" },
     { "part": "Flower", "url": "akapulko-flower.jpg" }
+    
   ],
   "searchTerms": [
     "akapulko", "katanda", "ringworm bush", "antifungal",
@@ -51,6 +52,7 @@ const herbs = [
   "images": [
     { "part": "Leaf", "url": "alagaw-leaf.jpg" },
     { "part": "Plant", "url": "alagaw-plant.jpg" }
+    { "part": "Flower", "url": "alagaw-flower.jpg" }
   ],
   "searchTerms": [
     "alagaw", "premna", "respiratory", "fever",
