@@ -97,17 +97,17 @@ function render(f = herbs) {
   `).join('');
 }
 
-// FADE TABS: HERBS & SURVIVAL
-document.querySelectorAll('.fade-tab').forEach(tab => {
+// STICKY MINI TABS: HERBS & SURVIVAL
+document.querySelectorAll('.mini-tab').forEach(tab => {
   tab.addEventListener('click', () => {
-    document.querySelectorAll('.fade-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.mini-tab').forEach(t => t.classList.remove('active'));
     tab.classList.add('active');
     
     const mode = tab.dataset.mode;
     if (mode === 'survival') {
-      alert("SURVIVAL MODE COMING SOON!\n\n• Wild edibles\n• First aid plants\n• Water purification\n• Emergency herbs");
+      alert("SURVIVAL MODE ACTIVATED!\n\n• Wild edibles\n• Emergency first aid\n• Water purification\n• Shelter plants");
     } else {
-      render(); // Refresh herbs
+      render();
     }
   });
 });
