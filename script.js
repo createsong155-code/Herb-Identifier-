@@ -300,25 +300,26 @@ const storage = {
 storage.load();
 
 /* —————————————————————————————
-   RICH TEXT FORMATTING TOOLS
-   (Bold, Italic, Color, etc.)
+   RICH TEXT FORMATTING TOOLS (Final Version)
+   Works perfectly with global cloned Samsung-style editor
   ————————————————————————————— */
 function format(cmd, val = null) {
-  // Apply the formatting
   document.execCommand(cmd, false, val);
-  
-  // NEW: Focus the note area and add a quick visual hint for color
-  const note = document.activeElement.closest('.rich-note-content') || document.querySelector('.rich-note-content');
-  if (note && cmd === 'foreColor') {
-    note.focus();  // Put cursor back in the note
-    // Optional: Quick flash to show "color ready!"
-    note.style.borderColor = val || '#FF0000';
-    setTimeout(() => { note.style.borderColor = ''; }, 500);
-  }
-  
-  // Examples: 'bold', 'italic', 'underline', 'foreColor'
-}
 
+  // Find the active rich note inside the cloned editor
+  const activeNote = document.querySelector('#activeNoteEditor #globalRichNote');
+
+  if (activeNote && cmd === 'foreColor') {
+    activeNote.focus();
+    // Visual feedback: flash border in chosen color
+    activeNote.style.borderColor = val || '#FF0000';
+    activeNote.style.boxShadow = `0 0 12px ${val || '#FF0000'}44`;
+    setTimeout(() => {
+      activeNote.style.borderColor = '';
+      activeNote.style.boxShadow = '';
+    }, 600);
+  }
+}
 /* —————————————————————————————
    INSERT PHOTO INTO NOTES
    (From camera or gallery)
@@ -502,28 +503,6 @@ function openModal(id) {
   modal.style.display = 'block';
 }
 
-// SAVE & FAV
-window.save = (id, suggest) => { 
-  const h = herbs.find(x => x.id === id); 
-  // NEW: Save from the rich editor (not old textarea)
-  const richNote = document.getElementById(`richNote-${id}`);
-  if (richNote) {
-    h.notes = richNote.innerHTML;  // ← This saves bold, colors, photos!
-  }
-  storage.save(); 
-  alert(suggest ? "Saved! Try with Luya." : "Saved!"); 
-  modal.style.display = 'none'; 
-  render(); 
-};
-
-window.fav = (id) => { 
-  const h = herbs.find(x => x.id === id); 
-  h.favorite = !h.favorite; 
-  storage.save(); 
-  render(); 
-  openModal(id); 
-};
-
 // MENU & FOOTER
 document.getElementById('hamburgerMenu')?.addEventListener('click', () => {
   document.getElementById('sideMenu').classList.add('active');
@@ -624,6 +603,21 @@ document.getElementById('fullscreen-modal').onclick = (e) => {
   if (e.target === document.getElementById('fullscreen-modal')) {
     e.target.style.display = 'none';
   }
+};
+
+/* —————————————————————————————
+   FINAL SAVE FUNCTION
+   Saves rich notes (with bold, color, photos) + closes modal
+   Shows friendly message + cute "Try with Luya" suggestion
+  ————————————————————————————— */
+window.save = (id, suggest) => {
+  const h = herbs.find(x => x.id === id);
+  const note = document.querySelector('#activeNoteEditor #globalRichNote');
+  if (note) h.notes = note.innerHTML;
+  storage.save();
+  alert(suggest ? "Saved! Try with Luya." : "Saved!");
+  modal.style.display = 'none';
+  render();
 };
 
 // FLOATING BUTTONS
