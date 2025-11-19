@@ -632,7 +632,7 @@ async function loadRealPinoyModel() {
     console.log("Real Pinoy Herb Model v1 LOADED!");
     return realPinoyModel;
   } catch (e) {
-    console.warn("Real model not available yet, using smart fallback");
+    console.warn("Real model not available, using fallback");
     return null;
   }
 }
@@ -673,8 +673,6 @@ async function openCamera() {
 
     result.innerHTML = "Loading REAL Filipino herb model...<br><small>First time only (4.8 MB)</small>";
 
-    ";
-
     const model = await loadRealPinoyModel();
 
     const doh10 = ["Akapulko","Lagundi","Sambong","Tsaang Gubat","Yerba Buena","Bayabas","Bawang","Ampalaya","Niyog-niyogan","Ulasimang Bato"];
@@ -714,6 +712,37 @@ async function openCamera() {
           return;
         }
       }
+
+      // Smart fallback
+      result.innerHTML = `
+        <div style="color:#ff9800">Plant detected!</div>
+        <div>Real model still learning...<br>Try Lagundi, Bayabas, Sambong</div>
+        <small>v1 recognizes 10 DOH herbs • v2 coming soon</small>
+      `;
+    };
+
+    captureBtn.onclick = () => {
+      const canvas = document.createElement('canvas');
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+      canvas.getContext('2d').drawImage(video, 0, 0);
+      result.innerHTML = "Identifying with REAL Filipino model...";
+      identify(canvas);
+    };
+
+    video.onloadedmetadata = () => {
+      result.innerHTML = "Camera ready!<br>Point at Akapulko, Lagundi, Bayabas, Sambong...<br>Tap <strong>Capture & Identify</strong>";
+    };
+
+    closeBtn.onclick = () => {
+      overlay.remove();
+      stream.getTracks().forEach(t => t.stop());
+    };
+
+  } catch (err) {
+    result.innerHTML = "Camera access denied.<br>Please allow camera permission.";
+  }
+}
 
       // Smart fallback if real model fails or low confidence
       result.innerHTML = `
