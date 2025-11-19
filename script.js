@@ -304,9 +304,19 @@ storage.load();
    (Bold, Italic, Color, etc.)
   ————————————————————————————— */
 function format(cmd, val = null) {
-  // Applies formatting inside the note editor
-  // Examples: 'bold', 'italic', 'underline', 'foreColor'
+  // Apply the formatting
   document.execCommand(cmd, false, val);
+  
+  // NEW: Focus the note area and add a quick visual hint for color
+  const note = document.activeElement.closest('.rich-note-content') || document.querySelector('.rich-note-content');
+  if (note && cmd === 'foreColor') {
+    note.focus();  // Put cursor back in the note
+    // Optional: Quick flash to show "color ready!"
+    note.style.borderColor = val || '#FF0000';
+    setTimeout(() => { note.style.borderColor = ''; }, 500);
+  }
+  
+  // Examples: 'bold', 'italic', 'underline', 'foreColor'
 }
 
 /* —————————————————————————————
