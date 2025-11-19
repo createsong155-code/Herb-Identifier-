@@ -299,6 +299,29 @@ const storage = {
 }; 
 storage.load();
 
+/* —————————————————————————————
+   RICH TEXT FORMATTING TOOLS
+   (Bold, Italic, Color, etc.)
+  ————————————————————————————— */
+function format(cmd, val = null) {
+  // Applies formatting inside the note editor
+  // Examples: 'bold', 'italic', 'underline', 'foreColor'
+  document.execCommand(cmd, false, val);
+}
+
+/* —————————————————————————————
+   INSERT PHOTO INTO NOTES
+   (From camera or gallery)
+  ————————————————————————————— */
+function insertPhoto(input) {
+  // When user picks a photo → converts it to base64 and inserts it directly into the note
+  if (input.files?.[0]) {
+    const reader = new FileReader();
+    reader.onload = e => document.execCommand('insertImage', false, e.target.result);
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
 // RENDER
 function render(f = herbs) {
   const list = document.getElementById('herb-list');
