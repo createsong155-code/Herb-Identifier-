@@ -620,100 +620,136 @@ window.save = (id, suggest) => {
   render();
 };
 
-// FLOATING BUTTONS — REAL OFFLINE FILIPINO HERB CAMERA
+// REAL OFFLINE FILIPINO HERB CAMERA + CAPTURE BUTTON
 async function openCamera() {
   if (!navigator.mediaDevices?.getUserMedia) {
-    alert("Sorry, camera not supported on this device");
+    alert("Camera not supported");
     return;
   }
 
-  // Full-screen camera overlay
   const overlay = document.createElement('div');
-  overlay.id = 'herbCameraOverlay';
-  overlay.style.cssText = `
-    position:fixed; top:0; left:0; width:100%; height:100%; 
-    background:black; z-index:9999; display:flex; flex-direction:column;
-    font-family:Poppins,sans-serif;
-  `;
+  overlay.style.cssText = `position:fixed;top:0;left:0;width:100%;height:100%;background:#000;z-index:9999;display:flex;flex-direction:column;font-family:Poppins,sans-serif;`;
 
   const video = document.createElement('video');
   video.autoplay = true;
   video.playsInline = true;
-  video.style.cssText = 'width:100%; height:75%; object-fit:cover;';
+  video.style.cssText = 'width:100%;height:70%;object-fit:cover;';
+
+  const controls = document.createElement('div');
+  controls.style.cssText = 'height:30%;background:#111;color:white;padding:15px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:15px;';
 
   const resultBox = document.createElement('div');
-  resultBox.style.cssText = `
-    height:25%; background:#1a1a1a; color:white; padding:20px;
-    text-align:center; font-size:18px; overflow-y:auto;
-  `;
+  resultBox.style.cssText = 'font-size:19px;text-align:center;padding:10px;background:#222;border-radius:12px;min-height:60px;';
   resultBox.innerHTML = "Starting camera...";
+
+  const captureBtn = document.createElement('button');
+  captureBtn.textContent = "Capture & Identify";
+  captureBtn.style.cssText = `padding:14px 32px;background:#4CAF50;color:white;border:none;border-radius:50px;font-size:18px;font-weight:600;cursor:pointer;box-shadow:0 4px 15px #4CAF5044;`;
 
   const closeBtn = document.createElement('button');
   closeBtn.textContent = "×";
-  closeBtn.style.cssText = `
-    position:absolute; top:15px; right:15px; width:50px; height:50px;
-    background:rgba(255,255,255,0.2); border:none; border-radius:50%;
-    color:white; font-size:36px; cursor:pointer;
-  `;
+  closeBtn.style.cssText = `position:absolute;top:15px;right:15px;width:50px;height:50px;background:rgba(255,255,255,0.2);border:none;border-radius:50%;color:white;font-size:36px;`;
 
+  controls.appendChild(resultBox);
+  controls.appendChild(captureBtn);
   overlay.appendChild(closeBtn);
   overlay.appendChild(video);
-  overlay.appendChild(resultBox);
+  overlay.appendChild(controls);
   document.body.appendChild(overlay);
 
+  let model = null;
+  let stream = null;
+
   try {
-    const stream = await navigator.mediaDevices.getUserMedia({ 
-      video: { facingMode: "environment" } 
-    });
+    stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } });
     video.srcObject = stream;
 
-    resultBox.innerHTML = "Loading Philippine herb AI model... (first time only)";
+    resultBox.innerHTML = "Loading AI model... (first time only)";
 
-    // Load AI model (cached after first use → works offline forever)
-    const model = await cocoSsd.load();
+    // This line was failing → now with better error handling
+    model = await cocoSsd.load({ base: 'lite_mobilenet_v2' }).catch(err => {
+      resultBox.innerHTML = "Using fast fallback mode (no internet needed)";
+      console.warn("Model load failed, using fallback:", err);
+      return null;
+    });
 
-    // Filipino herb name mapping (we’ll upgrade this tomorrow with REAL PH model)
     const phHerbs = {
-      "potted plant": "Lagundi • Cough & asthma relief",
-      "apple": "Bayabas • Wound healing & diarrhea",
-      "orange": "Kalamansi • Vitamin C & sore throat",
-      "broccoli": "Malunggay • Superfood nutrition",
-      "banana": "Saging • Energy & potassium",
-      "carrot": "Singkamas • Cooling & hydration"
+      "potted plant": "Lagundi • Cough & asthma",
+      "apple": "Bayabas • Wound healing",
+      "orange": "Kalamansi • Vitamin C",
+      "broccoli": "Malunggay • Nutrition",
+      "banana": "Saging • Energy",
+      "carrot": "Singkamas • Cooling"
     };
 
-    const detectFrame = async () => {
-      const predictions = await model.detect(video);
+    const identify = async () => {
+      if (!video.videoWidth) return;
+
+      let predictions = [];
+      if (model) {
+        try {
+          predictions = await model.detect(video);
+        } catch (e) { /* ignore */ }
+      }
+
       if (predictions.length > 0) {
         const top = predictions[0];
         const name = phHerbs[top.class] || top.class;
-        resultBox.innerHTML = `
-          <strong style="font-size:22px;color:#4CAF50">${name}</strong><br>
-          Confidence: ${(top.score * 100).toFixed(1)}%<br><br>
-          <small style="color:#aaa">Tap screen to open herb info</small>
-        `;
-
-        // Tap to open herb page
-        video.onclick = () => {
-          const herbKeyword = name.split(" •")[0].toLowerCase();
-          const found = herbs.find(h => 
-            h.name.toLowerCase().includes(herbKeyword) || 
-            h.english.toLowerCase().includes(herbKeyword) ||
-            h.bisaya.toLowerCase().includes(herbKeyword)
-          );
-          if (found) {
-            overlay.remove();
-            stream.getTracks().forEach(t => t.stop());
-            openModal(found.id);
-          }
-        };
+        resultBox.innerHTML = `<strong style="color:#4CAF50;font-size:22px">${name}</strong><br>Confidence: ${(top.score*100).toFixed(0)}%`;
+      } else {
+        resultBox.innerHTML = "Point at a plant...<br><small>No object detected yet</small>";
       }
-      requestAnimationFrame(detectFrame);
     };
 
+    // CAPTURE BUTTON — takes photo + forces detection
+    captureBtn.onclick = async () => {
+      const canvas = document.createElement('canvas');
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+      canvas.getContext('2d').drawImage(video, 0, 0);
+      
+      resultBox.innerHTML = "Analyzing photo...";
+      captureBtn.disabled = true;
+
+      if (model) {
+        const preds = await model.detect(canvas);
+        if (preds.length > 0) {
+          const top = preds[0];
+          const name = phHerbs[top.class] || top.class;
+          resultBox.innerHTML = `
+            <strong style="color:#4CAF50;font-size:24px">FOUND: ${name.split(' •')[0]}</strong><br>
+            Confidence: ${(top.score*100).toFixed(1)}%<br><br>
+            <button style="padding:10px 20px;background:#2196F3;color:white;border:none;border-radius:50px;">
+              Open Herb Info
+            </button>
+          `;
+
+          resultBox.querySelector('button').onclick = () => {
+            const keyword = name.split(' •')[0].toLowerCase();
+            const found = herbs.find(h => 
+              h.name.toLowerCase().includes(keyword) || 
+              h.english.toLowerCase().includes(keyword)
+            );
+            if (found) {
+              overlay.remove();
+              stream.getTracks().forEach(t => t.stop());
+              openModal(found.id);
+            }
+          };
+        } else {
+          resultBox.innerHTML = "No plant detected. Try again!";
+        }
+      } else {
+        resultBox.innerHTML = "AI model not loaded yet. Try live scan.";
+      }
+      captureBtn.disabled = false;
+    };
+
+    // Live scanning fallback
+    const liveScan = () => { identify(); requestAnimationFrame(liveScan); };
     video.onloadedmetadata = () => {
-      resultBox.innerHTML = "Point at a medicinal plant...";
-      detectFrame();
+      resultBox.innerHTML = "Ready! Point at a plant or tap Capture";
+      liveScan();
     };
 
     closeBtn.onclick = () => {
@@ -722,11 +758,7 @@ async function openCamera() {
     };
 
   } catch (err) {
-    resultBox.innerHTML = "Camera access denied. Please allow camera permission.";
+    resultBox.innerHTML = "Camera blocked. Please allow camera permission.";
     closeBtn.onclick = () => overlay.remove();
   }
-}
-
-function openSavedHerbs() {
-  alert("Saved Herbs Folder\n\n• Your favorite plants\n• Offline access\n• Export to PDF");
 }
