@@ -423,7 +423,7 @@ function openModal(id) {
   modalBody.innerHTML = `
     <h2>${h.name} | ${h.bisaya} | ${h.english}${h.favorite ? ' Star' : ''}</h2>
 
-    <!-- SWIPE GALLERY (TAP TO FULLSCREEN) -->
+    <!-- SWIPE GALLERY -->
     <div class="image-swiper">
       <div class="swiper-container">
         <div class="swiper-wrapper">
@@ -437,7 +437,7 @@ function openModal(id) {
       </div>
     </div>
 
-    <!-- INFO LIST (unchanged) -->
+    <!-- INFO -->
     <div class="info-list">
       <p><strong>Local:</strong> ${h.local}</p>
       <p><strong>English:</strong> ${h.english}</p>
@@ -446,13 +446,9 @@ function openModal(id) {
       <p><strong>Part Used:</strong> <span class="part-badge">${h.partUsed}</span></p>
 
       <div class="prep-list">
-        <strong class="prep-title" style="font-weight:700 !important; color:#2e8b15 !important; display:block !important; margin-bottom:8px !important; font-size:1rem !important;">
-          Preparation by Use:
-        </strong>
+        <strong class="prep-title">Preparation by Use:</strong>
         ${Object.entries(h.preparation || {}).map(([use, prep]) => `
-          <p class="prep-item">
-            <span class="use-label">${use}:</span> ${prep}
-          </p>
+          <p class="prep-item"><span class="use-label">${use}:</span> ${prep}</p>
         `).join('')}
       </div>
 
@@ -461,26 +457,9 @@ function openModal(id) {
       <p><strong>Caution:</strong> ${h.caution}</p>
     </div>
 
-    <!-- RICH NOTES EDITOR (NEW & BEAUTIFUL) -->
-    <div class="note-editor">
-      <div class="toolbar">
-        <button onclick="format('bold')" title="Bold">B</button>
-        <button onclick="format('italic')" title="Italic">I</button>
-        <button onclick="format('underline')" title="Underline">U</button>
-        <input type="color" onchange="format('foreColor', this.value)" title="Text color">
-        <button onclick="document.getElementById('photoInput-${id}').click()" title="Add photo">Photo</button>
-        <input type="file" id="photoInput-${id}" accept="image/*" style="display:none" onchange="insertPhoto(this)">
-      </div>
-      <div 
-        contenteditable="true" 
-        class="rich-note-content" 
-        id="richNote-${id}"
-        placeholder="Write your personal notes, dosage, experiences, add photos…">
-        ${h.notes || ''}
-      </div>
-    </div>
+    <!-- INSERT GLOBAL EDITOR HERE -->
+    <div id="activeNoteEditor"></div>
 
-    <!-- BUTTONS (unchanged) -->
     <div class="modal-buttons">
       <button class="modal-btn save-btn" onclick="save(${id},false)">Save</button>
       <button class="modal-btn save-suggest-btn" onclick="save(${id},true)">Save & Suggest</button>
@@ -490,14 +469,28 @@ function openModal(id) {
     </div>
   `;
 
-  // Auto-save rich notes while typing (replaces your old textarea behavior)
-  const noteDiv = document.getElementById(`richNote-${id}`);
+  // CLONE & ACTIVATE GLOBAL EDITOR
+  const container = document.getElementById('activeNoteEditor');
+  const globalEditor = document.getElementById('globalNoteEditor');
+  const cloned = globalEditor.cloneNode(true);
+  cloned.style.display = 'block';
+  cloned.id = 'clonedEditor'; // prevent ID conflict
+  container.appendChild(cloned);
+
+  const noteDiv = cloned.querySelector('#globalRichNote');
+  noteDiv.innerHTML = h.notes || '';
+
+  // Auto-save
   noteDiv.addEventListener('input', () => {
     h.notes = noteDiv.innerHTML;
-    storage.save();   // Uses your existing perfect storage system
+    storage.save();
   });
 
-  // Initialize Swiper gallery
+  // Re-attach photo button
+  cloned.querySelector('#globalPhotoBtn').onclick = () => 
+    cloned.querySelector('#globalPhotoInput').click();
+
+  // Swiper
   setTimeout(() => {
     new Swiper('.swiper-container', {
       loop: h.images.length > 1,
