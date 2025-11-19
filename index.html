@@ -186,5 +186,27 @@
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script src="script.js"></script>
 
+  <!-- GLOBAL RICH NOTES EDITOR (Samsung Style) - Hidden & Reused -->
+<div id="globalNoteEditor" style="display:none;">
+  <div class="samsung-toolbar">
+    <button onclick="format('bold')" title="Bold">B</button>
+    <button onclick="format('italic')" title="Italic">I</button>
+    <button onclick="format('underline')" title="Underline">U</button>
+    <button onclick="format('strikeThrough')" title="Strikethrough">S</button>
+    
+    <div class="divider"></div>
+    
+    <input type="color" id="globalColorPicker" title="Text color" onchange="format('foreColor', this.value)">
+    
+    <div class="divider"></div>
+    
+    <button id="globalPhotoBtn">Photo</button>
+    <input type="file" id="globalPhotoInput" accept="image/*" style="display:none" onchange="insertPhoto(this)">
+  </div>
+  
+  <div id="globalRichNote" contenteditable="true" class="rich-note-content"
+       placeholder="Write your personal notes, dosage, experiences, add photos…"></div>
+</div>
+
 </body>
 </html>
