@@ -427,7 +427,7 @@ function openModal(id) {
       </div>
     </div>
 
-    <!-- INFO LIST -->
+    <!-- INFO LIST (unchanged) -->
     <div class="info-list">
       <p><strong>Local:</strong> ${h.local}</p>
       <p><strong>English:</strong> ${h.english}</p>
@@ -436,10 +436,9 @@ function openModal(id) {
       <p><strong>Part Used:</strong> <span class="part-badge">${h.partUsed}</span></p>
 
       <div class="prep-list">
-        
         <strong class="prep-title" style="font-weight:700 !important; color:#2e8b15 !important; display:block !important; margin-bottom:8px !important; font-size:1rem !important;">
-  Preparation by Use:
-</strong>
+          Preparation by Use:
+        </strong>
         ${Object.entries(h.preparation || {}).map(([use, prep]) => `
           <p class="prep-item">
             <span class="use-label">${use}:</span> ${prep}
@@ -452,10 +451,26 @@ function openModal(id) {
       <p><strong>Caution:</strong> ${h.caution}</p>
     </div>
 
-    <div class="notes-section">
-      <textarea id="notes-input" placeholder="Add your notes...">${h.notes}</textarea>
+    <!-- RICH NOTES EDITOR (NEW & BEAUTIFUL) -->
+    <div class="note-editor">
+      <div class="toolbar">
+        <button onclick="format('bold')" title="Bold">B</button>
+        <button onclick="format('italic')" title="Italic">I</button>
+        <button onclick="format('underline')" title="Underline">U</button>
+        <input type="color" onchange="format('foreColor', this.value)" title="Text color">
+        <button onclick="document.getElementById('photoInput-${id}').click()" title="Add photo">Photo</button>
+        <input type="file" id="photoInput-${id}" accept="image/*" style="display:none" onchange="insertPhoto(this)">
+      </div>
+      <div 
+        contenteditable="true" 
+        class="rich-note-content" 
+        id="richNote-${id}"
+        placeholder="Write your personal notes, dosage, experiences, add photos…">
+        ${h.notes || ''}
+      </div>
     </div>
 
+    <!-- BUTTONS (unchanged) -->
     <div class="modal-buttons">
       <button class="modal-btn save-btn" onclick="save(${id},false)">Save</button>
       <button class="modal-btn save-suggest-btn" onclick="save(${id},true)">Save & Suggest</button>
@@ -465,6 +480,14 @@ function openModal(id) {
     </div>
   `;
 
+  // Auto-save rich notes while typing (replaces your old textarea behavior)
+  const noteDiv = document.getElementById(`richNote-${id}`);
+  noteDiv.addEventListener('input', () => {
+    h.notes = noteDiv.innerHTML;
+    storage.save();   // Uses your existing perfect storage system
+  });
+
+  // Initialize Swiper gallery
   setTimeout(() => {
     new Swiper('.swiper-container', {
       loop: h.images.length > 1,
