@@ -1,4 +1,4 @@
-// FULL HERBS DATABASE
+/// FULL HERBS DATABASE
 const herbs = [
   {
   "id": 1,
