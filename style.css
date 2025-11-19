@@ -991,3 +991,39 @@ body.grid .herb-card img {
   color: #999;
   font-style: italic;
 }
+
+/* BENEFITS SECTION — PINOY STYLE */
+.benefits-section {
+  margin: 18px 0;
+  padding: 16px;
+  background: linear-gradient(135deg, #e8f5e8 0%, #f0faf0 100%);
+  border-radius: 16px;
+  border-left: 5px solid #4CAF50;
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.15);
+}
+
+.benefits-title {
+  color: #2e7d32;
+  font-size: 1.15rem;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.benefits-list {
+  margin: 0;
+  padding-left: 22px;
+  line-height: 1.7;
+}
+
+.benefits-list li {
+  color: #1b5e20;
+  font-weight: 600;
+  margin: 8px 0;
+  position: relative;
+}
+
+.benefits-list li::marker {
+  color: #4CAF50;
+  font-weight: bold;
+}
