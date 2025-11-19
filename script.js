@@ -502,7 +502,11 @@ function openModal(id) {
 // SAVE & FAV
 window.save = (id, suggest) => { 
   const h = herbs.find(x => x.id === id); 
-  h.notes = document.getElementById('notes-input').value; 
+  // NEW: Save from the rich editor (not old textarea)
+  const richNote = document.getElementById(`richNote-${id}`);
+  if (richNote) {
+    h.notes = richNote.innerHTML;  // ← This saves bold, colors, photos!
+  }
   storage.save(); 
   alert(suggest ? "Saved! Try with Luya." : "Saved!"); 
   modal.style.display = 'none'; 
