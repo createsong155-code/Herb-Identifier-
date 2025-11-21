@@ -1,13 +1,12 @@
-// NEW CLOUD VERSION — PHASE 1 LIVE!
-imp// PHASE 1 LIVE — REAL FIREBASE CONFIG
+// PHASE 1 LIVE — REAL FIREBASE CONFIG (Dok's Project)
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
 import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyD8fX9kL2pQvR7mN5jHbK3sY8uZxWqT9rU",
-  authDomain: "herb-survival-ph-phase1-2025.firebaseapp.com",
-  projectId: "herb-survival-ph-phase1-2025",
-  storageBucket: "herb-survival-ph-phase1-2025.appspot.com",
+  authDomain: "herb-survival-phase1-dok-2025.firebaseapp.com",
+  projectId: "herb-survival-phase1-dok-2025",
+  storageBucket: "herb-survival-phase1-dok-2025.appspot.com",
   messagingSenderId: "738291456789",
   appId: "1:738291456789:web:a1b2c3d4e5f6g7h8i9j0"
 };
@@ -25,7 +24,7 @@ async function loadHerbsFromCloud() {
       herbs.push({ id: doc.id, ...data });
     });
     render();
-    console.log(`Phase 1 LIVE — ${herbs.length} herbs loaded from cloud! 🌿`);
+    console.log(`Phase 1 LIVE — ${herbs.length} herbs loaded from Dok's cloud! 🌿`);
   } catch (e) {
     console.log("Offline mode — using cached data");
     render(); // still works offline
