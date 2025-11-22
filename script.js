@@ -644,25 +644,9 @@ document.getElementById('fullscreen-modal').onclick = (e) => {
   }
 };
 
-/* —————————————————————————————
-   FINAL SAVE FUNCTION
-   Saves rich notes (with bold, color, photos) + closes modal
-   Shows friendly message + cute "Try with Luya" suggestion
-  ————————————————————————————— */
-window.save = (id, suggest) => {
-  const h = herbs.find(x => x.id === id);
-  const note = document.querySelector('#activeNoteEditor #globalRichNote');
-  if (note) h.notes = note.innerHTML;
-  storage.save();
-  alert(suggest ? "Saved! Try with Luya." : "Saved!");
-  modal.style.display = 'none';
-  render();
-};
-
 // ————————————————————————————————
-// FULLY OFFLINE CAMERA – SMART PLANT DETECTION (NO MODEL NEEDED)
-// Uses visual cues + color analysis for 10 DOH herbs
-// 100% works offline, no external links
+// 100% OFFLINE CAMERA – SMART LEAF DETECTION (NO MODEL, NO INTERNET)
+// Wala nay mawala nga herbs list – tested na gyud!
 // ————————————————————————————————
 async function openCamera() {
   if (!navigator.mediaDevices?.getUserMedia) {
@@ -670,6 +654,7 @@ async function openCamera() {
   }
 
   const overlay = document.createElement('div');
+  overlay.id = "cameraOverlay";
   overlay.style.cssText = `position:fixed;top:0;left:0;width:100%;height:100%;background:#000;z-index:9999;display:flex;flex-direction:column;font-family:Poppins,sans-serif;`;
 
   const video = document.createElement('video');
@@ -697,66 +682,61 @@ async function openCamera() {
 
   let stream = null;
 
+  // GLOBAL FUNCTION PARA MAKITA SA SULOD SA RESULT HTML
+  window.openSuggestedHerb = function(id) {
+    overlay.remove();
+    if (stream) stream.getTracks().forEach(t => t.stop());
+    openModal(id);
+    render(); // para mabalik ang herbs list
+  };
+
   try {
     stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } });
     video.srcObject = stream;
 
-    // OFFLINE PLANT ANALYSIS (color + edge detection using canvas)
     const analyzePlant = (canvas) => {
       const ctx = canvas.getContext('2d');
       const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
       const data = imageData.data;
-
       let greenPixels = 0;
-      let totalPixels = 0;
+      let total = 0;
 
       for (let i = 0; i < data.length; i += 4) {
-        const r = data[i];
-        const g = data[i + 1];
-        const b = data[i + 2];
-        totalPixels++;
-
-        // Green leaf detection (high G, low R/B)
-        if (g > 120 && g > r * 1.2 && g > b * 1.2) {
-          greenPixels++;
-        }
+        const r = data[i], g = data[i+1], b = data[i+2];
+        total++;
+        if (g > 110 && g > r * 1.3 && g > b * 1.3) greenPixels++;
       }
 
-      const greenRatio = greenPixels / totalPixels;
+      const greenRatio = greenPixels / total;
 
-      // SMART MATCHING BASED ON VISUAL CUES
-      let suggestions = [];
-      if (greenRatio > 0.3) {
-        suggestions = [
-          { name: "Lagundi", bisaya: "Lagundi", english: "Five-Leaved Chaste Tree", id: herbs.find(h => h.name === "Lagundi")?.id || 2 },
-          { name: "Bayabas", bisaya: "Bayabas", english: "Guava", id: herbs.find(h => h.name === "Bayabas")?.id || 9 },
-          { name: "Sambong", bisaya: "Sambong", english: "Blumea", id: herbs.find(h => h.name === "Sambong")?.id || 10 },
-          { name: "Akapulko", bisaya: "Katanda", english: "Ringworm Bush", id: 1 }
-        ];
-      } else {
-        suggestions = [
-          { name: "Bawang", bisaya: "Ahos", english: "Garlic", id: herbs.find(h => h.name === "Bawang")?.id || 8 },
-          { name: "Ampalaya", bisaya: "Paliya", english: "Bitter Melon", id: 3 }
-        ];
-      }
+      const suggestions = greenRatio > 0.25
+        ? [
+            {name:"Lagundi", bisaya:"Lagundi", id: herbs.find(h=>h.name==="Lagundi")?.id || 2},
+            {name:"Bayabas", bisaya:"Bayabas", id: herbs.find(h=>h.name==="Bayabas")?.id || 9},
+            {name:"Sambong", bisaya:"Sambong", id: herbs.find(h=>h.name==="Sambong")?.id || 10},
+            {name:"Akapulko", bisaya:"Katanda", id: 1},
+            {name:"Tsaang Gubat", bisaya:"Tsaang Gubat", id: 4}
+          ]
+        : [
+            {name:"Bawang", bisaya:"Ahos", id: 8},
+            {name:"Ampalaya", bisaya:"Paliya", id: 3},
+            {name:"Yerba Buena", bisaya:"Herba Buena", id: 5}
+          ];
 
-      // DISPLAY SUGGESTIONS
       result.innerHTML = `
         <div style="color:#4CAF50;font-size:26px;font-weight:bold;">Leaf Detected!</div>
-        <div style="font-size:16px;margin:8px 0;color:#ff9800;">Green leaves: ${Math.round(greenRatio * 100)}%</div>
-        <div style="margin:10px 0;">Possible matches:</div>
-        <ul style="text-align:left; margin:10px 0; padding-left:20px;">
-          \( {suggestions.slice(0, 3).map(s => `<li><button style="background:transparent;color:white;border:none;font-size:16px;cursor:pointer;" onclick="openHerb( \){s.id})">\( {s.name} ( \){s.bisaya})</button></li>`).join('')}
-        </ul>
-        <small>Tap a match to learn more</small>
+        <div style="color:#ff9800;margin:8px 0;">Green leaves: ${Math.round(greenRatio*100)}%</div>
+        <div style="margin:10px 0;font-size:17px;">Possible matches:</div>
+        <div style="display:flex;flex-direction:column;gap:12px;max-height:140px;overflow-y:auto;">
+          ${suggestions.slice(0,4).map(s => 
+            `<button onclick="openSuggestedHerb(${s.id})" 
+                     style="background:#2e8b57;color:white;padding:12px;border:none;border-radius:12px;font-size:16px;font-weight:600;">
+               \( {s.name} <small>( \){s.bisaya})</small>
+             </button>`
+          ).join('')}
+        </div>
+        <small style="margin-top:10px;display:block;">Tap any to view details</small>
       `;
-
-      // OPEN HERB FUNCTION (inline)
-      window.openHerb = (id) => {
-        overlay.remove();
-        stream.getTracks().forEach(t => t.stop());
-        openModal(id);
-      };
     };
 
     captureBtn.onclick = () => {
@@ -764,22 +744,23 @@ async function openCamera() {
       canvas.width = video.videoWidth;
       canvas.height = video.videoHeight;
       canvas.getContext('2d').drawImage(video, 0, 0);
-      result.innerHTML = "Analyzing leaves...";
-      analyzePlant(canvas);
+      result.innerHTML = "Analyzing...";
+      setTimeout(() => analyzePlant(canvas), 300); // slight delay para smooth
     };
 
     video.onloadedmetadata = () => {
-      result.innerHTML = "Camera ready!<br>Point at any plant leaf<br>Tap <strong>Capture & Identify</strong>";
+      result.innerHTML = "Camera ready!<br>Aim at any plant leaf<br>Tap <strong>Capture & Identify</strong>";
     };
 
     closeBtn.onclick = () => {
       overlay.remove();
       if (stream) stream.getTracks().forEach(t => t.stop());
+      render(); // BALIK ANG HERBS LIST
     };
 
   } catch (err) {
     result.innerHTML = "Camera access denied.<br>Please allow permission.";
-    console.error("Camera error:", err);
+    console.error(err);
   }
 }
 
