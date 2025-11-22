@@ -653,28 +653,35 @@ async function openCamera() {
     return alert("Camera not supported on this device.");
   }
 
-  // CREATE OVERLAY
   const overlay = document.createElement('div');
   overlay.id = "cameraOverlay";
-  overlay.style.cssText = `
-    position:fixed;top:0;left:0;width:100%;height:100%;background:#000;
-    z-index:9999;display:flex;flex-direction:column;font-family:Poppins,sans-serif;
-  `;
+  overlay.style.cssText = `position:fixed;top:0;left:0;width:100%;height:100%;background:#000;z-index:9999;display:flex;flex-direction:column;font-family:Poppins,sans-serif;`;
 
   const video = document.createElement('video');
   video.autoplay = video.playsInline = true;
   video.style.cssText = 'width:100%;height:70%;object-fit:cover;';
 
   const bottom = document.createElement('div');
-  bottom.style.cssText = 'height:30%;background:#111;color:white;padding:20px;text-align:center;display:flex;flex-direction:column;gap:20px;';
+  bottom.style.cssText = 'height:30%;background:#111;color:white;padding:20px;text-align:center;display:flex;flex-direction:column;gap:12px;overflow-y:auto;';
 
   const result = document.createElement('div');
-  result.style.cssText = 'font-size:21px;line-height:1.5;';
-  result.innerHTML = "Starting camera...";
+  result.style.cssText = 'font-size:18px;line-height:1.5;';
+  
+  // DISCLAIMER SA TOP (always visible)
+  result.innerHTML = `
+    <div style="background:#ff9800;color:#000;padding:12px;border-radius:12px;font-weight:700;margin-bottom:10px;">
+      ⚠️ CAMERA UNDER DEVELOPMENT
+    </div>
+    <div style="font-size:15px;line-height:1.6;">
+      This feature is still being improved.<br>
+      It can detect leaves but <strong>cannot accurately identify</strong> plants yet.<br>
+      <small>AI model coming in v2.0</small>
+    </div>
+  `;
 
   const captureBtn = document.createElement('button');
-  captureBtn.textContent = "Capture & Identify";
-  captureBtn.style.cssText = 'padding:16px 50px;background:#4CAF50;color:white;border:none;border-radius:50px;font-size:19px;font-weight:bold;cursor:pointer;';
+  captureBtn.textContent = "Capture & Try Detection";
+  captureBtn.style.cssText = 'padding:16px 50px;background:#4CAF50;color:white;border:none;border-radius:50px;font-size:19px;font-weight:bold;cursor:pointer;margin-top:10px;';
 
   const closeBtn = document.createElement('button');
   closeBtn.textContent = "×";
@@ -684,12 +691,10 @@ async function openCamera() {
   overlay.append(closeBtn, video, bottom);
   document.body.appendChild(overlay);
 
-  // GLOBAL FUNCTION PARA MA-ACCESS SA BUTTONS
   window.tempOpenHerb = function(id) {
     overlay.remove();
-    stream.getTracks().forEach(t => t.stop());
+    stream?.getTracks().forEach(t => t.stop());
     openModal(id);
-    // FORCE RE-RENDER ANG HERBS LIST
     setTimeout(() => {
       document.querySelector('.herb-list').innerHTML = '';
       render();
@@ -707,9 +712,8 @@ async function openCamera() {
       const data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
       let green = 0, total = 0;
       for (let i = 0; i < data.length; i += 4) {
-        const r = data[i], g = data[i+1], b = data[i+2];
+        if (data[i+1] > 110 && data[i+1] > data[i] * 1.3 && data[i+1] > data[i+2] * 1.3) green++;
         total++;
-        if (g > 110 && g > r * 1.3 && g > b * 1.3) green++;
       }
       const ratio = green / total;
 
@@ -718,19 +722,24 @@ async function openCamera() {
         : ["Bawang","Ampalaya","Yerba Buena"];
 
       result.innerHTML = `
-        <div style="color:#4CAF50;font-size:26px;font-weight:bold;">Leaf Detected!</div>
-        <div style="color:#ff9800;margin:10px 0;">Green: ${Math.round(ratio*100)}%</div>
-        <div style="font-size:17px;">Possible matches:</div>
-        <div style="display:flex;flex-direction:column;gap:12px;margin-top:10px;">
-          ${matches.slice(0,4).map(name => {
-            const h = herbs.find(x => x.name === name || x.bisaya === name);
-            return h ? `<button onclick="tempOpenHerb(${h.id})" 
-                          style="background:#2e8b57;color:white;padding:14px;border:none;border-radius:12px;font-weight:600;">
-                          \( {h.name} <small>( \){h.bisaya || h.english})</small>
-                        </button>` : '';
-          }).join('')}
+        <div style="background:#ff9800;color:#000;padding:12px;border-radius:12px;font-weight:700;">
+          ⚠️ BETA FEATURE – Not accurate yet
         </div>
-        <small style="margin-top:10px;">Tap to view details</small>
+        <div style="margin:10px 0;">
+          <div style="color:#4CAF50;font-size:22px;font-weight:bold;">Leaf Detected!</div>
+          <div style="color:#ff9800;margin:8px 0;">Green leaves: ${Math.round(ratio*100)}%</div>
+          <div style="font-size:16px;">These might be:</div>
+          <div style="display:flex;flex-direction:column;gap:10px;margin:12px 0;">
+            ${matches.slice(0,4).map(name => {
+              const h = herbs.find(x => x.name === name || x.bisaya === name);
+              return h ? `<button onclick="tempOpenHerb(${h.id})" 
+                            style="background:#2e8b57;color:white;padding:12px;border:none;border-radius:12px;font-weight:600;">
+                            \( {h.name} <small>( \){h.bisaya || h.english})</small>
+                          </button>` : '';
+            }).join('')}
+          </div>
+          <small style="color:#aaa;">Full AI camera coming in v2.0!</small>
+        </div>
       `;
     };
 
@@ -739,18 +748,26 @@ async function openCamera() {
       canvas.width = video.videoWidth;
       canvas.height = video.videoHeight;
       canvas.getContext('2d').drawImage(video, 0, 0);
-      result.innerHTML = "Analyzing...";
-      setTimeout(() => analyzePlant(canvas), 400);
+      result.innerHTML = "<div style='color:#ff9800;'>Analyzing leaves...</div>";
+      setTimeout(() => analyzePlant(canvas), 500);
     };
 
     video.onloadedmetadata = () => {
-      result.innerHTML = "Camera ready!<br>Aim at any leaf<br>Tap <strong>Capture & Identify</strong>";
+      result.innerHTML = `
+        <div style="background:#ff9800;color:#000;padding:12px;border-radius:12px;font-weight:700;margin-bottom:10px;">
+          ⚠️ CAMERA UNDER DEVELOPMENT
+        </div>
+        <div style="font-size:15px;line-height:1.6;">
+          This feature is still being improved.<br>
+          It can detect leaves but <strong>cannot accurately identify</strong> plants yet.<br>
+          <small>Full AI model coming soon in v2.0</small>
+        </div>
+      `;
     };
 
-    // CLOSE BUTTON – SURE NA GYUD MUBALIK ANG LIST
     closeBtn.onclick = () => {
       overlay.remove();
-      if (stream) stream.getTracks().forEach(t => t.stop());
+      stream?.getTracks().forEach(t => t.stop());
       setTimeout(() => {
         document.querySelector('.herb-list').innerHTML = '';
         render();
@@ -758,7 +775,7 @@ async function openCamera() {
     };
 
   } catch (err) {
-    result.innerHTML = "Camera access denied.";
+    result.innerHTML = "Camera access denied.<br>Please allow permission.";
     closeBtn.onclick = () => {
       overlay.remove();
       setTimeout(render, 50);
