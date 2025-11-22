@@ -484,6 +484,17 @@ function openModal(id) {
   <hr>
   <p><strong>Use:</strong> ${h.use.join(' • ')}</p>
   <p><strong>Caution:</strong> ${h.caution}</p>
+
+  <!-- DISCLAIMER BOX – PLAY STORE REQUIRED -->
+  <hr style="margin:20px 0; border:none; border-top:1.5px solid #e0f2e0;">
+
+  <div class="disclaimer-box">
+    <strong>Herbs & Survival • Educational Guide Only</strong>
+    This app shares traditional Filipino herbal knowledge from DOH, PITAHC, and scientific studies. 
+    <strong>Not a substitute for medical treatment.</strong><br>
+    Always consult a doctor • Not for self-diagnosis
+    <br><a href="#" onclick="showSources();return false;">View Official Sources</a>
+  </div>
 </div>
 
     <!-- INSERT GLOBAL EDITOR HERE -->
