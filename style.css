@@ -1027,3 +1027,89 @@ body.grid .herb-card img {
   color: #4CAF50;
   font-weight: bold;
 }
+
+/* GLOBAL DISCLAIMER SA UBOS SA MODAL – PLAY STORE REQUIRED */
+.disclaimer-box {
+  margin: 24px 0 12px;
+  padding: 16px;
+  background: linear-gradient(135deg, #fff8e1 0%, #f9fbe7 100%);
+  border: 2px solid #ffb800;
+  border-radius: 16px;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: #5d4037;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(255, 152, 0, 0.15);
+}
+
+.disclaimer-box strong {
+  color: #e65100;
+  font-size: 0.95rem;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.disclaimer-box a {
+  color: #1976d2;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+/* GLOBAL DISCLAIMER SA FOOTER (Fixed bottom) */
+.global-footer-disclaimer {
+  position: fixed;
+  bottom: 60px; /* Above footer */
+  left: 0;
+  right: 0;
+  background: rgba(46, 139, 87, 0.97);
+  color: white;
+  text-align: center;
+  font-size: 0.7rem;
+  padding: 8px 12px;
+  z-index: 799;
+  backdrop-filter: blur(8px);
+  border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+.global-footer-disclaimer a {
+  color: #a8e6cf;
+  text-decoration: underline;
+}
+
+/* LOADING SCREEN PARA SA CAMERA (Nindot kaayo!) */
+.camera-loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0,0,0,0.8);
+  color: white;
+  padding: 20px 40px;
+  border-radius: 20px;
+  font-size: 1.1rem;
+  backdrop-filter: blur(4px);
+  z-index: 99999;
+}
+
+/* SUCCESS ANIMATION SA SAVE */
+@keyframes savedPop {
+  0% { transform: scale(0.8); opacity: 0; }
+  60% { transform: scale(1.1); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.saved-message {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #4CAF50;
+  color: white;
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  z-index: 9999;
+  animation: savedPop 0.6s ease;
+  box-shadow: 0 8px 20px rgba(76,175,80,0.4);
+}
