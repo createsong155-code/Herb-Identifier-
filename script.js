@@ -716,49 +716,51 @@ async function openCamera() {
 
     const doh10 = ["Akapulko","Lagundi","Sambong","Tsaang Gubat","Yerba Buena","Bayabas","Bawang","Ampalaya","Niyog-niyogan","Ulasimang Bato"];
 
-    const identify = async (canvas) => {
-      if (model) {
-        let img = tf.browser.fromPixels(canvas);
-        img = tf.image.resizeBilinear(img, [224, 224]).toFloat();
-        img = img.div(127.5).sub(1);
-        const input = img.expandDims(0);
+const identify = async (canvas) => {
+  if (model) {
+    let img = tf.browser.fromPixels(canvas);
+    img = tf.image.resizeBilinear(img, [224, 224]).toFloat();
+    img = img.div(127.5).sub(1);
+    const input = img.expandDims(0);
 
-        const scores = await model.predict(input).data();
-        const max = Math.max(...scores);
-        const idx = scores.indexOf(max);
-        const name = doh10[idx];
+    const scores = await model.predict(input).data();
+    const max = Math.max(...scores);
+    const idx = scores.indexOf(max);
+    const name = doh10[idx];
 
-        const herb = herbs.find(h => 
-          h.name === name || 
-          h.bisaya === name || 
-          h.english.toLowerCase().includes(name.toLowerCase())
-        );
+    const herb = herbs.find(h => 
+      h.name === name || 
+      h.bisaya === name || 
+      h.english.toLowerCase().includes(name.toLowerCase()) ||
+      h.scientific.toLowerCase().includes(name.toLowerCase())
+    );
 
-        if (herb && max > 0.3) {
-          result.innerHTML = `
-            <div style="color:#4CAF50;font-size:28px;font-weight:bold;">${herb.name}</div>
-            <div style="font-size:18px;margin:8px 0;">${herb.bisaya} • ${herb.english}</div>
-            <div style="color:#8f8">Confidence: ${(max*100).toFixed(1)}%</div>
-            <button style="margin-top:20px;padding:14px 40px;background:#2196F3;color:white;border:none;border-radius:50px;font-size:18px;">
-              Open Herb Info
-            </button>
-          `;
-          result.querySelector('button').onclick = () => {
-            overlay.remove();
-            stream.getTracks().forEach(t => t.stop());
-            openModal(herb.id);
-          };
-          return;
-        }
-      }
-
-      // Smart fallback
+    // LOWERED THRESHOLD + SHOW EVEN LOW CONFIDENCE
+    if (herb && max > 0.2) {  // ← from 0.3 → 0.2
       result.innerHTML = `
-        <div style="color:#ff9800">Plant detected!</div>
-        <div>Real model still learning...<br>Try Lagundi, Bayabas, Sambong</div>
-        <small>v1 recognizes 10 DOH herbs • v2 coming soon</small>
+        <div style="color:#4CAF50;font-size:28px;font-weight:bold;">${herb.name}</div>
+        <div style="font-size:18px;margin:8px 0;">\( {herb.bisaya} • \){herb.english}</div>
+        <div style="color:\( {max > 0.5 ? '#8f8' : '#ff9800'}">Confidence: \){(max*100).toFixed(1)}%</div>
+        <button style="margin-top:20px;padding:14px 40px;background:#2196F3;color:white;border:none;border-radius:50px;font-size:18px;">
+          Open Herb Info
+        </button>
       `;
-    };
+      result.querySelector('button').onclick = () => {
+        overlay.remove();
+        stream.getTracks().forEach(t => t.stop());
+        openModal(herb.id);
+      };
+      return;
+    }
+  }
+
+  // Fallback message (still helpful)
+  result.innerHTML = `
+    <div style="color:#ff9800">Plant detected!</div>
+    <div>No exact match found.<br>Try getting closer or better lighting.</div>
+    <small>v1 recognizes 10 DOH herbs • v2 coming soon</small>
+  `;
+};
 
     captureBtn.onclick = () => {
       const canvas = document.createElement('canvas');
