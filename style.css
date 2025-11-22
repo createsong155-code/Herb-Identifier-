@@ -1071,6 +1071,34 @@ body.grid .herb-card img {
   border-top: 1px solid rgba(255,255,255,0.2);
 }
 
+/* ——— BAG-ONG WHITE & THIN DISCLAIMER (i-paste lang sa ilawom sa imong original) ——— */
+.global-footer-disclaimer {
+  position: fixed !important;
+  bottom: 58px !important;                    /* tungtong ibabaw sa green footer */
+  left: 50% !important;
+  right: auto !important;
+  transform: translateX(-50%) !important;
+  background: rgba(255,255,255,0.96) !important;
+  color: #000 !important;
+  font-size: 0.69rem !important;
+  font-weight: 500 !important;
+  padding: 6px 18px !important;
+  border-radius: 30px !important;
+  box-shadow: 0 3px 14px rgba(0,0,0,0.16) !important;
+  z-index: 999 !important;
+  max-width: 92% !important;
+  text-align: center !important;
+  line-height: 1.4 !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1.3px solid #e0e0e0 !important;
+}
+
+.global-footer-disclaimer a {
+  color: #006400 !important;
+  text-decoration: underline !important;
+  font-weight: 600 !important;
+}
+
 .global-footer-disclaimer a {
   color: #a8e6cf;
   text-decoration: underline;
