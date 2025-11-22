@@ -782,4 +782,34 @@ async function openCamera() {
     result.innerHTML = "Camera access denied.<br>Please allow camera permission.";
   }
 }
-      
+
+// PASTE EXACTLY HERE (after the openCamera() function ends)
+function showSources() {
+  const sources = [
+    { name: "Department of Health (DOH) – Herbal Medicine", url: "https://doh.gov.ph/herbal-medicine" },
+    { name: "PITAHC – Official Philippine Herbal Authority", url: "https://pitahc.gov.ph" },
+    { name: "PubMed – Scientific Studies on Philippine Herbs", url: "https://pubmed.ncbi.nlm.nih.gov/?term=philippine+medicinal+plants" },
+    { name: "World Health Organization (WHO) – Traditional Medicine", url: "https://www.who.int/health-topics/traditional-complementary-and-integrative-medicine" }
+  ];
+
+  const modalHtml = `
+    <div style="position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;" onclick="this.remove()">
+      <div style="background:white;border-radius:20px;padding:24px;max-width:420px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:0 10px 30px rgba(0,0,0,0.3);" onclick="event.stopPropagation()">
+        <h3 style="margin:0 0 16px;text-align:center;color:#2e8b57;font-size:1.4rem;">Reliable Sources</h3>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          ${sources.map(s => `
+            <a href="${s.url}" target="_blank" style="display:block;padding:14px;background:#f0f8f0;border-radius:12px;text-decoration:none;color:#2e7d32;font-weight:600;border-left:5px solid #4CAF50;" onclick="event.stopPropagation()">
+              ${s.name}
+              <div style="font-size:0.8rem;color:#666;margin-top:4px;">${s.url.replace('https://','')}</div>
+            </a>
+          `).join('')}
+        </div>
+        <button onclick="this.closest('div').parentElement.remove()" style="margin-top:20px;width:100%;padding:12px;background:#2e8b57;color:white;border:none;border-radius:12px;font-weight:bold;cursor:pointer;">
+          Close
+        </button>
+      </div>
+    </div>
+  `;
+  
+  document.body.insertAdjacentHTML('beforeend', modalHtml);
+}
