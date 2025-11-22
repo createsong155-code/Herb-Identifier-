@@ -653,9 +653,13 @@ async function openCamera() {
     return alert("Camera not supported on this device.");
   }
 
+  // CREATE OVERLAY
   const overlay = document.createElement('div');
   overlay.id = "cameraOverlay";
-  overlay.style.cssText = `position:fixed;top:0;left:0;width:100%;height:100%;background:#000;z-index:9999;display:flex;flex-direction:column;font-family:Poppins,sans-serif;`;
+  overlay.style.cssText = `
+    position:fixed;top:0;left:0;width:100%;height:100%;background:#000;
+    z-index:9999;display:flex;flex-direction:column;font-family:Poppins,sans-serif;
+  `;
 
   const video = document.createElement('video');
   video.autoplay = video.playsInline = true;
@@ -680,15 +684,19 @@ async function openCamera() {
   overlay.append(closeBtn, video, bottom);
   document.body.appendChild(overlay);
 
-  let stream = null;
-
-  // GLOBAL FUNCTION PARA MAKITA SA SULOD SA RESULT HTML
-  window.openSuggestedHerb = function(id) {
+  // GLOBAL FUNCTION PARA MA-ACCESS SA BUTTONS
+  window.tempOpenHerb = function(id) {
     overlay.remove();
-    if (stream) stream.getTracks().forEach(t => t.stop());
+    stream.getTracks().forEach(t => t.stop());
     openModal(id);
-    render(); // para mabalik ang herbs list
+    // FORCE RE-RENDER ANG HERBS LIST
+    setTimeout(() => {
+      document.querySelector('.herb-list').innerHTML = '';
+      render();
+    }, 100);
   };
+
+  let stream = null;
 
   try {
     stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } });
@@ -696,46 +704,33 @@ async function openCamera() {
 
     const analyzePlant = (canvas) => {
       const ctx = canvas.getContext('2d');
-      const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-      const data = imageData.data;
-      let greenPixels = 0;
-      let total = 0;
-
+      const data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+      let green = 0, total = 0;
       for (let i = 0; i < data.length; i += 4) {
         const r = data[i], g = data[i+1], b = data[i+2];
         total++;
-        if (g > 110 && g > r * 1.3 && g > b * 1.3) greenPixels++;
+        if (g > 110 && g > r * 1.3 && g > b * 1.3) green++;
       }
+      const ratio = green / total;
 
-      const greenRatio = greenPixels / total;
-
-      const suggestions = greenRatio > 0.25
-        ? [
-            {name:"Lagundi", bisaya:"Lagundi", id: herbs.find(h=>h.name==="Lagundi")?.id || 2},
-            {name:"Bayabas", bisaya:"Bayabas", id: herbs.find(h=>h.name==="Bayabas")?.id || 9},
-            {name:"Sambong", bisaya:"Sambong", id: herbs.find(h=>h.name==="Sambong")?.id || 10},
-            {name:"Akapulko", bisaya:"Katanda", id: 1},
-            {name:"Tsaang Gubat", bisaya:"Tsaang Gubat", id: 4}
-          ]
-        : [
-            {name:"Bawang", bisaya:"Ahos", id: 8},
-            {name:"Ampalaya", bisaya:"Paliya", id: 3},
-            {name:"Yerba Buena", bisaya:"Herba Buena", id: 5}
-          ];
+      const matches = ratio > 0.25
+        ? ["Lagundi","Bayabas","Sambong","Akapulko","Tsaang Gubat"]
+        : ["Bawang","Ampalaya","Yerba Buena"];
 
       result.innerHTML = `
         <div style="color:#4CAF50;font-size:26px;font-weight:bold;">Leaf Detected!</div>
-        <div style="color:#ff9800;margin:8px 0;">Green leaves: ${Math.round(greenRatio*100)}%</div>
-        <div style="margin:10px 0;font-size:17px;">Possible matches:</div>
-        <div style="display:flex;flex-direction:column;gap:12px;max-height:140px;overflow-y:auto;">
-          ${suggestions.slice(0,4).map(s => 
-            `<button onclick="openSuggestedHerb(${s.id})" 
-                     style="background:#2e8b57;color:white;padding:12px;border:none;border-radius:12px;font-size:16px;font-weight:600;">
-               \( {s.name} <small>( \){s.bisaya})</small>
-             </button>`
-          ).join('')}
+        <div style="color:#ff9800;margin:10px 0;">Green: ${Math.round(ratio*100)}%</div>
+        <div style="font-size:17px;">Possible matches:</div>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-top:10px;">
+          ${matches.slice(0,4).map(name => {
+            const h = herbs.find(x => x.name === name || x.bisaya === name);
+            return h ? `<button onclick="tempOpenHerb(${h.id})" 
+                          style="background:#2e8b57;color:white;padding:14px;border:none;border-radius:12px;font-weight:600;">
+                          \( {h.name} <small>( \){h.bisaya || h.english})</small>
+                        </button>` : '';
+          }).join('')}
         </div>
-        <small style="margin-top:10px;display:block;">Tap any to view details</small>
+        <small style="margin-top:10px;">Tap to view details</small>
       `;
     };
 
@@ -745,22 +740,29 @@ async function openCamera() {
       canvas.height = video.videoHeight;
       canvas.getContext('2d').drawImage(video, 0, 0);
       result.innerHTML = "Analyzing...";
-      setTimeout(() => analyzePlant(canvas), 300); // slight delay para smooth
+      setTimeout(() => analyzePlant(canvas), 400);
     };
 
     video.onloadedmetadata = () => {
-      result.innerHTML = "Camera ready!<br>Aim at any plant leaf<br>Tap <strong>Capture & Identify</strong>";
+      result.innerHTML = "Camera ready!<br>Aim at any leaf<br>Tap <strong>Capture & Identify</strong>";
     };
 
+    // CLOSE BUTTON – SURE NA GYUD MUBALIK ANG LIST
     closeBtn.onclick = () => {
       overlay.remove();
       if (stream) stream.getTracks().forEach(t => t.stop());
-      render(); // BALIK ANG HERBS LIST
+      setTimeout(() => {
+        document.querySelector('.herb-list').innerHTML = '';
+        render();
+      }, 50);
     };
 
   } catch (err) {
-    result.innerHTML = "Camera access denied.<br>Please allow permission.";
-    console.error(err);
+    result.innerHTML = "Camera access denied.";
+    closeBtn.onclick = () => {
+      overlay.remove();
+      setTimeout(render, 50);
+    };
   }
 }
 
