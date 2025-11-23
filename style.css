@@ -1083,7 +1083,7 @@ body.grid .herb-card img {
   font-size: 0.40rem !important;        /* klaro gihapon basahon */
   font-weight: 400 !important;
   padding: 5px 15px !important;
-  border-radius: 30px !important;
+  border-radius: 10px !important;
   box-shadow: 0 3px 14px rgba(0,0,0,0.16) !important;
   z-index: 999 !important;
   max-width: 92% !important;
