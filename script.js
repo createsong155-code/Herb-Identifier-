@@ -817,42 +817,67 @@ function showSources() {
 // implement open community
 // === FOOTER TAB SWITCHING ===
 
-// Map each button to a tab/view container
+// === FOOTER TAB SWITCHING ===
 const footerButtons = document.querySelectorAll('.footer-btn');
-const tabViews = document.querySelectorAll('.tab-view'); // Each main content section must have a class like 'home-view', 'favorites-view', 'community-view', 'dashboard-view'
 
-// Generic function to show a tab
+// Map tab names to content container selectors
+const tabViews = {
+  home: document.querySelector('#herb-list'),           // Main herbs list
+  favorites: document.querySelector('#herb-list'),      // We'll reuse herb-list for favorites
+  community: document.querySelector('.community-view'), // Make sure you have <div class="community-view"></div> in HTML
+  dashboard: document.querySelector('.dashboard-view')  // Make sure you have <div class="dashboard-view"></div> in HTML
+};
+
+// Function to show tab
 function showTab(tabName) {
   // Hide all tab views
-  tabViews.forEach(view => view.style.display = 'none');
+  Object.values(tabViews).forEach(view => {
+    if (view) view.style.display = 'none';
+  });
 
   // Show selected tab
-  const selectedView = document.querySelector(`.${tabName}-view`);
+  const selectedView = tabViews[tabName];
   if (selectedView) selectedView.style.display = 'block';
 
   // Update active button styling
   footerButtons.forEach(btn => btn.classList.remove('active'));
-  const activeBtn = document.querySelector(`[data-tab="${tabName}"]`);
+  const activeBtn = document.querySelector(`.footer-btn[data-tab="${tabName}"]`);
   if (activeBtn) activeBtn.classList.add('active');
 
-  // OPTIONAL: Load community posts when tab is opened
-  if (tabName === 'community') {
-    loadCommunityPosts();
+  // Extra actions per tab
+  if (tabName === 'favorites') {
+    showFavorites(); // You need to define this function to load favorited herbs
+  } else if (tabName === 'home') {
+    showAllHerbs(); // Load all herbs (you likely already have this function)
+  } else if (tabName === 'community') {
+    // Community view actions if needed
   }
 }
 
 // Attach click listeners
 footerButtons.forEach(btn => {
-  const tabName = btn.dataset.tab; // Make sure each button has data-tab="home", "favorites", etc.
+  const tabName = btn.dataset.tab;
   btn.addEventListener('click', () => {
     showTab(tabName);
   });
 });
 
-// Optionally, initialize default tab
+// Initialize default tab
 document.addEventListener('DOMContentLoaded', () => {
-  showTab('home'); // default tab
+  showTab('home');
 });
+
+// Example: Favorites loader (replace with your actual code)
+function showFavorites() {
+  // This will filter your herb list to only show favorites
+  console.log('Showing favorited herbs');
+}
+
+// Example: All herbs loader (replace with your actual code)
+function showAllHerbs() {
+  console.log('Showing all herbs');
+}
+
 
 // === COMMUNITY TAB / SUPABASE OFFLINE SUPPORT ===
 
