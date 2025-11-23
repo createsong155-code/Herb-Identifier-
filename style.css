@@ -1093,7 +1093,7 @@ body.grid .herb-card img {
   overflow: hidden !important;
   text-overflow: ellipsis !important;
   backdrop-filter: blur(10px) !important;
-  border: 1.3px solid #e0e0e0 !important;
+  border: 1.1px solid #e0e0e0 !important;
 }
 
 .global-footer-disclaimer a {
