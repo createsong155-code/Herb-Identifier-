@@ -816,67 +816,43 @@ function showSources() {
 
 // implement open community
 // === FOOTER TAB SWITCHING ===
-
-// === FOOTER TAB SWITCHING ===
-const footerButtons = document.querySelectorAll('.footer-btn');
-
-// Map tab names to content container selectors
-const tabViews = {
-  home: document.querySelector('#herb-list'),           // Main herbs list
-  favorites: document.querySelector('#herb-list'),      // We'll reuse herb-list for favorites
-  community: document.querySelector('.community-view'), // Make sure you have <div class="community-view"></div> in HTML
-  dashboard: document.querySelector('.dashboard-view')  // Make sure you have <div class="dashboard-view"></div> in HTML
-};
-
-// Function to show tab
+// --- FOOTER TAB SWITCHING FIX ---
 function showTab(tabName) {
   // Hide all tab views
   Object.values(tabViews).forEach(view => {
     if (view) view.style.display = 'none';
   });
 
-  // Show selected tab
-  const selectedView = tabViews[tabName];
-  if (selectedView) selectedView.style.display = 'block';
-
   // Update active button styling
   footerButtons.forEach(btn => btn.classList.remove('active'));
   const activeBtn = document.querySelector(`.footer-btn[data-tab="${tabName}"]`);
   if (activeBtn) activeBtn.classList.add('active');
 
-  // Extra actions per tab
-  if (tabName === 'favorites') {
-    showFavorites(); // You need to define this function to load favorited herbs
-  } else if (tabName === 'home') {
-    showAllHerbs(); // Load all herbs (you likely already have this function)
+  // Show selected tab content
+  if (tabName === 'home') {
+    if (tabViews.home) tabViews.home.style.display = 'block';
+    render(herbs); // show all herbs
+  } else if (tabName === 'favorites') {
+    if (tabViews.favorites) tabViews.favorites.style.display = 'block';
+    const favHerbs = herbs.filter(h => h.favorite);
+    render(favHerbs); // show only favorited herbs
   } else if (tabName === 'community') {
-    // Community view actions if needed
+    if (tabViews.community) tabViews.community.style.display = 'block';
+    loadCommunityPosts(); // load posts
+  } else if (tabName === 'dashboard') {
+    if (tabViews.dashboard) tabViews.dashboard.style.display = 'block';
+    openDashboard(); // show dashboard alert or content
   }
 }
 
-// Attach click listeners
+// Attach footer click listeners
 footerButtons.forEach(btn => {
-  const tabName = btn.dataset.tab;
-  btn.addEventListener('click', () => {
-    showTab(tabName);
-  });
+  btn.addEventListener('click', () => showTab(btn.dataset.tab));
 });
 
 // Initialize default tab
-document.addEventListener('DOMContentLoaded', () => {
-  showTab('home');
-});
+document.addEventListener('DOMContentLoaded', () => showTab('home'));
 
-// Example: Favorites loader (replace with your actual code)
-function showFavorites() {
-  // This will filter your herb list to only show favorites
-  console.log('Showing favorited herbs');
-}
-
-// Example: All herbs loader (replace with your actual code)
-function showAllHerbs() {
-  console.log('Showing all herbs');
-}
 
 
 // === COMMUNITY TAB / SUPABASE OFFLINE SUPPORT ===
