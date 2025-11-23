@@ -858,8 +858,8 @@ document.addEventListener('DOMContentLoaded', () => showTab('home'));
 // === COMMUNITY TAB / SUPABASE OFFLINE SUPPORT ===
 
 // Initialize Supabase
-const supabaseUrl = 'YOUR_SUPABASE_URL';
-const supabaseKey = 'YOUR_SUPABASE_ANON_KEY';
+const supabaseUrl = 'https://eplmqzrslbythznhwjht.supabase.co';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVwbG1xenJzbGJ5dGh6bmh3amh0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM4ODc0NjAsImV4cCI6MjA3OTQ2MzQ2MH0.veoIYh4BFw2WYIt09XVlftpJyxgVNbVx_h-HP8hFJ7E';
 const supabase = supabase.createClient(supabaseUrl, supabaseKey);
 
 // IndexedDB fallback for offline
