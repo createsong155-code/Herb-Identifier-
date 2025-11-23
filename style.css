@@ -1080,8 +1080,8 @@ body.grid .herb-card img {
   transform: translateX(-50%) !important;
   background: rgba(255,255,255,0.96) !important;
   color: #000 !important;
-  font-size: 0.69rem !important;
-  font-weight: 500 !important;
+  font-size: 0.40rem !important;
+  font-weight: 400 !important;
   padding: 6px 18px !important;
   border-radius: 30px !important;
   box-shadow: 0 3px 14px rgba(0,0,0,0.16) !important;
@@ -1096,7 +1096,7 @@ body.grid .herb-card img {
 .global-footer-disclaimer a {
   color: #006400 !important;
   text-decoration: underline !important;
-  font-weight: 600 !important;
+  font-weight: 400 !important;
 }
 
 .global-footer-disclaimer a {
