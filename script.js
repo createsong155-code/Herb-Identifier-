@@ -813,3 +813,107 @@ function showSources() {
   
   document.body.insertAdjacentHTML('beforeend', modalHtml);
 }
+
+// implement open community
+// === FOOTER TAB SWITCHING ===
+
+// Map each button to a tab/view container
+const footerButtons = document.querySelectorAll('.footer-btn');
+const tabViews = document.querySelectorAll('.tab-view'); // Each main content section must have a class like 'home-view', 'favorites-view', 'community-view', 'dashboard-view'
+
+// Generic function to show a tab
+function showTab(tabName) {
+  // Hide all tab views
+  tabViews.forEach(view => view.style.display = 'none');
+
+  // Show selected tab
+  const selectedView = document.querySelector(`.${tabName}-view`);
+  if (selectedView) selectedView.style.display = 'block';
+
+  // Update active button styling
+  footerButtons.forEach(btn => btn.classList.remove('active'));
+  const activeBtn = document.querySelector(`[data-tab="${tabName}"]`);
+  if (activeBtn) activeBtn.classList.add('active');
+
+  // OPTIONAL: Load community posts when tab is opened
+  if (tabName === 'community') {
+    loadCommunityPosts();
+  }
+}
+
+// Attach click listeners
+footerButtons.forEach(btn => {
+  const tabName = btn.dataset.tab; // Make sure each button has data-tab="home", "favorites", etc.
+  btn.addEventListener('click', () => {
+    showTab(tabName);
+  });
+});
+
+// Optionally, initialize default tab
+document.addEventListener('DOMContentLoaded', () => {
+  showTab('home'); // default tab
+});
+
+// === COMMUNITY TAB / SUPABASE OFFLINE SUPPORT ===
+
+// Initialize Supabase
+const supabaseUrl = 'YOUR_SUPABASE_URL';
+const supabaseKey = 'YOUR_SUPABASE_ANON_KEY';
+const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+
+// IndexedDB fallback for offline
+let db;
+const request = indexedDB.open('communityDB', 1);
+request.onupgradeneeded = function(e) {
+  db = e.target.result;
+  db.createObjectStore('posts', { keyPath: 'id', autoIncrement: true });
+};
+request.onsuccess = function(e) { db = e.target.result; };
+request.onerror = function(e) { console.error('IDB Error:', e); };
+
+// Load community posts
+async function loadCommunityPosts() {
+  const container = document.querySelector('.community-view');
+  container.innerHTML = '<p>Loading posts...</p>';
+
+  // Try online first
+  if (navigator.onLine) {
+    const { data, error } = await supabase.from('community').select('*').order('created_at', { ascending: false });
+    if (error) console.error(error);
+
+    if (data && data.length) {
+      container.innerHTML = '';
+      data.forEach(post => {
+        const div = document.createElement('div');
+        div.className = 'community-post';
+        div.innerHTML = `<strong>${post.user}</strong>: ${post.content}`;
+        container.appendChild(div);
+      });
+
+      // Save to IndexedDB for offline
+      const tx = db.transaction('posts', 'readwrite');
+      const store = tx.objectStore('posts');
+      data.forEach(post => store.put(post));
+    }
+  } else {
+    // Load from IndexedDB if offline
+    const tx = db.transaction('posts', 'readonly');
+    const store = tx.objectStore('posts');
+    const getAll = store.getAll();
+    getAll.onsuccess = () => {
+      const data = getAll.result;
+      container.innerHTML = '';
+      if (data.length === 0) container.innerHTML = '<p>No posts available offline.</p>';
+      data.forEach(post => {
+        const div = document.createElement('div');
+        div.className = 'community-post';
+        div.innerHTML = `<strong>${post.user}</strong>: ${post.content}`;
+        container.appendChild(div);
+      });
+    };
+  }
+}
+
+// Optional: Listen for online event to auto-sync
+window.addEventListener('online', loadCommunityPosts);
+
