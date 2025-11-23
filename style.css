@@ -1081,12 +1081,12 @@ body.grid .herb-card img {
   background: rgba(255,255,255,0.96) !important;
   color: #000 !important;
   font-size: 0.68rem !important;        /* klaro gihapon basahon */
-  font-weight: 500 !important;
+  font-weight: 400 !important;
   padding: 7px 20px !important;
   border-radius: 30px !important;
   box-shadow: 0 3px 14px rgba(0,0,0,0.16) !important;
   z-index: 999 !important;
-  max-width: 95% !important;
+  max-width: 92% !important;
   text-align: center !important;
   line-height: 1.4 !important;
   white-space: nowrap !important;       /* ← KINI ANG MAGIC PARA ONE LINE RA GYUD */
@@ -1099,7 +1099,7 @@ body.grid .herb-card img {
 .global-footer-disclaimer a {
   color: #006400 !important;
   text-decoration: underline !important;
-  font-weight: 500 !important;
+  font-weight: 400 !important;
 }
 
 .global-footer-disclaimer a {
