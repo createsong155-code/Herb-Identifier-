@@ -563,6 +563,19 @@ function openDashboard() {
   alert(`My Dashboard\n\nFavorites: ${favCount}\nSaved Notes: ${noteCount}\n\nComing soon: Full dashboard view!`);
 }
 
+// GLOBAL DISCLAIMER SA FOOTER Js. code (Fixed bottom) 
+function showSources() {
+  document.getElementById('sourcesModal').style.display = 'block';
+}
+
+// Para ma-close pud kung gi-click sa gawas
+window.onclick = function(e) {
+  const modal = document.getElementById('sourcesModal');
+  if (e.target === modal) {
+    modal.style.display = 'none';
+  }
+}
+
 // RENDER AFTER DOM
 document.addEventListener('DOMContentLoaded', () => {
   render();
