@@ -606,7 +606,7 @@ body.grid .herb-card img {
 /*DISCLAIMER IN FOOTER*/
 .global-footer-disclaimer {
   position: fixed !important;
- bottom: 68px !important;           /* taas sa footer */
+ bottom: 60px !important;           /* taas sa footer */
  left: 50% !important;
  transform: translateX(-50%) !important;
  background: rgba(255,255,255,0.96) !important;
