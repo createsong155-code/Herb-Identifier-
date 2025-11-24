@@ -298,3 +298,17 @@ document.addEventListener('DOMContentLoaded', () => {
   showTab('home');
   console.log("%cHERBS & SURVIVAL APP – 100% CLEAN & READY!", "color:#2e8b57;font-size:20px;font-weight:bold");
 });
+
+// FORCE SHOW HERBS LIST – SURE NA GYUD NI!
+document.addEventListener('DOMContentLoaded', () => {
+  render();
+  showTab('home');
+  console.log("%cHERBS & SURVIVAL APP – 100% CLEAN & READY!", "color:#2e8b57;font-size:20px;font-weight:bold");
+
+  // === FORCE FIX KARON GYUD ===
+  const community = document.querySelector('.community-view');
+  if (community) community.style.display = 'none';
+  const herbList = document.getElementById('herb-list');
+  if (herbList) herbList.style.display = 'block';
+  // ==========================
+});
