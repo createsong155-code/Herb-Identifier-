@@ -294,9 +294,18 @@ window.onclick = e => { if (e.target.classList.contains('modal') || e.target.cla
 
 // INITIAL LOAD
 document.addEventListener('DOMContentLoaded', () => {
-  render();
-  showTab('home');
-  console.log("%cHERBS & SURVIVAL APP – 100% CLEAN & READY!", "color:#2e8b57;font-size:20px;font-weight:bold");
+  // Force hide community tab
+  const comm = document.querySelector('.community-view');
+  if (comm) comm.style.display = 'none';
+
+  // Force show herb list + render
+  const list = document.getElementById('herb-list');
+  if (list) {
+    list.style.display = 'block';
+    render();                    // ← KINI ANG NAG-GENERATE SA LISTAHAN
+  }
+
+  console.log("%cHERBS LIST FORCED VISIBLE – 100% SUCCESS!", "color:#4CAF50;font-size:18px;font-weight:bold");
 });
 
 // FORCE SHOW HERBS LIST – SURE NA GYUD NI!
