@@ -1144,3 +1144,7 @@ body.grid .herb-card img {
   animation: savedPop 0.6s ease;
   box-shadow: 0 8px 20px rgba(76,175,80,0.4);
 }
+
+/* TEMPORARY FORCE SHOW HERBS – TANGGALON RA INIG OKAY NA */
+#herb-list { display: block !important; min-height: 100vh; padding-bottom: 180px; }
+.community-view { display: none !important; }
