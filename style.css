@@ -832,7 +832,7 @@ body.grid .herb-card img {
 /* === STICKY MINI TABS === */
 .sticky-mini-tabs {
   position: fixed;
-  bottom: 75px; /* 60px footer + 15px gap */
+  bottom: 83px; /* From Footer */
   left: 50%;
   transform: translateX(-50%);
   display: flex;
