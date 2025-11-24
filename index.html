@@ -227,5 +227,52 @@
        placeholder="Write your personal notes, dosage, experiences, add photos…"></div>
 </div>
 
+  <!-- DISCLAIMER FOOTER POP-UP WITH SOURCES TABLE -->
+<div id="sourcesModal" class="modal">
+  <div class="modal-content" style="max-width:540px; border-radius:20px;">
+    <div style="padding:20px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+        <h2 style="margin:0; color:#2e8b57; font-size:1.4rem;">Official Sources</h2>
+        <span class="close" onclick="document.getElementById('sourcesModal').style.display='none'" style="font-size:2rem; cursor:pointer;">×</span>
+      </div>
+      
+      <table style="width:100%; border-collapse:collapse; font-size:0.95rem;">
+        <tr style="background:#e8f5e8;">
+          <th style="padding:12px; text-align:left; color:#2e7d32;">Source</th>
+          <th style="padding:12px; text-align:left; color:#2e7d32;">Link</th>
+        </tr>
+        <tr>
+          <td style="padding:12px; border-bottom:1px solid #ddd;">Department of Health (DOH) Philippines – 10 Herbal Medicines</td>
+          <td style="padding:12px; border-bottom:1px solid #ddd;">
+            <a href="https://doh.gov.ph/10-doh-approved-herbal-medicines" target="_blank" style="color:#1976d2; text-decoration:underline;">Open →</a>
+          </td>
+        </tr>
+        <tr style="background:#f8fff8;">
+          <td style="padding:12px; border-bottom:1px solid #ddd;">Philippine Institute of Traditional and Alternative Health Care (PITAHC)</td>
+          <td style="padding:12px; border-bottom:1px solid #ddd;">
+            <a href="https://pitahc.gov.ph" target="_blank" style="color:#1976d2; text-decoration:underline;">Open →</a>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:12px; border-bottom:1px solid #ddd;">World Health Organization (WHO) – Traditional Medicine</td>
+          <td style="padding:12px; border-bottom:1px solid #ddd;">
+            <a href="https://www.who.int/health-topics/traditional-complementary-and-integrative-medicine" target="_blank" style="color:#1976d2; text-decoration:underline;">Open →</a>
+          </td>
+        </tr>
+        <tr style="background:#f8fff8;">
+          <td style="padding:12px;">PubMed – Scientific Studies on Philippine Herbs</td>
+          <td style="padding:12px;">
+            <a href="https://pubmed.ncbi.nlm.nih.gov/?term=philippine+medicinal+plants" target="_blank" style="color:#1976d2; text-decoration:underline;">Open →</a>
+          </td>
+        </tr>
+      </table>
+
+      <div style="margin-top:20px; padding:16px; background:#fff8e1; border-radius:12px; font-size:0.88rem; color:#5d4037; text-align:center;">
+        <strong>Note:</strong> This app shares traditional knowledge only. Always consult a licensed doctor before using any herbal medicine.
+      </div>
+    </div>
+  </div>
+</div>
+  
 </body>
 </html>
