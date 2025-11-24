@@ -487,6 +487,28 @@ function openModal(id) {
   <p><strong>Caution:</strong> ${h.caution}</p>
 </div>
 
+    <!-- DISCLAIMER LANG GYUD, WALAY LAIN -->
+<div class="important-disclaimer">
+  <div class="disclaimer-title">
+    <span class="red-circle">Warning</span>
+    Important: This app is for educational purposes only
+  </div>
+  <div class="disclaimer-text">
+    Information provided is based on <strong>traditional Filipino practices</strong> and 
+    <strong>DOH-recognized herbal plants</strong>. 
+    It is <strong style="color:#c62828;">NOT intended to diagnose, treat, cure, or prevent any disease</strong>.
+    <br><br>
+    <strong style="color:#2e7d32;">Always consult a healthcare professional</strong> before using any herb, 
+    especially if you are pregnant, nursing, taking medication, or have a medical condition.
+  </div>
+  <div class="disclaimer-sources">
+    Sources: 
+    <a href="#" onclick="showSources();return false;" style="color:#1565c0;font-weight:600;">
+      DOH • PITAHC • PubMed • WHO
+    </a>
+  </div>
+</div>
+    
     <!-- INSERT GLOBAL EDITOR HERE -->
     <div id="activeNoteEditor"></div>
 
@@ -531,28 +553,6 @@ function openModal(id) {
 
   modal.style.display = 'block';
 }
-
-//DISCLAIMER LANG GYUD, WALAY LAIN -->
-<div class="important-disclaimer">
-  <div class="disclaimer-title">
-    <span class="red-circle">Warning</span>
-    Important: This app is for educational purposes only
-  </div>
-  <div class="disclaimer-text">
-    Information provided is based on <strong>traditional Filipino practices</strong> and 
-    <strong>DOH-recognized herbal plants</strong>. 
-    It is <strong style="color:#c62828;">NOT intended to diagnose, treat, cure, or prevent any disease</strong>.
-    <br><br>
-    <strong style="color:#2e7d32;">Always consult a healthcare professional</strong> before using any herb, 
-    especially if you are pregnant, nursing, taking medication, or have a medical condition.
-  </div>
-  <div class="disclaimer-sources">
-    Sources: 
-    <a href="#" onclick="showSources();return false;" style="color:#1565c0;font-weight:600;">
-      DOH • PITAHC • PubMed • WHO
-    </a>
-  </div>
-</div>
 
 // MENU & FOOTER
 document.getElementById('hamburgerMenu')?.addEventListener('click', () => {
