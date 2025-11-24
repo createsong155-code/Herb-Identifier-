@@ -603,6 +603,35 @@ body.grid .herb-card img {
                      0 0 24px rgba(0, 191, 255, 0.5); }
 }
 
+/*DISCLAIMER IN FOOTER*/
+.global-footer-disclaimer {
+  position: fixed !important;
+ bottom: 68px !important;           /* taas sa footer */
+ left: 50% !important;
+ transform: translateX(-50%) !important;
+ background: rgba(255,255,255,0.96) !important;
+ color: #000 !important;
+ font-size: 0.52rem !important;
+ font-weight: 500 !important;
+ padding: 6px 16px !important;
+ border-radius: 12px !important;
+ box-shadow: 0 4px 16px rgba(0,0,0,0.18) !important;
+ z-index: 999 !important;
+ max-width: 94% !important;
+ text-align: center !important;
+ white-space: nowrap !important;
+ overflow: hidden !important;
+ text-overflow: ellipsis !important;
+ backdrop-filter: blur(12px) !important;
+ border: 1.2px solid #e0e0e0 !important;
+}
+
+.global-footer-disclaimer a {
+  color: #006400 !important;
+  text-decoration: underline !important;
+  font-weight: 700 !important;
+}
+
 /* SWIPE GALLERY */
 .image-swiper {
   margin: 12px 0 16px;
