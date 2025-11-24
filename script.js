@@ -840,4 +840,40 @@ async function openCamera() {
     result.innerHTML = "Camera access denied.<br>Please allow camera permission.";
   }
 }
-      
+
+// FINAL FIX — 100% GUARANTEED MO-WORK NA GYUD
+function showHerbs() {
+  document.getElementById('dashboard-view').style.display = 'none';
+  document.getElementById('herb-list').style.display = 'block';
+  render();
+  document.querySelectorAll('.footer-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector('.footer-btn[data-tab="home"]').classList.add('active');
+}
+
+function showFavorites() {
+  document.getElementById('dashboard-view').style.display = 'none';
+  document.getElementById('herb-list').style.display = 'block';
+  render(herbs.filter(h => h.favorite));
+  document.querySelectorAll('.footer-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector('.footer-btn[data-tab="favorites"]').classList.add('active');
+}
+
+function openDashboard() {
+  document.getElementById('herb-list').style.display = 'none';
+  document.getElementById('dashboard-view').style.display = 'block';
+  document.querySelectorAll('.footer-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector('.footer-btn[data-tab="dashboard"]').classList.add('active');
+}
+
+// AUTO SHOW HERBS PAG-OPEN SA APP (KINI ANG MISSING!)
+document.addEventListener('DOMContentLoaded', () => {
+  showHerbs(); // ← KINI RA GYUD ANG KULANG BEH!
+});
+
+// FOOTER CLICK HANDLERS (i-replace imong daan)
+document.querySelector('.footer-btn[data-tab="home"]').onclick = showHerbs;
+document.querySelector('.footer-btn[data-tab="favorites"]').onclick = showFavorites;
+document.querySelector('.footer-btn[data-tab="dashboard"]').onclick = openDashboard;
+document.querySelector('.footer-btn[data-tab="community"]').onclick = () => {
+  alert("Community feed coming soon! Excited na mi para nimo!");
+};
