@@ -1110,3 +1110,64 @@ body.grid .herb-card img {
   color: #4CAF50;
   font-weight: bold;
 }
+
+/* MY DASHBOARD – SUPER CLEAN & MATCHING SA IMONG EDIT */
+#dashboard-view {
+  padding: 20px 16px;
+  min-height: 100vh;
+  background: #f8fff8;
+}
+
+#dashboard-view h2 {
+  margin: 8px 0;
+  color: #2e8b57;
+  font-size: 1.6rem;
+}
+
+#dashboard-view .big-num {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #2e8b57;
+}
+
+/* Stats cards */
+#dashboard-view > div:nth-child(2),
+#dashboard-view > div:nth-child(3) {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 6px 25px rgba(0,0,0,0.07);
+  margin-bottom: 24px;
+}
+
+/* Grid sa stats */
+#dashboard-view > div:nth-child(2) > div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 16px;
+  text-align: center;
+}
+
+/* Quick stats */
+#dashboard-view .quick-stats-row > div {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  color: #444;
+  font-size: 1.05rem;
+}
+#dashboard-view .quick-stats-row > div:last-child { border-bottom: none; }
+
+/* Thank you message */
+#dashboard-view > div:last-child {
+  background: linear-gradient(135deg, #e8f5e8, #f1f8e9);
+  border: 2px solid #81c784;
+  border-radius: 20px;
+  padding: 24px;
+  text-align: center;
+  color: #2e7d32;
+  font-size: 1.1rem;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(129,199,132,0.2);
+}
