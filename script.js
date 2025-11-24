@@ -581,9 +581,17 @@ function openSupport() {
 }
 
 function openDashboard() {
-  const favCount = herbs.filter(h => h.favorite).length;
-  const noteCount = Object.keys(JSON.parse(localStorage.getItem('herbApp') || '{}').notes || {}).length;
-  alert(`My Dashboard\n\nFavorites: ${favCount}\nSaved Notes: ${noteCount}\n\nComing soon: Full dashboard view!`);
+  // Hide tanan views
+  document.getElementById('herb-list')?.style.display = 'none';
+  document.querySelector('.community-view')?.style.display = 'none';
+  // (dugang pa kung naa pay lain views)
+
+  // Show ang atong bag-ong dashboard
+  document.getElementById('dashboard-view').style.display = 'block';
+
+  // Update active state sa footer
+  document.querySelectorAll('.footer-btn').forEach(btn => btn.classList.remove('active'));
+  document.querySelector('.footer-btn[onclick="openDashboard()"]').classList.add('active');
 }
 
 // GLOBAL DISCLAIMER SA FOOTER Js. code (Fixed bottom) 
