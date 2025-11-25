@@ -771,7 +771,7 @@ async function openCamera() {
   }
 }
 
-// PERMANENT FINAL FIX — USA RA NI KA HIGAYON, WALA NAY LAIN
+// FINAL NA GYUD NI BEH — USA RA KA HIGAYON, LIMPYO NA TANAN
 function showHome() {
   document.getElementById('dashboard-view')?.style.display = 'none';
   document.getElementById('herb-list')?.style.display = 'block';
@@ -799,7 +799,7 @@ function openCommunity() {
   alert("Community Feed — Coming This Week!\nExcited na mi para nimo beh!");
 }
 
-// AUTO SHOW + FOOTER CONNECT (USA RA NI!)
+// AUTO SHOW HOME + CONNECT FOOTER (FINAL NA GYUD)
 document.addEventListener('DOMContentLoaded', () => {
   showHome();
   document.querySelectorAll('.footer-btn').forEach(btn => {
