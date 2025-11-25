@@ -1171,3 +1171,27 @@ body.grid .herb-card img {
   font-weight: 600;
   box-shadow: 0 4px 15px rgba(129,199,132,0.2);
 }
+
+/* ==== FINAL FIX — PARA 100% MAKITA NA GYUD ANG HERBS DAYON ==== */
+#herb-list {
+  display: block !important;
+  min-height: 100vh;
+  flex: 1;
+}
+
+#dashboard-view {
+  display: none !important;
+  padding: 20px 16px;
+  background: #f8fff8;
+  min-height: 100vh;
+  flex: 1;
+}
+
+/* Para sure gyud nga mo-gawas ang cards */
+.herb-list:empty::before {
+  content: "Loading herbs...";
+  color: #999;
+  text-align: center;
+  padding: 40px;
+  font-size: 1.1rem;
+}
