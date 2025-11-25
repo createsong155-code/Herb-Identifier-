@@ -554,28 +554,6 @@ function openModal(id) {
   modal.style.display = 'block';
 }
 
-  // Siguroha active ang Home button
-  document.querySelectorAll('.footer-btn').forEach(b => b.classList.remove('active'));
-  document.querySelector('.footer-btn[onclick="filterCategory(\'all\')"]').classList.add('active');
-});
-
-// Fix ang Home & Favorites button para mo-balik gyud ang herbs
-document.querySelector('.footer-btn[onclick="filterCategory(\'all\')"]').onclick = function() {
-  document.getElementById('dashboard-view').style.display = 'none';
-  document.getElementById('herb-list').style.display = 'block';
-  render();
-  document.querySelectorAll('.footer-btn').forEach(b => b.classList.remove('active'));
-  this.classList.add('active');
-};
-
-document.querySelector('.footer-btn[onclick="filterCategory(\'Favorites\')"]').onclick = function() {
-  document.getElementById('dashboard-view').style.display = 'none';
-  document.getElementById('herb-list').style.display = 'block';
-  render(herbs.filter(h => h.favorite));
-  document.querySelectorAll('.footer-btn').forEach(b => b.classList.remove('active'));
-  this.classList.add('active');
-};
-
 // GLOBAL DISCLAIMER SA FOOTER Js. code (Fixed bottom) 
 function showSources() {
   document.getElementById('sourcesModal').style.display = 'block';
@@ -588,11 +566,6 @@ window.onclick = function(e) {
     modal.style.display = 'none';
   }
 }
-
-// RENDER AFTER DOM
-document.addEventListener('DOMContentLoaded', () => {
-  render();
-});
 
 // FULLSCREEN SWIPER GALLERY — FULL IMAGE + PINCH ZOOM
 let fullscreenSwiper;
