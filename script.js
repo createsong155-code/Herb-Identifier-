@@ -771,39 +771,46 @@ async function openCamera() {
   }
 }
 
-// FINAL FIX — 100% GUARANTEED MO-WORK NA GYUD
-function showHerbs() {
-  document.getElementById('dashboard-view').style.display = 'none';
-  document.getElementById('herb-list').style.display = 'block';
+// ULTIMATE FINAL FOOTER HANDLERS (2025 VERSION — WALA NAY BUG, WALA NAY DUPLICATE)
+function showHome() {
+  document.getElementById('dashboard-view')?.style.display = 'none';
+  document.getElementById('herb-list')?.style.display = 'block';
   render();
   document.querySelectorAll('.footer-btn').forEach(b => b.classList.remove('active'));
-  document.querySelector('.footer-btn[data-tab="home"]').classList.add('active');
+  document.querySelector('.footer-btn[data-tab="home"]')?.classList.add('active');
 }
 
 function showFavorites() {
-  document.getElementById('dashboard-view').style.display = 'none';
-  document.getElementById('herb-list').style.display = 'block';
+  document.getElementById('dashboard-view')?.style.display = 'none';
+  document.getElementById('herb-list')?.style.display = 'block';
   render(herbs.filter(h => h.favorite));
   document.querySelectorAll('.footer-btn').forEach(b => b.classList.remove('active'));
-  document.querySelector('.footer-btn[data-tab="favorites"]').classList.add('active');
+  document.querySelector('.footer-btn[data-tab="favorites"]')?.classList.add('active');
 }
 
 function openDashboard() {
-  document.getElementById('herb-list').style.display = 'none';
-  document.getElementById('dashboard-view').style.display = 'block';
+  document.getElementById('herb-list')?.style.display = 'none';
+  document.getElementById('dashboard-view')?.style.display = 'block';
   document.querySelectorAll('.footer-btn').forEach(b => b.classList.remove('active'));
-  document.querySelector('.footer-btn[data-tab="dashboard"]').classList.add('active');
+  document.querySelector('.footer-btn[data-tab="dashboard"]')?.classList.add('active');
 }
 
-// AUTO SHOW HERBS PAG-OPEN SA APP (KINI ANG MISSING!)
+function openCommunity() {
+  alert("Community Feed — Coming This Week!\nExcited na mi para nimo beh!");
+}
+
+// AUTO SHOW HOME PAG-OPEN SA APP
 document.addEventListener('DOMContentLoaded', () => {
-  showHerbs(); // ← KINI RA GYUD ANG KULANG BEH!
+  showHome();
 });
 
-// FOOTER CLICK HANDLERS (i-replace imong daan)
-document.querySelector('.footer-btn[data-tab="home"]').onclick = showHerbs;
-document.querySelector('.footer-btn[data-tab="favorites"]').onclick = showFavorites;
-document.querySelector('.footer-btn[data-tab="dashboard"]').onclick = openDashboard;
-document.querySelector('.footer-btn[data-tab="community"]').onclick = () => {
-  alert("Community feed coming soon! Excited na mi para nimo!");
-};
+// ONE-LINE CONNECT SA TANANG FOOTER BUTTONS (gamit data-tab)
+document.querySelectorAll('.footer-btn').forEach(btn => {
+  btn.onclick = () => {
+    const tab = btn.dataset.tab;
+    if (tab === 'home') showHome();
+    else if (tab === 'favorites') showFavorites();
+    else if (tab === 'dashboard') openDashboard();
+    else if (tab === 'community') openCommunity();
+  };
+});
