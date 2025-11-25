@@ -771,7 +771,7 @@ async function openCamera() {
   }
 }
 
-// ULTIMATE FINAL FOOTER HANDLERS (2025 VERSION — WALA NAY BUG, WALA NAY DUPLICATE)
+// PERMANENT FINAL FIX — USA RA NI KA HIGAYON, WALA NAY LAIN
 function showHome() {
   document.getElementById('dashboard-view')?.style.display = 'none';
   document.getElementById('herb-list')?.style.display = 'block';
@@ -799,18 +799,16 @@ function openCommunity() {
   alert("Community Feed — Coming This Week!\nExcited na mi para nimo beh!");
 }
 
-// AUTO SHOW HOME PAG-OPEN SA APP
+// AUTO SHOW + FOOTER CONNECT (USA RA NI!)
 document.addEventListener('DOMContentLoaded', () => {
   showHome();
-});
-
-// ONE-LINE CONNECT SA TANANG FOOTER BUTTONS (gamit data-tab)
-document.querySelectorAll('.footer-btn').forEach(btn => {
-  btn.onclick = () => {
-    const tab = btn.dataset.tab;
-    if (tab === 'home') showHome();
-    else if (tab === 'favorites') showFavorites();
-    else if (tab === 'dashboard') openDashboard();
-    else if (tab === 'community') openCommunity();
-  };
+  document.querySelectorAll('.footer-btn').forEach(btn => {
+    btn.onclick = () => {
+      const tab = btn.dataset.tab;
+      if (tab === 'home') showHome();
+      else if (tab === 'favorites') showFavorites();
+      else if (tab === 'dashboard') openDashboard();
+      else if (tab === 'community') openCommunity();
+    };
+  });
 });
