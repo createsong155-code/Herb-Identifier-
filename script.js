@@ -554,20 +554,6 @@ function openModal(id) {
   modal.style.display = 'block';
 }
 
-//dere ko gikuha ang menu ug footer
-
-  // Update active state sa footer
-  document.querySelectorAll('.footer-btn').forEach(btn => btn.classList.remove('active'));
-  document.querySelector('.footer-btn[onclick="openDashboard()"]').classList.add('active');
-}
-
-// I-DUGANG LANG NI NGA 3 KA LINES SA PINAKA-UBOS SA IMONG script.js (after tanan)
-document.addEventListener('DOMContentLoaded', () => {
-  // Show herbs dayon pag-open sa app
-  document.getElementById('herb-list').style.display = 'block';
-  document.getElementById('dashboard-view').style.display = 'none';
-  render(); // ← KINI ANG MISSING PIECE!
-
   // Siguroha active ang Home button
   document.querySelectorAll('.footer-btn').forEach(b => b.classList.remove('active'));
   document.querySelector('.footer-btn[onclick="filterCategory(\'all\')"]').classList.add('active');
