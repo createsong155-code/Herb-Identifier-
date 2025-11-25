@@ -807,3 +807,12 @@ async function openCamera() {
     result.innerHTML = "Camera access denied.<br>Please allow camera permission.";
   }
 }
+
+// COMMUNITY POPUP
+function openCommunityCard() {
+  document.getElementById("community-box").classList.remove("hidden");
+}
+
+function closeCommunityCard() {
+  document.getElementById("community-box").classList.add("hidden");
+}
