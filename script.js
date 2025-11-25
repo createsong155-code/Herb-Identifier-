@@ -809,11 +809,11 @@ async function openCamera() {
 }
 
 // COMMUNITY POPUP
-function openCommunityCard() {
+function openCommunity() {
   document.getElementById("community-box").classList.remove("hidden");
 }
 
-function closeCommunityCard() {
+function closeCommunity() {
   document.getElementById("community-box").classList.add("hidden");
 }
 
