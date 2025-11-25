@@ -1,4 +1,4 @@
-/// FULL HERBS DATABASE — ALL 10 HERBS BACK + BENEFITS ADDED (SAFE!)
+// FULL HERBS DATABASE — ALL 10 HERBS BACK + BENEFITS ADDED (SAFE!)
 const herbs = [
   {
     "id": 1,
@@ -554,6 +554,38 @@ function openModal(id) {
   modal.style.display = 'block';
 }
 
+// MENU & FOOTER
+document.getElementById('hamburgerMenu')?.addEventListener('click', () => {
+  document.getElementById('sideMenu').classList.add('active');
+});
+document.getElementById('closeMenu')?.addEventListener('click', () => {
+  document.getElementById('sideMenu').classList.remove('active');
+});
+window.addEventListener('click', (e) => {
+  const menu = document.getElementById('sideMenu');
+  if (menu.classList.contains('active') && !menu.contains(e.target) && e.target.id !== 'hamburgerMenu') {
+    menu.classList.remove('active');
+  }
+});
+
+function filterCategory(cat) {
+  document.querySelectorAll('.footer-btn').forEach(btn => btn.classList.remove('active'));
+  event.target.closest('.footer-btn').classList.add('active');
+  const target = cat === 'all' ? document.querySelector('.category[data-category="all"]') 
+               : cat === 'Favorites' ? document.querySelector('.category[data-category="Favorites"]') : null;
+  if (target) target.click();
+}
+
+function openSupport() {
+  alert("Support Center\n\nEmail: support@herbapp.com\nPhone: +63 912 345 6789\n\nOr tap 'Support / Help Center' in Menu");
+}
+
+function openDashboard() {
+  const favCount = herbs.filter(h => h.favorite).length;
+  const noteCount = Object.keys(JSON.parse(localStorage.getItem('herbApp') || '{}').notes || {}).length;
+  alert(`My Dashboard\n\nFavorites: ${favCount}\nSaved Notes: ${noteCount}\n\nComing soon: Full dashboard view!`);
+}
+
 // GLOBAL DISCLAIMER SA FOOTER Js. code (Fixed bottom) 
 function showSources() {
   document.getElementById('sourcesModal').style.display = 'block';
@@ -566,6 +598,11 @@ window.onclick = function(e) {
     modal.style.display = 'none';
   }
 }
+
+// RENDER AFTER DOM
+document.addEventListener('DOMContentLoaded', () => {
+  render();
+});
 
 // FULLSCREEN SWIPER GALLERY — FULL IMAGE + PINCH ZOOM
 let fullscreenSwiper;
@@ -770,45 +807,3 @@ async function openCamera() {
     result.innerHTML = "Camera access denied.<br>Please allow camera permission.";
   }
 }
-
-// FINAL NA GYUD NI BEH — USA RA KA HIGAYON, LIMPYO NA TANAN
-function showHome() {
-  document.getElementById('dashboard-view')?.style.display = 'none';
-  document.getElementById('herb-list')?.style.display = 'block';
-  render();
-  document.querySelectorAll('.footer-btn').forEach(b => b.classList.remove('active'));
-  document.querySelector('.footer-btn[data-tab="home"]')?.classList.add('active');
-}
-
-function showFavorites() {
-  document.getElementById('dashboard-view')?.style.display = 'none';
-  document.getElementById('herb-list')?.style.display = 'block';
-  render(herbs.filter(h => h.favorite));
-  document.querySelectorAll('.footer-btn').forEach(b => b.classList.remove('active'));
-  document.querySelector('.footer-btn[data-tab="favorites"]')?.classList.add('active');
-}
-
-function openDashboard() {
-  document.getElementById('herb-list')?.style.display = 'none';
-  document.getElementById('dashboard-view')?.style.display = 'block';
-  document.querySelectorAll('.footer-btn').forEach(b => b.classList.remove('active'));
-  document.querySelector('.footer-btn[data-tab="dashboard"]')?.classList.add('active');
-}
-
-function openCommunity() {
-  alert("Community Feed — Coming This Week!\nExcited na mi para nimo beh!");
-}
-
-// AUTO SHOW HOME + CONNECT FOOTER (FINAL NA GYUD)
-document.addEventListener('DOMContentLoaded', () => {
-  showHome();
-  document.querySelectorAll('.footer-btn').forEach(btn => {
-    btn.onclick = () => {
-      const tab = btn.dataset.tab;
-      if (tab === 'home') showHome();
-      else if (tab === 'favorites') showFavorites();
-      else if (tab === 'dashboard') openDashboard();
-      else if (tab === 'community') openCommunity();
-    };
-  });
-});
