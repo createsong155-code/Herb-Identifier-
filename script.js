@@ -816,3 +816,14 @@ function openCommunityCard() {
 function closeCommunityCard() {
   document.getElementById("community-box").classList.add("hidden");
 }
+
+//Community box
+<div id="community-box" class="hidden">
+  <div class="community-card">
+    <span onclick="closeCommunityCard()" class="close-circle">&times;</span>
+    <h2>Community and Dashboard is Coming Soon</h2>
+    <p>Thanks for using Our App 😇</p>
+    <p>Follow Us on Facebook 👉 <a href="https://www.facebook.com/HerbsandSurvival" target="_blank">Herbs and Survival</a> 👈</p>
+    <p>Please Support the App and share to others.</p>
+  </div>
+</div>
