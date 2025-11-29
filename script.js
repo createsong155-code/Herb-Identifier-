@@ -808,28 +808,20 @@ async function openCamera() {
   }
 }
 
-// ========== COMMUNITY CARD FUNCTIONS (FINAL & CLEAN) ==========
+// ========== COMMUNITY CARD — FINAL CLEAN (WALA NA GYUD AUTO POPUP) ==========
 function openCommunityCard() {
-  const box = document.getElementById("community-box");
-  if (box) box.classList.remove("hidden");
+  document.getElementById("community-box")?.classList.remove("hidden");
 }
 
 function closeCommunityCard() {
-  const box = document.getElementById("community-box");
-  if (box) box.classList.add("hidden");
+  document.getElementById("community-box")?.classList.add("hidden");
 }
 
-// Optional: Ipapakita ra sa first visit (comment out kung ayaw nimo)
-// if (!localStorage.getItem('communityShown')) {
-//   setTimeout(openCommunityCard, 2000);
-//   localStorage.setItem('communityShown', 'true');
-// }
-
-// ========== FOOTER BUTTONS → CALL COMMUNITY CARD ==========
+// Footer buttons — mo-work lang kung i-tap
 document.querySelectorAll('[data-tab="community"]').forEach(btn => {
-  btn.addEventListener('click', openCommunityCard);
+  btn.onclick = openCommunityCard;
 });
 
 document.querySelectorAll('[data-tab="dashboard"]').forEach(btn => {
-  btn.addEventListener('click', openDashboard);
+  btn.onclick = openDashboard;
 });
