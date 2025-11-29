@@ -817,4 +817,8 @@ function closeCommunityCard() {
   document.getElementById("community-box").classList.add("hidden");
 }
 
-
+// AUTO OPEN COMMUNITY CARD ON FIRST VISIT (optional ra ni, pwede i-comment out)
+if (!localStorage.getItem('visited')) {
+  setTimeout(openCommunityCard, 1500);
+  localStorage.setItem('visited', 'true');
+}
