@@ -808,13 +808,28 @@ async function openCamera() {
   }
 }
 
-// close COMMUNITY POPUP
-function closeCommunityCard() {
-  document.getElementById("community-box").classList.add("hidden");
+// ========== COMMUNITY CARD FUNCTIONS (FINAL & CLEAN) ==========
+function openCommunityCard() {
+  const box = document.getElementById("community-box");
+  if (box) box.classList.remove("hidden");
 }
 
-// Show Community card ONCE lang (first time ra)
-//if (!localStorage.getItem('communityShown')) {
-//  setTimeout(openCommunityCard, 2000);
-//  localStorage.setItem('communityShown', 'true');
-//}
+function closeCommunityCard() {
+  const box = document.getElementById("community-box");
+  if (box) box.classList.add("hidden");
+}
+
+// Optional: Ipapakita ra sa first visit (comment out kung ayaw nimo)
+// if (!localStorage.getItem('communityShown')) {
+//   setTimeout(openCommunityCard, 2000);
+//   localStorage.setItem('communityShown', 'true');
+// }
+
+// ========== FOOTER BUTTONS → CALL COMMUNITY CARD ==========
+document.querySelectorAll('[data-tab="community"]').forEach(btn => {
+  btn.addEventListener('click', openCommunityCard);
+});
+
+document.querySelectorAll('[data-tab="dashboard"]').forEach(btn => {
+  btn.addEventListener('click', openDashboard);
+});
