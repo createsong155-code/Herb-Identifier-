@@ -818,7 +818,7 @@ function closeCommunityCard() {
 }
 
 // Show Community card ONCE lang (first time ra)
-if (!localStorage.getItem('communityShown')) {
-  setTimeout(openCommunityCard, 2000);
-  localStorage.setItem('communityShown', 'true');
-}
+//if (!localStorage.getItem('communityShown')) {
+//  setTimeout(openCommunityCard, 2000);
+//  localStorage.setItem('communityShown', 'true');
+//}
