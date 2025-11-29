@@ -808,11 +808,7 @@ async function openCamera() {
   }
 }
 
-// COMMUNITY POPUP
-//function openCommunityCard() {
- // document.getElementById("community-box").classList.remove("hidden");
-//}
-
+// close COMMUNITY POPUP
 function closeCommunityCard() {
   document.getElementById("community-box").classList.add("hidden");
 }
