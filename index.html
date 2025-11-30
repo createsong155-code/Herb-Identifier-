@@ -51,48 +51,56 @@
   </div>
 </header>
 
-  <!-- HAMBURGER MENU (Full Overlay) -->
-  <div id="sideMenu" class="side-menu">
-    <div class="menu-header">
-      <div class="close-header">
-        <button id="closeMenu" class="icon-btn close-circle">
-          <span>×</span>
-        </button>
-        <span class="close-label">Close</span>
+  <!-- KALAKI NA NGA SIDE MENU + BACKGROUND PICKER (isolated ra gyud) -->
+<div id="sideMenu" class="side-menu hidden">
+  <div class="menu-header">
+    <button id="closeMenu" class="icon-btn close-circle">×</button>
+    <h2>Main Menu</h2>
+  </div>
+
+  <div class="menu-section">
+    <h3>Account</h3>
+    <div class="menu-item account-item">
+      <div class="circle-avatar">U</div>
+      <div class="account-text">
+        <div class="menu-title">Switch Account</div>
+        <div class="menu-subtitle">Choose another profile</div>
       </div>
-      <h2>Main Menu</h2>
     </div>
+    <div class="menu-item">Profile Settings</div>
+    <div class="menu-item text-red">Log Out</div>
+  </div>
 
-    <!-- ACCOUNT -->
-    <div class="menu-section">
-      <h3>Account</h3>
-      <div class="menu-item">
-        <div class="circle-avatar">U</div>
-        <div>
-          <div class="menu-title">Switch Account</div>
-          <div class="menu-subtitle">Choose another profile</div>
-        </div>
-      </div>
-      <div class="menu-item">Profile Settings</div>
-      <div class="menu-item text-red">Log Out</div>
-    </div>
-
-    <!-- PERSONALIZATION -->
-    <div class="menu-section">
-      <h3>Personalization</h3>
-      <div class="menu-item">Background Images</div>
-      <div class="menu-item">Sound Notifications</div>
-      <div class="menu-item">Dark / Light Mode</div>
-    </div>
-
-    <!-- HELP & FEEDBACK -->
-    <div class="menu-section">
-      <h3>Help & Feedback</h3>
-      <div class="menu-item">Feedback & Suggestions</div>
-      <div class="menu-item">Support / Help Center</div>
-      <div class="menu-item">About App</div>
+  <div class="menu-section">
+    <h3>Personalization</h3>
+    <div class="menu-item" id="openBgPicker">Background Images</div>
+    <div class="menu-item">Sound Notifications</div>
+    <div class="menu-item">
+      <span>Dark Mode</span>
+      <label class="switch">
+        <input type="checkbox" id="darkModeToggle">
+        <span class="slider round"></span>
+      </label>
     </div>
   </div>
+
+  <div class="menu-section">
+    <h3>Help & Feedback</h3>
+    <div class="menu-item">Feedback & Suggestions</div>
+    <div class="menu-item">Support / Help Center</div>
+    <div class="menu-item">About App</div>
+  </div>
+  </div>
+</div>
+
+<!-- BACKGROUND PICKER MODAL -->
+<div id="bgPicker" class="modal hidden">
+  <div class="modal-content" style="max-width:92%;padding:20px;">
+    <span class="close" id="closeBgPicker">×</span>
+    <h3 style="text-align:center;margin:10px 0 20px;">Choose Background</h3>
+    <div id="bgGrid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;"></div>
+  </div>
+</div>
 
   <!-- CATEGORIES -->
   <nav class="categories">
@@ -204,6 +212,41 @@
   <!-- SCRIPTS AT THE END -->
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script src="script.js"></script>
+
+  <script src="script.js"></script>
+
+  <!-- ISOLATED SIDE MENU SCRIPT – WALA NA GYUD MO-HIKAP SA UBAN -->
+  <script>
+  const backgrounds = ["bg-forest.jpg","bg-mountain.jpg","bg-beach.jpg","bg-herbs.jpg","bg-darkgreen.jpg","bg-sunset.jpg","bg-leaves.jpg","bg-night.jpg"];
+
+  document.getElementById('hamburgerMenu')?.addEventListener('click', () => document.getElementById('sideMenu').classList.remove('hidden'));
+  document.getElementById('closeMenu')?.addEventListener('click', () => document.getElementById('sideMenu').classList.add('hidden'));
+  window.addEventListener('click', e => { if (e.target.id === 'sideMenu') document.getElementById('sideMenu').classList.add('hidden'); });
+
+  // Dark mode
+  const dm = document.getElementById('darkModeToggle');
+  if (localStorage.getItem('darkMode') === 'on') { dm.checked = true; document.body.classList.add('dark'); }
+  dm?.addEventListener('change', () => {
+    document.body.classList.toggle('dark');
+    localStorage.setItem('darkMode', dm.checked ? 'on' : 'off');
+  });
+
+  // Background picker
+  document.getElementById('openBgPicker')?.addEventListener('click', () => {
+    const g = document.getElementById('bgGrid'); g.innerHTML = '';
+    backgrounds.forEach(b => {
+      const d = document.createElement('div');
+      d.style.cssText = 'height:120px;background:url('+b+') center/cover;border-radius:12px;border:3px solid #fff;box-shadow:0 4px 15px #0004';
+      d.onclick = () => { document.body.style.backgroundImage = 'url('+b+')'; localStorage.setItem('userBg',b); document.getElementById('bgPicker').classList.add('hidden'); };
+      g.appendChild(d);
+    });
+    document.getElementById('bgPicker').classList.remove('hidden');
+  });
+  document.getElementById('closeBgPicker')?.addEventListener('click', () => document.getElementById('bgPicker').classList.add('hidden'));
+
+  // Load saved background
+  if (localStorage.getItem('userBg')) document.body.style.backgroundImage = 'url('+localStorage.getItem('userBg')+')';
+  </script>
 
   <!-- GLOBAL RICH NOTES EDITOR (Samsung Style) - Hidden & Reused -->
 <div id="globalNoteEditor" style="display:none;">
