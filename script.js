@@ -809,24 +809,3 @@ async function openCamera() {
   }
 }
 
-// ————————————————————————
-// COMMUNITY CARD — FINAL VERSION (WALA NA GYUD AUTO OPEN)
-// ————————————————————————
-function openCommunityCard() {
-  const box = document.getElementById("community-box");
-  if (box) box.classList.remove("hidden");
-}
-
-function closeCommunityCard() {
-  const box = document.getElementById("community-box");
-  if (box) box.classList.add("hidden");
-}
-
-// Footer buttons — mo-work ra kung i-tap
-document.querySelectorAll('[data-tab="community"]').forEach(btn => {
-  btn.onclick = openCommunityCard;
-});
-
-document.querySelectorAll('[data-tab="dashboard"]').forEach(btn => {
-  btn.onclick = openDashboard;
-});
