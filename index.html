@@ -148,68 +148,6 @@
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script src="script.js?v=2025"></script>
 
-<!-- FINAL MENU + DARK MODE + BACKGROUND SCRIPT — PASTE DIRE DAYON -->
-<script>
-const backgrounds = ["bg-forest.jpg","bg-mountain.jpg","bg-beach.jpg","bg-herbs.jpg","bg-darkgreen.jpg","bg-sunset.jpg","bg-leaves.jpg","bg-night.jpg"];
-
-// MENU OPEN/CLOSE
-document.getElementById('hamburgerMenu')?.addEventListener('click', () => {
-  document.getElementById('sideMenu').classList.remove('hidden');
-});
-document.getElementById('closeMenu')?.addEventListener('click', () => {
-  document.getElementById('sideMenu').classList.add('hidden');
-});
-window.addEventListener('click', e => {
-  const menu = document.getElementById('sideMenu');
-  if (!menu.classList.contains('hidden') && !menu.contains(e.target) && e.target.id !== 'hamburgerMenu') {
-    menu.classList.add('hidden');
-  }
-});
-
-// DARK MODE
-const dm = document.getElementById('darkModeToggle');
-if (localStorage.getItem('darkMode') === 'on') {
-  dm.checked = true;
-  document.body.classList.add('dark');
-}
-dm?.addEventListener('change', () => {
-  if (dm.checked) {
-    document.body.classList.add('dark');
-    localStorage.setItem('darkMode', 'on');
-  } else {
-    {
-    document.body.classList.remove('dark');
-    localStorage.setItem('darkMode', 'off');
-  }
-});
-
-// BACKGROUND PICKER
-document.getElementById('openBgPicker')?.addEventListener('click', () => {
-  const grid = document.getElementById('bgGrid');
-  grid.innerHTML = '';
-  backgrounds.forEach(bg => {
-    const item = document.createElement('div');
-    item.className = 'bg-item';
-    item.style.backgroundImage = `url(${bg})`;
-    item.onclick = () => {
-      document.body.style.backgroundImage = `url(${bg})`;
-      localStorage.setItem('userBg', bg);
-      document.getElementById('bgPicker').classList.add('hidden');
-    };
-    grid.appendChild(item);
-  });
-  document.getElementById('bgPicker').classList.remove('hidden');
-});
-document.getElementById('closeBgPicker')?.addEventListener('click', () => {
-  document.getElementById('bgPicker').classList.add('hidden');
-});
-
-// LOAD SAVED BACKGROUND
-if (localStorage.getItem('userBg')) {
-  document.body.style.backgroundImage = `url(${localStorage.getItem('userBg')})`;
-}
-</script>
-
 </body>
 </html>
 
