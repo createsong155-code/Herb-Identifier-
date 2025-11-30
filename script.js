@@ -568,20 +568,7 @@ window.addEventListener('click', (e) => {
   }
 });
 
-// FOOTER 4 Tabs
-function filterCategory(cat) {
-  document.querySelectorAll('.footer-btn').forEach(btn => btn.classList.remove('active'));
-  event.target.closest('.footer-btn').classList.add('active');
-  const target = cat === 'all' ? document.querySelector('.category[data-category="all"]') 
-               : cat === 'Favorites' ? document.querySelector('.category[data-category="Favorites"]') : null;
-  if (target) target.click();
-}
-
-function openDashboard() {
-  const favCount = herbs.filter(h => h.favorite).length;
-  const noteCount = Object.keys(JSON.parse(localStorage.getItem('herbApp') || '{}').notes || {}).length;
-  alert(`My Dashboard\n\nFavorites: ${favCount}\nSaved Notes: ${noteCount}\n\nComing soon: Full dashboard view!`);
-}
+// FOOTER DELETED 
 
 // GLOBAL DISCLAIMER SA FOOTER Js. code (Fixed bottom) 
 function showSources() {
