@@ -554,7 +554,7 @@ function openModal(id) {
   modal.style.display = 'block';
 }
 
-// MENU & FOOTER
+// MENU 
 document.getElementById('hamburgerMenu')?.addEventListener('click', () => {
   document.getElementById('sideMenu').classList.add('active');
 });
@@ -568,16 +568,13 @@ window.addEventListener('click', (e) => {
   }
 });
 
+// FOOTER 4 Tabs
 function filterCategory(cat) {
   document.querySelectorAll('.footer-btn').forEach(btn => btn.classList.remove('active'));
   event.target.closest('.footer-btn').classList.add('active');
   const target = cat === 'all' ? document.querySelector('.category[data-category="all"]') 
                : cat === 'Favorites' ? document.querySelector('.category[data-category="Favorites"]') : null;
   if (target) target.click();
-}
-
-function openSupport() {
-  alert("Support Center\n\nEmail: support@herbapp.com\nPhone: +63 912 345 6789\n\nOr tap 'Support / Help Center' in Menu");
 }
 
 function openDashboard() {
