@@ -862,37 +862,25 @@ if (localStorage.getItem('userBg')) {
   document.body.style.backgroundImage = `url(${localStorage.getItem('userBg')})`;
 }
 
-// ——— FINAL HYBRID BACKGROUND SYSTEM: OFFLINE + ONLINE (PERFECT NA GYUD NI) ———
-const localBg = [
-  "bg-forest.jpg","bg-mountain.jpg","bg-beach.jpg","bg-herbs.jpg",
-  "bg-darkgreen.jpg","bg-sunset.jpg","bg-leaves.jpg","bg-night.jpg"
+// ——— FINAL PURE OFFLINE BACKGROUND PICKER (WALAY INTERNET NEEDED EVER) ———
+const backgrounds = [
+  "bg-forest.jpg",
+  "bg-mountain.jpg",
+  "bg-beach.jpg",
+  "bg-herbs.jpg",
+  "bg-darkgreen.jpg",
+  "bg-sunset.jpg",
+  "bg-leaves.jpg",
+  "bg-night.jpg"
 ];
 
-const onlineBg = [
-  "https://createsong155.github.io/Herb-Identifier/bg-forest.jpg",
-  "https://createsong155.github.io/Herb-Identifier/bg-mountain.jpg",
-  "https://createsong155.github.io/Herb-Identifier/bg-beach.jpg",
-  "https://createsong155.github.io/Herb-Identifier/bg-herbs.jpg",
-  "https://createsong155.github.io/Herb-Identifier/bg-darkgreen.jpg",
-  "https://createsong155.github.io/Herb-Identifier/bg-sunset.jpg",
-  "https://createsong155.github.io/Herb-Identifier/bg-leaves.jpg",
-  "https://createsong155.github.io/Herb-Identifier/bg-night.jpg"
-];
-
-// Auto-detect: local if exists, otherwise online
-const backgrounds = localBg.map((local, i) => {
-  const img = new Image();
-  img.src = local;
-  return (img.complete && img.naturalHeight !== 0) ? local : onlineBg[i];
-});
-
-// Background Picker (works everywhere)
+// Background Picker (100% offline)
 document.getElementById('openBgPicker')?.addEventListener('click', () => {
   const grid = document.getElementById('bgGrid');
   grid.innerHTML = '';
   backgrounds.forEach(bg => {
     const div = document.createElement('div');
-    div.style.cssText = 'height:120px;background:url('+bg+') center/cover;border-radius:12px;border:3px solid #fff;box-shadow:0 4px 15px #0004;cursor:pointer;margin:8px;';
+    div.style.cssText = 'height:120px;background:url('+bg+') center/cover no-repeat;border-radius:12px;border:3px solid #fff;box-shadow:0 4px 15px #0004;cursor:pointer;margin:8px;';
     div.onclick = () => {
       document.body.style.backgroundImage = `url(${bg})`;
       localStorage.setItem('userBg', bg);
@@ -907,7 +895,18 @@ document.getElementById('closeBgPicker')?.addEventListener('click', () => {
   document.getElementById('bgPicker').classList.add('hidden');
 });
 
-// Load saved background
+// Load saved background pag-abli sa app
 if (localStorage.getItem('userBg')) {
   document.body.style.backgroundImage = `url(${localStorage.getItem('userBg')})`;
 }
+
+// Dark mode (offline gihapon)
+const dm = document.getElementById('darkModeToggle');
+if (localStorage.getItem('darkMode') === 'on') {
+  dm.checked = true;
+  document.body.classList.add('dark');
+}
+dm?.addEventListener('change', () => {
+  document.body.classList.toggle('dark');
+  localStorage.setItem('darkMode', dm.checked ? 'on' : 'off');
+});
