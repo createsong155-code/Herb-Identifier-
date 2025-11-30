@@ -1111,3 +1111,101 @@ body.grid .herb-card img {
   font-weight: bold;
 }
 
+/*Community style*/
+/* Background overlay */
+.community-box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Card style */
+.community-card {
+  background: #ffffff;
+  padding: 20px;
+  width: 90%;
+  max-width: 360px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  animation: pop 0.3s ease;
+}
+
+.community-card h2 {
+  color: #3c8d47;
+  margin-bottom: 10px;
+}
+
+.thanks {
+  font-size: 1.1em;
+  margin: 10px 0;
+}
+
+.follow-btn {
+  display: block;
+  margin: 15px 0;
+  padding: 10px;
+  background: #3c8d47;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+}
+
+.follow-btn:hover {
+  opacity: 0.8;
+}
+
+.support {
+  font-size: 0.9em;
+  margin-top: 10px;
+}
+
+.close-btn {
+  margin-top: 15px;
+  padding: 8px 20px;
+  background: #444;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+}
+
+@keyframes pop {
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/*Community Box*/
+#community-box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5000;
+}
+
+.community-card {
+  background: white;
+  padding: 24px;
+  border-radius: 16px;
+  text-align: center;
+  max-width: 320px;
+}
+.hidden {
+  display: none;
+}
