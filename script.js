@@ -568,7 +568,24 @@ window.addEventListener('click', (e) => {
   }
 });
 
-// FOOTER DELETED 
+// FOOTER TABS
+function filterCategory(cat) {
+  document.querySelectorAll('.footer-btn').forEach(btn => btn.classList.remove('active'));
+  event.target.closest('.footer-btn').classList.add('active');
+  const target = cat === 'all' ? document.querySelector('.category[data-category="all"]') 
+               : cat === 'Favorites' ? document.querySelector('.category[data-category="Favorites"]') : null;
+  if (target) target.click();
+}
+
+function openSupport() {
+  alert("Support Center\n\nEmail: support@herbapp.com\nPhone: +63 912 345 6789\n\nOr tap 'Support / Help Center' in Menu");
+}
+
+function openDashboard() {
+  const favCount = herbs.filter(h => h.favorite).length;
+  const noteCount = Object.keys(JSON.parse(localStorage.getItem('herbApp') || '{}').notes || {}).length;
+  alert(`My Dashboard\n\nFavorites: ${favCount}\nSaved Notes: ${noteCount}\n\nComing soon: Full dashboard view!`);
+}
 
 // GLOBAL DISCLAIMER SA FOOTER Js. code (Fixed bottom) 
 function showSources() {
@@ -792,24 +809,3 @@ async function openCamera() {
   }
 }
 
-// ————————————————————————
-// COMMUNITY CARD — FINAL VERSION (WALA NA GYUD AUTO OPEN)
-// ————————————————————————
-function openCommunityCard() {
-  const box = document.getElementById("community-box");
-  if (box) box.classList.remove("hidden");
-}
-
-function closeCommunityCard() {
-  const box = document.getElementById("community-box");
-  if (box) box.classList.add("hidden");
-}
-
-// Footer buttons — mo-work ra kung i-tap
-document.querySelectorAll('[data-tab="community"]').forEach(btn => {
-  btn.onclick = openCommunityCard;
-});
-
-document.querySelectorAll('[data-tab="dashboard"]').forEach(btn => {
-  btn.onclick = openDashboard;
-});
