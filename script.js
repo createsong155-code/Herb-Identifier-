@@ -836,6 +836,18 @@ dm?.addEventListener('change', () => {
   localStorage.setItem('darkMode', dm.checked ? 'on' : 'off');
 });
 
+// ——— KALAKI NA NGA SIDE MENU – BACKGROUND PICKER (GITHUB VERSION) ———
+const backgrounds = [
+  "https://createsong155.github.io/Herb-Identifier/bg-forest.jpg",
+  "https://createsong155.github.io/Herb-Identifier/bg-mountain.jpg",
+  "https://createsong155.github.io/Herb-Identifier/bg-beach.jpg",
+  "https://createsong155.github.io/Herb-Identifier/bg-herbs.jpg",
+  "https://createsong155.github.io/Herb-Identifier/bg-darkgreen.jpg",
+  "https://createsong155.github.io/Herb-Identifier/bg-sunset.jpg",
+  "https://createsong155.github.io/Herb-Identifier/bg-leaves.jpg",
+  "https://createsong155.github.io/Herb-Identifier/bg-night.jpg"
+];
+
 // Background Picker
 document.getElementById('openBgPicker')?.addEventListener('click', () => {
   const grid = document.getElementById('bgGrid');
