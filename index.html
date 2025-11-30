@@ -314,6 +314,30 @@
     </div>
   </div>
 </div>
+
+<script src="script.js"></script>
+<script>
+document.getElementById('hamburgerMenu')?.addEventListener('click',()=>document.getElementById('sideMenu').classList.remove('hidden'));
+document.getElementById('closeMenu')?.addEventListener('click',()=>document.getElementById('sideMenu').classList.add('hidden'));
+window.addEventListener('click',e=>{if(e.target===document.getElementById('sideMenu'))document.getElementById('sideMenu').classList.add('hidden');});
+
+const dm=document.getElementById('darkModeToggle');
+if(localStorage.getItem('darkMode')==='on'){dm.checked=true;document.body.classList.add('dark');}
+dm?.addEventListener('change',()=>{document.body.classList.toggle('dark');localStorage.setItem('darkMode',dm.checked?'on':'off');});
+
+document.getElementById('openBgPicker')?.addEventListener('click',()=>{
+  const g=document.getElementById('bgGrid');g.innerHTML='';
+  ['bg-forest.jpg','bg-mountain.jpg','bg-beach.jpg','bg-herbs.jpg','bg-darkgreen.jpg','bg-sunset.jpg','bg-leaves.jpg','bg-night.jpg'].forEach(b=>{
+    const d=document.createElement('div');
+    d.style.cssText='height:120px;background:url('+b+') center/cover;border-radius:12px;border:3px solid #fff;box-shadow:0 4px 15px #0004;cursor:pointer;';
+    d.onclick=()=>{document.body.style.backgroundImage='url('+b+')';localStorage.setItem('userBg',b);document.getElementById('bgPicker').classList.add('hidden');};
+    g.appendChild(d);
+  });
+  document.getElementById('bgPicker').classList.remove('hidden');
+});
+document.getElementById('closeBgPicker')?.addEventListener('click',()=>document.getElementById('bgPicker').classList.add('hidden'));
+if(localStorage.getItem('userBg'))document.body.style.backgroundImage='url('+localStorage.getItem('userBg')+')';
+</script>
   
 </body>
 </html>
