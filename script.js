@@ -808,16 +808,20 @@ async function openCamera() {
   }
 }
 
-// ========== COMMUNITY CARD — FINAL CLEAN (WALA NA GYUD AUTO POPUP) ==========
+// ————————————————————————
+// COMMUNITY CARD — FINAL VERSION (WALA NA GYUD AUTO OPEN)
+// ————————————————————————
 function openCommunityCard() {
-  document.getElementById("community-box")?.classList.remove("hidden");
+  const box = document.getElementById("community-box");
+  if (box) box.classList.remove("hidden");
 }
 
 function closeCommunityCard() {
-  document.getElementById("community-box")?.classList.add("hidden");
+  const box = document.getElementById("community-box");
+  if (box) box.classList.add("hidden");
 }
 
-// Footer buttons — mo-work lang kung i-tap
+// Footer buttons — mo-work ra kung i-tap
 document.querySelectorAll('[data-tab="community"]').forEach(btn => {
   btn.onclick = openCommunityCard;
 });
