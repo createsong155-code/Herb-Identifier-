@@ -605,60 +605,7 @@ document.addEventListener('DOMContentLoaded', () => {
   render();
 });
 
-// ——— PURE OFFLINE BACKGROUND PICKER (ibutang SA GOWA, ubos ra sa DOMContentLoaded) ———
-const backgrounds = [
-  "bg-forest.jpg","bg-mountain.jpg","bg-beach.jpg","bg-herbs.jpg",
-  "bg-darkgreen.jpg","bg-sunset.jpg","bg-leaves.jpg","bg-night.jpg"
-];
-
-document.getElementById('openBgPicker')?.addEventListener('click', () => {
-  const grid = document.getElementById('bgGrid');
-  grid.innerHTML = '';
-  backgrounds.forEach(bg => {
-    const div = document.createElement('div');
-    div.style.cssText = 'height:120px;background:url('+bg+') center/cover no-repeat;border-radius:12px;border:3px solid #fff;box-shadow:0 4px 15px #0004;cursor:pointer;margin:8px;';
-    div.onclick = () => {
-      document.body.style.backgroundImage = `url(${bg})`;
-      localStorage.setItem('userBg', bg);
-      document.getElementById('bgPicker').classList.add('hidden');
-    };
-    grid.appendChild(div);
-  });
-  document.getElementById('bgPicker').classList.remove('hidden');
-});
-
-document.getElementById('closeBgPicker')?.addEventListener('click', () => {
-  document.getElementById('bgPicker').classList.add('hidden');
-});
-
-// Load saved background
-if (localStorage.getItem('userBg')) {
-  document.body.style.backgroundImage = `url(${localStorage.getItem('userBg')})`;
-}
-
-// Dark mode
-const dm = document.getElementById('darkModeToggle');
-if (localStorage.getItem('darkMode') === 'on') {
-  dm.checked = true;
-  document.body.classList.add('dark');
-}
-dm?.addEventListener('change', () => {
-  document.body.classList.toggle('dark');
-  localStorage.setItem('darkMode', dm.checked ? 'on' : 'off');
-});
-
-// ——— FINAL PURE OFFLINE BACKGROUND PICKER (WALAY INTERNET NEEDED EVER) ———
-const backgrounds = [
-  "bg-forest.jpg",
-  "bg-mountain.jpg",
-  "bg-beach.jpg",
-  "bg-herbs.jpg",
-  "bg-darkgreen.jpg",
-  "bg-sunset.jpg",
-  "bg-leaves.jpg",
-  "bg-night.jpg"
-];
-                                                         
+ 
 // FULLSCREEN SWIPER GALLERY — FULL IMAGE + PINCH ZOOM
 let fullscreenSwiper;
 
