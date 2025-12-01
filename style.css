@@ -1111,27 +1111,3 @@ body.grid .herb-card img {
   font-weight: bold;
 }
 
-/* DARK MODE – I-PASTE LANG NI SA IMONG style.css */
-body.dark {
-  background-color: #121212 !important;
-  color: #e0e0e0;
-}
-body.dark .header-title h1,
-body.dark .header-title p,
-body.dark .category,
-body.dark .menu-item,
-body.dark .modal-content,
-body.dark .footer-btn span {
-  color: #ffffff;
-}
-body.dark .categories,
-body.dark .footer,
-body.dark header {
-  background: #1e1e1e;
-}
-body.dark .side-menu {
-  background: #1e1e1e;
-}
-body.dark .switch::before {
-  background: #000;
-}
