@@ -554,7 +554,7 @@ function openModal(id) {
   modal.style.display = 'block';
 }
 
-// MENU 
+// MENU & FOOTER
 document.getElementById('hamburgerMenu')?.addEventListener('click', () => {
   document.getElementById('sideMenu').classList.add('active');
 });
@@ -568,7 +568,6 @@ window.addEventListener('click', (e) => {
   }
 });
 
-// FOOTER TABS
 function filterCategory(cat) {
   document.querySelectorAll('.footer-btn').forEach(btn => btn.classList.remove('active'));
   event.target.closest('.footer-btn').classList.add('active');
@@ -605,7 +604,6 @@ document.addEventListener('DOMContentLoaded', () => {
   render();
 });
 
- 
 // FULLSCREEN SWIPER GALLERY — FULL IMAGE + PINCH ZOOM
 let fullscreenSwiper;
 
@@ -809,4 +807,3 @@ async function openCamera() {
     result.innerHTML = "Camera access denied.<br>Please allow camera permission.";
   }
 }
-
