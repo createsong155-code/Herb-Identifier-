@@ -1,1 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="manifest" href="/manifest.json" />
+  <title>Herb App - Community</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header>
+    <h1>Community</h1>
+    <a href="/index.html">Back to Herbs</a>
+    <div id="network-status"></div>
+  </header>
 
+  <main>
+    <section id="create-post">
+      <input id="author" placeholder="Your name" />
+      <textarea id="post-text" placeholder="Share something..."></textarea>
+      <input id="image-input" type="file" accept="image/*" />
+      <button id="btn-post">Post</button>
+      <button id="btn-sync">Sync Now</button>
+    </section>
+
+    <section id="posts">
+      <h2>Posts (Local + Remote)</h2>
+      <div id="posts-list">Loading...</div>
+    </section>
+  </main>
+
+  <!-- supabase-js (for online features). This script is optional in pure-offline, but required for online sync -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js/dist/umd/supabase.min.js"></script>
+
+  <script src="/supabase-client.js"></script>
+  <script src="/offline-db.js"></script>
+  <script src="/offline-community.js"></script>
+  <script src="/community.js"></script>
+
+  <script>
+    // setup UI and events
+    const postsList = document.getElementById("posts-list");
+    const btnPost = document.getElementById("btn-post");
+    const btnSync = document.getElementById("btn-sync");
+    const authorInput = document.getElementById("author");
+    const textInput = document.getElementById("post-text");
+    const imageInput = document.getElementById("image-input");
+    const networkStatus = document.getElementById("network-status");
+
+    function updateNetworkUI() {
+      networkStatus.innerText = navigator.onLine ? "Online" : "Offline";
+    }
+    updateNetworkUI();
+    window.addEventListener("online", updateNetworkUI);
+    window.addEventListener("offline", updateNetworkUI);
+
+    async function renderAllPosts() {
+      postsList.innerHTML = "";
+      // Show local (both synced and unsynced)
+      const local = await OfflineDB.getAllCommunityPosts();
+      // remote posts
+      let remote = [];
+      if (navigator.onLine && window.supabase) {
+        try {
+          const data = await fetchRemotePosts(50);
+          remote = data || [];
+        } catch (e) { console.warn(e); }
+      }
+      // Render local first
+      local.sort((a,b) => new Date(b.created_at) - new Date(a.created_at));
+      local.forEach(p => {
+        const el = document.createElement("div");
+        el.className = "post local " + (p.synced ? "synced" : "unsynced");
+        el.innerHTML = `<strong>${p.author}</strong> <small>${new Date(p.created_at).toLocaleString()}</small>
+                        <p>${escapeHtml(p.text)}</p>
+                        ${p.imageDataUrl ? `<img src="${p.imageDataUrl}" style="max-width:200px"/>` : ""}
+                        <div>Status: ${p.synced ? "Synced" : "Not synced"}</div>`;
+        postsList.appendChild(el);
+      });
+      // Render remote (exclude duplicates by comparing text/time roughly)
+      remote.forEach(p => {
+        const el = document.createElement("div");
+        el.className = "post remote";
+        el.innerHTML = `<strong>${escapeHtml(p.author)}</strong> <small>${new Date(p.created_at).toLocaleString()}</small>
+                        <p>${escapeHtml(p.text)}</p>
+                        ${p.image_url ? `<img src="${p.image_url}" style="max-width:200px"/>` : ""}`;
+        postsList.appendChild(el);
+      });
+    }
+
+    function escapeHtml(s){ return (s||"").replace(/[&<>"']/g, function(m){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]}) }
+
+    // Post button: save locally (always), and try to sync immediately if online
+    btnPost.addEventListener("click", async () => {
+      const author = authorInput.value || "Anonymous";
+      const text = textInput.value || "";
+      let imageDataUrl = null;
+      if (imageInput.files && imageInput.files[0]) {
+        imageDataUrl = await fileToDataURL(imageInput.files[0]);
+      }
+      const saved = await queueOfflinePost({ author, text, imageDataUrl });
+      // show in UI quickly
+      await renderAllPosts();
+      // try immediate sync if online
+      if (navigator.onLine) {
+        if (window.__communitySyncFunction) {
+          await trySyncQueuedPosts(window.__communitySyncFunction);
+          await renderAllPosts();
+        }
+      }
+      // clear inputs
+      textInput.value = "";
+      imageInput.value = "";
+    });
+
+    btnSync.addEventListener("click", async () => {
+      if (!navigator.onLine) {
+        alert("You are offline. Connect to the internet to sync.");
+        return;
+      }
+      const results = await trySyncQueuedPosts(window.__communitySyncFunction);
+      console.log("sync results", results);
+      await renderAllPosts();
+      alert("Sync completed (see console for details)");
+    });
+
+    // Listen to local events
+    window.addEventListener("offline-post-saved", (e) => {
+      renderAllPosts();
+    });
+    window.addEventListener("offline-post-synced", (e) => {
+      renderAllPosts();
+    });
+
+    async function fileToDataURL(file){
+      return new Promise((res, rej) => {
+        const reader = new FileReader();
+        reader.onload = ()=> res(reader.result);
+        reader.onerror = rej;
+        reader.readAsDataURL(file);
+      });
+    }
+
+    // initial render
+    renderAllPosts();
+  </script>
+</body>
+</html>
