@@ -163,3 +163,40 @@ document.addEventListener('DOMContentLoaded', () => {
   loading.remove();
   renderHerbs(herbs);
 });
+
+// script.js (main offline herb app logic)
+// Example: load herbs from local JSON (data/herbs.json) into IndexedDB on first run
+
+(async function () {
+  // load herbs data into IndexedDB if not present
+  try {
+    const meta = await OfflineDB.getMeta("initialHerbsLoaded");
+    if (!meta) {
+      // attempt to load data/herbs.json from local folder
+      try {
+        const resp = await fetch("/data/herbs.json");
+        if (resp.ok) {
+          const herbs = await resp.json();
+          for (const herb of herbs) {
+            // ensure each herb has id
+            if (!herb.id) herb.id = "herb_" + Math.random().toString(36).slice(2,9);
+            await OfflineDB.saveHerb(herb);
+          }
+        }
+      } catch (err) { console.warn("herbs.json not loaded", err); }
+      await OfflineDB.setMeta("initialHerbsLoaded", true);
+    }
+    // render herbs
+    const all = await OfflineDB.getAllHerbs();
+    const container = document.getElementById("herb-list");
+    container.innerHTML = "";
+    all.forEach(h => {
+      const card = document.createElement("div");
+      card.className = "herb-card";
+      card.innerHTML = `<h3>${h.common_name || h.name}</h3><p>${h.description || ""}</p>`;
+      container.appendChild(card);
+    });
+  } catch (err) {
+    console.error(err);
+  }
+})();
