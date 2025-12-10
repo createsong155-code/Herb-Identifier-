@@ -106,38 +106,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-
-
-
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <link rel="manifest" href="/manifest.json" />
-  <title>Herb Identifier - Offline</title>
-  <link rel="stylesheet" href="/style.css" />
-</head>
-<body>
-  <header>
-    <h1>Herb Identifier (Offline)</h1>
-    <a href="/community.html">Community</a>
-  </header>
-
-  <main id="app">
-    <!-- Your herb UI goes here -->
-    <div id="herb-list">Loading herbs...</div>
-  </main>
-
-  <script src="/offline-db.js"></script>
-  <script src="/script.js"></script>
-  <script>
-    // Register service worker
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("/service-worker.js")
-        .then(() => console.log("Service Worker registered"))
-        .catch(console.error);
-    }
-  </script>
-</body>
-</html>
