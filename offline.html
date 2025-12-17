@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Offline – Herbs & Survival</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', system-ui, sans-serif;
+      background: #2e8b57;
+      color: white;
+      text-align: center;
+      padding: 50px 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      line-height: 1.6;
+      margin: 10px 0;
+    }
+    .icon {
+      font-size: 5rem;
+      margin-bottom: 20px;
+    }
+    .retry-btn {
+      margin-top: 40px;
+      padding: 12px 30px;
+      background: white;
+      color: #2e8b57;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    .retry-btn:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div class="icon">🌿</div>
+  <h1>You're Offline</h1>
+  <p>Herbs & Survival works fully offline — your herbs, notes, and photos are safely cached!</p>
+  <p>Connect to the internet to get the latest updates or new content.</p>
+  <button class="retry-btn" onclick="location.reload()">Try Again</button>
+</body>
+</html>
