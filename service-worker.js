@@ -1,120 +1,102 @@
 // service-worker.js
-// Perfect for your Herbs & Survival Offline PWA (2025–2030+)
-// Works with your exact folder structure — no changes needed
+// Herbs & Survival PWA – Fully Offline (December 2025+)
+// Updated to match your exact folder structure
 
-const CACHE_NAME = 'herbs-survival-v25.12.09'; // ← change this number when you update the app
-const VERSION_FILE = 'cache-version.txt';     // we will read this to auto-update
-
-// All files you want instantly available offline
+const CACHE_NAME = 'herbs-survival-v25.12.17'; // ← Bump this when you update the app
 const FILES_TO_CACHE = [
-  '/',                          // important for scope
+  '/',                          // Root – important for scope
   '/index.html',
-  '/offline.html',              // your nice offline fallback page
   '/style.css',
   '/script.js',
   '/manifest.json',
-  '/README.md',
 
-  // Fonts
-  '/fonts/poppins-v20-latin-regular.woff2',
-  '/fonts/poppins-v20-latin-500.woff2',
-  '/fonts/poppins-v20-latin-600.woff2',
+  // === FONTS (your actual folder is "font" – not "fonts") ===
+  '/font/poppins-regular.woff2',
+  '/font/poppins-italic.woff2',
+  '/font/poppins-medium.woff2',
+  '/font/poppins-semibold.woff2',
+  '/font/poppins-bold.woff2',
 
-  // Swiper
-  '/css/swiper-bundle.min.css',
-  '/js/swiper-bundle.min.js',
+  // === SWIPER (if you have local files) ===
+  // Uncomment these if you downloaded them locally:
+  // '/css/swiper-bundle.min.css',
+  // '/js/swiper-bundle.min.js',
 
-  // Icons
-  '/icons/icon-72.png',
-  '/icons/icon-96.png',
-  '/icons/icon-128.png',
-  '/icons/icon-144.png',
-  '/icons/icon-152.png',
+  // === ICONS ===
   '/icons/icon-192.png',
-  '/icons/icon-384.png',
   '/icons/icon-512.png',
+  // Add more if you have them (72, 96, etc.)
 
-  // Images
-  '/images/logo.png',
-  '/images/splash.png',
-  '/images/fallback.png',
-
-  // Optional: data & future AI
-  '/data/herbs.json',
-  // add more later like '/models/my-model.json' when ready
+  // === FALLBACK PAGES / IMAGES (create these for better UX) ===
+  '/offline.html',              // Optional: nice "You're offline" page
+  '/images/fallback.png',       // Optional: placeholder for missing herb photos
 ];
 
-// INSTALL — cache everything on first visit
-self.addEventListener('install', (e) => {
-  e.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      console.log('Herbs App: Caching core files');
-      return cache.addAll(FILES_TO_CACHE);
-    })
+// INSTALL – Cache all core files
+self.addEventListener('install', (event) => {
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then((cache) => {
+        console.log('🌿 Herbs App: Caching essential files');
+        return cache.addAll(FILES_TO_CACHE);
+      })
+      .catch((err) => console.warn('Cache failed (maybe file missing):', err))
   );
-  self.skipWaiting();
+  self.skipWaiting(); // Force new version to activate immediately
 });
 
-// ACTIVATE — clean up old caches
-self.addEventListener('activate', (e) => {
-  e.waitUntil(
-    caches.keys().then((keyList) => {
+// ACTIVATE – Remove old caches
+self.addEventListener('activate', (event) => {
+  event.waitUntil(
+    caches.keys().then((keys) => {
       return Promise.all(
-        keyList.map((key) => {
-          if (key !== CACHE_NAME) {
-            console.log('Herbs App: Deleting old cache', key);
+        keys.filter((key) => key !== CACHE_NAME)
+          .map((key) => {
+            console.log('🗑️ Deleting old cache:', key);
             return caches.delete(key);
-          }
-        })
+          })
       );
     })
   );
   self.clients.claim();
 });
 
-// FETCH — serve from cache first, fallback to network, then offline.html
-self.addEventListener('fetch', (e) => {
-  // Only handle GET requests
-  if (e.request.method !== 'GET') return;
+// FETCH – Cache-first strategy
+self.addEventListener('fetch', (event) => {
+  if (event.request.method !== 'GET') return;
 
-  // Special handling for herb images (so they never 404)
-  if (e.request.url.includes('/images/herbs/')) {
-    e.respondWith(
-      caches.match(e.request).then((cached) => {
-        return cached || fetch(e.request).catch(() => caches.match('/images/fallback.png'));
-      })
-    );
-    return;
-  }
+  event.respondWith(
+    caches.match(event.request)
+      .then((cachedResponse) => {
+        // Return cached version if available
+        if (cachedResponse) return cachedResponse;
 
-  e.respondWith(
-    caches.match(e.request).then((response) => {
-      // Return cached version if exists
-      if (response) return response;
-
-      // Otherwise try network
-      return fetch(e.request).catch(() => {
-        // If network fails and it's an HTML request for HTML → show offline page
-        if (e.request.destination === 'document') {
-          return caches.match('/offline.html');
-        }
-        // For images, show fallback
-        if (e.request.destination === 'image') {
-          return caches.match('/images/fallback.png');
-        }
-        // For everything else, just fail silently
-        return new Response('Offline — no cached version', {
-          status: 503,
-          statusText: 'Service Unavailable'
+        // Otherwise try network
+        return fetch(event.request).then((networkResponse) => {
+          // Cache successful network responses (optional: only cache same-origin)
+          if (networkResponse && networkResponse.status === 200) {
+            const responseClone = networkResponse.clone();
+            caches.open(CACHE_NAME).then((cache) => {
+              cache.put(event.request, responseClone);
+            });
+          }
+          return networkResponse;
+        }).catch(() => {
+          // Offline fallbacks
+          if (event.request.destination === 'document') {
+            return caches.match('/index.html'); // or '/offline.html'
+          }
+          if (event.request.destination === 'image') {
+            return caches.match('/images/fallback.png') || new Response('', { status: 404 });
+          }
         });
-      });
-    })
+      })
   );
 });
 
-// AUTO-UPDATE when cache-version.txt changes (optional magic)
-self.addEventListener('message', (e) => {
-  if (e.data && e.data.type === 'SKIP_WAITING') {
+// Allow instant update from app (optional)
+self.addEventListener('message', (event) => {
+  if (event.data && event.data.type === 'SKIP_WAITING') {
     self.skipWaiting();
   }
 });
