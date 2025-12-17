@@ -7,26 +7,62 @@
   <meta name="theme-color" content="#2e8b57"/>
   <meta name="apple-mobile-web-app-capable" content="yes"/>
 
-  <!-- All CSS (your design + Swiper + Poppins font) will be in style.css -->
+  <!-- Main design + Swiper styles (all in one file) -->
   <link rel="stylesheet" href="style.css"/>
 
   <!-- Icons for homescreen install -->
   <link rel="icon" href="icons/icon-192.png" sizes="192x192">
   <link rel="apple-touch-icon" href="icons/icon-192.png">
-  <link rel="manifest" href="data:application/manifest+json,{
-    %22name%22:%22Herbs & Survival%22,
-    %22short_name%22:%22Herbs%22,
-    %22start_url%22:%22.%22,
-    %22display%22:%22standalone%22,
-    %22background_color%22:%22%232e8b57%22,
-    %22theme_color%22:%22%232e8b57%22,
-    %22icons%22:[{%22src%22:%22icons/icon-192.png%22,%22sizes%22:%22192x192%22,%22type%22:%22image/png%22},{%22src%22:%22icons/icon-512.png%22,%22sizes%22:%22512x512%22,%22type%22:%22image/png%22}]
-  }">
 
+  <!-- PWA Manifest (fixed inline format) -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- LOCAL POPPINS FONTS (5 variants – fully offline) -->
   <style>
-    /* Tiny preloader until CSS loads */
-    body { margin:0; font-family:system-ui,sans-serif; background:#f5f5f5; }
-    .loading { position:fixed; inset:0; background:#2e8b57; color:white; display:grid; place-items:center; font-size:1.5rem; }
+    @font-face {
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 400;
+      src: url('font/poppins-regular.woff2') format('woff2');
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Poppins';
+      font-style: italic;
+      font-weight: 400;
+      src: url('font/poppins-italic.woff2') format('woff2');
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 500;
+      src: url('font/poppins-medium.woff2') format('woff2');
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 600;
+      src: url('font/poppins-semibold.woff2') format('woff2');
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 700;
+      src: url('font/poppins-bold.woff2') format('woff2');
+      font-display: swap;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
+
+  <!-- Tiny preloader -->
+  <style>
+    body { margin:0; background:#f5f5f5; }
+    .loading { position:fixed; inset:0; background:#2e8b57; color:white; display:grid; place-items:center; font-size:1.5rem; z-index:9999; }
   </style>
 </head>
 
@@ -76,17 +112,18 @@
     <button class="mini-tab" data-mode="survival">SURVIVAL</button>
   </div>
 
-  <!-- CAMERA & SAVED BUTTONS -->
+  <!-- CAMERA BUTTON -->
   <div class="fab-container">
     <button class="fab-btn fab-camera" id="cameraBtn">
-      <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="#e53935"/>
+      <svg viewBox="0 0 64 64">
+        <circle cx="32" cy="32" r="30" fill="#e53935"/>
         <path d="M20 44h24a4 4 0 0 0 4-4V24a4 4 0 0 0-4-4h-5l-2-4h-8l-2 4h-5a4 4 0 0 0-4 4v16a4 4 0 0 0 4 4z" fill="none" stroke="white" stroke-width="4" stroke-linecap="round"/>
         <circle cx="32" cy="32" r="10" fill="none" stroke="white" stroke-width="4"/>
       </svg>
     </button>
   </div>
 
-  <!-- MODAL (detail page) -->
+  <!-- MODAL -->
   <div id="herb-modal" class="modal">
     <div class="modal-content">
       <span class="close">×</span>
@@ -102,74 +139,20 @@
     <button class="footer-btn"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg><span>Dashboard</span></button>
   </footer>
 
-  <!-- Your entire JavaScript (with sample 10 herbs + Swiper included) -->
+  <!-- ALL SCRIPTS GO HERE – BEFORE </body> -->
+  <script src="offline-db.js"></script>
   <script src="script.js"></script>
-</body>
-</html>
 
-
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <link rel="manifest" href="/manifest.json" />
-  <title>Herb Identifier - Offline</title>
-  <link rel="stylesheet" href="/style.css" />
-</head>
-<body>
-  <header>
-    <h1>Herb Identifier (Offline)</h1>
-    <a href="/community.html">Community</a>
-  </header>
-
-  <main id="app">
-    <!-- Your herb UI goes here -->
-    <div id="herb-list">Loading herbs...</div>
-  </main>
-
-  <script src="/offline-db.js"></script>
-  <script src="/script.js"></script>
+  <!-- SERVICE WORKER REGISTRATION (for full offline PWA) -->
   <script>
-    // Register service worker
     if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("/service-worker.js")
-        .then(() => console.log("Service Worker registered"))
-        .catch(console.error);
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("/service-worker.js")
+          .then(reg => console.log("Service Worker registered!", reg.scope))
+          .catch(err => console.log("Service Worker registration failed:", err));
+      });
     }
   </script>
-</body>
-</html>
 
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <link rel="manifest" href="/manifest.json" />
-  <title>Herb Identifier - Offline</title>
-  <link rel="stylesheet" href="/style.css" />
-</head>
-<body>
-  <header>
-    <h1>Herb Identifier (Offline)</h1>
-    <a href="/community.html">Community</a>
-  </header>
-
-  <main id="app">
-    <!-- Your herb UI goes here -->
-    <div id="herb-list">Loading herbs...</div>
-  </main>
-
-  <script src="/offline-db.js"></script>
-  <script src="/script.js"></script>
-  <script>
-    // Register service worker
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("/service-worker.js")
-        .then(() => console.log("Service Worker registered"))
-        .catch(console.error);
-    }
-  </script>
 </body>
 </html>
