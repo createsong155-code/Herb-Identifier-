@@ -1,6 +1,5 @@
 // =============================================
 // script.js – Fully Offline Herb App (Philippines)
-// Only 1 file, works forever without internet
 // =============================================
 
 const herbs = [
@@ -34,9 +33,6 @@ const herbs = [
     ],
     "searchTerms": ["akapulko","katanda","ringworm bush","antifungal","ringworm","scabies","eczema","skin","sibukaw","senna alata"]
   },
-
-  // ADD ALL YOUR OTHER HERBS BELOW THIS LINE (same format)
-  // Example:
   {
     "id": 2,
     "name": "Lagundi",
@@ -54,16 +50,17 @@ const herbs = [
     "images": [{ "part": "Leaf", "url": "images/lagundi-leaf.jpg" }],
     "searchTerms": ["lagundi","cough","ubo","asthma","fever","vitex"]
   }
-  // Add more herbs here – just copy-paste the object
+  // Add more herbs here...
 ];
 
-// ================ RENDER HERB LIST ================
+// Elements
 const herbList = document.getElementById('herb-list');
 const searchInput = document.getElementById('searchInput');
 const modal = document.getElementById('herb-modal');
 const modalBody = document.getElementById('modal-body');
 const loading = document.querySelector('.loading');
 
+// Render herb cards
 function renderHerbs(list) {
   herbList.innerHTML = '';
   if (list.length === 0) {
@@ -86,19 +83,21 @@ function renderHerbs(list) {
   });
 }
 
-// ================ OPEN MODAL WITH SWIPER GALLERY ================
+// Open modal with Swiper gallery
 function openModal(herb) {
   modalBody.innerHTML = `
     <h2>${herb.name}</h2>
     <p><strong>Scientific:</strong> ${herb.scientific}</p>
-    <p><strong>Local names:</strong> \( {herb.local} • \){herb.bisaya}</p>
+    <p><strong>Local names:</strong> ${herb.local} • ${herb.bisaya || ''}</p>
+    
     <div class="swiper mySwiper">
       <div class="swiper-wrapper">
         ${herb.images.map(img => `
           <div class="swiper-slide">
             <img src="${img.url}" onerror="this.src='icons/icon-192.png'">
             <p>${img.part}</p>
-          </div>`).join('')}
+          </div>
+        `).join('')}
       </div>
       <div class="swiper-pagination"></div>
     </div>
@@ -108,7 +107,7 @@ function openModal(herb) {
 
     <h3>How to Use</h3>
     ${Object.entries(herb.preparation).map(([key, val]) => `
-      <p><strong>\( {key}:</strong> \){val}</p>
+      <p><strong>${key}:</strong> ${val}</p>
     `).join('')}
 
     <h3>Caution</h3>
@@ -117,11 +116,10 @@ function openModal(herb) {
 
   modal.style.display = 'block';
 
-  // Initialize Swiper inside modal
+  // Initialize Swiper
   new Swiper('.mySwiper', {
-    loop: true,
-    pagination: { el: '.swiper-pagination', clickable: true },
-    navigation: false
+    loop: herb.images.length > 1,
+    pagination: { el: '.swiper-pagination', clickable: true }
   });
 }
 
@@ -129,74 +127,45 @@ function openModal(herb) {
 document.querySelector('.close').onclick = () => modal.style.display = 'none';
 window.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; };
 
-// ================ SEARCH & FILTER ================
+// Search
 searchInput.addEventListener('input', (e) => {
-  const term = e.target.value.toLowerCase();
+  const term = e.target.value.toLowerCase().trim();
+  if (!term) {
+    renderHerbs(herbs);
+    return;
+  }
   const filtered = herbs.filter(herb =>
-    herb.name.toLowerCase() || 
+    herb.name.toLowerCase().includes(term) ||
+    herb.scientific.toLowerCase().includes(term) ||
+    herb.local.toLowerCase().includes(term) ||
+    (herb.bisaya && herb.bisaya.toLowerCase().includes(term)) ||
     herb.searchTerms.some(t => t.toLowerCase().includes(term))
   );
   renderHerbs(filtered);
 });
 
-// Category buttons
+// Category filter
 document.querySelectorAll('.category').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelector('.category.active').classList.remove('active');
     btn.classList.add('active');
     const cat = btn.dataset.category;
-    if (cat === 'all') renderHerbs(herbs);
-    else {
+    if (cat === 'all') {
+      renderHerbs(herbs);
+    } else {
       const filtered = herbs.filter(h => h.category.toLowerCase().includes(cat.toLowerCase()));
       renderHerbs(filtered);
     }
   });
 });
 
-// ================ CAMERA BUTTON (for future AI) ================
-document.getElementById('cameraBtn').addEventListener('click', () => {
+// Camera button (placeholder for AI)
+document.getElementById('cameraBtn')?.addEventListener('click', () => {
   alert('Camera AI coming soon – stay tuned!');
 });
 
-// ================ START APP ================
+// App start
 document.addEventListener('DOMContentLoaded', () => {
-  loading.remove();
+  loading?.remove();
   renderHerbs(herbs);
 });
-
-// script.js (main offline herb app logic)
-// Example: load herbs from local JSON (data/herbs.json) into IndexedDB on first run
-
-(async function () {
-  // load herbs data into IndexedDB if not present
-  try {
-    const meta = await OfflineDB.getMeta("initialHerbsLoaded");
-    if (!meta) {
-      // attempt to load data/herbs.json from local folder
-      try {
-        const resp = await fetch("/data/herbs.json");
-        if (resp.ok) {
-          const herbs = await resp.json();
-          for (const herb of herbs) {
-            // ensure each herb has id
-            if (!herb.id) herb.id = "herb_" + Math.random().toString(36).slice(2,9);
-            await OfflineDB.saveHerb(herb);
-          }
-        }
-      } catch (err) { console.warn("herbs.json not loaded", err); }
-      await OfflineDB.setMeta("initialHerbsLoaded", true);
-    }
-    // render herbs
-    const all = await OfflineDB.getAllHerbs();
-    const container = document.getElementById("herb-list");
-    container.innerHTML = "";
-    all.forEach(h => {
-      const card = document.createElement("div");
-      card.className = "herb-card";
-      card.innerHTML = `<h3>${h.common_name || h.name}</h3><p>${h.description || ""}</p>`;
-      container.appendChild(card);
-    });
-  } catch (err) {
-    console.error(err);
-  }
-})();
