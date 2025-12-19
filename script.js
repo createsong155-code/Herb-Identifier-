@@ -1,6 +1,6 @@
 // =============================================
 // script.js – Fully Offline Herb App (Philippines)
-// Fixed – syntax errors repaired, everything else your original
+// Fixed – only syntax bugs repaired
 // =============================================
 
 const herbs = [
@@ -79,7 +79,7 @@ sideMenu.addEventListener('click', (e) => {
   }
 });
 
-// Render herb cards (syntax fixed)
+// Render herb cards (fixed)
 function renderHerbs(list) {
   herbList.innerHTML = '';
   if (list.length === 0) {
@@ -102,7 +102,7 @@ function renderHerbs(list) {
   });
 }
 
-// Open modal with Swiper gallery (syntax fixed)
+// Open modal with Swiper gallery (fixed)
 function openModal(herb) {
   modalBody.innerHTML = `
     <h2>${herb.name}</h2>
