@@ -1,6 +1,6 @@
 // =============================================
 // script.js – Fully Offline Herb App (Philippines)
-// Final version – combines best of old & current
+// Fixed version – your original with syntax bugs repaired
 // =============================================
 
 const herbs = [
@@ -51,7 +51,7 @@ const herbs = [
     "images": [{ "part": "Leaf", "url": "images/lagundi-leaf.jpg" }],
     "searchTerms": ["lagundi","cough","ubo","asthma","fever","vitex"]
   }
-  // Add more herbs...
+  // Add more herbs here...
 ];
 
 // Elements
@@ -64,16 +64,16 @@ const hamburgerMenu = document.getElementById('hamburgerMenu');
 const sideMenu = document.getElementById('sideMenu');
 const closeMenu = document.getElementById('closeMenu');
 
-// Hamburger menu toggle (from your old script — perfect!)
-hamburgerMenu?.addEventListener('click', () => {
+// Hamburger menu toggle (your original – kept!)
+hamburgerMenu.addEventListener('click', () => {
   sideMenu.classList.add('active');
 });
 
-closeMenu?.addEventListener('click', () => {
+closeMenu.addEventListener('click', () => {
   sideMenu.classList.remove('active');
 });
 
-sideMenu?.addEventListener('click', (e) => {
+sideMenu.addEventListener('click', (e) => {
   if (e.target === sideMenu) {
     sideMenu.classList.remove('active');
   }
@@ -91,7 +91,7 @@ function renderHerbs(list) {
     const card = document.createElement('div');
     card.className = 'herb-card';
     card.innerHTML = `
-      <img src="\( {herb.images[0]?.url || 'icons/icon-192.png'}" onerror="this.src='icons/icon-192.png'" alt=" \){herb.name}">
+      <img src="\( {herb.images[0].url}" onerror="this.src='icons/icon-192.png'" alt=" \){herb.name}">
       <h3>${herb.name}</h3>
       <p class="scientific">${herb.scientific}</p>
       <p class="local">${herb.local}</p>
@@ -102,7 +102,7 @@ function renderHerbs(list) {
   });
 }
 
-// Open modal with Swiper (fixed template strings)
+// Open modal with Swiper gallery (fixed template strings)
 function openModal(herb) {
   modalBody.innerHTML = `
     <h2>${herb.name}</h2>
@@ -143,12 +143,10 @@ function openModal(herb) {
 }
 
 // Close modal
-document.querySelector('.close')?.addEventListener('click', () => modal.style.display = 'none');
-window.addEventListener('click', (e) => {
-  if (e.target === modal) modal.style.display = 'none';
-});
+document.querySelector('.close').onclick = () => modal.style.display = 'none';
+window.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; };
 
-// Search (improved)
+// Search
 searchInput.addEventListener('input', (e) => {
   const term = e.target.value.toLowerCase().trim();
   if (!term) {
@@ -168,7 +166,7 @@ searchInput.addEventListener('input', (e) => {
 // Category filter
 document.querySelectorAll('.category').forEach(btn => {
   btn.addEventListener('click', () => {
-    document.querySelector('.category.active')?.classList.remove('active');
+    document.querySelector('.category.active').classList.remove('active');
     btn.classList.add('active');
     const cat = btn.dataset.category;
     if (cat === 'all') {
@@ -187,7 +185,6 @@ document.getElementById('cameraBtn')?.addEventListener('click', () => {
 
 // App start
 document.addEventListener('DOMContentLoaded', () => {
-  loading?.classList.add('hidden');
-  setTimeout(() => loading?.remove(), 500);
+  loading?.remove();
   renderHerbs(herbs);
 });
