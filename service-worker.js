@@ -30,6 +30,14 @@ const FILES_TO_CACHE = [
   // === FALLBACK PAGES / IMAGES (create these for better UX) ===
   '/offline.html',              // Optional: nice "You're offline" page
   '/images/fallback.png',       // Optional: placeholder for missing herb photos
+
+  // CUSTOM HERB MODEL (add these lines)
+  '/models/ph-herbs-v1/model.json',
+  '/models/ph-herbs-v1/group1-shard1of1.bin',
+  '/models/ph-herbs-v1/group1-shard2of1.bin',  // add every shard you have
+  '/models/ph-herbs-v1/group1-shard3of1.bin',
+  '/models/ph-herbs-v1/group1-shard4of1.bin',
+  // ... continue for all shards
 ];
 
 // INSTALL – Cache all core files
