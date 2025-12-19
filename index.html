@@ -11,7 +11,7 @@
   <!-- LOCAL SWIPER CSS -->
   <link rel="stylesheet" href="css/swiper-bundle.min.css" />
 
-  <!-- LOCAL POPPINS FONTS (matches your exact file names from screenshot) -->
+  <!-- LOCAL POPPINS FONTS (matches your exact file names) -->
   <style>
     @font-face {
       font-family: 'Poppins';
@@ -55,13 +55,11 @@
   <link rel="manifest" href="manifest.json" />
   <meta name="theme-color" content="#2e8b57" />
 
-  <!-- OFFLINE TENSORFLOW.JS CORE (ready for AI camera Brain dont delete) -->
+  <!-- OFFLINE TENSORFLOW.JS CORE (ready for AI camera) -->
   <script src="js/tf.min.js"></script>
 
- 
-
-<!-- Uncomment this when model files are in place -->
-<!-- <script src="models/ph-herbs-v1/model.json" type="text/javascript"></script> --
+  <!-- YOUR CUSTOM HERB MODEL (uncomment when files are ready) -->
+  <!-- <script src="models/ph-herbs-v1/model.json" type="text/javascript"></script> -->
 </head>
 
 <body>
@@ -89,7 +87,7 @@
     </div>
   </header>
 
-  <!-- HAMBURGER MENU (Full Overlay) – your original, preserved -->
+  <!-- HAMBURGER MENU (Full Overlay) -->
   <div id="sideMenu" class="side-menu">
     <div class="menu-header">
       <div class="close-header">
@@ -238,7 +236,7 @@
   <script src="js/swiper-bundle.min.js"></script>
   <script src="script.js"></script>
 
-  <!-- GLOBAL RICH NOTES EDITOR (your original Samsung-style) -->
+  <!-- GLOBAL RICH NOTES EDITOR -->
   <div id="globalNoteEditor" style="display:none;">
     <div class="samsung-toolbar">
       <button onclick="format('bold')" title="Bold">B</button>
@@ -260,7 +258,7 @@
          placeholder="Write your personal notes, dosage, experiences, add photos…"></div>
   </div>
 
-  <!-- SOURCES MODAL (your original) -->
+  <!-- SOURCES MODAL -->
   <div id="sourcesModal" class="modal">
     <div class="modal-content" style="max-width:540px; border-radius:20px;">
       <div style="padding:20px;">
@@ -306,6 +304,17 @@
       </div>
     </div>
   </div>
+
+  <!-- SERVICE WORKER REGISTRATION (for full offline caching) -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then(reg => console.log('Service Worker registered:', reg.scope))
+          .catch(err => console.log('Service Worker failed:', err));
+      });
+    }
+  </script>
 
 </body>
 </html>
