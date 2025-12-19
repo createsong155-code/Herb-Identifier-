@@ -1,1 +1,2 @@
 diri k pagamaon ug local shards gikan sa internet for training i paste diri sa herb V1 ang json ug shards pihon puhon
+para locally sya ecoonect sya sa service worker for local cache, done na ug edit sa service woker, i disable ang comment out kung naa na ko nga naa sa html
