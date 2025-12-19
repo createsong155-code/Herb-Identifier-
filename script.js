@@ -1,6 +1,6 @@
 // =============================================
 // script.js – Fully Offline Herb App (Philippines)
-// Fixed – only syntax bugs repaired
+// Fixed – all syntax errors repaired
 // =============================================
 
 const herbs = [
